@@ -1,14 +1,8 @@
 package com.lanou.service.impl;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,8 +24,12 @@ public class TopicServiceImpl implements TopicService {
 	
 	@Transactional
 	public Topic showTopic(int topicId) {
+		Topic topic = mapper.selectTopic(topicId);
+		String template = topic.getTemplate();
+		String str[] = template.split(prop.getProperty("character"));
 		
-		return mapper.selectTopic(topicId);
+		
+		return null;
 	}
 
 	@Transactional
@@ -62,7 +60,7 @@ public class TopicServiceImpl implements TopicService {
 //		Topic topic = new Topic(res[0],res[1],res[2]);
 		
 		Topic topic = new Topic();
-		String str = "2017-06-10 05:50:00";
+		String str = "2017-01-10 12:00:00";
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		Date date = null;
 		try {
@@ -75,5 +73,16 @@ public class TopicServiceImpl implements TopicService {
 		topic.setStartTime(str);
 		return mapper.insertTopic(topic);
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }

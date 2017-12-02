@@ -22,5 +22,16 @@
 		insert into topic(start_time,data,template,css)
 		values(#{startTime},#{data},#{template},#{css})
 	</insert>	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
   
 </mapper>
