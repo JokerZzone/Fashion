@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lanou.dao.BrandMapper">
+	
+	<resultMap type="Brand" id="brandResult">
+		<id column="brand_id" property="braId" javaType="int"/>
+		<result column="brand_name" property="braName" jdbcType="VARCHAR"/>
+		<result column="brand_img" property="braImg" jdbcType="VARCHAR"/>
+		<result column="brand_desc" property="braDesc" jdbcType="VARCHAR"/>
+	</resultMap>
+	
+	<select id="selectLikeDesc_Letter" resultMap="brandResult">
+		select * from brand where type like concat(#{braDesc},'%')
+	</select>
+	
+	<select id="selectLikeDesc_Country" resultMap="brandResult">
+		select * from brand where type like concat('%',#{braDesc})
+	</select>
+	
+	
+	
+  
+</mapper>
