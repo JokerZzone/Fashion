@@ -4,23 +4,23 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lanou.dao.TopicMapper">
 	
-	<select id="selectTopic" resultMap="selectTopicResult">
-		select * from topic
+	<select id="selectTopic" parameterType="int" resultMap="selectTopicResult">
+		select * from topic where topic_id = #{topicId}
 	</select>
 	<resultMap type="Topic" id="selectTopicResult">
 		<id column="topic_id" property="topicId" javaType="int"/>
 		<result column="title" property="title" javaType="String"/>
 		<result column="intro" property="intro" javaType="String"/>
-		<result column="start_time" property="startTime" javaType="int"/>
-		<result column="end_time" property="endTime" javaType="int"/>
+		<result column="start_time" property="startTime" javaType="String"/>
+		<result column="end_time" property="endTime" javaType="String"/>
 		<result column="data" property="data" javaType="String"/>
 		<result column="template" property="template" javaType="String"/>
 		<result column="css" property="css" javaType="String"/>
 	</resultMap>
 	
 	<insert id="insertTopic" parameterType="Topic" useGeneratedKeys="true" keyProperty="topicId">
-		insert into topic(data,template,css)
-		values(#{data},#{template},#{css})
+		insert into topic(start_time,data,template,css)
+		values(#{startTime},#{data},#{template},#{css})
 	</insert>	
   
 </mapper>

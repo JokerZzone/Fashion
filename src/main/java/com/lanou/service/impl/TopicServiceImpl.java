@@ -5,6 +5,9 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,37 +29,50 @@ public class TopicServiceImpl implements TopicService {
 	private PropertyConfigurer prop;
 	
 	@Transactional
-	public List<Topic> showTopic() {
+	public Topic showTopic(int topicId) {
 		
-		return mapper.selectTopic();
+		return mapper.selectTopic(topicId);
 	}
 
 	@Transactional
 	public int addTopic() {
-		String dataPath = prop.getProperty("dataPath");
-		String context[] = {"1-data.txt","1-template.txt","1-css.txt"};
-		BufferedReader br = null;
-		String str = new String();
-		try {
-			for (int i = 0; i < context.length; i++) {
-				String path = dataPath + context[i];
-				br = new BufferedReader(new InputStreamReader(new FileInputStream(path), "gbk"));
-				String temp = br.readLine();
-				while (temp != null) {
-					str += temp; 
-					temp = br.readLine();
-				}
-				str += prop.getProperty("character");
-			}
-		} catch (FileNotFoundException e) {
-			
-			e.printStackTrace();
-		} catch (IOException e) {
+//		String dataPath = prop.getProperty("dataPath");
+//		String context[] = {"1-data.txt","1-template.txt","1-css.txt"};
+//		BufferedReader br = null;
+//		String str = new String();
+//		try {
+//			for (int i = 0; i < context.length; i++) {
+//				String path = dataPath + context[i];
+//				br = new BufferedReader(new InputStreamReader(new FileInputStream(path), "gbk"));
+//				String temp = br.readLine();
+//				while (temp != null) {
+//					str += temp; 
+//					temp = br.readLine();
+//				}
+//				str += prop.getProperty("character");
+//			}
+//		} catch (FileNotFoundException e) {
+//			
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//		
+//			e.printStackTrace();
+//		}
+//		String[] res = str.split(prop.getProperty("character"));
+//		Topic topic = new Topic(res[0],res[1],res[2]);
 		
+		Topic topic = new Topic();
+		String str = "2017-06-10 05:50:00";
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		Date date = null;
+		try {
+			date = sdf.parse(str);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
+			
 		}
-		String[] res = str.split(prop.getProperty("character"));
-		Topic topic = new Topic(res[0],res[1]);
+		topic.setStartTime(str);
 		return mapper.insertTopic(topic);
 	}
 

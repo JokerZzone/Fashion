@@ -6,7 +6,7 @@ import com.lanou.entity.Topic;
 
 public interface TopicService {
 
-	public List<Topic> showTopic();
+	public Topic showTopic(int topicId);
 	
 	public int addTopic();
 }

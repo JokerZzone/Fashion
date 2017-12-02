@@ -8,22 +8,15 @@ public class Topic {
 	
 	private String Intro;
 	
-	private int startTime;
+	private String startTime;
 	
-	private int endTime;
+	private String endTime;
 	
 	private String data;
 	
 	private String template;
 	
 	private String css;
-	
-	public Topic(String data, String template, String css) {
-		super();
-		this.data = data;
-		this.template = template;
-		this.css = css;
-	}
 
 	@Override
 	public String toString() {
@@ -60,19 +53,19 @@ public class Topic {
 		Intro = intro;
 	}
 
-	public int getStartTime() {
+	public String getStartTime() {
 		return startTime;
 	}
 
-	public void setStartTime(int startTime) {
+	public void setStartTime(String startTime) {
 		this.startTime = startTime;
 	}
 
-	public int getEndTime() {
+	public String getEndTime() {
 		return endTime;
 	}
 
-	public void setEndTime(int endTime) {
+	public void setEndTime(String endTime) {
 		this.endTime = endTime;
 	}
 
