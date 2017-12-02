@@ -12,11 +12,11 @@
 	</resultMap>
 	
 	<select id="selectLikeDesc_Letter" resultMap="brandResult">
-		select * from brand where type like concat(#{braDesc},'%')
+		select * from brand where brand_desc like concat(#{braDesc},'%')
 	</select>
 	
 	<select id="selectLikeDesc_Country" resultMap="brandResult">
-		select * from brand where type like concat('%',#{braDesc})
+		select * from brand where brand_desc like concat('%',#{braDesc})
 	</select>
 	
 	
