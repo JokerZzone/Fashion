@@ -33,11 +33,25 @@ public class UserContorller {
 	}
 	
 	//注册用户名失焦
-	@RequestMapping(value="/focus.do",method=RequestMethod.GET)
+	@RequestMapping(value="/focusUsername.do",method=RequestMethod.GET)
 	@ResponseBody
 	public String focus(User user) {
 		String result = null;
 		User nowUser = userService.confirmUser(user.getUsername());
+		if (nowUser == null) {
+			result = "success";
+		}else {
+			result = "error";
+		}
+		return result;
+	}
+	
+	//注册邮箱失焦
+	@RequestMapping(value="/focusEmail.do",method=RequestMethod.GET)
+	@ResponseBody
+	public String focusEmail(User user) {
+		String result = null;
+		User nowUser = userService.focusEmail(user.getEmail());
 		if (nowUser == null) {
 			result = "success";
 		}else {

@@ -15,9 +15,14 @@
 		select * from users where user_name = #{username}
 	</select>
 	
+	<select id="focusEmail" resultMap="userResult">
+		select * from users where email = #{email}
+	</select>
+	
 	<insert id="addUser" parameterType="User">
 		insert into users(user_name,password,email) values(#{username},#{password},#{email})
 	</insert>
 	
+  	
   
 </mapper>
