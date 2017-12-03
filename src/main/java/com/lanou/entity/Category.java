@@ -7,6 +7,7 @@ public class Category {
 	private Integer catId;
 	private String catName;
 	private Integer parentId;
+	private String catDesc;
 	private List<Category> categories;
 	
 	
@@ -35,7 +36,12 @@ public class Category {
 	public void setCategories(List<Category> categories) {
 		this.categories = categories;
 	}
-
+	public String getCatDesc() {
+		return catDesc;
+	}
+	public void setCatDesc(String catDesc) {
+		this.catDesc = catDesc;
+	}
 	public Category(Integer catId, String catName, Integer parentId, List<Category> categories) {
 		super();
 		this.catId = catId;
@@ -49,7 +55,9 @@ public class Category {
 	}
 	@Override
 	public String toString() {
-		return "Category [catId=" + catId + ", catName=" + catName + ", parentId=" + parentId + ", categories="
-				+ categories + "]";
-	}	
+		return "Category [catId=" + catId + ", catName=" + catName + ", parentId=" + parentId + ", catDesc=" + catDesc
+				+ ", categories=" + categories + "]";
+	}
+	
+	
 }

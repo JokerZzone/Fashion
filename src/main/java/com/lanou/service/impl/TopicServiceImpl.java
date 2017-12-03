@@ -25,9 +25,8 @@ public class TopicServiceImpl implements TopicService {
 	@Transactional
 	public Topic showTopic(int topicId) {
 		Topic topic = mapper.selectTopic(topicId);
-		String template = topic.getTemplate();
-		String str[] = template.split(prop.getProperty("character"));
-		
+		String data = topic.getData();
+		String[] goodsId = data.split(prop.getProperty("character"));
 		
 		return null;
 	}

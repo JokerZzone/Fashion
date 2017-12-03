@@ -14,8 +14,9 @@
 		<result column="start_time" property="startTime" javaType="String"/>
 		<result column="end_time" property="endTime" javaType="String"/>
 		<result column="data" property="data" javaType="String"/>
-		<result column="template" property="template" javaType="String"/>
+		<result column="htmls" property="htmls" javaType="String"/>
 		<result column="css" property="css" javaType="String"/>
+		<result column="topic_img" property="topicImg" javaType="String"/>
 	</resultMap>
 	
 	<insert id="insertTopic" parameterType="Topic" useGeneratedKeys="true" keyProperty="topicId">

@@ -14,14 +14,17 @@ public class Topic {
 	
 	private String data;
 	
-	private String template;
+	private String htmls;
 	
 	private String css;
+	
+	private String topicImg;
 
 	@Override
 	public String toString() {
 		return "Topic [topicId=" + topicId + ", title=" + title + ", Intro=" + Intro + ", startTime=" + startTime
-				+ ", endTime=" + endTime + ", data=" + data + ", template=" + template + ", css=" + css + "]";
+				+ ", endTime=" + endTime + ", data=" + data + ", htmls=" + htmls + ", css=" + css + ", topicImg="
+				+ topicImg + "]";
 	}
 
 	public Topic() {
@@ -77,12 +80,12 @@ public class Topic {
 		this.data = data;
 	}
 
-	public String getTemplate() {
-		return template;
+	public String getHtmls() {
+		return htmls;
 	}
 
-	public void setTemplate(String template) {
-		this.template = template;
+	public void setHtmls(String htmls) {
+		this.htmls = htmls;
 	}
 
 	public String getCss() {
@@ -91,5 +94,13 @@ public class Topic {
 
 	public void setCss(String css) {
 		this.css = css;
+	}
+
+	public String getTopicImg() {
+		return topicImg;
+	}
+
+	public void setTopicImg(String topicImg) {
+		this.topicImg = topicImg;
 	}
 }

@@ -21,39 +21,23 @@ public class CategoryController {
 	@Autowired
 	private CategoryService categoryService;	
 	
-//	@RequestMapping(value="/findCategoryAndChild.do")
-//	@ResponseBody
-//	public Map<String, Object> findCategoryAndChild(Integer primaryKey) {
-//		Category category = categoryService.selectByPrimaryKey(primaryKey);
-//		System.out.println(primaryKey);
-//		System.out.println(category);
-//		if(category == null) {
-//			return null;
-//		}
-//		category.setCategories(findChildCategory(category, primaryKey));
-//		Map<String, Object> maps =new HashMap<String, Object>();
-//		maps.put("category", category);
-//		return maps;
-//	}
-	
-	@RequestMapping(value="/findFatherAndChild.do")
+	@RequestMapping(value="/findCategoryAndChild.do")
 	@ResponseBody
-	public List<Category> findFatherAndChild() {
-		List<Category>  category = categoryService.showFatherCategory();
-		List<Category> category2 = new ArrayList<Category>();
-		if(category.size()==0) {
-			return null;
-		}else {
-			for(int i=1;i<category.size();i++) {
-				Category categories = new Category();
-				categories = category.get(i);
-				categories.setCategories(findChildCategory(categories, i));
-				List<Category> category3 = new ArrayList<Category>();
-				category3.add(categories);
-				category2.addAll(category3);
+	public List<Category> findCategoryAndChild(Integer primaryKey) {
+		List<Category> caList = categoryService.showFatherCategory();
+		List<Category> caList3 = new ArrayList<Category>();
+		for(int i=0;i<caList.size();i++) {
+			primaryKey = caList.get(i).getCatId();
+			Category category = categoryService.selectByPrimaryKey(primaryKey);
+			if(category == null) {
+				return null;
 			}
+			category.setCategories(findChildCategory(category, primaryKey));
+			List<Category> caList2 = new ArrayList<Category>();
+			caList2.add(category);
+			caList3.addAll(caList2);
 		}
-		return category2;
+		return caList3;
 	}
 	public List<Category> findChildCategory(Category category,Integer parentId){
 		List<Category> caList = categoryService.selectCategoryChildrenByParentId(parentId);
@@ -65,10 +49,10 @@ public class CategoryController {
 	
 	@RequestMapping("/findFatherCategory.do")
 	@ResponseBody
-	public  Map<String, Object> showFatherCategory() {
+	public  List<Category> showFatherCategory() {
 		List<Category> caList = categoryService.showFatherCategory();
-		Map<String, Object> maps = new HashMap<String, Object>();
-		maps.put("caList", caList);
-		return maps;
+		System.out.println(caList);
+		return caList;
 	}
+	
 }
