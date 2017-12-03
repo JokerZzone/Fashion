@@ -11,4 +11,5 @@ public interface GoodsMapper {
 	
 	public List<Goods> findAllGoods();
 	
+	public Goods findGoodsById(int goodsId);
 }
