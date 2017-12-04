@@ -14,18 +14,11 @@ public class Topic {
 	
 	private String data;
 	
+	private String dataInfo;
+	
+	private int state;
+	
 	private String htmls;
-	
-	private String css;
-	
-	private String topicImg;
-
-	@Override
-	public String toString() {
-		return "Topic [topicId=" + topicId + ", title=" + title + ", Intro=" + Intro + ", startTime=" + startTime
-				+ ", endTime=" + endTime + ", data=" + data + ", htmls=" + htmls + ", css=" + css + ", topicImg="
-				+ topicImg + "]";
-	}
 
 	public Topic() {
 		super();
@@ -80,27 +73,27 @@ public class Topic {
 		this.data = data;
 	}
 
+	public String getDataInfo() {
+		return dataInfo;
+	}
+
+	public void setDataInfo(String dataInfo) {
+		this.dataInfo = dataInfo;
+	}
+
+	public int getState() {
+		return state;
+	}
+
+	public void setState(int state) {
+		this.state = state;
+	}
+	
 	public String getHtmls() {
 		return htmls;
 	}
 
 	public void setHtmls(String htmls) {
 		this.htmls = htmls;
-	}
-
-	public String getCss() {
-		return css;
-	}
-
-	public void setCss(String css) {
-		this.css = css;
-	}
-
-	public String getTopicImg() {
-		return topicImg;
-	}
-
-	public void setTopicImg(String topicImg) {
-		this.topicImg = topicImg;
 	}
 }

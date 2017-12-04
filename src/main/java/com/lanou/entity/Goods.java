@@ -1,15 +1,25 @@
 package com.lanou.entity;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
 public class Goods {
 	
 	private Integer goodsId;
 	private String goodsName;
-	
 	private double shopPrice;
+	private String goodsUrl;
+	private String discount;
+	private GoodsGallery goodsGallery;
 
 	@Override
 	public String toString() {
-		return "Goods [goodsId=" + goodsId + ", goodsName=" + goodsName + ", shopPrice=" + shopPrice + "]";
+		return "Goods [goodsId=" + goodsId + ", goodsName=" + goodsName + ", shopPrice=" + shopPrice + ", goodsUrl="
+				+ goodsUrl + ", discount=" + discount + "]";
 	}
 
 	public Goods() {
@@ -40,4 +50,29 @@ public class Goods {
 	public void setShopPrice(double shopPrice) {
 		this.shopPrice = shopPrice;
 	}
+
+	public String getGoodsUrl() {
+		return goodsUrl;
+	}
+
+	public void setGoodsUrl(String goodsUrl) {
+		this.goodsUrl = goodsUrl;
+	}
+
+	public String getDiscount() {
+		return discount;
+	}
+
+	public void setDiscount(String discount) {
+		this.discount = discount;
+	}
+
+	public GoodsGallery getGoodsGallery() {
+		return goodsGallery;
+	}
+
+	public void setGoodsGallery(GoodsGallery goodsGallery) {
+		this.goodsGallery = goodsGallery;
+	}	
 }
+

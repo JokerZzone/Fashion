@@ -9,7 +9,12 @@ import com.lanou.entity.Goods;
 @Repository
 public interface GoodsMapper {
 	
-	public List<Goods> findAllGoods();
+	public List<Goods> findAllGoods(Integer catId);
 	
-	public Goods findGoodsById(int goodsId);
+	public List<Goods> findGoodsById(int topicId);
+	
+	public List<Goods> findGoodsByPageId(Integer pageId);
+	
+	public List<Goods> sortByPriceAsc();
+	public List<Goods> sortByPriceDesc();
 }
