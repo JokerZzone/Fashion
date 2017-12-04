@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lanou.dao.GoodsMapper">
+	
+	<select id="findAllGoods" resultMap="findGoodsResult">
+		select * from goods
+	</select>
+  	<resultMap type="Goods" id="findGoodsResult">
+  		<id column="goods_id" property="goodsId" javaType="int" />
+  		<result column="goods_name" property="goodsName" javaType="String"/>
+  		<result column="shop_price" property="shopPrice" javaType="double"/>
+  	</resultMap> 
+  	
+  	<select id="findGoodsById" parameterType="int" resultMap="findGoodsResult">
+  		select * from goods where goods_id = #{aa}
+  	</select>
+</mapper>
