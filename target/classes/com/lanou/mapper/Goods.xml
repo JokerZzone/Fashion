@@ -13,9 +13,15 @@
   		<result column="shop_price" property="shopPrice" javaType="double"/>
   		<result column="goods_url" property="goodsUrl" javaType="String"/>
   		<result column="discount" property="discount" javaType="String"/>
+  		<association property="goodsGallery" javaType="GoodsGallery">
+			<id column="img_id" property="imgId" javaType="int"/>
+			<result column="goods_id" property="goodsId" javaType="int"/>
+			<result column="img_url" property="imgUrl" />
+		</association>
   	</resultMap> 
   	<select id="findGoodsById" parameterType="int" resultMap="findGoodsResult">
-  		select * from goods where goods_id = #{aa}
+  		select * from goods as a, goods_gallery as b 
+  		where a.goods_id = b.goods_id and topic_id = #{aa}
   	</select>
   	
   	<select id="findGoodsByPageId" parameterType="int" resultMap="findGoodsResult">

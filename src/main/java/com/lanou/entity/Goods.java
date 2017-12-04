@@ -14,7 +14,7 @@ public class Goods {
 	private double shopPrice;
 	private String goodsUrl;
 	private String discount;
-
+	private GoodsGallery goodsGallery;
 
 	@Override
 	public String toString() {
@@ -65,7 +65,14 @@ public class Goods {
 
 	public void setDiscount(String discount) {
 		this.discount = discount;
+	}
+
+	public GoodsGallery getGoodsGallery() {
+		return goodsGallery;
+	}
+
+	public void setGoodsGallery(GoodsGallery goodsGallery) {
+		this.goodsGallery = goodsGallery;
 	}	
-	
 }
 
