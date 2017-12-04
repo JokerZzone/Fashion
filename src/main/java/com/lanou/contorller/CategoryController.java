@@ -47,12 +47,25 @@ public class CategoryController {
 	return caList;
   } 
 	
-	@RequestMapping("/findFatherCategory.do")
+//	根据一级分类查找二级分类
+	@RequestMapping("/findSecondCategory.do")
 	@ResponseBody
-	public  List<Category> showFatherCategory() {
-		List<Category> caList = categoryService.showFatherCategory();
-		System.out.println(caList);
-		return caList;
+	public Map<String, Object> findSecondCategory(Integer parentId) {
+		List<Category> categories = categoryService.findSecondCategory(parentId);
+		Map<String, Object> maps = new HashMap<String, Object>();
+		maps.put("categories", categories);
+		return maps;
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }

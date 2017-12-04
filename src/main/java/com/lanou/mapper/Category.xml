@@ -13,34 +13,16 @@
 		<result column="cat_desc" property="catDesc" javaType="String"/>
 	</resultMap>
 	
-	<select id="selectCategoryChildrenByParentId"  parameterType="int" resultMap="FindChildCategoryResult">
+	<select id="selectCategoryChildrenByParentId"  parameterType="int" resultMap="findCategoryResult">
 		select * from category where parent_id = #{parentId}
 	</select>
-	<resultMap type="Category" id="FindChildCategoryResult">
-		<id column="cat_id" property="catId" javaType="int"/>
-		<result column="cat_name" property="catName" javaType="String"/>
-		<result column="parent_id" property="parentId" javaType="int"/>
-		<result column="cat_desc" property="catDesc" javaType="String"/>
-	</resultMap>
 	
-	<select id="findFatherCategory" resultMap="findFatherCategoryResult">
+	<select id="findFatherCategory" resultMap="findCategoryResult">
 		select * from category where  parent_id = 0
 	</select>
-	<resultMap type="Category" id="findFatherCategoryResult">
-		<id column="cat_id" property="catId" javaType="int"/>
-		<result column="cat_name" property="catName" javaType="String"/>
-		<result column="parent_id" property="parentId" javaType="int"/>
-		<result column="cat_desc" property="catDesc" javaType="String"/>
-	</resultMap>
 	
-	<select id="findAll" resultMap="findAllResult"  parameterType="int">
-		select * from category where cat_id = #{parentId}
+	<select id="findSecondCategory"  parameterType="int" resultMap="findCategoryResult">
+		select * from category where parent_id = #{parentId}
 	</select>
-	<resultMap type="Category" id="findAllResult">
-		<id column="cat_id" property="catId" javaType="int"/>
-		<result column="cat_name" property="catName" javaType="String"/>
-		<result column="parent_id" property="parentId" javaType="int"/>
-		<result column="cat_desc" property="catDesc" javaType="String"/>
-	</resultMap>
 	
 </mapper>

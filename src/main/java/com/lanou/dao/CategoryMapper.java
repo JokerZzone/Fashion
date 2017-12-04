@@ -14,7 +14,7 @@ public interface CategoryMapper {
 	public List<Category> selectCategoryChildrenByParentId(Integer parentId);
 //	查找一级分类 parentId = 0
 	public List<Category> findFatherCategory();
-//  展示所有分类
-	public List<Category> findAll(Integer parentId);  
-	
+  
+//  根据一级分类查找二级分类
+	public List<Category> findSecondCategory(Integer parentId);
 }

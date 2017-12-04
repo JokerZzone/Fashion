@@ -32,10 +32,11 @@ public class CategoryServiceImpl implements CategoryService{
 		return categoryMapper.findFatherCategory();
 	}
 
-	public List<Category> findAll(Integer parentId) {
+	public List<Category> findSecondCategory(Integer parentId) {
 		// TODO Auto-generated method stub
-		return categoryMapper.findAll(parentId);
+		return categoryMapper.findSecondCategory(parentId);
 	}
+
 	
 
 }

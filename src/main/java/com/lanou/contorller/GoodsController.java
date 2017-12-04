@@ -18,14 +18,16 @@ import com.lanou.service.GoodsService;
 public class GoodsController {
 	
 	private static final Integer PAGE = 36;
+	int total = 0;
+	int totalPage = 0;
 	@Autowired
 	private GoodsService goodsService;
 	
 //	根据第一分类展示所有商品
-	@RequestMapping("/findAllGoods.do")
+	@RequestMapping("/findGoods.do")
 	@ResponseBody
-	public List<Goods> findAllGoods(Integer catId) {
-		List<Goods> goods = goodsService.findAllGoods(catId);
+	public List<Goods> findGoods(Integer catId) {
+		List<Goods> goods = goodsService.findGoods(catId);
 		return goods;
 	}
 	
@@ -34,58 +36,100 @@ public class GoodsController {
 	@RequestMapping("/findGoodsByPageId.do")
 	@ResponseBody
 	public Map<String, Object> findGoodsByPageId(Integer catId,Integer pageId) {
-		int goodsId = 1+PAGE*(pageId-1);
-		int totalPage = (int)Math.ceil((double)(findAllGoods(catId).size())/(PAGE));
-		List<Goods> goods = goodsService.findGoodsByPageId(goodsId);
+		total = findGoods(catId).size();
+		totalPage = (int)Math.ceil((double)(total)/(PAGE));
+		List<Goods> goods = findGoods(catId);
+		List<Goods> goodList = new ArrayList<Goods>();
+		Goods good = new Goods();
+		int n =0;
+		if(pageId<totalPage) {
+			n = PAGE*(pageId-1);
+			int m = PAGE*pageId-1;
+			for(;n<m;n++) {
+				good = goods.get(n);
+				goodList.add(good);
+			}
+		}else {
+			n = PAGE*(pageId-1);
+			for(;n<goods.size();n++) {
+				good = goods.get(n);
+				goodList.add(good);
+			}
+		}
 		Map<String, Object> maps = new HashMap<String, Object>();
+		maps.put("total", total);
 		maps.put("totalPage", totalPage);
-		maps.put("goods", goods);
+		maps.put("goodList", goodList);
 		return maps;	
 	}
 	
-//	根据价格升序，并且分页
+////	根据价格升序，并且分页
 	@RequestMapping("/sortByPriceAsc.do")
 	@ResponseBody
-	 public Map<String, Object> PriceAscPage(Integer pageId) {
-		List<Goods> goodList2 = sortByPriceAsc(); 
-		int i = (pageId-1)*PAGE;
-		int j = pageId*PAGE;
-		int totalPage = (int)Math.ceil((double)(goodList2.size())/PAGE);
+	public Map<String, Object> PriceAscPage(Integer catId,Integer pageId) {
+		total = findGoods(catId).size();
+		totalPage = (int)Math.ceil((double)(total)/(PAGE));
+		List<Goods> goods = sortByPriceAsc(catId);
 		List<Goods> goodList = new ArrayList<Goods>();
-		Map<String, Object> maps = new HashMap<String, Object>();
-		for(;i<j;i++) {
-			Goods goods = goodList2.get(i);
-			goodList.add(goods);
-			maps.put("totalPage", totalPage);
-			maps.put("goodList", goodList);
+		Goods good = new Goods();
+		int n =0;
+		if(pageId<totalPage) {
+			n = PAGE*(pageId-1);
+			int m = PAGE*pageId-1;
+			for(;n<m;n++) {
+				good = goods.get(n);
+				goodList.add(good);
+			}
+		}else {
+			n = PAGE*(pageId-1);
+			for(;n<goods.size();n++) {
+				good = goods.get(n);
+				goodList.add(good);
+			}	
 		}
-		return maps;
-	 }
-	public List<Goods> sortByPriceAsc() {
-		List<Goods> goods = goodsService.sortByPriceAsc();
+		Map<String, Object> maps = new HashMap<String, Object>();
+		maps.put("total", total);
+		maps.put("totalPage", totalPage);
+		maps.put("goodList", goodList);
+		return maps;	
+	}
+	public List<Goods> sortByPriceAsc(Integer catId) {
+		List<Goods> goods = goodsService.sortByPriceAsc(catId);
 		return goods;
 	}
 	
-//	根据价格降序，并且分页	
+////	根据价格降序，并且分页	
 	@RequestMapping("/sortByPriceDesc.do")
 	@ResponseBody
-	 public Map<String, Object> PriceDescPage(Integer pageId) {
-		List<Goods> goodList2 = sortByPriceDesc(); 
-		int i = (pageId-1)*PAGE;
-		int j = pageId*PAGE;
-		int totalPage = (int)Math.ceil((double)(goodList2.size())/PAGE);
+	 public Map<String, Object> PriceDescPage(Integer catId,Integer pageId) {
+		total = findGoods(catId).size();
+		totalPage = (int)Math.ceil((double)(total)/(PAGE));
+		List<Goods> goods = sortByPriceDesc(catId);
 		List<Goods> goodList = new ArrayList<Goods>();
-		Map<String, Object> maps = new HashMap<String, Object>();
-		for(;i<j;i++) {
-			Goods goods = goodList2.get(i);
-			goodList.add(goods);
-			maps.put("totalPage", totalPage);
-			maps.put("goodList", goodList);
+		Goods good = new Goods();
+		int n =0;
+		if(pageId<totalPage) {
+			n = PAGE*(pageId-1);
+			int m = PAGE*pageId-1;
+			for(;n<m;n++) {
+				good = goods.get(n);
+				goodList.add(good);
+			}
+		}else {
+			n = PAGE*(pageId-1);
+			for(;n<goods.size();n++) {
+				good = goods.get(n);
+				goodList.add(good);
+			}
 		}
-		return maps;
+		Map<String, Object> maps = new HashMap<String, Object>();
+		maps.put("total", total);
+		maps.put("totalPage", totalPage);
+		maps.put("goodList", goodList);
+		return maps;	
 	 }
-	public List<Goods> sortByPriceDesc() {
-		List<Goods> goods = goodsService.sortByPriceDesc();
+	public List<Goods> sortByPriceDesc(Integer catId) {
+		List<Goods> goods = goodsService.sortByPriceDesc(catId);
 		return goods;
 	}
 	

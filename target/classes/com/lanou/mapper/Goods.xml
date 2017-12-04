@@ -4,7 +4,7 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lanou.dao.GoodsMapper">
 	
-	<select id="findAllGoods" resultMap="findGoodsResult" parameterType="int">
+	<select id="findGoods" resultMap="findGoodsResult" parameterType="int">
 		select * from goods where cat_id = #{cat_id}
 	</select>
   	<resultMap type="Goods" id="findGoodsResult">
@@ -18,14 +18,10 @@
   		select * from goods where goods_id = #{aa}
   	</select>
   	
-  	<select id="findGoodsByPageId" parameterType="int" resultMap="findGoodsResult">
-  		select * from goods where goods_id between #{aa} and (#{aa}+35) 
-  	</select>
-  	
-   <select id="sortByPriceAsc" resultMap="findGoodsResult">
-   		select * from goods order by shop_price asc
+   <select id="sortByPriceAsc" resultMap="findGoodsResult" parameterType="int">
+   		select * from goods where cat_id = #{cat_id} order by shop_price asc
    </select>
-   <select id="sortByPriceDesc" resultMap="findGoodsResult">
-   		select * from goods order by shop_price Desc
+   <select id="sortByPriceDesc" resultMap="findGoodsResult" parameterType="int">
+   		select * from goods where cat_id = #{cat_id} order by shop_price Desc 
    </select>
 </mapper>
