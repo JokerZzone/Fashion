@@ -17,9 +17,23 @@ public class GoodsServiceImpl implements GoodsService{
 	private GoodsMapper goodsMapper;
 	
 	@Transactional
-	public List<Goods> findAllGoods() {
+	public List<Goods> findAllGoods(Integer catId) {
 		// TODO Auto-generated method stub
-		return goodsMapper.findAllGoods();
+		return goodsMapper.findAllGoods(catId);
+	}
+
+	public List<Goods> findGoodsByPageId(Integer pageId) {
+		// TODO Auto-generated method stub
+		return goodsMapper.findGoodsByPageId(pageId);
+	}
+
+	public List<Goods> sortByPriceAsc() {
+		// TODO Auto-generated method stub
+		return goodsMapper.sortByPriceAsc();
+	}
+	public List<Goods> sortByPriceDesc() {
+		// TODO Auto-generated method stub
+		return goodsMapper.sortByPriceDesc();
 	}
 
 }
