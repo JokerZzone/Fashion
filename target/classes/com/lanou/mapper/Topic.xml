@@ -10,22 +10,16 @@
 	<resultMap type="Topic" id="selectTopicResult">
 		<id column="topic_id" property="topicId" javaType="int"/>
 		<result column="title" property="title" javaType="String"/>
-		<result column="intro" property="intro" javaType="String"/>
 		<result column="start_time" property="startTime" javaType="String"/>
 		<result column="end_time" property="endTime" javaType="String"/>
-		<result column="data" property="data" javaType="String"/>
 		<result column="data_info" property="dataInfo" javaType="String"/>
 		<result column="state" property="state" javaType="int"/>
 		<result column="htmls" property="htmls" javaType="String"/>
 	</resultMap>
 	
-	<insert id="insertTopic" parameterType="Topic" useGeneratedKeys="true" keyProperty="topicId">
-		insert into topic(start_time,data,template,css)
-		values(#{startTime},#{data},#{template},#{css})
-	</insert>	
-	
-	
-	
+	<update id="addDataInfo">
+		update topic set data_info = #{0} where topic_id = #{1}
+	</update>
 	
 	
 	

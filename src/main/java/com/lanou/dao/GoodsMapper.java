@@ -16,5 +16,8 @@ public interface GoodsMapper {
 	public List<Goods> findGoodsByPageId(Integer pageId);
 	
 	public List<Goods> sortByPriceAsc();
+	
 	public List<Goods> sortByPriceDesc();
+	
+	public Goods findGoods(int goodsId);
 }

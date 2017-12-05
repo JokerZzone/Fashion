@@ -10,4 +10,5 @@ public interface BrandMapper {
 	
 	public List<Brand> selectLikeDesc_Country(String braDesc);
 	
+	public Brand findBrandById(int brand_id);
 }

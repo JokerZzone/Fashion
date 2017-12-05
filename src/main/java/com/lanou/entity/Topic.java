@@ -6,8 +6,6 @@ public class Topic {
 	
 	private String title;
 	
-	private String Intro;
-	
 	private String startTime;
 	
 	private String endTime;
@@ -39,14 +37,6 @@ public class Topic {
 
 	public void setTitle(String title) {
 		this.title = title;
-	}
-
-	public String getIntro() {
-		return Intro;
-	}
-
-	public void setIntro(String intro) {
-		Intro = intro;
 	}
 
 	public String getStartTime() {

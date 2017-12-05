@@ -1,9 +1,6 @@
 package com.lanou.service.impl;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -14,53 +11,107 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.lanou.dao.AdMapper;
+import com.lanou.dao.BrandMapper;
 import com.lanou.dao.GoodsMapper;
 import com.lanou.dao.TopicMapper;
+import com.lanou.entity.Ad;
+import com.lanou.entity.Brand;
 import com.lanou.entity.Goods;
 import com.lanou.entity.Topic;
 import com.lanou.service.TopicService;
-import com.lanou.util.PropertyConfigurer;
 
 @Service("topicService")
 public class TopicServiceImpl implements TopicService {
 
 	@Autowired
-	private TopicMapper mapper;
+	private TopicMapper topicMapper;
 	
 	@Autowired
 	private GoodsMapper goodsMapper;
 	
 	@Autowired
-	private PropertyConfigurer prop;
+	private BrandMapper brandMapper;
+	
+	@Autowired
+	private AdMapper adMapper;
 	
 	@Transactional
 	public Topic showTopic(int topicId) {
-		Topic topic = mapper.selectTopic(topicId);
+		Topic topic = topicMapper.selectTopic(topicId);
+		return topic;
+	}
+
+	@Transactional
+	public List<Goods> addDataInfo(int topicId) {
+		Topic topic = topicMapper.selectTopic(topicId);
+		String data = topic.getData();
+		String str[] = data.split("!");
+		List<Goods> goods = new ArrayList<Goods>();
+		List<Brand> brands = new ArrayList<Brand>();
+		List<Ad> ads = new ArrayList<Ad>();
+		for (int i = 0; i < str.length; i++) {
+			if (str[i].contains("goods")) {
+				String[] goodsId = str[i].split("goods:")[1].split("#");
+				for (int j = 0; j < goodsId.length; j++) {
+					Goods good = goodsMapper.findGoods(Integer.parseInt(goodsId[j]));
+					goods.add(good);
+				}
+			}else if(str[i].contains("brand")){
+				String[] brandId = str[i].split("brand:")[1].split("#");
+				for (int j = 0; j < brandId.length; j++) {
+					Brand brand = brandMapper.findBrandById(Integer.parseInt(brandId[j]));
+					brands.add(brand);
+				}
+			}else if (str[i].contains("ad")) {
+				String[] adId = str[i].split("ad:")[1].split("#");
+				for (int j = 0; j < adId.length; j++) {
+					Ad ad = adMapper.findAdById(Integer.parseInt(adId[j]));
+					ads.add(ad);
+				}
+			}
+		}
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("goods", goods);
+		map.put("brands", brands);
+		map.put("ads", ads);
+		ObjectMapper mapper = new ObjectMapper();
+		String json = null;
+		try {
+			json = mapper.writeValueAsString(map);
+		} catch (JsonProcessingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		int a = topicMapper.addDataInfo(json, topicId);
+		System.out.println(a);
+		
 //		ObjectMapper mapper = new ObjectMapper();
-//		String json = null;
+//		
+//		List<Goods> list = goodsMapper.findGoodsById(9);
 //		try {
-//			json = mapper.writeValueAsString(topic.getDataInfo());
+//			String json = mapper.writeValueAsString(list);
 //			System.out.println(json);
 //		} catch (JsonProcessingException e) {
 //			// TODO Auto-generated catch block
 //			e.printStackTrace();
 //		}
-//		topic.setDataInfo(json);
-		Map<String, Object> map = new HashMap<String, Object>();
-		System.out.println(topic.getDataInfo());
-		return topic;
-	}
-
-	@Transactional
-	public List<Goods> addTopic() {
-		ObjectMapper mapper = new ObjectMapper();
-		try {
-			String json = mapper.writeValueAsString(goodsMapper.findGoodsById(1));
-			System.out.println(json);
-		} catch (JsonProcessingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
+		
+		
+		
+//		List<Brand> brands = new ArrayList<Brand>();
+//		try {
+//			for (int i = 1; i < 5; i++) {
+//				Brand brand = brandMapper.findBrandById(i);
+//				brands.add(brand);
+//			}
+//			String json = mapper.writeValueAsString(brands);
+//			System.out.println(json);
+//		} catch (JsonProcessingException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		
 		return goodsMapper.findGoodsById(1);
 		

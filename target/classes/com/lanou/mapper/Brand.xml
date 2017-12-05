@@ -19,7 +19,9 @@
 		select * from brand where brand_desc like concat('%',#{braDesc})
 	</select>
 	
-	
+	<select id="findBrandById" parameterType="int" resultMap="brandResult">
+		select * from brand where brand_id = #{AA}
+	</select>
 	
   
 </mapper>

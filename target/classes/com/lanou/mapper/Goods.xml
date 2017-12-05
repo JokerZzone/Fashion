@@ -7,12 +7,17 @@
 	<select id="findAllGoods" resultMap="findGoodsResult" parameterType="int">
 		select * from goods where cat_id = #{cat_id}
 	</select>
+	<select id="findGoods" parameterType="int" resultMap="findGoodsResult">
+		select * from goods where goods_id = #{aa}
+	</select>
+	
   	<resultMap type="Goods" id="findGoodsResult">
   		<id column="goods_id" property="goodsId" javaType="int" />
   		<result column="goods_name" property="goodsName" javaType="String"/>
   		<result column="shop_price" property="shopPrice" javaType="double"/>
   		<result column="goods_url" property="goodsUrl" javaType="String"/>
   		<result column="discount" property="discount" javaType="String"/>
+  		<result column="is_hot" property="isHot" javaType="int"/>
   		<association property="goodsGallery" javaType="GoodsGallery">
 			<id column="img_id" property="imgId" javaType="int"/>
 			<result column="goods_id" property="goodsId" javaType="int"/>

@@ -32,10 +32,9 @@ public class TopicController {
 	}
 	
 	@RequestMapping("/addTopic")
-	@ResponseBody
-	public Map<String, Object> addTopic() {
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("goods", service.addTopic());
-		return map;
+	public void addTopic(@RequestParam("id") int topicId) {
+		
+		service.addDataInfo(topicId);
+		
 	}
 }

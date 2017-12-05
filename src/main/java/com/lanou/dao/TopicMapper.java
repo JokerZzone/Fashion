@@ -9,6 +9,6 @@ public interface TopicMapper {
 
 	public Topic selectTopic(int topicId);
 	
-	public int insertTopic(Topic topic);
+	public int addDataInfo(String json, int topicId);
 	
 }

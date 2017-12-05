@@ -9,5 +9,5 @@ public interface TopicService {
 
 	public Topic showTopic(int topicId);
 	
-	public List<Goods> addTopic();
+	public List<Goods> addDataInfo(int topicId);
 }
