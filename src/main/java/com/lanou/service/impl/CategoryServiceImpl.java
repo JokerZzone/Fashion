@@ -1,16 +1,16 @@
 package com.lanou.service.impl;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lanou.dao.CategoryMapper;
 import com.lanou.entity.Category;
+import com.lanou.entity.Nav;
 import com.lanou.service.CategoryService;
 
 @Service("categoryService")
@@ -18,75 +18,42 @@ public class CategoryServiceImpl implements CategoryService {
 	@Autowired
 	private CategoryMapper categoryMapper;
 
-	@Transactional
-	public List<Category> findFatherCategory() {
-		// TODO Auto-generated method stub
-		return categoryMapper.findFatherCategory();
-	}
-
-	// @Transactional
-	// public List<Category> findFatherCategory() {
-	// // TODO Auto-generated method stub
-	// List<Category> caList = categoryMapper.findFatherCategory();
-	// List<Category> caList3 = new ArrayList<Category>();
-	// int primaryKey = 0;
-	// for(int i=0;i<caList.size();i++) {
-	// primaryKey = caList.get(i).getCatId();
-	// Category category = categoryMapper.selectByPrimaryKey(primaryKey);
-	// if(category == null) {
-	// return null;
-	// }
-	// category.setCategories(findChildCategory(category, primaryKey));
-	// List<Category> caList2 = new ArrayList<Category>();
-	// caList2.add(category);
-	// caList3.addAll(caList2);
-	// }
-	// return caList3;
-	// }
-
-	@Transactional
-	public Category selectByPrimaryKey(Integer primaryKey) {
-		// TODO Auto-generated method stub
-		return categoryMapper.selectByPrimaryKey(primaryKey);
-	}
-
-	@Transactional
-	public List<Map<String, Object>> selectDesc(Integer parentId) {
-		List<Category> fatherList = categoryMapper.findSimpleFatherCategory();
-		List<Map<String, Object>> one = new ArrayList<Map<String, Object>>();
-		for (int i = 0; i < fatherList.size(); i++) {
-			List<Map<String, Object>> two = new ArrayList<Map<String, Object>>();
-			parentId = fatherList.get(i).getCatId();
-			List<Category> childList = categoryMapper.selectCategoryChildrenByParentId(parentId);
-			Map<String, Object> onemap = new HashMap<String, Object>();
-			for (int j = 0; j < childList.size(); j++) {
-				String twoName = childList.get(j).getCatName();
-				Map<String, Object> map = new HashMap<String, Object>();
-				map.put("twoName", twoName);
-				two.add(map);
+	// 首页的分类展示
+	public String selectCat(int navId, int catId) {
+		Category category = categoryMapper.findByCatId(catId);
+		Nav nav = categoryMapper.selectCatData(navId);
+		String[] temp = nav.getCatData().split("#");
+		for (int i = 0; i < temp.length; i++) {
+			if (temp[i].contains(category.getCatName())) {
+				System.out.println(temp[i].split(category.getCatName() + ":")[1]);
+				return temp[i].split(category.getCatName() + ":")[1];
 			}
-			onemap.put("firstCategoryId", i + 1);
-			onemap.put("firstCategory", fatherList.get(i).getCatName());
-			onemap.put("SecondCategory", two);
-			one.add(onemap);
 		}
-		return one;
+		return null;
 	}
 
 	@Transactional
-	public List<Category> findChildCategory(Category category, Integer parentId) {
-		// TODO Auto-generated method stub
-		category = categoryMapper.selectByPrimaryKey(parentId);
-		List<Category> caList = categoryMapper.selectCategoryChildrenByParentId(parentId);
-		for (Category category2 : caList) {
-			category2.setCategories(findChildCategory(category, category2.getCatId()));
+	public void addCateData(int navId) {
+		ObjectMapper mapper = new ObjectMapper();
+		String json = null;
+		for (int i = 1; i < 7; i++) {
+			List<Category> categories = categoryMapper.findByParentId(i);
+			Category category = categoryMapper.findByCatId(i);
+			String str = null;
+			try {
+				str = mapper.writeValueAsString(categories);
+			} catch (JsonProcessingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			if (json == null) {
+				json = category.getCatName() + ":" + str + "#";
+			} else {
+				json += category.getCatName() + ":" + str + "#";
+			}
 		}
-		return caList;
 	}
 
-	public List<Category> selectCategoryChildrenByParentId(Integer parentId) {
-		// TODO Auto-generated method stub
-		return categoryMapper.selectCategoryChildrenByParentId(parentId);
-	}
+	/******************************************************************/
 
 }
