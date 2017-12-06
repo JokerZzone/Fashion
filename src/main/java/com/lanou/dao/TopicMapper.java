@@ -1,7 +1,6 @@
 package com.lanou.dao;
 
 import org.springframework.stereotype.Repository;
-
 import com.lanou.entity.Topic;
 
 @Repository
