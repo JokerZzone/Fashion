@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.lanou.dao.GoodsMapper;
+import com.lanou.entity.Category;
 import com.lanou.entity.Goods;
 import com.lanou.service.GoodsService;
 
@@ -35,5 +36,23 @@ public class GoodsServiceImpl implements GoodsService{
 		// TODO Auto-generated method stub
 		return goodsMapper.sortByPriceDesc(catId);
 	}
+
+	public List<Goods> findGoodsBySecond(Integer cat_id) {
+		// TODO Auto-generated method stub
+		return goodsMapper.findGoodsBySecond(cat_id);
+	}
+
+	public List<Category> findCategories(Integer parentId) {
+		// TODO Auto-generated method stub
+		return goodsMapper.findCategories(parentId);
+	}
+
+	public List<Category> showFather() {
+		// TODO Auto-generated method stub
+		return goodsMapper.showFather();
+	}
+
+	
+
 
 }

@@ -21,51 +21,20 @@ public class CategoryController {
 	@Autowired
 	private CategoryService categoryService;	
 	
-	@RequestMapping(value="/findCategoryAndChild.do")
+//	首页一级分类方法
+	@RequestMapping(value="/findDesc.do")
 	@ResponseBody
-	public List<Category> findCategoryAndChild(Integer primaryKey) {
-		List<Category> caList = categoryService.showFatherCategory();
-		List<Category> caList3 = new ArrayList<Category>();
-		for(int i=0;i<caList.size();i++) {
-			primaryKey = caList.get(i).getCatId();
-			Category category = categoryService.selectByPrimaryKey(primaryKey);
-			if(category == null) {
-				return null;
-			}
-			category.setCategories(findChildCategory(category, primaryKey));
-			List<Category> caList2 = new ArrayList<Category>();
-			caList2.add(category);
-			caList3.addAll(caList2);
-		}
-		return caList3;
-	}
-	public List<Category> findChildCategory(Category category,Integer parentId){
-		List<Category> caList = categoryService.selectCategoryChildrenByParentId(parentId);
-		for (Category category2 : caList) {
-			category2.setCategories(findChildCategory(category, category2.getCatId()));
-		}	
-	return caList;
-  } 
-	
-//	根据一级分类查找二级分类
-	@RequestMapping("/findSecondCategory.do")
-	@ResponseBody
-	public Map<String, Object> findSecondCategory(Integer parentId) {
-		List<Category> categories = categoryService.findSecondCategory(parentId);
-		Map<String, Object> maps = new HashMap<String, Object>();
-		maps.put("categories", categories);
-		return maps;
+	public List<Map<String, Object>> findDesc(Integer parentId) {
+		List<Map<String, Object>> categories = categoryService.selectDesc(parentId);
+		return categories;
 	}
 	
+	@RequestMapping(value="/findChild.do")
+	@ResponseBody
+	public List<Category> findChildCategory(Category category,Integer parentId) {
+		List<Category> categories = categoryService.findChildCategory(category, parentId);
+		return categories;
+	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+			
 }

@@ -5,7 +5,7 @@
 <mapper namespace="com.lanou.dao.GoodsMapper">
 	
 	<select id="findGoods" resultMap="findGoodsResult" parameterType="int">
-		select * from goods where cat_id = #{cat_id}
+		select * from goods where key_id = #{keyId}
 	</select>
   	<resultMap type="Goods" id="findGoodsResult">
   		<id column="goods_id" property="goodsId" javaType="int" />
@@ -24,4 +24,10 @@
    <select id="sortByPriceDesc" resultMap="findGoodsResult" parameterType="int">
    		select * from goods where cat_id = #{cat_id} order by shop_price Desc 
    </select>
+   
+   <select id="findGoodsBySecond" parameterType="int" resultMap="findGoodsResult">
+   		select * from goods where cat_id = #{catId}
+   </select>
+   
+   
 </mapper>
