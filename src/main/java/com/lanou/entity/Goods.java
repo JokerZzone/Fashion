@@ -3,12 +3,21 @@ package com.lanou.entity;
 public class Goods {
 	
 	private Integer goodsId;
+	
 	private String goodsName;
+	
+	private String goodsDesc;
+	
 	private double shopPrice;
+	
 	private String goodsUrl;
+	
 	private String discount;
+	
 	private int clickCount;
+	
 	private int isHot;
+	
 	private GoodsGallery goodsGallery;
 
 	public Goods() {
@@ -38,6 +47,14 @@ public class Goods {
 
 	public void setGoodsName(String goodsName) {
 		this.goodsName = goodsName;
+	}
+
+	public String getGoodsDesc() {
+		return goodsDesc;
+	}
+
+	public void setGoodsDesc(String goodsDesc) {
+		this.goodsDesc = goodsDesc;
 	}
 
 	public double getShopPrice() {

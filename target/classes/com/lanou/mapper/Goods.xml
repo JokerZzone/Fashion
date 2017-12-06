@@ -14,6 +14,7 @@
   	<resultMap type="Goods" id="findGoodsResult">
   		<id column="goods_id" property="goodsId" javaType="int" />
   		<result column="goods_name" property="goodsName" javaType="String"/>
+  		<result column="goods_desc" property="goodsDesc" javaType="String"/>
   		<result column="shop_price" property="shopPrice" javaType="double"/>
   		<result column="goods_url" property="goodsUrl" javaType="String"/>
   		<result column="discount" property="discount" javaType="String"/>
