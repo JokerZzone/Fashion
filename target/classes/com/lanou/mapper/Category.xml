@@ -14,19 +14,6 @@
 		<collection property="categories" ofType="Category" select="findByParentId" column="cat_id" />
 	</resultMap>
 	
-	<update id="addCatData">
-		update nav set cat_data = #{0} where nav_id = #{1}
-	</update>
-
-	<select id="selectCatData" parameterType="int" resultMap="result1">
-		select * from nav where nav_id = #{a}
-	</select>
-	<resultMap type="Nav" id="result1">
-		<id column="nav_id" property="navId" javaType="int"/>
-		<result column="nav_name" property="navName" javaType="String"/>
-		<result column="cat_data" property="catData" javaType="String"/>
-	</resultMap>
-
 	<select id="findByCatId" parameterType="int" resultMap="result2">
 		select * from category where cat_id = #{a}
 	</select>
@@ -36,8 +23,16 @@
 	</resultMap>
 
 	<!-- ***************************************** -->
-
-
-
+	
+	<select id="findSimpleFatherCategory" resultMap="findCategoryResult">
+		select cat_id,cat_name from category where  parent_id = 0
+	</select>
+	<select id="selectCategoryChildrenByParentId"  parameterType="int" resultMap="findCategoryResult">
+		select * from category where parent_id = #{parentId}
+	</select>
+	<resultMap type="Category" id="findCategoryResult">
+		<id column="cat_id" property="catId" javaType="int"/>
+		<result column="cat_name" property="catName" javaType="String"/>
+	</resultMap>
 	
 </mapper>

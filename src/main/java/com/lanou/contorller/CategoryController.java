@@ -1,8 +1,13 @@
 package com.lanou.contorller;
 
+import java.util.List;
+import java.util.Map;
+
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.lanou.service.CategoryService;
@@ -23,6 +28,13 @@ public class CategoryController {
 	@ResponseBody
 	public String name1(int na, int c) {
 		return categoryService.selectCat(na, c);
+	}
+	
+	@RequestMapping(value="/show")
+	@ResponseBody
+	public List<Map<String, Object>> showOne(@RequestParam("id") Integer parentId){
+		List<Map<String, Object>> caList = categoryService.selectDesc(parentId);
+		return caList;
 	}
 
 }
