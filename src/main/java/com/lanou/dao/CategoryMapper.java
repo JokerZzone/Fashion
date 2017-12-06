@@ -11,13 +11,13 @@ import com.lanou.entity.Nav;
 public interface CategoryMapper {
 	
 	//wz
-	public Nav selectCatData(int navId);
-	
 	public Category findByCatId(int catId);
 	
 	public List<Category> findByParentId(int parentId);
 	
-	public int addCatData(String json, int navId);
+	//xy
+	public List<Category> findSimpleFatherCategory();
 	
+	public List<Category> selectCategoryChildrenByParentId(Integer parentId);
 	
 }

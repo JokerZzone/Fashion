@@ -3,7 +3,18 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lanou.dao.NavMapper">
-	
+
+	<select id="selectCatData" parameterType="int" resultMap="result1">
+		select * from nav where nav_id = #{a}
+	</select>
+	<resultMap type="Nav" id="result1">
+		<id column="nav_id" property="navId" javaType="int"/>
+		<result column="nav_name" property="navName" javaType="String"/>
+		<result column="cat_data" property="catData" javaType="String"/>
+	</resultMap>
   	
+  	<update id="addCatData">
+		update nav set cat_data = #{0} where nav_id = #{1}
+	</update>
   	
 </mapper>
