@@ -27,9 +27,10 @@ public class CategoryServiceImpl implements CategoryService {
 	private NavMapper navMapper;
 	
 	// 首页的分类展示
-	public String selectCat(int navId, int catId) {
+	public String selectCat(int catId) {
 		Category category = categoryMapper.findByCatId(catId);
-		Nav nav = navMapper.selectCatData(navId);
+		//navId默认为1
+		Nav nav = navMapper.selectCatData(1);
 		String[] temp = nav.getCatData().split("#");
 		for (int i = 0; i < temp.length; i++) {
 			if (temp[i].contains(category.getCatName())) {
@@ -60,10 +61,13 @@ public class CategoryServiceImpl implements CategoryService {
 				json += category.getCatName() + ":" + str + "#";
 			}
 		}
+		int a = navMapper.addCatData(json, navId);
+		System.out.println(a);
 	}
 
 	/******************************************************************/
-//	一级分类展示
+	
+	// 一级分类展示
 	@Transactional
 	public List<Map<String, Object>> selectDesc(Integer parentId) {
 		List<Category> fatherList = categoryMapper.findSimpleFatherCategory();
@@ -82,8 +86,8 @@ public class CategoryServiceImpl implements CategoryService {
 			}
 			List<Map<String, Object>> three = new ArrayList<Map<String, Object>>();
 			Map<String, Object> map2 = new HashMap<String, Object>();
-			map2.put("firstId", i+1);
-			map2.put("firstName",fatherList.get(i).getCatName());
+			map2.put("firstId", i + 1);
+			map2.put("firstName", fatherList.get(i).getCatName());
 			three.add(map2);
 			onemap.put("firstCategory", three);
 			onemap.put("Desc", two);

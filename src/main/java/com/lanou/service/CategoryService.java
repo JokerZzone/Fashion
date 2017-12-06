@@ -8,7 +8,7 @@ public interface CategoryService {
 	//wz
 	public void addCateData(int navId);
 	
-	public String selectCat(int navId, int catId);
+	public String selectCat(int catId);
 	
 	//xy
 	public List<Map<String, Object>> selectDesc(Integer parentId);

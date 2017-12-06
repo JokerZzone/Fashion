@@ -3,7 +3,6 @@ package com.lanou.contorller;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,8 +25,8 @@ public class CategoryController {
 	
 	@RequestMapping("/select")
 	@ResponseBody
-	public String name1(int na, int c) {
-		return categoryService.selectCat(na, c);
+	public String name1(@RequestParam("id") int catId) {
+		return categoryService.selectCat(catId);
 	}
 	
 	@RequestMapping(value="/show")

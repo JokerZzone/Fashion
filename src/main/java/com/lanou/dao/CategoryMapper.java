@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import com.lanou.entity.Category;
-import com.lanou.entity.Nav;
 
 @Repository
 public interface CategoryMapper {

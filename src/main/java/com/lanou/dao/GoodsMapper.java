@@ -12,9 +12,11 @@ public interface GoodsMapper {
 	//wz
 	public Goods findGoods(int goodsId);
 	
-	public List<Goods> findAllGoods(Integer catId);
-	
 	public List<Goods> findGoodsById(int topicId);
+	
+	
+	
+	public List<Goods> findAllGoods(Integer catId);
 	
 	public List<Goods> findGoodsByPageId(Integer pageId);
 	
