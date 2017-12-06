@@ -9,6 +9,9 @@ import com.lanou.entity.Goods;
 @Repository
 public interface GoodsMapper {
 	
+	//wz
+	public Goods findGoods(int goodsId);
+	
 	public List<Goods> findAllGoods(Integer catId);
 	
 	public List<Goods> findGoodsById(int topicId);
@@ -19,5 +22,5 @@ public interface GoodsMapper {
 	
 	public List<Goods> sortByPriceDesc();
 	
-	public Goods findGoods(int goodsId);
+	
 }
