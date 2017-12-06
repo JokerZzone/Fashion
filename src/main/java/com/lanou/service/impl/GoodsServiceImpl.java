@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.lanou.dao.GoodsMapper;
+import com.lanou.entity.Category;
 import com.lanou.entity.Goods;
 import com.lanou.service.GoodsService;
 
@@ -17,9 +18,9 @@ public class GoodsServiceImpl implements GoodsService{
 	private GoodsMapper goodsMapper;
 	
 	@Transactional
-	public List<Goods> findAllGoods(Integer catId) {
+	public List<Goods> findGoods(Integer catId) {
 		// TODO Auto-generated method stub
-		return goodsMapper.findAllGoods(catId);
+		return goodsMapper.findGoods(catId);
 	}
 
 	public List<Goods> findGoodsByPageId(Integer pageId) {
@@ -27,13 +28,31 @@ public class GoodsServiceImpl implements GoodsService{
 		return goodsMapper.findGoodsByPageId(pageId);
 	}
 
-	public List<Goods> sortByPriceAsc() {
+	public List<Goods> sortByPriceAsc(Integer catId) {
 		// TODO Auto-generated method stub
-		return goodsMapper.sortByPriceAsc();
+		return goodsMapper.sortByPriceAsc(catId);
 	}
-	public List<Goods> sortByPriceDesc() {
+	public List<Goods> sortByPriceDesc(Integer catId) {
 		// TODO Auto-generated method stub
-		return goodsMapper.sortByPriceDesc();
+		return goodsMapper.sortByPriceDesc(catId);
 	}
+
+	public List<Goods> findGoodsBySecond(Integer cat_id) {
+		// TODO Auto-generated method stub
+		return goodsMapper.findGoodsBySecond(cat_id);
+	}
+
+	public List<Category> findCategories(Integer parentId) {
+		// TODO Auto-generated method stub
+		return goodsMapper.findCategories(parentId);
+	}
+
+	public List<Category> showFather() {
+		// TODO Auto-generated method stub
+		return goodsMapper.showFather();
+	}
+
+	
+
 
 }

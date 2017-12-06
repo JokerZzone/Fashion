@@ -10,7 +10,6 @@ public class Category {
 	private String catDesc;
 	private List<Category> categories;
 	
-	
 	public Integer getCatId() {
 		return catId;
 	}
@@ -47,6 +46,13 @@ public class Category {
 		this.catId = catId;
 		this.catName = catName;
 		this.parentId = parentId;
+		this.categories = categories;
+	}
+	
+	public Category(Integer catId, String catName, List<Category> categories) {
+		super();
+		this.catId = catId;
+		this.catName = catName;
 		this.categories = categories;
 	}
 	public Category() {

@@ -1,16 +1,22 @@
 package com.lanou.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.lanou.entity.Category;
 
 public interface CategoryService {
 	
-	public Category selectByPrimaryKey(Integer primaryKey);
-	public List<Category> selectCategoryChildrenByParentId(Integer parentId);
-//	展示一级分类
-	public List<Category> showFatherCategory();
+	public List<Category> findFatherCategory();
 	
-//  展示所有信息
-	public List<Category> findAll(Integer parentId);  
+	public Category selectByPrimaryKey(Integer primaryKey);
+	
+	public List<Category> selectCategoryChildrenByParentId(Integer parentId);
+	
+	public List<Map<String, Object>> selectDesc(Integer parentId);
+	
+	public List<Category> findChildCategory(Category category,Integer parentId);
+	
+	
+	
 }
