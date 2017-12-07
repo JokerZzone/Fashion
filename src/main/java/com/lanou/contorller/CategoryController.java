@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.lanou.entity.Category;
 import com.lanou.service.CategoryService;
 
 @Controller
@@ -36,4 +37,17 @@ public class CategoryController {
 		return caList;
 	}
 
+	@RequestMapping("/findOne")
+	@ResponseBody
+	public List<Category> findOne() {
+		List<Category> categories = categoryService.findOne();
+		return categories;
+	}
+	
+	@RequestMapping("/findTwo")
+	@ResponseBody
+	public List<Category> findTwo(@RequestParam("id") Integer parentId) {
+		List<Category> categories = categoryService.findTwo(parentId);
+		return categories;
+	}
 }

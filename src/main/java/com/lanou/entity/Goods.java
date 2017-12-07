@@ -1,11 +1,11 @@
 package com.lanou.entity;
 
 public class Goods {
-	
+
 	private Integer goodsId;
-	
+
 	private String goodsName;
-	
+
 	private String goodsDesc;
 	
 	private double marketPrice;
@@ -13,9 +13,13 @@ public class Goods {
 	private double shopPrice;
 	
 	private String discount;
-	
+
+	private String goodsUrl;
+
+	private int clickCount;
+
 	private int isHot;
-	
+
 	private GoodsGallery goodsGallery;
 	
 	private Brand brand;
@@ -97,4 +101,3 @@ public class Goods {
 		this.brand = brand;
 	}	
 }
-
