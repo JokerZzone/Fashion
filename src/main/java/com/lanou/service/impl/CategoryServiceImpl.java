@@ -25,14 +25,15 @@ public class CategoryServiceImpl implements CategoryService {
 	@Autowired
 	private NavMapper navMapper;
 	
-	// 首页的分类展示
+	// 首页的分类展示、二级三级展示
 	public String selectCat(int catId) {
 		Category category = categoryMapper.findByCatId(catId);
-		//navId默认为1
+		//默认参数为1
 		Nav nav = navMapper.selectCatData(1);
 		String[] temp = nav.getCatData().split("#");
 		for (int i = 0; i < temp.length; i++) {
 			if (temp[i].contains(category.getCatName())) {
+				System.out.println(temp[i].split(category.getCatName() + ":")[1]);
 				return temp[i].split(category.getCatName() + ":")[1];
 			}
 		}
@@ -42,11 +43,11 @@ public class CategoryServiceImpl implements CategoryService {
 	@Transactional
 	public void addCatData(int navId) {
 		ObjectMapper mapper = new ObjectMapper();
-		String json = new String();
-		for (int i = 1; i < 8; i++) {
+		String json = null;
+		for (int i = 1; i < 7; i++) {
 			List<Category> categories = categoryMapper.findByParentId(i);
 			Category category = categoryMapper.findByCatId(i);
-			String str = new String();
+			String str = null;
 			try {
 				str = mapper.writeValueAsString(categories);
 			} catch (JsonProcessingException e) {
@@ -59,13 +60,10 @@ public class CategoryServiceImpl implements CategoryService {
 				json += category.getCatName() + ":" + str + "#";
 			}
 		}
-		int a = navMapper.addCatData(json, navId);
-		System.out.println(a);
 	}
 
 	/******************************************************************/
-	
-	// 一级分类展示
+//	一级分类展示
 	@Transactional
 	public List<Map<String, Object>> selectDesc() {
 		List<Category> fatherList = categoryMapper.findSimpleFatherCategory();
@@ -84,8 +82,8 @@ public class CategoryServiceImpl implements CategoryService {
 			}
 			List<Map<String, Object>> three = new ArrayList<Map<String, Object>>();
 			Map<String, Object> map2 = new HashMap<String, Object>();
-			map2.put("firstId", i + 1);
-			map2.put("firstName", fatherList.get(i).getCatName());
+			map2.put("firstId", i+1);
+			map2.put("firstName",fatherList.get(i).getCatName());
 			three.add(map2);
 			onemap.put("firstCategory", three);
 			onemap.put("Desc", two);
@@ -99,11 +97,4 @@ public class CategoryServiceImpl implements CategoryService {
 		// TODO Auto-generated method stub
 		return categoryMapper.findSimpleFatherCategory();
 	}
-	//点击一级分类，展示二级分类
-	public List<Category> findTwo(Integer parentId) {
-		// TODO Auto-generated method stub
-		return categoryMapper.selectCategoryChildrenByParentId(parentId);
-	}
-	
-
 }

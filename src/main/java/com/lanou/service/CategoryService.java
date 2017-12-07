@@ -17,6 +17,4 @@ public interface CategoryService {
 	
 	public List<Category> findOne();
 	
-	public List<Category> findTwo(Integer parentId);
-	
 }
