@@ -1,23 +1,23 @@
 package com.lanou.entity;
 
 public class Goods {
-	
+
 	private Integer goodsId;
-	
+
 	private String goodsName;
-	
+
 	private String goodsDesc;
-	
+
 	private double shopPrice;
-	
+
 	private String goodsUrl;
-	
+
 	private String discount;
-	
+
 	private int clickCount;
-	
+
 	private int isHot;
-	
+
 	private GoodsGallery goodsGallery;
 
 	public Goods() {
@@ -95,6 +95,5 @@ public class Goods {
 
 	public void setGoodsGallery(GoodsGallery goodsGallery) {
 		this.goodsGallery = goodsGallery;
-	}	
+	}
 }
-

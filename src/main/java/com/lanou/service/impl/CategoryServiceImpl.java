@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,7 +14,7 @@ import com.lanou.dao.CategoryMapper;
 import com.lanou.dao.NavMapper;
 import com.lanou.entity.Category;
 import com.lanou.entity.Nav;
-import com.lanou.service.CategoryService;
+import com.lanou.service.CategoryService; 
 
 @Service("categoryService")
 public class CategoryServiceImpl implements CategoryService {
@@ -41,7 +40,7 @@ public class CategoryServiceImpl implements CategoryService {
 	}
 
 	@Transactional
-	public void addCateData(int navId) {
+	public void addCatData(int navId) {
 		ObjectMapper mapper = new ObjectMapper();
 		String json = null;
 		for (int i = 1; i < 7; i++) {
@@ -91,4 +90,17 @@ public class CategoryServiceImpl implements CategoryService {
 		}
 		return one;
 	}
+
+	//展示一级分类
+	public List<Category> findOne() {
+		// TODO Auto-generated method stub
+		return categoryMapper.findSimpleFatherCategory();
+	}
+	//点击一级分类，展示二级分类
+	public List<Category> findTwo(Integer parentId) {
+		// TODO Auto-generated method stub
+		return categoryMapper.selectCategoryChildrenByParentId(parentId);
+	}
+	
+
 }
