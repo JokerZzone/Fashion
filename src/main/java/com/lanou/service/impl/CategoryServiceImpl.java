@@ -26,9 +26,10 @@ public class CategoryServiceImpl implements CategoryService {
 	private NavMapper navMapper;
 	
 	// 首页的分类展示
-	public String selectCat(int navId, int catId) {
+	public String selectCat(int catId) {
 		Category category = categoryMapper.findByCatId(catId);
-		Nav nav = navMapper.selectCatData(navId);
+		//默认参数为1
+		Nav nav = navMapper.selectCatData(1);
 		String[] temp = nav.getCatData().split("#");
 		for (int i = 0; i < temp.length; i++) {
 			if (temp[i].contains(category.getCatName())) {
@@ -64,13 +65,13 @@ public class CategoryServiceImpl implements CategoryService {
 	/******************************************************************/
 //	一级分类展示
 	@Transactional
-	public List<Map<String, Object>> selectDesc(Integer parentId) {
+	public List<Map<String, Object>> selectDesc() {
 		List<Category> fatherList = categoryMapper.findSimpleFatherCategory();
 		List<Map<String, Object>> one = new ArrayList<Map<String, Object>>();
 		for (int i = 0; i < fatherList.size(); i++) {
 			List<Map<String, Object>> two = new ArrayList<Map<String, Object>>();
-			parentId = fatherList.get(i).getCatId();
-			List<Category> childList = categoryMapper.selectCategoryChildrenByParentId(parentId);
+			int catId = fatherList.get(i).getCatId();
+			List<Category> childList = categoryMapper.selectCategoryChildrenByParentId(catId);
 			Map<String, Object> onemap = new HashMap<String, Object>();
 			for (int j = 0; j < childList.size(); j++) {
 				String twoName = childList.get(j).getCatName();
@@ -96,11 +97,5 @@ public class CategoryServiceImpl implements CategoryService {
 		// TODO Auto-generated method stub
 		return categoryMapper.findSimpleFatherCategory();
 	}
-	//点击一级分类，展示二级分类
-	public List<Category> findTwo(Integer parentId) {
-		// TODO Auto-generated method stub
-		return categoryMapper.selectCategoryChildrenByParentId(parentId);
-	}
-	
 
 }

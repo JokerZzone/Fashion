@@ -10,13 +10,12 @@ public interface CategoryService {
 	//wz
 	public void addCatData(int navId);
 	
-	public String selectCat(int navId, int catId);
+	public String selectCat(int catId);
 	
 	//xy
-	public List<Map<String, Object>> selectDesc(Integer parentId);
+	public List<Map<String, Object>> selectDesc();
 	
 	public List<Category> findOne();
 	
-	public List<Category> findTwo(Integer parentId);
 	
 }

@@ -26,18 +26,18 @@ public class CategoryController {
 	
 	@RequestMapping("/select")
 	@ResponseBody
-	public String name1(int na, int c) {
-		return categoryService.selectCat(na, c);
+	public String name1(int c) {
+		return categoryService.selectCat(c);
 	}
 	
-	@RequestMapping(value="/show")
+	@RequestMapping(value="/findOne")
 	@ResponseBody
-	public List<Map<String, Object>> showOne(@RequestParam("id") Integer parentId){
-		List<Map<String, Object>> caList = categoryService.selectDesc(parentId);
+	public List<Map<String, Object>> showOne(){
+		List<Map<String, Object>> caList = categoryService.selectDesc();
 		return caList;
 	}
 
-	@RequestMapping("/findOne")
+	@RequestMapping("/show")
 	@ResponseBody
 	public List<Category> findOne() {
 		List<Category> categories = categoryService.findOne();
@@ -46,8 +46,7 @@ public class CategoryController {
 	
 	@RequestMapping("/findTwo")
 	@ResponseBody
-	public List<Category> findTwo(@RequestParam("id") Integer parentId) {
-		List<Category> categories = categoryService.findTwo(parentId);
-		return categories;
+	public String findTwo(@RequestParam("id") Integer catId) {
+		return categoryService.selectCat(catId);
 	}
 }
