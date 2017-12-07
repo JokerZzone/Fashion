@@ -99,5 +99,21 @@ public class Goods {
 
 	public void setBrand(Brand brand) {
 		this.brand = brand;
+	}
+
+	public String getGoodsUrl() {
+		return goodsUrl;
+	}
+
+	public void setGoodsUrl(String goodsUrl) {
+		this.goodsUrl = goodsUrl;
+	}
+
+	public int getClickCount() {
+		return clickCount;
+	}
+
+	public void setClickCount(int clickCount) {
+		this.clickCount = clickCount;
 	}	
 }

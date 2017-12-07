@@ -67,13 +67,13 @@ public class CategoryServiceImpl implements CategoryService {
 	
 	// 一级分类展示
 	@Transactional
-	public List<Map<String, Object>> selectDesc(Integer parentId) {
+	public List<Map<String, Object>> selectDesc() {
 		List<Category> fatherList = categoryMapper.findSimpleFatherCategory();
 		List<Map<String, Object>> one = new ArrayList<Map<String, Object>>();
 		for (int i = 0; i < fatherList.size(); i++) {
 			List<Map<String, Object>> two = new ArrayList<Map<String, Object>>();
-			parentId = fatherList.get(i).getCatId();
-			List<Category> childList = categoryMapper.selectCategoryChildrenByParentId(parentId);
+			int catId = fatherList.get(i).getCatId();
+			List<Category> childList = categoryMapper.selectCategoryChildrenByParentId(catId);
 			Map<String, Object> onemap = new HashMap<String, Object>();
 			for (int j = 0; j < childList.size(); j++) {
 				String twoName = childList.get(j).getCatName();

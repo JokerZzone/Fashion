@@ -19,29 +19,18 @@ public class CategoryController {
 	@Autowired
 	private CategoryService categoryService;
 
-	@RequestMapping("/find")
+	@RequestMapping("/add")
 	public void name(int id) {
+		
 		categoryService.addCatData(id);
 	}
 	
-	@RequestMapping("/select")
+	//首页
+	@RequestMapping(value="/findOne")
 	@ResponseBody
-	public String name1(@RequestParam("id") int catId) {
-		return categoryService.selectCat(catId);
-	}
-	
-	@RequestMapping(value="/show")
-	@ResponseBody
-	public List<Map<String, Object>> showOne(@RequestParam("id") Integer parentId){
-		List<Map<String, Object>> caList = categoryService.selectDesc(parentId);
+	public List<Map<String, Object>> showOne(){
+		List<Map<String, Object>> caList = categoryService.selectDesc();
 		return caList;
-	}
-
-	@RequestMapping("/findOne")
-	@ResponseBody
-	public List<Category> findOne() {
-		List<Category> categories = categoryService.findOne();
-		return categories;
 	}
 	
 	@RequestMapping("/findTwo")
@@ -49,5 +38,21 @@ public class CategoryController {
 	public List<Category> findTwo(@RequestParam("id") Integer parentId) {
 		List<Category> categories = categoryService.findTwo(parentId);
 		return categories;
+	}
+	
+	//超值小样
+	@RequestMapping("/show")
+	@ResponseBody
+	public List<Category> findOne() {
+		List<Category> categories = categoryService.findOne();
+		return categories;
+	}
+	
+	//wz
+	@RequestMapping("/select")
+	@ResponseBody
+	public String name1(@RequestParam("id") int catId) {
+		
+		return categoryService.selectCat(catId);
 	}
 }

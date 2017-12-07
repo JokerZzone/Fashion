@@ -13,7 +13,7 @@ public interface CategoryService {
 	public String selectCat(int catId);
 	
 	//xy
-	public List<Map<String, Object>> selectDesc(Integer parentId);
+	public List<Map<String, Object>> selectDesc();
 	
 	public List<Category> findOne();
 	
