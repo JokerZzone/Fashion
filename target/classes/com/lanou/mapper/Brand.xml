@@ -5,10 +5,13 @@
 <mapper namespace="com.lanou.dao.BrandMapper">
 	
 	<resultMap type="Brand" id="brandResult">
-		<id column="brand_id" property="braId" javaType="int"/>
-		<result column="brand_name" property="braName" jdbcType="VARCHAR"/>
-		<result column="brand_img" property="braImg" jdbcType="VARCHAR"/>
-		<result column="brand_desc" property="braDesc" jdbcType="VARCHAR"/>
+		<id column="brand_id" property="brandId" javaType="int"/>
+		<result column="brand_name" property="brandName" jdbcType="VARCHAR"/>
+		<result column="brand_img" property="brandImg" jdbcType="VARCHAR"/>
+		<result column="brand_desc" property="brandDesc" jdbcType="VARCHAR"/>
+		<result column="site_url" property="siteUrl" jdbcType="VARCHAR"/>
+		<result column="sort_order" property="sortOrder" javaType="int"/>
+		<result column="is_show" property="isShow" javaType="int"/>
 	</resultMap>
 	
 	<select id="selectLikeDesc_Letter" resultMap="brandResult">

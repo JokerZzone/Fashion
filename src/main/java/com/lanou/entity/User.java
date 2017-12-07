@@ -3,8 +3,11 @@ package com.lanou.entity;
 public class User {
 
 	private int uId;
+	
 	private String username;
+	
 	private String password;
+	
 	private String email;
 
 	public int getuId() {

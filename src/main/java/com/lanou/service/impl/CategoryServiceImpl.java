@@ -34,7 +34,6 @@ public class CategoryServiceImpl implements CategoryService {
 		String[] temp = nav.getCatData().split("#");
 		for (int i = 0; i < temp.length; i++) {
 			if (temp[i].contains(category.getCatName())) {
-				System.out.println(temp[i].split(category.getCatName() + ":")[1]);
 				return temp[i].split(category.getCatName() + ":")[1];
 			}
 		}
@@ -42,13 +41,13 @@ public class CategoryServiceImpl implements CategoryService {
 	}
 
 	@Transactional
-	public void addCateData(int navId) {
+	public void addCatData(int navId) {
 		ObjectMapper mapper = new ObjectMapper();
-		String json = null;
-		for (int i = 1; i < 7; i++) {
+		String json = new String();
+		for (int i = 1; i < 8; i++) {
 			List<Category> categories = categoryMapper.findByParentId(i);
 			Category category = categoryMapper.findByCatId(i);
-			String str = null;
+			String str = new String();
 			try {
 				str = mapper.writeValueAsString(categories);
 			} catch (JsonProcessingException e) {

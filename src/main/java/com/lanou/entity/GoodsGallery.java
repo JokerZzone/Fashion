@@ -8,11 +8,6 @@ public class GoodsGallery {
 	
 	private String imgUrl;
 
-	@Override
-	public String toString() {
-		return "GoodsGallery [imgId=" + imgId + ", goodsId=" + goodsId + ", imgUrl=" + imgUrl + "]";
-	}
-
 	public GoodsGallery() {
 		super();
 		// TODO Auto-generated constructor stub

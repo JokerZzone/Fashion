@@ -6,7 +6,7 @@ import java.util.Map;
 public interface CategoryService {
 	
 	//wz
-	public void addCateData(int navId);
+	public void addCatData(int navId);
 	
 	public String selectCat(int catId);
 	

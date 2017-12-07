@@ -8,17 +8,17 @@ public class Goods {
 	
 	private String goodsDesc;
 	
+	private double marketPrice;
+	
 	private double shopPrice;
 	
-	private String goodsUrl;
-	
 	private String discount;
-	
-	private int clickCount;
 	
 	private int isHot;
 	
 	private GoodsGallery goodsGallery;
+	
+	private Brand brand;
 
 	public Goods() {
 		super();
@@ -57,20 +57,20 @@ public class Goods {
 		this.goodsDesc = goodsDesc;
 	}
 
+	public double getMarketPrice() {
+		return marketPrice;
+	}
+
+	public void setMarketPrice(double marketPrice) {
+		this.marketPrice = marketPrice;
+	}
+
 	public double getShopPrice() {
 		return shopPrice;
 	}
 
 	public void setShopPrice(double shopPrice) {
 		this.shopPrice = shopPrice;
-	}
-
-	public String getGoodsUrl() {
-		return goodsUrl;
-	}
-
-	public void setGoodsUrl(String goodsUrl) {
-		this.goodsUrl = goodsUrl;
 	}
 
 	public String getDiscount() {
@@ -81,20 +81,20 @@ public class Goods {
 		this.discount = discount;
 	}
 
-	public int getClickCount() {
-		return clickCount;
-	}
-
-	public void setClickCount(int clickCount) {
-		this.clickCount = clickCount;
-	}
-
 	public GoodsGallery getGoodsGallery() {
 		return goodsGallery;
 	}
 
 	public void setGoodsGallery(GoodsGallery goodsGallery) {
 		this.goodsGallery = goodsGallery;
+	}
+
+	public Brand getBrand() {
+		return brand;
+	}
+
+	public void setBrand(Brand brand) {
+		this.brand = brand;
 	}	
 }
 

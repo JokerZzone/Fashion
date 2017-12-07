@@ -20,7 +20,7 @@ public class CategoryController {
 
 	@RequestMapping("/find")
 	public void name(int id) {
-		categoryService.addCateData(id);
+		categoryService.addCatData(id);
 	}
 	
 	@RequestMapping("/select")

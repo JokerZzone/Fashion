@@ -9,6 +9,14 @@ public class Category {
 	private String catName;
 
 	private Integer parentId;
+	
+	private int sortOrder;
+	
+	private int showInNav;
+	
+	private int isShow;
+	
+	private String style;
 
 	private List<Category> categories;
 
@@ -47,5 +55,37 @@ public class Category {
 
 	public void setCategories(List<Category> categories) {
 		this.categories = categories;
+	}
+
+	public int getSortOrder() {
+		return sortOrder;
+	}
+
+	public void setSortOrder(int sortOrder) {
+		this.sortOrder = sortOrder;
+	}
+
+	public int getShowInNav() {
+		return showInNav;
+	}
+
+	public void setShowInNav(int showInNav) {
+		this.showInNav = showInNav;
+	}
+
+	public int getIsShow() {
+		return isShow;
+	}
+
+	public void setIsShow(int isShow) {
+		this.isShow = isShow;
+	}
+
+	public String getStyle() {
+		return style;
+	}
+
+	public void setStyle(String style) {
+		this.style = style;
 	}
 }

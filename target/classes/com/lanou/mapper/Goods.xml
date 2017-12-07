@@ -9,23 +9,30 @@
 	</select>
 	
 	<select id="findGoodsById" parameterType="int" resultMap="findGoodsResult">
-		select * from goods as a, goods_gallery as b
-		where a.goods_id = b.goods_id and topic_id = #{aa}
+		select * from goods as a, goods_gallery as b where 
+			a.goods_id = b.goods_id and a.goods_id = #{aa}
 	</select>
-
+	<select id="findBrand" parameterType="int" resultMap="result">
+		select * from brand where brand_id = #{aa}
+	</select>
 	<resultMap type="Goods" id="findGoodsResult">
 		<id column="goods_id" property="goodsId" javaType="int" />
 		<result column="goods_name" property="goodsName" javaType="String" />
 		<result column="goods_desc" property="goodsDesc" javaType="String" />
+		<result column="market_price" property="marketPrice" javaType="double" />
 		<result column="shop_price" property="shopPrice" javaType="double" />
-		<result column="goods_url" property="goodsUrl" javaType="String" />
 		<result column="discount" property="discount" javaType="String" />
 		<result column="is_hot" property="isHot" javaType="int" />
 		<association property="goodsGallery" javaType="GoodsGallery">
 			<id column="img_id" property="imgId" javaType="int" />
 			<result column="goods_id" property="goodsId" javaType="int" />
-			<result column="img_url" property="imgUrl" />
+			<result column="img_url" property="imgUrl" javaType="String"/>
 		</association>
+		<association property="brand" javaType="Brand" select="findBrand" column="brand_id"/>
 	</resultMap>
-   
+   	<resultMap type="Brand" id="result">
+   		<id column="brand_id" property="brandId" javaType="int"/>
+		<result column="brand_name" property="brandName" javaType="String"/>
+		<result column="brand_img" property="brandImg" javaType="String"/>
+   	</resultMap>
 </mapper>

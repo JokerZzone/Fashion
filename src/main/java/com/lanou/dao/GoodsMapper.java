@@ -12,7 +12,7 @@ public interface GoodsMapper {
 	//wz
 	public Goods findGoods(int goodsId);
 	
-	public List<Goods> findGoodsById(int topicId);
+	public Goods findGoodsById(int topicId);
 	
 	
 	
