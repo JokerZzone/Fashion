@@ -33,7 +33,6 @@ public class CategoryServiceImpl implements CategoryService {
 		String[] temp = nav.getCatData().split("#");
 		for (int i = 0; i < temp.length; i++) {
 			if (temp[i].contains(category.getCatName())) {
-				System.out.println(temp[i].split(category.getCatName() + ":")[1]);
 				return temp[i].split(category.getCatName() + ":")[1];
 			}
 		}

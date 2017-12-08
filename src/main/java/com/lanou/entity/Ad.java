@@ -1,12 +1,14 @@
 package com.lanou.entity;
 
+import java.util.List;
+
 public class Ad {
 
 	private int adId;
 	
-	private String adImg;
+	private String adName;
 	
-	private String linkUrl;
+	private List<AdGallery> adGalleries;
 	
 	public Ad() {
 		super();
@@ -21,19 +23,19 @@ public class Ad {
 		this.adId = adId;
 	}
 
-	public String getAdImg() {
-		return adImg;
+	public String getAdName() {
+		return adName;
 	}
 
-	public void setAdImg(String adImg) {
-		this.adImg = adImg;
+	public void setAdName(String adName) {
+		this.adName = adName;
 	}
 
-	public String getLinkUrl() {
-		return linkUrl;
+	public List<AdGallery> getAdGalleries() {
+		return adGalleries;
 	}
 
-	public void setLinkUrl(String linkUrl) {
-		this.linkUrl = linkUrl;
+	public void setAdGalleries(List<AdGallery> adGalleries) {
+		this.adGalleries = adGalleries;
 	}
 }

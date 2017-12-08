@@ -1,5 +1,7 @@
 package com.lanou.entity;
 
+import java.util.List;
+
 public class Topic {
 
 	private int topicId;
@@ -10,14 +12,18 @@ public class Topic {
 	
 	private String endTime;
 	
-	private String data;
-	
-	private String dataInfo;
-	
 	private int state;
 	
-	private String htmls;
-
+	private String tempGoods;
+	
+	private String tempBrands;
+	
+	private Ad ads;
+	
+	private List<Goods> goods;
+	
+	private List<Brand> brands;
+	
 	public Topic() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -55,22 +61,6 @@ public class Topic {
 		this.endTime = endTime;
 	}
 
-	public String getData() {
-		return data;
-	}
-
-	public void setData(String data) {
-		this.data = data;
-	}
-
-	public String getDataInfo() {
-		return dataInfo;
-	}
-
-	public void setDataInfo(String dataInfo) {
-		this.dataInfo = dataInfo;
-	}
-
 	public int getState() {
 		return state;
 	}
@@ -78,12 +68,44 @@ public class Topic {
 	public void setState(int state) {
 		this.state = state;
 	}
-	
-	public String getHtmls() {
-		return htmls;
+
+	public Ad getAds() {
+		return ads;
 	}
 
-	public void setHtmls(String htmls) {
-		this.htmls = htmls;
+	public void setAds(Ad ads) {
+		this.ads = ads;
+	}
+
+	public String getTempGoods() {
+		return tempGoods;
+	}
+
+	public void setTempGoods(String tempGoods) {
+		this.tempGoods = tempGoods;
+	}
+
+	public String getTempBrands() {
+		return tempBrands;
+	}
+
+	public void setTempBrands(String tempBrands) {
+		this.tempBrands = tempBrands;
+	}
+
+	public List<Goods> getGoods() {
+		return goods;
+	}
+
+	public void setGoods(List<Goods> goods) {
+		this.goods = goods;
+	}
+
+	public List<Brand> getBrands() {
+		return brands;
+	}
+
+	public void setBrands(List<Brand> brands) {
+		this.brands = brands;
 	}
 }

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lanou.dao.CategoryMapper">
+
+	<select id="findByParentId" resultMap="CategoryResultMap.result">
+		select * from category where parent_id = #{0} and show_in_nav = 1
+	</select>
+	
+	<select id="findByCatId" parameterType="int" resultMap="CategoryResultMap.result2">
+		select * from category where cat_id = #{a}
+	</select>
+
+	<!-- ***************************************** -->
+	
+	<select id="findSimpleFatherCategory" resultMap="CategoryResultMap.findCategoryResult">
+		select cat_id,cat_name from category where  parent_id = 0
+	</select>
+	<select id="selectCategoryChildrenByParentId"  parameterType="int" 
+		resultMap="CategoryResultMap.findCategoryResult">
+		
+		select * from category where parent_id = #{parentId}
+	</select>
+	
+</mapper>

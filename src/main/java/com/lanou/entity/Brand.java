@@ -1,20 +1,20 @@
 package com.lanou.entity;
 
+import java.util.List;
+
 public class Brand {
 
 	private Integer brandId;
 
 	private String brandName;
 
-	private String brandImg;
-
 	private String brandDesc;
-	
-	private String siteUrl;
-	
+
 	private int sortOrder;
-	
+
 	private int isShow;
+
+	private List<BrandGallery> brandGalleries;
 
 	public Brand() {
 		super();
@@ -37,28 +37,12 @@ public class Brand {
 		this.brandName = brandName;
 	}
 
-	public String getBrandImg() {
-		return brandImg;
-	}
-
-	public void setBrandImg(String brandImg) {
-		this.brandImg = brandImg;
-	}
-
 	public String getBrandDesc() {
 		return brandDesc;
 	}
 
 	public void setBrandDesc(String brandDesc) {
 		this.brandDesc = brandDesc;
-	}
-
-	public String getSiteUrl() {
-		return siteUrl;
-	}
-
-	public void setSiteUrl(String siteUrl) {
-		this.siteUrl = siteUrl;
 	}
 
 	public int getSortOrder() {
@@ -75,5 +59,13 @@ public class Brand {
 
 	public void setIsShow(int isShow) {
 		this.isShow = isShow;
+	}
+
+	public List<BrandGallery> getBrandGalleries() {
+		return brandGalleries;
+	}
+
+	public void setBrandGalleries(List<BrandGallery> brandGalleries) {
+		this.brandGalleries = brandGalleries;
 	}
 }

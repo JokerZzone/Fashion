@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="AdResultMap">
+	
+  	<resultMap type="Ad" id="adResult">
+  		<id column="ad_id" property="adId" javaType="int"/>
+  		<result column="ad_name" property="adName" javaType="String"/>
+  		<collection select="com.lanou.dao.AdGalleryMapper.findByAdGalleryById" 
+  			column="ad_id" property="adGalleries" javaType="java.util.List"/>
+  	</resultMap>
+  	
+</mapper>

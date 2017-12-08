@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="AdGalleryResultMap">
+
+  	<resultMap type="AdGallery" id="adGalleryResult">
+  		<id column="img_id" property="imgId" javaType="int"/>
+  		<result column="ad_id" property="adId" javaType="int"/>
+  		<result column="ad_img" property="adImg" javaType="String"/>
+  		<result column="ad_link" property="adLink" javaType="String"/>
+  	</resultMap>
+  	
+</mapper>

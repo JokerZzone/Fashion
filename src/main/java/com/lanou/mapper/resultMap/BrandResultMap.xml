@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="BrandResultMap">
+	
+  	<resultMap type="Brand" id="brandResult">
+  		<id column="brand_id" property="brandId" javaType="int"/>
+		<result column="brand_name" property="brandName" jdbcType="VARCHAR"/>
+		<result column="brand_desc" property="brandDesc" jdbcType="VARCHAR"/>
+		<result column="site_url" property="siteUrl" jdbcType="VARCHAR"/>
+		<result column="sort_order" property="sortOrder" javaType="int"/>
+		<collection select="com.lanou.dao.BrandGalleryMapper.findBrandGalleryById" 
+  			column="brand_id" property="brandGalleries" javaType="java.util.List"/>
+  	</resultMap>
+  	
+</mapper>

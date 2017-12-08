@@ -20,7 +20,7 @@ public class BrandContorller {
 	@Autowired
 	private BrandService brandService;
 	
-	@RequestMapping(value="/findAllBrand.do",method=RequestMethod.GET)
+	@RequestMapping(value="/findAllBrand",method=RequestMethod.GET)
 	@ResponseBody
 	public Map<String, Map<String, List<Brand>>> findAllBrand() {
 		

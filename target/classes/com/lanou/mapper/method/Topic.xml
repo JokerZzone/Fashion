@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lanou.dao.TopicMapper">
+	
+	<select id="selectTopic" parameterType="int" resultMap="TopicResultMap.topicResult">
+		select * from topic where topic_id = #{topicId}
+	</select>
+	
+	
+	<!-- 
+	
+	SELECT * FROM topic AS a
+			RIGHT JOIN topic_goods AS b ON a.topic_id = b.topic_id
+		WHERE a.topic_id = #{topicId}
+	<collection select="com.lanou.dao.BrandMapper.findBrandById" 
+  			column="brand_id" property="brands" javaType="java.util.List"/>
+		<collection select="com.lanou.dao.GoodsMapper.findGoodsById" 
+  			column="goods_id" property="goods" javaType="java.util.List"/>
+	 -->
+	
+	
+	
+	
+	
+  
+</mapper>

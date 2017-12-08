@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lanou.dao.BrandMapper">
+	<!-- wz  查詢品牌集合 -->
+	<select id="findBrandById" parameterType="int" resultMap="BrandResultMap.brandResult">
+		select * from brand where brand_id = #{brandId}
+	</select>
+	
+	
+	
+	<select id="selectLikeDesc_Letter" resultMap="BrandResultMap.brandResult">
+		select * from brand where brand_desc like concat(#{braDesc},'%')
+	</select>
+	<select id="selectLikeDesc_Country" resultMap="BrandResultMap.brandResult">
+		select * from brand where brand_desc like concat('%',#{braDesc})
+	</select>
+	
+	
+  
+</mapper>

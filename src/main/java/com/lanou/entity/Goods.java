@@ -1,5 +1,7 @@
 package com.lanou.entity;
 
+import java.util.List;
+
 public class Goods {
 
 	private Integer goodsId;
@@ -20,9 +22,9 @@ public class Goods {
 
 	private int isHot;
 
-	private GoodsGallery goodsGallery;
+	private Brand subBrand;
 	
-	private Brand brand;
+	private List<GoodsGallery> goodsGalleries;
 
 	public Goods() {
 		super();
@@ -85,22 +87,6 @@ public class Goods {
 		this.discount = discount;
 	}
 
-	public GoodsGallery getGoodsGallery() {
-		return goodsGallery;
-	}
-
-	public void setGoodsGallery(GoodsGallery goodsGallery) {
-		this.goodsGallery = goodsGallery;
-	}
-
-	public Brand getBrand() {
-		return brand;
-	}
-
-	public void setBrand(Brand brand) {
-		this.brand = brand;
-	}
-
 	public String getGoodsUrl() {
 		return goodsUrl;
 	}
@@ -115,5 +101,21 @@ public class Goods {
 
 	public void setClickCount(int clickCount) {
 		this.clickCount = clickCount;
-	}	
+	}
+
+	public Brand getSubBrand() {
+		return subBrand;
+	}
+
+	public void setSubBrand(Brand subBrand) {
+		this.subBrand = subBrand;
+	}
+
+	public List<GoodsGallery> getGoodsGalleries() {
+		return goodsGalleries;
+	}
+
+	public void setGoodsGalleries(List<GoodsGallery> goodsGalleries) {
+		this.goodsGalleries = goodsGalleries;
+	}
 }

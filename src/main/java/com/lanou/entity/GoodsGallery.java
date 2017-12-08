@@ -6,7 +6,7 @@ public class GoodsGallery {
 	
 	private int goodsId;
 	
-	private String imgUrl;
+	private String goodsImg;
 
 	public GoodsGallery() {
 		super();
@@ -29,11 +29,11 @@ public class GoodsGallery {
 		this.goodsId = goodsId;
 	}
 
-	public String getImgUrl() {
-		return imgUrl;
+	public String getGoodsImg() {
+		return goodsImg;
 	}
 
-	public void setImgUrl(String imgUrl) {
-		this.imgUrl = imgUrl;
+	public void setGoodsImg(String goodsImg) {
+		this.goodsImg = goodsImg;
 	}
 }

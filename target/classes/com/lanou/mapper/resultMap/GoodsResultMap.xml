@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="GoodsResultMap">
+	<!-- wz -->
+  	<resultMap type="Goods" id="goodsResult">
+		<id column="goods_id" property="goodsId" javaType="int" />
+		<result column="goods_name" property="goodsName" javaType="String" />
+		<result column="goods_desc" property="goodsDesc" javaType="String" />
+		<result column="market_price" property="marketPrice" javaType="double" />
+		<result column="shop_price" property="shopPrice" javaType="double" />
+		<result column="discount" property="discount" javaType="String" />
+		<result column="is_hot" property="isHot" javaType="int" />
+		<association select="com.lanou.dao.BrandMapper.findBrandById" 
+			column="brand_id" property="subBrand" javaType="Brand"/>
+		<collection select="com.lanou.dao.GoodsMapper.findGoodsGolleryById" 
+  			column="goods_id" property="goodsGalleries" javaType="java.util.List"/>
+	</resultMap>
+	<!-- xy -->
+	<resultMap type="Goods" id="findResult">
+		<id column="goods_id" property="goodsId" javaType="int" />
+		<result column="goods_name" property="goodsName" javaType="String" />
+		<result column="shop_price" property="shopPrice" javaType="double" />
+		<result column="discount" property="discount" javaType="String" />
+		<collection select="com.lanou.dao.GoodsMapper.findGoodsGolleryById" 
+  			column="goods_id" property="goodsGalleries" javaType="java.util.List"/>
+	</resultMap>
+	
+</mapper>

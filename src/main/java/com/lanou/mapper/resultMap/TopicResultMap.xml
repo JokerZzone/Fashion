@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="TopicResultMap">
+	
+  	<resultMap type="Topic" id="topicResult" autoMapping="false">
+  		<id column="topic_id" property="topicId" javaType="int"/>
+  		<result column="title" property="title" javaType="String"/>
+  		<result column="start_time" property="startTime" javaType="String"/>
+  		<result column="end_time" property="endTime" javaType="String"/>
+  		<result column="state" property="state" javaType="int"/>
+  		<result column="goods_id" property="tempGoods" javaType="String"/>
+  		<result column="brand_id" property="tempBrands" javaType="String"/>
+  		<association select="com.lanou.dao.AdMapper.findAdById" 
+  			column="ad_id" property="ads" javaType="Ad" />
+  	</resultMap>
+  	
+  	<!-- 
+  	
+  		<collection select="com.lanou.dao.BrandMapper.findBrandById" 
+  			column="brand_id" property="brands" javaType="java.util.List"/>
+		<collection select="com.lanou.dao.GoodsMapper.findGoodsById" 
+  			column="goods_id" property="goods" javaType="java.util.List"/>
+  	
+  	 -->
+  	
+  	
+</mapper>

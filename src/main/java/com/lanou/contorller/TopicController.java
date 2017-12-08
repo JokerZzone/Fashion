@@ -1,8 +1,5 @@
 package com.lanou.contorller;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,11 +18,9 @@ public class TopicController {
 	
 	@RequestMapping("/showTopic")
 	@ResponseBody
-	public Map<String, Object> showTopic(@RequestParam("id") int topicId) throws Exception {
-		Topic topic = service.showTopic(topicId);
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("topic", topic);
-		return map;
+	public Topic showTopic(@RequestParam("id") int topicId) throws Exception {
+		
+		return service.showTopic(topicId);
 	}
 	
 	@RequestMapping("/addTopic")

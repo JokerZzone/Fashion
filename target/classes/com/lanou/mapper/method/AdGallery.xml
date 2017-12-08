@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lanou.dao.AdGalleryMapper">
+
+	<!-- 根据adId查询所有adGallery，有select关联 -->
+	<select id="findByAdGalleryById" parameterType="int" 
+		resultMap="AdGalleryResultMap.adGalleryResult">
+		
+		select * from ad_gallery where ad_id = #{adId}
+	</select>	
+  		
+</mapper>
