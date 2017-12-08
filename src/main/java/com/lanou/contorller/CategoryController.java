@@ -30,23 +30,30 @@ public class CategoryController {
 		return categoryService.selectCat(c);
 	}
 	
+	//首页分类	
 	@RequestMapping(value="/findOne")
 	@ResponseBody
-	public List<Map<String, Object>> showOne(){
+	public List<Map<String, Object>> findOne(){
 		List<Map<String, Object>> caList = categoryService.selectDesc();
 		return caList;
 	}
-
-	@RequestMapping("/show")
-	@ResponseBody
-	public List<Category> findOne() {
-		List<Category> categories = categoryService.findOne();
-		return categories;
-	}
-	
 	@RequestMapping("/findTwo")
 	@ResponseBody
 	public String findTwo(@RequestParam("id") Integer catId) {
 		return categoryService.selectCat(catId);
+	}
+	
+	//超值小样、明星推荐、新品上架分类展示
+	@RequestMapping("/showOne")
+	@ResponseBody
+	public List<Category> showOne() {
+		List<Category> categories = categoryService.showOne();
+		return categories;
+	}
+	@RequestMapping("/showTwo")
+	@ResponseBody 
+	public List<Category> showTwo(@RequestParam("id") Integer catId) {
+		List<Category> categories = categoryService.showTwo(catId);
+		return categories;
 	}
 }

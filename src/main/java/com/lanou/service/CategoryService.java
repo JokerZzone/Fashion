@@ -15,6 +15,9 @@ public interface CategoryService {
 	//xy
 	public List<Map<String, Object>> selectDesc();
 	
-	public List<Category> findOne();
+	public List<Category> showOne();
+
+	public List<Category> showTwo(Integer catId);
 	
+
 }

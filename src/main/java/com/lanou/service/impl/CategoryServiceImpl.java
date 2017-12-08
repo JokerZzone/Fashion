@@ -33,7 +33,6 @@ public class CategoryServiceImpl implements CategoryService {
 		String[] temp = nav.getCatData().split("#");
 		for (int i = 0; i < temp.length; i++) {
 			if (temp[i].contains(category.getCatName())) {
-				System.out.println(temp[i].split(category.getCatName() + ":")[1]);
 				return temp[i].split(category.getCatName() + ":")[1];
 			}
 		}
@@ -63,7 +62,7 @@ public class CategoryServiceImpl implements CategoryService {
 	}
 
 	/******************************************************************/
-//	一级分类展示
+	//一级分类展示
 	@Transactional
 	public List<Map<String, Object>> selectDesc() {
 		List<Category> fatherList = categoryMapper.findSimpleFatherCategory();
@@ -92,9 +91,15 @@ public class CategoryServiceImpl implements CategoryService {
 		return one;
 	}
 
+	//超值小样、明星推荐、新品上架分类功能
 	//展示一级分类
-	public List<Category> findOne() {
+	public List<Category> showOne() {
 		// TODO Auto-generated method stub
 		return categoryMapper.findSimpleFatherCategory();
+	}
+	//点击一级分类展示二级分类
+	public List<Category> showTwo(Integer catId) {
+		// TODO Auto-generated method stub
+		return categoryMapper.selectCategoryChildrenByParentId(catId);
 	}
 }

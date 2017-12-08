@@ -14,8 +14,6 @@ public class Goods {
 	
 	private String discount;
 
-	private String goodsUrl;
-
 	private int clickCount;
 
 	private int isHot;
@@ -23,6 +21,8 @@ public class Goods {
 	private GoodsGallery goodsGallery;
 	
 	private Brand brand;
+	
+	private GoodsCat goodsCat;
 
 	public Goods() {
 		super();
@@ -101,19 +101,20 @@ public class Goods {
 		this.brand = brand;
 	}
 
-	public String getGoodsUrl() {
-		return goodsUrl;
-	}
-
-	public void setGoodsUrl(String goodsUrl) {
-		this.goodsUrl = goodsUrl;
-	}
-
 	public int getClickCount() {
 		return clickCount;
 	}
 
 	public void setClickCount(int clickCount) {
 		this.clickCount = clickCount;
+	}
+
+	public GoodsCat getGoodsCat() {
+		return goodsCat;
+	}
+
+	public void setGoodsCat(GoodsCat goodsCat) {
+		this.goodsCat = goodsCat;
 	}	
+	
 }

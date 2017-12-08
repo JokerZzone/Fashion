@@ -5,15 +5,19 @@
 <mapper namespace="com.lanou.dao.GoodsMapper">
 
 	<select id="findGoods" parameterType="int" resultMap="findGoodsResult">
-		select * from goods where goods_id = #{aa}
+		select *
+		from goods where goods_id = #{aa}
 	</select>
-	
+
 	<select id="findGoodsById" parameterType="int" resultMap="findGoodsResult">
-		select * from goods as a, goods_gallery as b where 
-			a.goods_id = b.goods_id and a.goods_id = #{aa}
+		select
+		* from goods as a, goods_gallery as b where
+		a.goods_id = b.goods_id and
+		a.goods_id = #{aa}
 	</select>
 	<select id="findBrand" parameterType="int" resultMap="result">
-		select * from brand where brand_id = #{aa}
+		select *
+		from brand where brand_id = #{aa}
 	</select>
 	<resultMap type="Goods" id="findGoodsResult">
 		<id column="goods_id" property="goodsId" javaType="int" />
@@ -26,13 +30,98 @@
 		<association property="goodsGallery" javaType="GoodsGallery">
 			<id column="img_id" property="imgId" javaType="int" />
 			<result column="goods_id" property="goodsId" javaType="int" />
-			<result column="img_url" property="imgUrl" javaType="String"/>
+			<result column="img_url" property="imgUrl" javaType="String" />
 		</association>
-		<association property="brand" javaType="Brand" select="findBrand" column="brand_id"/>
+		<association property="brand" javaType="Brand" select="findBrand"
+			column="brand_id" />
 	</resultMap>
-   	<resultMap type="Brand" id="result">
-   		<id column="brand_id" property="brandId" javaType="int"/>
-		<result column="brand_name" property="brandName" javaType="String"/>
-		<result column="brand_img" property="brandImg" javaType="String"/>
-   	</resultMap>
+	<resultMap type="Brand" id="result">
+		<id column="brand_id" property="brandId" javaType="int" />
+		<result column="brand_name" property="brandName" javaType="String" />
+		<result column="brand_img" property="brandImg" javaType="String" />
+	</resultMap>
+
+
+	<!-- xy -->
+	<!-- 点击标题获取的商品 -->
+	<select id="findAllGoods" resultMap="findResult">
+		select a.goods_id,a.goods_name,a.shop_price,a.discount from goods as
+		a,goods_cat as b
+		where a.goods_id = b.goods_id and b.nav_id =
+		#{titleId}
+		<if test="chooseId ==1">
+			<if test="sortId == 0">
+				order by shop_price Asc LIMIT #{pageId},#{pageCount}
+			</if>
+			<if test="sortId == 1">
+				order by shop_price Desc LIMIT #{pageId},#{pageCount}
+			</if>
+		</if>
+		<if test="chooseId == 0">
+			LIMIT #{pageId},36
+		</if>
+	</select>
+	<resultMap type="Goods" id="findResult">
+		<id column="goods_id" property="goodsId" javaType="int" />
+		<result column="goods_name" property="goodsName" javaType="String" />
+		<result column="shop_price" property="shopPrice" javaType="double" />
+		<result column="discount" property="discount" javaType="String" />
+		<association property="goodsGallery" javaType="GoodsGallery">
+			<id column="img_id" property="imgId" javaType="int" />
+			<result column="goods_id" property="goodsId" javaType="int" />
+			<result column="img_url" property="imgUrl" javaType="String" />
+		</association>
+	</resultMap>
+	<!-- 获取标题所有商品数量 -->
+	<select id="goodsTotal" parameterType="int" resultType="int">
+		select
+		count(*) from goods_cat where nav_id = #{aa}
+	</select>
+
+	<!-- 获取二级商品的商品 -->
+	<select id="findSecondGoods" resultMap="findResult">
+		select a.goods_id,a.goods_name,a.shop_price,a.discount from goods as
+		a,goods_cat as b
+		where a.goods_id = b.goods_id and b.cat_id = #{catId}
+		<if test="chooseId ==1">
+			<if test="sortId == 0">
+				order by shop_price Asc LIMIT #{pageId},#{pageCount}
+			</if>
+			<if test="sortId == 1">
+				order by shop_price Desc LIMIT #{pageId},#{pageCount}
+			</if>
+		</if>
+		<if test="chooseId == 0">
+			LIMIT #{pageId},36
+		</if>
+	</select>
+	<!-- 获取二级分类所有商品数量 -->
+	<select id="SecondGoodsTotal" parameterType="int" resultType="int">
+		select count(*) from goods_cat where cat_id = #{aa}
+	</select>
+	
+	<!-- 通过首页点击获取的商品 -->
+	<select id="findHomePage" resultMap="findResult">
+		select a.goods_id,a.goods_name,a.shop_price,a.discount from goods
+		where catId = #{catId}
+		<if test="chooseId ==1">
+			<if test="sortId == 0">
+				order by shop_price Asc LIMIT #{pageId},#{pageCount}
+			</if>
+			<if test="sortId == 1">
+				order by shop_price Desc LIMIT #{pageId},#{pageCount}
+			</if>
+		</if>
+		<if test="chooseId == 0">
+			LIMIT #{pageId},36
+		</if>
+	</select>
+	<!-- 获取二级分类所有商品数量 -->
+	<select id="SecondGoodsTotal" parameterType="int" resultType="int">
+		select count(*) from goods_cat where cat_id = #{aa}
+	</select>
+	
+	
+	
+	
 </mapper>
