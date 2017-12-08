@@ -49,19 +49,6 @@ public class GoodsServiceImpl implements GoodsService {
 		return maps;
 	}
 
-	public Map<String, Object> homePageGoods(int keyId, int chooseId, int pageId, int sortId) {
-		// TODO Auto-generated method stub
-		List<Goods> goods = goodsMapper.showHomePage(keyId, chooseId, pageId, sortId,36);
-		int pageId2 = (pageId - 1) * PAGE;
-		total = goodsMapper.homePageGoodsTotal(keyId);
-		totalPage = (int) Math.ceil((double) (total) / (PAGE));
-		Map<String, Object> maps = new HashMap<String, Object>();
-		maps.put("total", total);
-		maps.put("totalPage", totalPage);
-		maps.put("goodList", goods);
-		return maps;
-	}
-
 	public List<Goods> recommendGoods() {
 		// TODO Auto-generated method stub
 		return goodsMapper.recommendGoods();

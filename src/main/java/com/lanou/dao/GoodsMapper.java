@@ -33,11 +33,6 @@ public interface GoodsMapper {
 	public List<Goods> showHomePage(@Param("keyId") int keyId, @Param("chooseId") int chooseId,
 			@Param("pageId") int pageId, @Param("sortId") int sortId, @Param("pageCount") int pageCount);
 	
-	//首页商品数量
-	public int  homePageGoodsTotal(int keyId);
-	
-	
-	
 	//明星推荐
 	public List<Goods> recommendGoods();
 	

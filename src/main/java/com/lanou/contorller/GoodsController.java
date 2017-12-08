@@ -36,15 +36,6 @@ public class GoodsController {
 		Map<String, Object> maps = goodsService.SecondGoods(catId, chooseId, pageId, sortId);
 		return maps;
 	}
-	
-	//点击一级分类展示商品
-	@RequestMapping("/homePage")
-	@ResponseBody
-	public Map<String, Object> homePageGoods(@RequestParam("keyId") int keyId, @RequestParam("chooseId") int chooseId,
-			@RequestParam("pageId") int pageId, @RequestParam("sortId") int sortId) {
-		Map<String, Object> maps = goodsService.homePageGoods(keyId, chooseId, pageId, sortId);
-		return maps;
-	}
 
 	//查找明星推荐商品
 	@RequestMapping("/recommond")
