@@ -7,6 +7,8 @@ public class BrandGallery {
 	private int brandId;
 	
 	private String brandImg;
+	
+	private String linkUrl;
 
 	public BrandGallery() {
 		super();
@@ -35,5 +37,13 @@ public class BrandGallery {
 
 	public void setBrandImg(String brandImg) {
 		this.brandImg = brandImg;
+	}
+
+	public String getLinkUrl() {
+		return linkUrl;
+	}
+
+	public void setLinkUrl(String linkUrl) {
+		this.linkUrl = linkUrl;
 	}
 }

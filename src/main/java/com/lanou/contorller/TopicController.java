@@ -14,19 +14,15 @@ import com.lanou.service.TopicService;
 public class TopicController {
 
 	@Autowired
-	private TopicService service;
+	private TopicService topicService;
 	
 	@RequestMapping("/showTopic")
 	@ResponseBody
-	public Topic showTopic(@RequestParam("id") int topicId) throws Exception {
+	public Topic showTopic(@RequestParam("id") int topicId, int type) throws Exception {
 		
-		return service.showTopic(topicId);
+		return topicService.showTopic(topicId, type);
 	}
 	
-	@RequestMapping("/addTopic")
-	public void addTopic(@RequestParam("id") int topicId) {
-		
-		service.addDataInfo(topicId);
-		
-	}
+	
+	
 }

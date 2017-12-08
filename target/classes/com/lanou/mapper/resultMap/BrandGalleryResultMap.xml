@@ -8,6 +8,7 @@
   		<id column="img_id" property="imgId" javaType="int"/>
 		<result column="brand_id" property="brandId" jdbcType="VARCHAR"/>
 		<result column="brand_img" property="brandImg" jdbcType="VARCHAR"/>
+		<result column="link_url" property="linkUrl" jdbcType="VARCHAR"/>
   	</resultMap>
   	
 </mapper>

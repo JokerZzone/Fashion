@@ -4,8 +4,8 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lanou.dao.TopicMapper">
 	
-	<select id="selectTopic" parameterType="int" resultMap="TopicResultMap.topicResult">
-		select * from topic where topic_id = #{topicId}
+	<select id="selectTopic" resultMap="TopicResultMap.topicResult">
+		select * from topic where topic_id = #{0} and type = #{1}
 	</select>
 	
 	

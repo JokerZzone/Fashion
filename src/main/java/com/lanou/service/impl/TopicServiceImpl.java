@@ -28,8 +28,8 @@ public class TopicServiceImpl implements TopicService {
 	private BrandMapper brandMapper;
 	
 	@Transactional
-	public Topic showTopic(int topicId) {
-		Topic topic = topicMapper.selectTopic(topicId);
+	public Topic showTopic(int topicId, int type) {
+		Topic topic = topicMapper.selectTopic(topicId, type);
 		if (topic.getTempGoods() != null) {
 			String[] temp = topic.getTempGoods().split("#");
 			List<Goods> goods = new ArrayList<Goods>();
