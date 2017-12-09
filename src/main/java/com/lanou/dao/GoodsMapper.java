@@ -39,7 +39,13 @@ public interface GoodsMapper {
 	//清仓
 	public List<Goods> saleOut();
 	
+	//本周特价
+	public List<Goods> weeklyGoods(@Param("weeklyId") int weeklyId, @Param("chooseId") int chooseId,
+			@Param("pageId") int pageId,@Param("pageCount") int pageCount);
 	
+	// 获取本周特价商品数量
+	public int weeklyGoodsTotal();
 	
-	
+	//根据商品查询所有商品信息
+	public Goods findGoodsNews(int goodsId);
 }

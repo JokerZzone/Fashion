@@ -19,4 +19,10 @@ public interface GoodsService {
 	
 	//展示清仓商品
 	public List<Goods> saleOutGoods(); 
+	
+	//展示本周特价
+	public Map<String, Object> weeklyGoods(int weeklyId, int chooseId, int pageId);
+	
+	//根据id查询商品信息
+	public Goods findGoodsNews(int goodsId);
 }

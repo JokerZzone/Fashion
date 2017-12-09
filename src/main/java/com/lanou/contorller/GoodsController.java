@@ -52,4 +52,22 @@ public class GoodsController {
 		List<Goods> goods = goodsService.saleOutGoods();
 		return goods;
 	}
+	
+	//本周特价商品
+	@RequestMapping("/weekly")
+	@ResponseBody
+	public Map<String, Object> weeklyGoods(@RequestParam("weeklyId") int weeklyId, @RequestParam("chooseId") int chooseId,
+			@RequestParam("pageId") int pageId) {
+		Map<String, Object> maps = goodsService.weeklyGoods(weeklyId, chooseId, pageId);
+		return maps;
+	}
+	
+	//根据id获取上商品信息
+	@RequestMapping("goodsNews")
+	@ResponseBody
+	public Goods findGoodsNews(int goodsId) {
+		Goods good = goodsService.findGoodsNews(goodsId);
+		return good;
+	}
+	
 }

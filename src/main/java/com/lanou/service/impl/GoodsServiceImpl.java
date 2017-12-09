@@ -58,4 +58,22 @@ public class GoodsServiceImpl implements GoodsService {
 		// TODO Auto-generated method stub
 		return goodsMapper.saleOut();
 	}
+
+	public Map<String, Object> weeklyGoods(int weeklyId, int chooseId, int pageId) {
+		// TODO Auto-generated method stub
+		int pageId2 = (pageId - 1) * PAGE;
+		List<Goods> goods = goodsMapper.weeklyGoods(weeklyId,chooseId, pageId2, 36);
+		total = goodsMapper.weeklyGoodsTotal();
+		totalPage = (int) Math.ceil((double) (total) / (PAGE));
+		Map<String, Object> maps = new HashMap<String, Object>();
+		maps.put("total", total);
+		maps.put("totalPage", totalPage);
+		maps.put("goodList", goods);
+		return maps;
+	}
+
+	public Goods findGoodsNews(int goodsId) {
+		// TODO Auto-generated method stub
+		return goodsMapper.findGoodsNews(goodsId);
+	}
 }
