@@ -29,4 +29,11 @@ public interface GoodsMapper {
 	// 获取二级分类的所有商品数量
 	public int SecondGoodsTotal(int catId);
 
+	/**
+	 * sp
+	 * 
+	 */
+	public List<Goods> selectGoodsAttr_idByTitle(int titleId);
+	public List<Goods> selectGoodsAttr_idByCate(int catId);
+	
 }

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lanou.dao.GoodsAttributeMapper">
+
+	<select id="selectGoodAttributeById" parameterType="int" resultMap="GoodsAttributeResultMap.GoodAttributeResult">
+		select attr_id,attr_name,attr_type from attribute where attr_id = #{attr_id}
+	</select>
+	
+	
+</mapper>

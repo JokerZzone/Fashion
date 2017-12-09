@@ -25,6 +25,18 @@ public class Goods {
 	private Brand subBrand;
 	
 	private List<GoodsGallery> goodsGalleries;
+	
+	//sp
+	private String goodsAttr_id;
+	
+	private Integer brandId;
+
+	public Goods(Integer goodsId, String goodsAttr_id, Integer brandId) {
+		super();
+		this.goodsId = goodsId;
+		this.goodsAttr_id = goodsAttr_id;
+		this.brandId = brandId;
+	}
 
 	public Goods() {
 		super();
@@ -118,4 +130,21 @@ public class Goods {
 	public void setGoodsGalleries(List<GoodsGallery> goodsGalleries) {
 		this.goodsGalleries = goodsGalleries;
 	}
+	
+	public String getGoodsAttr_id() {
+		return goodsAttr_id;
+	}
+
+	public void setGoodsAttr_id(String goodsAttr_id) {
+		this.goodsAttr_id = goodsAttr_id;
+	}	
+
+	public Integer getBrandId() {
+		return brandId;
+	}
+
+	public void setBrandId(Integer brandId) {
+		this.brandId = brandId;
+	}
+
 }

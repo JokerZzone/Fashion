@@ -44,7 +44,7 @@
 		select count(*) from goods_cat where nav_id = #{aa}
 	</select>
 
-	<!-- 获取二级商品的商品 -->
+	<!-- 获取二级分类的商品 -->
 	<select id="findSecondGoods" resultMap="GoodsResultMap.goodsResult">
 		select a.goods_id,a.goods_name,a.shop_price,a.discount from goods as
 		a,goods_cat as b
@@ -66,5 +66,25 @@
 		select count(*) from goods_cat where cat_id = #{aa}
 	</select>
 	
+	
+	<!-- sp -->
+	<select id="selectGoodsAttr_idByTitle" parameterType="int" resultMap="GoodsResultMap.findGoodsAttr_idByTitleResult">
+		select a.attr_id,a.brand_id,a.goods_id
+			from 
+		goods as a,goods_cat as b
+			where
+		a.goods_id = b.goods_id 
+			and
+		b.nav_id = #{titleId}
+	</select>
+	<select id="selectGoodsAttr_idByCate" parameterType="int" resultMap="GoodsResultMap.findGoodsAttr_idByCateResult">
+		select a.attr_id,a.brand_id,a.goods_id
+			from 
+		goods as a,goods_cat as b
+			where
+		a.goods_id = b.goods_id 
+			and 
+		b.cat_id = #{catId}
+	</select>
 	
 </mapper>

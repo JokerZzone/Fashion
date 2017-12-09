@@ -22,5 +22,11 @@
 		
 		select * from category where parent_id = #{parentId}
 	</select>
+
+	<!-- sp -->	
+	<select id="confirmCategoryType"  parameterType="int" resultType="int">
+		select parent_id from category where cat_id = #{cat_id}
+	</select>
+	
 	
 </mapper>

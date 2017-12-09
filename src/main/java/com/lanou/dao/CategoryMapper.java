@@ -19,4 +19,6 @@ public interface CategoryMapper {
 	
 	public List<Category> selectCategoryChildrenByParentId(Integer parentId);
 	
+	//sp
+	public int confirmCategoryType(int cat_id);
 }

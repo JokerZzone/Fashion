@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="GoodsAttributeResultMap">
+	
+	<resultMap type="GoodsAttribute" id="GoodAttributeResult">
+		<id column="attr_id" property="goodsAttrId" javaType="int"/>
+		<result column="attr_name" property="goodsAttrName" javaType="String"/>
+		<result column="attr_type" property="goodsAttrType" javaType="INTEGER"/>
+	</resultMap>
+</mapper>
