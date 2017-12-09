@@ -4,16 +4,15 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="TopicResultMap">
 	
-  	<resultMap type="Topic" id="topicResult" autoMapping="false">
+  	<resultMap type="Topic" id="topicResult">
   		<id column="topic_id" property="topicId" javaType="int"/>
   		<result column="title" property="title" javaType="String"/>
   		<result column="start_time" property="startTime" javaType="String"/>
   		<result column="end_time" property="endTime" javaType="String"/>
   		<result column="state" property="state" javaType="int"/>
+  		<result column="ad_id" property="tempAds" javaType="String"/>
   		<result column="goods_id" property="tempGoods" javaType="String"/>
   		<result column="brand_id" property="tempBrands" javaType="String"/>
-  		<association select="com.lanou.dao.AdMapper.findAdById" 
-  			column="ad_id" property="ads" javaType="Ad" />
   	</resultMap>
   	
   	<!-- 

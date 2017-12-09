@@ -14,11 +14,13 @@ public class Topic {
 	
 	private int state;
 	
+	private String tempAds;
+	
 	private String tempGoods;
 	
 	private String tempBrands;
 	
-	private Ad ads;
+	private List<Ad> ads;
 	
 	private List<Goods> goods;
 	
@@ -69,12 +71,20 @@ public class Topic {
 		this.state = state;
 	}
 
-	public Ad getAds() {
+	public List<Ad> getAds() {
 		return ads;
 	}
 
-	public void setAds(Ad ads) {
+	public void setAds(List<Ad> ads) {
 		this.ads = ads;
+	}
+
+	public String getTempAds() {
+		return tempAds;
+	}
+
+	public void setTempAds(String tempAds) {
+		this.tempAds = tempAds;
 	}
 
 	public String getTempGoods() {

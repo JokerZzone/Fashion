@@ -8,6 +8,7 @@
 		<id column="img_id" property="imgId" javaType="int" />
 		<result column="goods_id" property="goodsId" javaType="int" />
 		<result column="goods_img" property="goodsImg" javaType="String"/>
+		<result column="img_desc" property="imgDesc" javaType="String"/>
 	</resultMap>
 	
 </mapper>

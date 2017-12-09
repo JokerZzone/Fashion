@@ -10,6 +10,7 @@
 	
 	
 	
+	
 	<select id="selectLikeDesc_Letter" resultMap="BrandResultMap.brandResult">
 		select * from brand where brand_desc like concat(#{braDesc},'%')
 	</select>

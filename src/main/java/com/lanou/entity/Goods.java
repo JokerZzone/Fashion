@@ -7,6 +7,8 @@ public class Goods {
 	private Integer goodsId;
 
 	private String goodsName;
+	
+	private String goodsNameEn;
 
 	private String goodsDesc;
 	
@@ -53,6 +55,14 @@ public class Goods {
 
 	public void setGoodsName(String goodsName) {
 		this.goodsName = goodsName;
+	}
+
+	public String getGoodsNameEn() {
+		return goodsNameEn;
+	}
+
+	public void setGoodsNameEn(String goodsNameEn) {
+		this.goodsNameEn = goodsNameEn;
 	}
 
 	public String getGoodsDesc() {

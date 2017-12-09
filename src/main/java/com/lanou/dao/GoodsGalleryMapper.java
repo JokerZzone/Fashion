@@ -10,5 +10,5 @@ public interface GoodsGalleryMapper {
 	//wz
 	public Goods findGoodsGalleryById(int goodsId);
 	
-	
+	public int updateImgDesc(String json, int imgId);
 }

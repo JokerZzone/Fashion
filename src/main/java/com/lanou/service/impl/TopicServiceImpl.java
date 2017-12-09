@@ -7,9 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.lanou.dao.AdMapper;
 import com.lanou.dao.BrandMapper;
 import com.lanou.dao.GoodsMapper;
 import com.lanou.dao.TopicMapper;
+import com.lanou.entity.Ad;
 import com.lanou.entity.Brand;
 import com.lanou.entity.Goods;
 import com.lanou.entity.Topic;
@@ -22,14 +24,25 @@ public class TopicServiceImpl implements TopicService {
 	private TopicMapper topicMapper;
 	
 	@Autowired
+	private AdMapper adMapper;
+	
+	@Autowired
 	private GoodsMapper goodsMapper;
 	
 	@Autowired
 	private BrandMapper brandMapper;
 	
 	@Transactional
-	public Topic showTopic(int topicId, int type) {
-		Topic topic = topicMapper.selectTopic(topicId, type);
+	public Topic showTopic(int topicId) {
+		Topic topic = topicMapper.selectTopic(topicId);
+		if (topic.getTempAds() != null) {
+			String[] temp = topic.getTempAds().split("#");
+			List<Ad> ads = new ArrayList<Ad>();
+			for (int i = 0; i < temp.length; i++) {
+				ads.add(adMapper.findAdById(Integer.parseInt(temp[i])));
+			}
+			topic.setAds(ads);
+		}
 		if (topic.getTempGoods() != null) {
 			String[] temp = topic.getTempGoods().split("#");
 			List<Goods> goods = new ArrayList<Goods>();
@@ -37,7 +50,6 @@ public class TopicServiceImpl implements TopicService {
 				goods.add(goodsMapper.findGoodsById(Integer.parseInt(temp[i])));
 			}
 			topic.setGoods(goods);
-			
 		}
 		if (topic.getTempBrands() != null) {
 			String[] temp = topic.getTempBrands().split("#");

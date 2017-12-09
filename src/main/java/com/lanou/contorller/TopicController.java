@@ -18,11 +18,9 @@ public class TopicController {
 	
 	@RequestMapping("/showTopic")
 	@ResponseBody
-	public Topic showTopic(@RequestParam("id") int topicId, int type) throws Exception {
+	public Topic showTopic(@RequestParam("id") int topicId) throws Exception {
 		
-		return topicService.showTopic(topicId, type);
+		return topicService.showTopic(topicId);
 	}
-	
-	
 	
 }

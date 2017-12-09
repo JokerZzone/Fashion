@@ -4,20 +4,9 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lanou.dao.GoodsMapper">
 
-	<select id="findGoods" parameterType="int" resultMap="GoodsResultMap.goodsResult">
+	<select id="findGoodsById" parameterType="int" resultMap="GoodsResultMap.goodsResult">
 		select *
 		from goods where goods_id = #{aa}
-	</select>
-
-	<select id="findGoodsById" parameterType="int" resultMap="GoodsResultMap.goodsResult">
-		select
-		* from goods as a, goods_gallery as b where
-		a.goods_id = b.goods_id and
-		a.goods_id = #{aa}
-	</select>
-	<select id="findBrand" parameterType="int" resultMap="GoodsResultMap.goodsResult">
-		select * 
-		from brand where brand_id = #{aa}
 	</select>
 
 	<!-- xy -->
@@ -65,26 +54,6 @@
 	<select id="SecondGoodsTotal" parameterType="int" resultType="int">
 		select count(*) from goods_cat where cat_id = #{aa}
 	</select>
-	
-	<!-- 点击一级分类获取的商品 -->
-	<select id="showHomePage" resultMap="GoodsResultMap.goodsResult">
-		select goods_id,goods_name,shop_price,discount from goods where key_id = #{keyId} 
-		<if test="chooseId ==1">
-			<if test="sortId == 0">
-				order by shop_price Asc LIMIT #{pageId},#{pageCount}
-			</if>
-			<if test="sortId == 1">
-				order by shop_price Desc LIMIT #{pageId},#{pageCount}
-			</if>
-		</if>
-		<if test="chooseId == 0">
-			LIMIT #{pageId},36
-		</if>
-	</select>
-	<select id="homePageGoodsTotal" parameterType="int" resultType="int">
-		select count(*) from goods where key_Id = #{aa}
-	</select>
-	
 	
 	<!-- 明星推荐方法 -->
 	<select id="recommendGoods" resultMap="GoodsResultMap.goodsResult">

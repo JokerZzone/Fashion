@@ -5,7 +5,7 @@
 <mapper namespace="com.lanou.dao.TopicMapper">
 	
 	<select id="selectTopic" resultMap="TopicResultMap.topicResult">
-		select * from topic where topic_id = #{0} and type = #{1}
+		select * from topic where topic_id = #{0}
 	</select>
 	
 	

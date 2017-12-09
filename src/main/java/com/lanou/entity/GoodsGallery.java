@@ -7,6 +7,8 @@ public class GoodsGallery {
 	private int goodsId;
 	
 	private String goodsImg;
+	
+	private String imgDesc;
 
 	public GoodsGallery() {
 		super();
@@ -35,5 +37,13 @@ public class GoodsGallery {
 
 	public void setGoodsImg(String goodsImg) {
 		this.goodsImg = goodsImg;
+	}
+
+	public String getImgDesc() {
+		return imgDesc;
+	}
+
+	public void setImgDesc(String imgDesc) {
+		this.imgDesc = imgDesc;
 	}
 }
