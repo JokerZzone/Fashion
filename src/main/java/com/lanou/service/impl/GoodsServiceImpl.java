@@ -65,9 +65,14 @@ public class GoodsServiceImpl implements GoodsService {
 		return goodsMapper.saleOut();
 	}
 
+	public Goods showGoodsById(int goodsId) {
+		
+		return goodsMapper.findGoodsById(goodsId);
+	}
+	
 	public void updateImgDesc() {
 		
-		String str = "\"M\":\"1\",\"S\":\"2#3#4#\",\"D\":\"5#6#7#8#9#10#11\"";
+		String str = "{\"M\":\"1\",\"S\":\"2#3#4#\",\"D\":\"5#6#7#8#9#10#11\"}";
 //		ObjectMapper mapper = new ObjectMapper();
 //		String json = null;
 //		try {
@@ -79,4 +84,5 @@ public class GoodsServiceImpl implements GoodsService {
 		int a = goodsGalleryMapper.updateImgDesc(str,1);
 		System.out.println(a);
 	}
+
 }

@@ -1,7 +1,10 @@
 package com.lanou.dao;
 
+import org.springframework.stereotype.Repository;
+
 import com.lanou.entity.User;
 
+@Repository
 public interface UserMapper {
 
 	public User confirmUser(String username);

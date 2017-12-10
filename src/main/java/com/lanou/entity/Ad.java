@@ -8,6 +8,12 @@ public class Ad {
 	
 	private String adName;
 	
+	private String startTime;
+	
+	private String endTime;
+	
+	private String imgDesc;
+	
 	private List<AdGallery> adGalleries;
 	
 	public Ad() {
@@ -29,6 +35,30 @@ public class Ad {
 
 	public void setAdName(String adName) {
 		this.adName = adName;
+	}
+
+	public String getStartTime() {
+		return startTime;
+	}
+
+	public void setStartTime(String startTime) {
+		this.startTime = startTime;
+	}
+
+	public String getEndTime() {
+		return endTime;
+	}
+
+	public void setEndTime(String endTime) {
+		this.endTime = endTime;
+	}
+
+	public String getImgDesc() {
+		return imgDesc;
+	}
+
+	public void setImgDesc(String imgDesc) {
+		this.imgDesc = imgDesc;
 	}
 
 	public List<AdGallery> getAdGalleries() {

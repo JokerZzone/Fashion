@@ -8,6 +8,8 @@ public class AdGallery {
 	
 	private String adImg;
 	
+	private String imgSuff;
+	
 	private String adLink;
 
 	public AdGallery() {
@@ -46,5 +48,12 @@ public class AdGallery {
 	public void setAdLink(String adLink) {
 		this.adLink = adLink;
 	}
-	
+
+	public String getImgSuff() {
+		return imgSuff;
+	}
+
+	public void setImgSuff(String imgSuff) {
+		this.imgSuff = imgSuff;
+	}
 }

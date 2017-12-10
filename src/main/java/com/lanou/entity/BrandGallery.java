@@ -8,6 +8,8 @@ public class BrandGallery {
 	
 	private String brandImg;
 	
+	private String imgSuff;
+	
 	private String linkUrl;
 
 	public BrandGallery() {
@@ -45,5 +47,13 @@ public class BrandGallery {
 
 	public void setLinkUrl(String linkUrl) {
 		this.linkUrl = linkUrl;
+	}
+
+	public String getImgSuff() {
+		return imgSuff;
+	}
+
+	public void setImgSuff(String imgSuff) {
+		this.imgSuff = imgSuff;
 	}
 }

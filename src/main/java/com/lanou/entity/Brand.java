@@ -13,6 +13,8 @@ public class Brand {
 	private int sortOrder;
 
 	private int isShow;
+	
+	private String imgDesc;
 
 	private List<BrandGallery> brandGalleries;
 
@@ -59,6 +61,14 @@ public class Brand {
 
 	public void setIsShow(int isShow) {
 		this.isShow = isShow;
+	}
+
+	public String getImgDesc() {
+		return imgDesc;
+	}
+
+	public void setImgDesc(String imgDesc) {
+		this.imgDesc = imgDesc;
 	}
 
 	public List<BrandGallery> getBrandGalleries() {

@@ -54,7 +54,8 @@ public class GoodsController {
 	}
 	
 	@RequestMapping("/do")
-	public void name() {
-		goodsService.updateImgDesc();
+	@ResponseBody
+	public Goods showGoods(@RequestParam("id") int goodsId) {
+		return goodsService.showGoodsById(goodsId);
 	}
 }

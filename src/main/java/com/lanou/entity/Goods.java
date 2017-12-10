@@ -18,15 +18,26 @@ public class Goods {
 	
 	private String discount;
 
-	private String goodsUrl;
-
+	private String imgDesc;
+	
 	private int clickCount;
 
 	private int isHot;
 
 	private Brand subBrand;
 	
+	private Category subCategory;
+	
 	private List<GoodsGallery> goodsGalleries;
+
+	@Override
+	public String toString() {
+		return "Goods [goodsId=" + goodsId + ", goodsName=" + goodsName + ", goodsNameEn=" + goodsNameEn
+				+ ", goodsDesc=" + goodsDesc + ", marketPrice=" + marketPrice + ", shopPrice=" + shopPrice
+				+ ", discount=" + discount + ", imgDesc=" + imgDesc + ", clickCount=" + clickCount + ", isHot=" + isHot
+				+ ", subBrand=" + subBrand + ", subCategory=" + subCategory + ", goodsGalleries=" + goodsGalleries
+				+ "]";
+	}
 
 	public Goods() {
 		super();
@@ -97,12 +108,12 @@ public class Goods {
 		this.discount = discount;
 	}
 
-	public String getGoodsUrl() {
-		return goodsUrl;
+	public String getImgDesc() {
+		return imgDesc;
 	}
 
-	public void setGoodsUrl(String goodsUrl) {
-		this.goodsUrl = goodsUrl;
+	public void setImgDesc(String imgDesc) {
+		this.imgDesc = imgDesc;
 	}
 
 	public int getClickCount() {
@@ -119,6 +130,14 @@ public class Goods {
 
 	public void setSubBrand(Brand subBrand) {
 		this.subBrand = subBrand;
+	}
+
+	public Category getSubCategory() {
+		return subCategory;
+	}
+
+	public void setSubCategory(Category subCategory) {
+		this.subCategory = subCategory;
 	}
 
 	public List<GoodsGallery> getGoodsGalleries() {

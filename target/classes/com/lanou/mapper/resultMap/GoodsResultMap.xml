@@ -9,6 +9,7 @@
 		<result column="goods_name" property="goodsName" javaType="String" />
 		<result column="goods_name_en" property="goodsNameEn" javaType="String" />
 		<result column="goods_desc" property="goodsDesc" javaType="String" />
+		<result column="img_desc" property="imgDesc" javaType="String" />
 		<result column="market_price" property="marketPrice" javaType="double" />
 		<result column="shop_price" property="shopPrice" javaType="double" />
 		<result column="discount" property="discount" javaType="String" />

@@ -8,6 +8,7 @@
   		<id column="img_id" property="imgId" javaType="int"/>
   		<result column="ad_id" property="adId" javaType="int"/>
   		<result column="ad_img" property="adImg" javaType="String"/>
+  		<result column="img_suff" property="imgSuff" javaType="String"/>
   		<result column="ad_link" property="adLink" javaType="String"/>
   	</resultMap>
   	

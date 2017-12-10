@@ -7,6 +7,9 @@
   	<resultMap type="Ad" id="adResult">
   		<id column="ad_id" property="adId" javaType="int"/>
   		<result column="ad_name" property="adName" javaType="String"/>
+  		<result column="start_time" property="startTime" javaType="String"/>
+  		<result column="end_time" property="endTime" javaType="String"/>
+  		<result column="img_desc" property="imgDesc" javaType="String"/>
   		<collection select="com.lanou.dao.AdGalleryMapper.findByAdGalleryById" 
   			column="ad_id" property="adGalleries" javaType="java.util.List"/>
   	</resultMap>

@@ -10,6 +10,7 @@
 		<result column="brand_desc" property="brandDesc" jdbcType="VARCHAR"/>
 		<result column="site_url" property="siteUrl" jdbcType="VARCHAR"/>
 		<result column="sort_order" property="sortOrder" javaType="int"/>
+		<result column="img_desc" property="imgDesc" jdbcType="VARCHAR"/>
 		<collection select="com.lanou.dao.BrandGalleryMapper.findBrandGalleryById" 
   			column="brand_id" property="brandGalleries" javaType="java.util.List"/>
   	</resultMap>

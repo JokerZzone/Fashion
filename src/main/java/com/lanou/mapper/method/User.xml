@@ -4,18 +4,11 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lanou.dao.UserMapper">
 	
-	<resultMap type="User" id="userResult">
-		<id column="user_id" property="uId" javaType="int"/>
-		<result column="user_name" property="username" jdbcType="VARCHAR"/>
-		<result column="password" property="password" jdbcType="VARCHAR"/>
-		<result column="email" property="email" jdbcType="VARCHAR"/>
-	</resultMap>
-	
-	<select id="confirmUser" resultMap="userResult">
+	<select id="confirmUser" resultMap="UserResultMap.userResult">
 		select * from users where user_name = #{username}
 	</select>
 	
-	<select id="focusEmail" resultMap="userResult">
+	<select id="focusEmail" resultMap="UserResultMap.userResult">
 		select * from users where email = #{email}
 	</select>
 	
@@ -23,6 +16,8 @@
 		insert into users(user_name,password,email) values(#{username},#{password},#{email})
 	</insert>
 	
-  	
+  	<select id="comfirm" >
+  		select count(*) from cart where username
+  	</select>
   
 </mapper>

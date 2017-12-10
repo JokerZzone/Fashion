@@ -1,7 +1,10 @@
 package com.lanou.contorller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,12 +22,12 @@ public class UserContorller {
 	private UserService userService;
 	
 	//登录验证
-	@RequestMapping(value="/login.do",method=RequestMethod.POST)
-	@ResponseBody
-	public String confirmUser(User user) {
+	@RequestMapping(value="/login",method=RequestMethod.GET)
+	public String confirmUser(User user, HttpServletRequest request) {
 		String result = null;
 		User nowUser = userService.confirmUser(user.getUsername());
 		if (nowUser != null && user.getPassword().equals(nowUser.getPassword())) {
+			request.setAttribute("user", nowUser);
 			result = "success";
 		}else {
 			result = "error";//用户名或密码错误
@@ -33,7 +36,7 @@ public class UserContorller {
 	}
 	
 	//注册用户名失焦
-	@RequestMapping(value="/focusUsername.do",method=RequestMethod.GET)
+	@RequestMapping(value="/focusUsername",method=RequestMethod.GET)
 	@ResponseBody
 	public String focus(User user) {
 		String result = null;
@@ -47,7 +50,7 @@ public class UserContorller {
 	}
 	
 	//注册邮箱失焦
-	@RequestMapping(value="/focusEmail.do",method=RequestMethod.GET)
+	@RequestMapping(value="/focusEmail",method=RequestMethod.GET)
 	@ResponseBody
 	public String focusEmail(User user) {
 		String result = null;
@@ -61,7 +64,7 @@ public class UserContorller {
 	}
 	
 	//注册验证
-	@RequestMapping(value="/reg.do",method=RequestMethod.POST)
+	@RequestMapping(value="/reg",method=RequestMethod.POST)
 	@ResponseBody
 	public String reg(User user,String password2) {
 		

@@ -8,7 +8,7 @@ public class GoodsGallery {
 	
 	private String goodsImg;
 	
-	private String imgDesc;
+	private String imgSuff;
 
 	public GoodsGallery() {
 		super();
@@ -39,11 +39,11 @@ public class GoodsGallery {
 		this.goodsImg = goodsImg;
 	}
 
-	public String getImgDesc() {
-		return imgDesc;
+	public String getImgSuff() {
+		return imgSuff;
 	}
 
-	public void setImgDesc(String imgDesc) {
-		this.imgDesc = imgDesc;
+	public void setImgSuff(String imgSuff) {
+		this.imgSuff = imgSuff;
 	}
 }

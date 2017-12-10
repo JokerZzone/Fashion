@@ -21,5 +21,7 @@ public interface GoodsService {
 	public List<Goods> saleOutGoods(); 
 	
 	//wz
+	public Goods showGoodsById(int goodsId);
+	
 	public void updateImgDesc();
 }
