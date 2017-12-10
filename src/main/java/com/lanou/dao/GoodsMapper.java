@@ -34,7 +34,18 @@ public interface GoodsMapper {
 		);
 
 	// 点击超值小样获取所有商品数
-	public int goodsTotal(int titleId);
+	public int goodsTotal(
+			@Param("titleId") int titleId, 
+			@Param("brandId") int brandId,
+			@Param("typeId1") int typeId1,
+			@Param("typeId2") int typeId2,
+			@Param("typeId3") int typeId3,
+			@Param("typeId4") int typeId4,
+			@Param("typeId5") int typeId5,
+			@Param("typeId6") int typeId6,
+			@Param("typeId7") int typeId7,
+			@Param("typeId8") int typeId8
+		);
 
 	// 根据标题下的二级分类获取所有商品(分页、排序)
 	public List<Goods> findSecondGoods(
@@ -55,7 +66,18 @@ public interface GoodsMapper {
 		);
 
 	// 获取二级分类的所有商品数量
-	public int SecondGoodsTotal(int catId);
+	public int SecondGoodsTotal(
+			@Param("catId") int catId,
+			@Param("brandId") int brandId,
+			@Param("typeId1") int typeId1,
+			@Param("typeId2") int typeId2,
+			@Param("typeId3") int typeId3,
+			@Param("typeId4") int typeId4,
+			@Param("typeId5") int typeId5,
+			@Param("typeId6") int typeId6,
+			@Param("typeId7") int typeId7,
+			@Param("typeId8") int typeId8
+		);
 
 	/**
 	 * sp

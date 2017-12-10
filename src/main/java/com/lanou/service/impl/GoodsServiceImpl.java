@@ -55,7 +55,7 @@ public class GoodsServiceImpl implements GoodsService {
 		int pageId2 = (pageId - 1) * PAGE;
 		List<Goods> goods = goodsMapper.findAllGoods(titleId, chooseId, pageId2, sortId, 36, 
 				brandId, typeId1, typeId2, typeId3, typeId4, typeId5, typeId6, typeId7, typeId8);
-		total = goodsMapper.goodsTotal(titleId);
+		total = goodsMapper.goodsTotal(titleId,brandId, typeId1, typeId2, typeId3, typeId4, typeId5, typeId6, typeId7, typeId8);
 		totalPage = (int) Math.ceil((double) (total) / (PAGE));
 		Map<String, Object> maps = new HashMap<String, Object>();
 		maps.put("total", total);
@@ -84,7 +84,7 @@ public class GoodsServiceImpl implements GoodsService {
 		int pageId2 = (pageId - 1) * PAGE;
 		List<Goods> goods = goodsMapper.findSecondGoods(catId, chooseId, pageId2, sortId, 36, 
 				brandId, typeId1, typeId2, typeId3, typeId4, typeId5, typeId6, typeId7, typeId8);
-		total = goodsMapper.SecondGoodsTotal(catId);
+		total = goodsMapper.SecondGoodsTotal(catId,brandId, typeId1, typeId2, typeId3, typeId4, typeId5, typeId6, typeId7, typeId8);
 		totalPage = (int) Math.ceil((double) (total) / (PAGE));
 		Map<String, Object> maps = new HashMap<String, Object>();
 		maps.put("total", total);
@@ -136,13 +136,17 @@ public class GoodsServiceImpl implements GoodsService {
 			brand.setBrandDesc(brand.getBrandDesc().substring(0, 1));
 			goodsBrands.add(brand);							
 		}
-		goodsAttrMap.put("goodsBrands", goodsBrands);
+		if (goodsBrands != null) {
+			goodsAttrMap.put("goodsBrands", getGoodsBrandsLetterMap(goodsBrands));					
+		}
 		//other属性
 		List<GoodsAttribute> goodsAttributes = new ArrayList<GoodsAttribute>();
 		for (Integer attr_id : attr_idSet) {
 			goodsAttributes.add(goodsAttributeMapper.selectGoodAttributeById(attr_id));
 		}
-		goodsAttrMap.put("goodsAttributes", getOtherAttributeMap(goodsAttributes));
+		if (goodsAttributes != null) {
+			goodsAttrMap.put("goodsAttributes", getOtherAttributeMap(goodsAttributes));			
+		}
 		
 		return goodsAttrMap;
 	}
@@ -174,7 +178,9 @@ public class GoodsServiceImpl implements GoodsService {
 				goodsBrands.add(brand);
 			}
 		}
-		goodsAttrMap.put("goodsBrands", goodsBrands);
+		if (goodsBrands != null) {
+			goodsAttrMap.put("goodsBrands", getGoodsBrandsLetterMap(goodsBrands));			
+		}
 		//二级分类显示类别
 		if (confirmCategoryType(cat_id) == 2) {
 			goodsAttrMap.put("childrenCategorys", categoryMapper.selectCategoryChildrenByParentId(cat_id));
@@ -187,7 +193,9 @@ public class GoodsServiceImpl implements GoodsService {
 		for (Integer attr_id : attr_idSet) {	
 			goodsAttributes.add(goodsAttributeMapper.selectGoodAttributeById(attr_id));
 		}
-		goodsAttrMap.put("goodsAttributes",getOtherAttributeMap(goodsAttributes));
+		if (goodsAttributes != null) {
+			goodsAttrMap.put("goodsAttributes",getOtherAttributeMap(goodsAttributes));			
+		}
 		
 		return goodsAttrMap;
 	}
@@ -279,5 +287,60 @@ public class GoodsServiceImpl implements GoodsService {
 		return map;
 	}
 	
+	
+	//品牌首字母归类，得到Map
+	public Object getGoodsBrandsLetterMap(List<Brand> brands) {
+		
+		List<Brand> brands1 = new ArrayList<Brand>();
+		List<Brand> brands2 = new ArrayList<Brand>();
+		List<Brand> brands3 = new ArrayList<Brand>();
+		List<Brand> brands4 = new ArrayList<Brand>();
+		List<Brand> brands5 = new ArrayList<Brand>();
+		List<Brand> brands6 = new ArrayList<Brand>();
+		List<Brand> brands7 = new ArrayList<Brand>();
+		List<Brand> brands8 = new ArrayList<Brand>();
+		for (Brand brand : brands) {
+			switch (brand.getBrandDesc()) {
+			case "A":case "B":case "C":case "D":
+				brands1.add(brand);
+				break;
+			case "E":case "F":case "G":
+				brands2.add(brand);
+				break;
+			case "H":case "I":case "J":case "K":
+				brands3.add(brand);
+				break;
+			case "L":case "M":case "N":
+				brands4.add(brand);
+				break;
+			case "O":case "P":case "Q":
+				brands5.add(brand);
+				break;
+			case "R":case "S":case "T":
+				brands6.add(brand);
+				break;
+			case "U":case "V":case "W":
+				brands7.add(brand);
+				break;
+			case "X":case "Y":case "Z":
+				brands8.add(brand);
+				break;
+
+			default:
+				break;
+			}
+			
+		}
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("ABCD", brands1);
+		map.put("EFG", brands2);
+		map.put("HIJK", brands3);
+		map.put("LMN", brands4);
+		map.put("OPQ", brands5);
+		map.put("RST", brands6);
+		map.put("UVW", brands7);
+		map.put("XYZ", brands8);
+		return map;
+	}
 	
 }
