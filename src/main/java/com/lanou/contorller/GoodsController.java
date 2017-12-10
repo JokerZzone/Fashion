@@ -25,11 +25,11 @@ public class GoodsController {
 			@RequestParam("chooseId") int chooseId,
 			@RequestParam("pageId") int pageId,
 			@RequestParam("sortId") int sortId,
-			@RequestParam(value="brandId",required=false,defaultValue="0") int brandId
-//			@RequestParam(value="attr_idAndType",required=false,defaultValue="") String[] attr_idAndType
+			@RequestParam(value="brandId",required=false,defaultValue="0") int brandId,
+			@RequestParam(value="attr_idAndType",required=false,defaultValue="") String[] attr_idAndType
 			
 		) {
-		String[] attr_idAndType = {"1","1","14","2","18","3"};
+//		String[] attr_idAndType = {"1","1","14","2","18","3"};
 		Map<String, Object> maps = goodsService.titleGoods(titleId, chooseId, pageId, sortId,brandId,attr_idAndType);
 		return maps;
 	}
@@ -42,10 +42,10 @@ public class GoodsController {
 			@RequestParam("chooseId") int chooseId,
 			@RequestParam("pageId") int pageId,
 			@RequestParam("sortId") int sortId,
-			@RequestParam(value="brandId",required=false,defaultValue="0") int brandId
-//			@RequestParam(value="attr_idAndType",required=false,defaultValue="") String[] attr_idAndType
+			@RequestParam(value="brandId",required=false,defaultValue="0") int brandId,
+			@RequestParam(value="attr_idAndType",required=false,defaultValue="") String[] attr_idAndType
 		) {
-		String[] attr_idAndType = {"1","1","14","2"};
+//		String[] attr_idAndType = {"1","1","14","2","18","3"};
 		Map<String, Object> maps = goodsService.SecondGoods(catId, chooseId, pageId, sortId,brandId,attr_idAndType);
 		return maps;
 	}
