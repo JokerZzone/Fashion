@@ -30,4 +30,15 @@
   			column="goods_id" property="goodsGalleries" javaType="java.util.List"/>
 	</resultMap>
 	
+	<!-- sp -->
+	<resultMap type="Goods" id="findGoodsAttr_idByTitleResult">
+		<id column="goods_id" property="goodsId" javaType="int" />
+		<result column="attr_id" property="goodsAttr_id" javaType="String" />
+		<result column="brand_id" property="brandId" javaType="int" />
+	</resultMap>
+	<resultMap type="Goods" id="findGoodsAttr_idByCateResult">
+		<id column="goods_id" property="goodsId" javaType="int" />
+		<result column="attr_id" property="goodsAttr_id" javaType="String" />
+		<result column="brand_id" property="brandId" javaType="int" />
+	</resultMap>
 </mapper>

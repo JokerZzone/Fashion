@@ -16,7 +16,11 @@
 		<result column="is_hot" property="isHot" javaType="int" />
 		<association select="com.lanou.dao.BrandMapper.findBrandById" 
 			column="brand_id" property="subBrand" javaType="Brand"/>
+<<<<<<< HEAD
 		<collection select="com.lanou.dao.GoodsGalleryMapper.findGoodsGolleryById" 
+=======
+		<collection select="com.lanou.dao.GoodsMapper.findGoodsGolleryById"
+>>>>>>> origin/sun1
   			column="goods_id" property="goodsGalleries" javaType="java.util.List"/>
 	</resultMap>
 	
@@ -30,4 +34,15 @@
   			column="goods_id" property="goodsGalleries" javaType="java.util.List"/>
 	</resultMap>
 	
+	<!-- sp -->
+	<resultMap type="Goods" id="findGoodsAttr_idByTitleResult">
+		<id column="goods_id" property="goodsId" javaType="int" />
+		<result column="attr_id" property="goodsAttr_id" javaType="String" />
+		<result column="brand_id" property="brandId" javaType="int" />
+	</resultMap>
+	<resultMap type="Goods" id="findGoodsAttr_idByCateResult">
+		<id column="goods_id" property="goodsId" javaType="int" />
+		<result column="attr_id" property="goodsAttr_id" javaType="String" />
+		<result column="brand_id" property="brandId" javaType="int" />
+	</resultMap>
 </mapper>
