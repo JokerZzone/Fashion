@@ -25,8 +25,39 @@
 	<select id="findAllGoods" resultMap="GoodsResultMap.goodsResult">
 		select a.goods_id,a.goods_name,a.shop_price,a.discount from goods as
 		a,goods_cat as b
-		where a.goods_id = b.goods_id and b.nav_id =
-		#{titleId}
+		where a.goods_id = b.goods_id and b.nav_id = #{titleId}
+<!-- sp -->
+		<if test="brandId != 0">
+			and a.brand_id = #{brandId}
+		</if>
+		<if test="typeId1 != 0">
+			and a.attr_id like concat_ws('#',#{typeId1},'%','%','%','%','%','%')
+		</if>
+		<if test="typeId2 != 0">
+			and a.attr_id like concat_ws('#','%',#{typeId2},'%','%','%','%','%')
+		</if>
+		<if test="typeId3 != 0">
+			and a.attr_id like concat_ws('#','%','%',#{typeId3},'%','%','%','%')
+		</if>
+		<if test="typeId4 != 0">
+			and a.attr_id like concat_ws('#','%','%','%',#{typeId4},'%','%','%')
+		</if>
+		<if test="typeId5 != 0">
+			and a.attr_id like concat_ws('#','%','%','%','%',#{typeId5},'%','%')
+		</if>
+		<if test="typeId6 != 0">
+			and a.attr_id like concat_ws('#','%','%','%','%','%',#{typeId6},'%')
+		</if>
+		<if test="typeId7 != 0">
+			and a.attr_id like concat_ws('#','%','%','%','%','%','%',#{typeId7})
+		</if>
+		<if test="typeId8 != 0">
+			and a.attr_id like concat_ws('#','%','%','%','%','%','%','%',#{typeId8})
+		</if>
+		
+		
+<!-- /sp -->
+
 		<if test="chooseId ==1">
 			<if test="sortId == 0">
 				order by shop_price Asc LIMIT #{pageId},#{pageCount}
@@ -49,6 +80,36 @@
 		select a.goods_id,a.goods_name,a.shop_price,a.discount from goods as
 		a,goods_cat as b
 		where a.goods_id = b.goods_id and b.cat_id = #{catId}
+<!-- sp -->
+		<if test="brandId != 0">
+			and a.brand_id = #{brandId}
+		</if>
+		<if test="typeId1 != 0">
+			and a.attr_id like concat_ws('#',#{typeId1},'%','%','%','%','%','%')
+		</if>
+		<if test="typeId2 != 0">
+			and a.attr_id like concat_ws('#','%',#{typeId2},'%','%','%','%','%')
+		</if>
+		<if test="typeId3 != 0">
+			and a.attr_id like concat_ws('#','%','%',#{typeId3},'%','%','%','%')
+		</if>
+		<if test="typeId4 != 0">
+			and a.attr_id like concat_ws('#','%','%','%',#{typeId4},'%','%','%')
+		</if>
+		<if test="typeId5 != 0">
+			and a.attr_id like concat_ws('#','%','%','%','%',#{typeId5},'%','%')
+		</if>
+		<if test="typeId6 != 0">
+			and a.attr_id like concat_ws('#','%','%','%','%','%',#{typeId6},'%')
+		</if>
+		<if test="typeId7 != 0">
+			and a.attr_id like concat_ws('#','%','%','%','%','%','%',#{typeId7})
+		</if>
+		<if test="typeId8 != 0">
+			and a.attr_id like concat_ws('#','%','%','%','%','%','%','%',#{typeId8})
+		</if>
+<!-- /sp -->
+
 		<if test="chooseId ==1">
 			<if test="sortId == 0">
 				order by shop_price Asc LIMIT #{pageId},#{pageCount}
@@ -67,8 +128,8 @@
 	</select>
 	
 	
-	<!-- sp -->
-	<select id="selectGoodsAttr_idByTitle" parameterType="int" resultMap="GoodsResultMap.findGoodsAttr_idByTitleResult">
+<!-- sp -->
+	<select id="selectGoodsAttr_idByTitle" resultMap="GoodsResultMap.findGoodsAttr_idByTitleResult">
 		select a.attr_id,a.brand_id,a.goods_id
 			from 
 		goods as a,goods_cat as b
@@ -76,8 +137,36 @@
 		a.goods_id = b.goods_id 
 			and
 		b.nav_id = #{titleId}
+		<if test="brandId != 0">
+			and a.brand_id = #{brandId}
+		</if>
+		<if test="typeId1 != 0">
+			and a.attr_id like concat_ws('#',#{typeId1},'%','%','%','%','%','%')
+		</if>
+		<if test="typeId2 != 0">
+			and a.attr_id like concat_ws('#','%',#{typeId2},'%','%','%','%','%')
+		</if>
+		<if test="typeId3 != 0">
+			and a.attr_id like concat_ws('#','%','%',#{typeId3},'%','%','%','%')
+		</if>
+		<if test="typeId4 != 0">
+			and a.attr_id like concat_ws('#','%','%','%',#{typeId4},'%','%','%')
+		</if>
+		<if test="typeId5 != 0">
+			and a.attr_id like concat_ws('#','%','%','%','%',#{typeId5},'%','%')
+		</if>
+		<if test="typeId6 != 0">
+			and a.attr_id like concat_ws('#','%','%','%','%','%',#{typeId6},'%')
+		</if>
+		<if test="typeId7 != 0">
+			and a.attr_id like concat_ws('#','%','%','%','%','%','%',#{typeId7})
+		</if>
+		<if test="typeId8 != 0">
+			and a.attr_id like concat_ws('#','%','%','%','%','%','%','%',#{typeId8})
+		</if>
+		
 	</select>
-	<select id="selectGoodsAttr_idByCate" parameterType="int" resultMap="GoodsResultMap.findGoodsAttr_idByCateResult">
+	<select id="selectGoodsAttr_idByCate" resultMap="GoodsResultMap.findGoodsAttr_idByCateResult">
 		select a.attr_id,a.brand_id,a.goods_id
 			from 
 		goods as a,goods_cat as b
@@ -85,6 +174,34 @@
 		a.goods_id = b.goods_id 
 			and 
 		b.cat_id = #{catId}
+		<if test="brandId != 0">
+			and a.brand_id = #{brandId}
+		</if>
+		<if test="typeId1 != 0">
+			and a.attr_id like concat_ws('#',#{typeId1},'%','%','%','%','%','%')
+		</if>
+		<if test="typeId2 != 0">
+			and a.attr_id like concat_ws('#','%',#{typeId2},'%','%','%','%','%')
+		</if>
+		<if test="typeId3 != 0">
+			and a.attr_id like concat_ws('#','%','%',#{typeId3},'%','%','%','%')
+		</if>
+		<if test="typeId4 != 0">
+			and a.attr_id like concat_ws('#','%','%','%',#{typeId4},'%','%','%')
+		</if>
+		<if test="typeId5 != 0">
+			and a.attr_id like concat_ws('#','%','%','%','%',#{typeId5},'%','%')
+		</if>
+		<if test="typeId6 != 0">
+			and a.attr_id like concat_ws('#','%','%','%','%','%',#{typeId6},'%')
+		</if>
+		<if test="typeId7 != 0">
+			and a.attr_id like concat_ws('#','%','%','%','%','%','%',#{typeId7})
+		</if>
+		<if test="typeId8 != 0">
+			and a.attr_id like concat_ws('#','%','%','%','%','%','%','%',#{typeId8})
+		</if>
+		
 	</select>
 	
 </mapper>

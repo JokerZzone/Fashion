@@ -16,15 +16,43 @@ public interface GoodsMapper {
 	// xy
 	//title模块
 	// 根据标题获取所有商品(分页、排序)
-	public List<Goods> findAllGoods(@Param("titleId") int titleId, @Param("chooseId") int chooseId,
-			@Param("pageId") int pageId, @Param("sortId") int sortId, @Param("pageCount") int pageCount);
+	public List<Goods> findAllGoods(
+			@Param("titleId") int titleId, 
+			@Param("chooseId") int chooseId,
+			@Param("pageId") int pageId, 
+			@Param("sortId") int sortId, 
+			@Param("pageCount") int pageCount,
+			@Param("brandId") int brandId,
+			@Param("typeId1") int typeId1,
+			@Param("typeId2") int typeId2,
+			@Param("typeId3") int typeId3,
+			@Param("typeId4") int typeId4,
+			@Param("typeId5") int typeId5,
+			@Param("typeId6") int typeId6,
+			@Param("typeId7") int typeId7,
+			@Param("typeId8") int typeId8
+		);
 
 	// 点击超值小样获取所有商品数
 	public int goodsTotal(int titleId);
 
 	// 根据标题下的二级分类获取所有商品(分页、排序)
-	public List<Goods> findSecondGoods(@Param("catId") int catId, @Param("chooseId") int chooseId,
-			@Param("pageId") int pageId, @Param("sortId") int sortId, @Param("pageCount") int pageCount);
+	public List<Goods> findSecondGoods(
+			@Param("catId") int catId,
+			@Param("chooseId") int chooseId,
+			@Param("pageId") int pageId, 
+			@Param("sortId") int sortId, 
+			@Param("pageCount") int pageCount,
+			@Param("brandId") int brandId,
+			@Param("typeId1") int typeId1,
+			@Param("typeId2") int typeId2,
+			@Param("typeId3") int typeId3,
+			@Param("typeId4") int typeId4,
+			@Param("typeId5") int typeId5,
+			@Param("typeId6") int typeId6,
+			@Param("typeId7") int typeId7,
+			@Param("typeId8") int typeId8
+		);
 
 	// 获取二级分类的所有商品数量
 	public int SecondGoodsTotal(int catId);
@@ -33,7 +61,29 @@ public interface GoodsMapper {
 	 * sp
 	 * 
 	 */
-	public List<Goods> selectGoodsAttr_idByTitle(int titleId);
-	public List<Goods> selectGoodsAttr_idByCate(int catId);
+	public List<Goods> selectGoodsAttr_idByTitle(
+			@Param("titleId") int titleId,
+			@Param("brandId") int brandId,
+			@Param("typeId1") int typeId1,
+			@Param("typeId2") int typeId2,
+			@Param("typeId3") int typeId3,
+			@Param("typeId4") int typeId4,
+			@Param("typeId5") int typeId5,
+			@Param("typeId6") int typeId6,
+			@Param("typeId7") int typeId7,
+			@Param("typeId8") int typeId8
+		);
+	
+	public List<Goods> selectGoodsAttr_idByCate(
+			@Param("catId") int catId,
+			@Param("brandId") int brandId,
+			@Param("typeId1") int typeId1,
+			@Param("typeId2") int typeId2,
+			@Param("typeId3") int typeId3,
+			@Param("typeId4") int typeId4,
+			@Param("typeId5") int typeId5,
+			@Param("typeId6") int typeId6,
+			@Param("typeId7") int typeId7,
+			@Param("typeId8") int typeId8);
 	
 }
