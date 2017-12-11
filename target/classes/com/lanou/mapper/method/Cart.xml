@@ -17,7 +17,8 @@
 	<insert id="addCart">
 		insert into cart(user_id,session_id,goods_id,
 			parent_id,goods_name,shop_price,goods_number) values
-		
+		(#{userId},#{sessionId},#{goodsId},#{parentId},#{goodsName},
+		#{shopPrice},#{goodsNumber})
 	</insert>
   
   <!-- 

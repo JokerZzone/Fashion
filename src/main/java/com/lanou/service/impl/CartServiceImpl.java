@@ -41,7 +41,7 @@ public class CartServiceImpl implements CartService {
 		for (int i = 0; i < goods.length; i++) {
 			int goodsId = goods[i];
 			int goodsNumber = num[i];
-			Goods good = goodsMapper.findGoodsById(goodsId);
+			Goods good = goodsMapper.findGoods(goodsId);
 			String goodsName = good.getGoodsName();
 			double shopPrice = good.getShopPrice();
 			Cart nowCart = new Cart(userId,sessionId,goodsId,parentId,goodsName,shopPrice,goodsNumber);

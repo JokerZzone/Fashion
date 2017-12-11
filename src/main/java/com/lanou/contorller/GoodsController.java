@@ -22,44 +22,37 @@ public class GoodsController {
 	// 点击标题商品的展示和排序
 	@RequestMapping("/title")
 	@ResponseBody
-	public Map<String, Object> TitleGoods(
-			@RequestParam("titleId") int titleId,
-			@RequestParam("chooseId") int chooseId,
-			@RequestParam("pageId") int pageId,
-			@RequestParam("sortId") int sortId,
-			@RequestParam(value="brandId",required=false,defaultValue="0") int brandId,
-			@RequestParam(value="attr_idAndType",required=false,defaultValue="") String[] attr_idAndType
-			
-		) {
-//		String[] attr_idAndType = {"1","1","14","2","18","3"};
-		Map<String, Object> maps = goodsService.titleGoods(titleId, chooseId, pageId, sortId,brandId,attr_idAndType);
+	public Map<String, Object> TitleGoods(@RequestParam("titleId") int titleId, @RequestParam("chooseId") int chooseId,
+			@RequestParam("pageId") int pageId, @RequestParam("sortId") int sortId,
+			@RequestParam(value = "brandId", required = false, defaultValue = "0") int brandId,
+			@RequestParam(value = "attr_idAndType", required = false, defaultValue = "") String[] attr_idAndType
+
+	) {
+		// String[] attr_idAndType = {"1","1","14","2","18","3"};
+		Map<String, Object> maps = goodsService.titleGoods(titleId, chooseId, pageId, sortId, brandId, attr_idAndType);
 		return maps;
 	}
 
 	// 点击二级分类商品的展示和排序
 	@RequestMapping("/secondTitle")
 	@ResponseBody
-	public Map<String, Object> SecondGoods(
-			@RequestParam("catId") int catId,
-			@RequestParam("chooseId") int chooseId,
-			@RequestParam("pageId") int pageId,
-			@RequestParam("sortId") int sortId,
-			@RequestParam(value="brandId",required=false,defaultValue="0") int brandId,
-			@RequestParam(value="attr_idAndType",required=false,defaultValue="") String[] attr_idAndType
-		) {
-//		String[] attr_idAndType = {"1","1","14","2","18","3"};
-		Map<String, Object> maps = goodsService.SecondGoods(catId, chooseId, pageId, sortId,brandId,attr_idAndType);
+	public Map<String, Object> SecondGoods(@RequestParam("catId") int catId, @RequestParam("chooseId") int chooseId,
+			@RequestParam("pageId") int pageId, @RequestParam("sortId") int sortId,
+			@RequestParam(value = "brandId", required = false, defaultValue = "0") int brandId,
+			@RequestParam(value = "attr_idAndType", required = false, defaultValue = "") String[] attr_idAndType) {
+		// String[] attr_idAndType = {"1","1","14","2","18","3"};
+		Map<String, Object> maps = goodsService.SecondGoods(catId, chooseId, pageId, sortId, brandId, attr_idAndType);
 		return maps;
 	}
-	
-	//查找明星推荐商品
-	@RequestMapping("/recommond")
+
+	// 查找明星推荐商品
+	@RequestMapping("/recommend")
 	@ResponseBody
-	public List<Goods> recommondGoods() {
+	public List<Goods> recommendGoods() {
 		List<Goods> goods = goodsService.recommendGoods();
 		return goods;
 	}
-	
+
 	// 查找清仓商品
 	@RequestMapping("/sale")
 	@ResponseBody
@@ -67,10 +60,14 @@ public class GoodsController {
 		List<Goods> goods = goodsService.saleOutGoods();
 		return goods;
 	}
-	
-	@RequestMapping("/do")
+
+	// 本周特价商品
+	@RequestMapping("/weekly")
 	@ResponseBody
-	public Goods showGoods(@RequestParam("id") int goodsId) {
-		return goodsService.showGoodsById(goodsId);
+	public Map<String, Object> weeklyGoods(@RequestParam("weeklyId") int weeklyId,
+			@RequestParam("chooseId") int chooseId, @RequestParam("pageId") int pageId) {
+		Map<String, Object> maps = goodsService.weeklyGoods(weeklyId, chooseId, pageId);
+		return maps;
 	}
+
 }

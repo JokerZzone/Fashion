@@ -12,6 +12,8 @@ public interface GoodsMapper {
 
 	// wz
 	public Goods findGoodsById(int goodsId);
+	
+	public Goods findGoods(int goodsId);
 
 	// xy
 	//title模块
@@ -86,13 +88,18 @@ public interface GoodsMapper {
 	//首页商品数量
 	public int  homePageGoodsTotal(int keyId);
 	
-	
-	
 	//明星推荐
 	public List<Goods> recommendGoods();
 	
 	//清仓
 	public List<Goods> saleOut();
+	
+	//本周特价
+	public List<Goods> weeklyGoods(@Param("weeklyId") int weeklyId, @Param("chooseId") int chooseId,
+			@Param("pageId") int pageId,@Param("pageCount") int pageCount);
+	
+	// 获取本周特价商品数量
+	public int weeklyGoodsTotal();
 
 	/**
 	 * sp

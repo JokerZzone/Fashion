@@ -10,14 +10,9 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.lanou.dao.GoodsGalleryMapper;
-
 import com.lanou.dao.BrandMapper;
 import com.lanou.dao.CategoryMapper;
 import com.lanou.dao.GoodsAttributeMapper;
-
 import com.lanou.dao.GoodsMapper;
 import com.lanou.entity.Brand;
 import com.lanou.entity.Goods;
@@ -29,83 +24,21 @@ public class GoodsServiceImpl implements GoodsService {
 
 	@Autowired
 	private GoodsMapper goodsMapper;
-	
+
 	@Autowired
-
-	private GoodsGalleryMapper goodsGalleryMapper;
-
 	private GoodsAttributeMapper goodsAttributeMapper;
-	
+
 	@Autowired
 	private BrandMapper brandMapper;
-	
+
 	@Autowired
 	private CategoryMapper categoryMapper;
-
 
 	private static final Integer PAGE = 36;
 
 	int total = 0;
 
 	int totalPage = 0;
-
-	public Map<String, Object> titleGoods(int titleId, int chooseId, int pageId, int sortId, int brandId,String[] attr_idAndType) {
-		// TODO Auto-generated method stub
-		int[] attrIds = getAttrIds(attr_idAndType);
-		int typeId1 = attrIds[0];
-		int typeId2 = attrIds[1];
-		int typeId3 = attrIds[2];
-		int typeId4 = attrIds[3];
-		int typeId5 = attrIds[4];
-		int typeId6 = attrIds[5];
-		int typeId7 = attrIds[6];
-		int typeId8 = attrIds[7];
-		
-		int pageId2 = (pageId - 1) * PAGE;
-		List<Goods> goods = goodsMapper.findAllGoods(titleId, chooseId, pageId2, sortId, 36, 
-				brandId, typeId1, typeId2, typeId3, typeId4, typeId5, typeId6, typeId7, typeId8);
-		total = goodsMapper.goodsTotal(titleId,brandId, typeId1, typeId2, typeId3, typeId4, typeId5, typeId6, typeId7, typeId8);
-		totalPage = (int) Math.ceil((double) (total) / (PAGE));
-		Map<String, Object> maps = new HashMap<String, Object>();
-		maps.put("total", total);
-		maps.put("totalPage", totalPage);
-		maps.put("goodList", goods);
-		
-		//sp   得到商品属性集合
-		maps.put("goodsAttrMap", getGoodAttributeByTitle(titleId,brandId,typeId1, 
-				typeId2, typeId3, typeId4, typeId5, typeId6, typeId7, typeId8));
-		
-		return maps;
-	}
-
-	public Map<String, Object> SecondGoods(int catId, int chooseId, int pageId, int sortId,int brandId,String[] attr_idAndType) {
-		// TODO Auto-generated method stub
-		int[] attrIds = getAttrIds(attr_idAndType);
-		int typeId1 = attrIds[0];
-		int typeId2 = attrIds[1];
-		int typeId3 = attrIds[2];
-		int typeId4 = attrIds[3];
-		int typeId5 = attrIds[4];
-		int typeId6 = attrIds[5];
-		int typeId7 = attrIds[6];
-		int typeId8 = attrIds[7];
-		
-		int pageId2 = (pageId - 1) * PAGE;
-		List<Goods> goods = goodsMapper.findSecondGoods(catId, chooseId, pageId2, sortId, 36, 
-				brandId, typeId1, typeId2, typeId3, typeId4, typeId5, typeId6, typeId7, typeId8);
-		total = goodsMapper.SecondGoodsTotal(catId,brandId, typeId1, typeId2, typeId3, typeId4, typeId5, typeId6, typeId7, typeId8);
-		totalPage = (int) Math.ceil((double) (total) / (PAGE));
-		Map<String, Object> maps = new HashMap<String, Object>();
-		maps.put("total", total);
-		maps.put("totalPage", totalPage);
-		maps.put("goodList", goods);
-		
-		//sp   得到商品属性集合
-		maps.put("goodsAttrMap", getGoodAttributeByCate(catId,brandId,typeId1, 
-				typeId2, typeId3, typeId4, typeId5, typeId6, typeId7, typeId8));
-		
-		return maps;
-	}
 
 	public List<Goods> recommendGoods() {
 		// TODO Auto-generated method stub
@@ -117,41 +50,96 @@ public class GoodsServiceImpl implements GoodsService {
 		return goodsMapper.saleOut();
 	}
 
-	public Goods showGoodsById(int goodsId) {
-		
-		return goodsMapper.findGoodsById(goodsId);
+	public Map<String, Object> weeklyGoods(int weeklyId, int chooseId, int pageId) {
+		// TODO Auto-generated method stub
+		int pageId2 = (pageId - 1) * PAGE;
+		List<Goods> goods = goodsMapper.weeklyGoods(weeklyId, chooseId, pageId2, 36);
+		total = goodsMapper.weeklyGoodsTotal();
+		totalPage = (int) Math.ceil((double) (total) / (PAGE));
+		Map<String, Object> maps = new HashMap<String, Object>();
+		maps.put("nowPage", pageId);
+		maps.put("total", total);
+		maps.put("totalPage", totalPage);
+		maps.put("goodList", goods);
+		return maps;
 	}
-	
-	public void updateImgDesc() {
-		
-		String str = "{\"M\":\"1\",\"S\":\"2#3#4#\",\"D\":\"5#6#7#8#9#10#11\"}";
-//		ObjectMapper mapper = new ObjectMapper();
-//		String json = null;
-//		try {
-//			json = mapper.writeValueAsString(str);
-//		} catch (JsonProcessingException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-		int a = goodsGalleryMapper.updateImgDesc(str,1);
-		System.out.println(a);
+
+	public Map<String, Object> titleGoods(int titleId, int chooseId, int pageId, int sortId, int brandId,
+			String[] attr_idAndType) {
+		// TODO Auto-generated method stub
+		int[] attrIds = getAttrIds(attr_idAndType);
+		int typeId1 = attrIds[0];
+		int typeId2 = attrIds[1];
+		int typeId3 = attrIds[2];
+		int typeId4 = attrIds[3];
+		int typeId5 = attrIds[4];
+		int typeId6 = attrIds[5];
+		int typeId7 = attrIds[6];
+		int typeId8 = attrIds[7];
+
+		int pageId2 = (pageId - 1) * PAGE;
+		List<Goods> goods = goodsMapper.findAllGoods(titleId, chooseId, pageId2, sortId, 36, brandId, typeId1, typeId2,
+				typeId3, typeId4, typeId5, typeId6, typeId7, typeId8);
+		total = goodsMapper.goodsTotal(titleId, brandId, typeId1, typeId2, typeId3, typeId4, typeId5, typeId6, typeId7,
+				typeId8);
+		totalPage = (int) Math.ceil((double) (total) / (PAGE));
+		Map<String, Object> maps = new HashMap<String, Object>();
+		maps.put("total", total);
+		maps.put("totalPage", totalPage);
+		maps.put("goodList", goods);
+
+		// sp 得到商品属性集合
+		maps.put("goodsAttrMap", getGoodAttributeByTitle(titleId, brandId, typeId1, typeId2, typeId3, typeId4, typeId5,
+				typeId6, typeId7, typeId8));
+
+		return maps;
 	}
-	
-	
+
+	public Map<String, Object> SecondGoods(int catId, int chooseId, int pageId, int sortId, int brandId,
+			String[] attr_idAndType) {
+		// TODO Auto-generated method stub
+		int[] attrIds = getAttrIds(attr_idAndType);
+		int typeId1 = attrIds[0];
+		int typeId2 = attrIds[1];
+		int typeId3 = attrIds[2];
+		int typeId4 = attrIds[3];
+		int typeId5 = attrIds[4];
+		int typeId6 = attrIds[5];
+		int typeId7 = attrIds[6];
+		int typeId8 = attrIds[7];
+
+		int pageId2 = (pageId - 1) * PAGE;
+		List<Goods> goods = goodsMapper.findSecondGoods(catId, chooseId, pageId2, sortId, 36, brandId, typeId1, typeId2,
+				typeId3, typeId4, typeId5, typeId6, typeId7, typeId8);
+		total = goodsMapper.SecondGoodsTotal(catId, brandId, typeId1, typeId2, typeId3, typeId4, typeId5, typeId6,
+				typeId7, typeId8);
+		totalPage = (int) Math.ceil((double) (total) / (PAGE));
+		Map<String, Object> maps = new HashMap<String, Object>();
+		maps.put("total", total);
+		maps.put("totalPage", totalPage);
+		maps.put("goodList", goods);
+
+		// sp 得到商品属性集合
+		maps.put("goodsAttrMap", getGoodAttributeByCate(catId, brandId, typeId1, typeId2, typeId3, typeId4, typeId5,
+				typeId6, typeId7, typeId8));
+
+		return maps;
+	}
+
 	/**
 	 * sp
 	 */
-	
-	//得到所有商品的属性集合ByTitle
-	public Map<String, Object> getGoodAttributeByTitle(int titleId, int brandId,
-			int typeId1,int typeId2,int typeId3,int typeId4,int typeId5,int typeId6,int typeId7,int typeId8) {
-		
-		List<Goods> goods = goodsMapper.selectGoodsAttr_idByTitle(titleId, brandId, 
-				typeId1, typeId2, typeId3, typeId4, typeId5, typeId6, typeId7, typeId8);
+
+	// 得到所有商品的属性集合ByTitle
+	public Map<String, Object> getGoodAttributeByTitle(int titleId, int brandId, int typeId1, int typeId2, int typeId3,
+			int typeId4, int typeId5, int typeId6, int typeId7, int typeId8) {
+
+		List<Goods> goods = goodsMapper.selectGoodsAttr_idByTitle(titleId, brandId, typeId1, typeId2, typeId3, typeId4,
+				typeId5, typeId6, typeId7, typeId8);
 		Set<Integer> attr_idSet = new HashSet<Integer>();
 		Set<Integer> brand_idSet = new HashSet<Integer>();
 		for (Goods good : goods) {
-			if ( good != null && good.getGoodsAttr_id() != null) {
+			if (good != null && good.getGoodsAttr_id() != null) {
 				String[] strs = good.getGoodsAttr_id().split("#");
 				for (int i = 0; i < strs.length; i++) {
 					attr_idSet.add(Integer.parseInt(strs[i]));
@@ -160,7 +148,7 @@ public class GoodsServiceImpl implements GoodsService {
 			brand_idSet.add(good.getBrandId());
 		}
 		Map<String, Object> goodsAttrMap = new HashMap<String, Object>();
-		//品牌
+		// 品牌
 		List<Brand> goodsBrands = new ArrayList<Brand>();
 		if (brandId == 0) {
 			for (Integer brand_id : brand_idSet) {
@@ -170,45 +158,46 @@ public class GoodsServiceImpl implements GoodsService {
 					goodsBrands.add(brand);
 				}
 			}
-		}else {
+		} else {
 			Brand brand = brandMapper.findBrandById(brandId);
 			brand.setBrandDesc(brand.getBrandDesc().substring(0, 1));
-			goodsBrands.add(brand);							
+			goodsBrands.add(brand);
 		}
 		if (goodsBrands != null) {
-			goodsAttrMap.put("goodsBrands", getGoodsBrandsLetterMap(goodsBrands));					
+			goodsAttrMap.put("goodsBrands", getGoodsBrandsLetterMap(goodsBrands));
 		}
-		//other属性
+		// other属性
 		List<GoodsAttribute> goodsAttributes = new ArrayList<GoodsAttribute>();
 		for (Integer attr_id : attr_idSet) {
 			goodsAttributes.add(goodsAttributeMapper.selectGoodAttributeById(attr_id));
 		}
 		if (goodsAttributes != null) {
-			goodsAttrMap.put("goodsAttributes", getOtherAttributeMap(goodsAttributes));			
+			goodsAttrMap.put("goodsAttributes", getOtherAttributeMap(goodsAttributes));
 		}
-		
+
 		return goodsAttrMap;
 	}
-	//得到所有商品的属性集合ByCategory
-	public Map<String, Object> getGoodAttributeByCate(int cat_id,int brandId,
-			int typeId1,int typeId2,int typeId3,int typeId4,int typeId5,int typeId6,int typeId7,int typeId8) {
-		
-		List<Goods> goods = goodsMapper.selectGoodsAttr_idByCate(cat_id,brandId,
-				typeId1, typeId2, typeId3, typeId4, typeId5, typeId6, typeId7, typeId8);
+
+	// 得到所有商品的属性集合ByCategory
+	public Map<String, Object> getGoodAttributeByCate(int cat_id, int brandId, int typeId1, int typeId2, int typeId3,
+			int typeId4, int typeId5, int typeId6, int typeId7, int typeId8) {
+
+		List<Goods> goods = goodsMapper.selectGoodsAttr_idByCate(cat_id, brandId, typeId1, typeId2, typeId3, typeId4,
+				typeId5, typeId6, typeId7, typeId8);
 		Set<Integer> attr_idSet = new HashSet<Integer>();
 		Set<Integer> brand_idSet = new HashSet<Integer>();
 		for (Goods good : goods) {
-			if ( good != null && good.getGoodsAttr_id() != null) {
+			if (good != null && good.getGoodsAttr_id() != null) {
 				String[] strs = good.getGoodsAttr_id().split("#");
 				for (int i = 0; i < strs.length; i++) {
 					attr_idSet.add(Integer.parseInt(strs[i]));
-				}				
+				}
 			}
 			brand_idSet.add(good.getBrandId());
 		}
 		Map<String, Object> goodsAttrMap = new HashMap<String, Object>();
 
-		//品牌
+		// 品牌
 		List<Brand> goodsBrands = new ArrayList<Brand>();
 		for (Integer brand_id : brand_idSet) {
 			if (brand_id != null) {
@@ -218,60 +207,59 @@ public class GoodsServiceImpl implements GoodsService {
 			}
 		}
 		if (goodsBrands != null) {
-			goodsAttrMap.put("goodsBrands", getGoodsBrandsLetterMap(goodsBrands));			
+			goodsAttrMap.put("goodsBrands", getGoodsBrandsLetterMap(goodsBrands));
 		}
-		//二级分类显示类别
+		// 二级分类显示类别
 		if (confirmCategoryType(cat_id) == 2) {
 			goodsAttrMap.put("childrenCategorys", categoryMapper.selectCategoryChildrenByParentId(cat_id));
 		}
 		if (confirmCategoryType(cat_id) == 3) {
 			goodsAttrMap.put("childrenCategorys", categoryMapper.findByCatId(cat_id));
 		}
-		//other属性
+		// other属性
 		List<GoodsAttribute> goodsAttributes = new ArrayList<GoodsAttribute>();
-		for (Integer attr_id : attr_idSet) {	
+		for (Integer attr_id : attr_idSet) {
 			goodsAttributes.add(goodsAttributeMapper.selectGoodAttributeById(attr_id));
 		}
 		if (goodsAttributes != null) {
-			goodsAttrMap.put("goodsAttributes",getOtherAttributeMap(goodsAttributes));			
+			goodsAttrMap.put("goodsAttributes", getOtherAttributeMap(goodsAttributes));
 		}
-		
+
 		return goodsAttrMap;
 	}
 
-	
-	//确认分类级别，一级返回1，二级返回2 ...
+	// 确认分类级别，一级返回1，二级返回2 ...
 	public int confirmCategoryType(int cat_id) {
-		
+
 		int type = 1;
 		int parent_id = categoryMapper.confirmCategoryType(cat_id);
 		while (true) {
 			if (parent_id == 0) {
-				return type;    
-			}else {
+				return type;
+			} else {
 				parent_id = categoryMapper.confirmCategoryType(parent_id);
 			}
 			type++;
 		}
 	}
 
-	//一维数组[id,type,id,type...]
-	//数组处理
+	// 一维数组[id,type,id,type...]
+	// 数组处理
 	public int[] getAttrIds(String[] attr_idAndType) {
 		int[] attrIds = new int[8];
-		for (int i = 0; i < attr_idAndType.length; i+=2) {
-			for (int j = 1; j <= 8 ; j++) {
-				if (Integer.parseInt(attr_idAndType[i+1]) == j) {
-					attrIds[j-1] = Integer.parseInt(attr_idAndType[i]);
+		for (int i = 0; i < attr_idAndType.length; i += 2) {
+			for (int j = 1; j <= 8; j++) {
+				if (Integer.parseInt(attr_idAndType[i + 1]) == j) {
+					attrIds[j - 1] = Integer.parseInt(attr_idAndType[i]);
 				}
 			}
 		}
 		return attrIds;
 	}
-	
-	//other属性处理，得到Map类型
+
+	// other属性处理，得到Map类型
 	public Object getOtherAttributeMap(List<GoodsAttribute> goodsAttributes) {
-		
+
 		List<Object> goodsAttributes1 = new ArrayList<Object>();
 		List<Object> goodsAttributes2 = new ArrayList<Object>();
 		List<Object> goodsAttributes3 = new ArrayList<Object>();
@@ -280,9 +268,9 @@ public class GoodsServiceImpl implements GoodsService {
 		List<Object> goodsAttributes6 = new ArrayList<Object>();
 		List<Object> goodsAttributes7 = new ArrayList<Object>();
 		List<Object> goodsAttributes8 = new ArrayList<Object>();
-		
+
 		for (GoodsAttribute goodsAttribute : goodsAttributes) {
-			
+
 			switch (goodsAttribute.getGoodsAttrType()) {
 			case 1:
 				goodsAttributes1.add(goodsAttribute);
@@ -322,14 +310,13 @@ public class GoodsServiceImpl implements GoodsService {
 		map.put("肌龄", goodsAttributes6);
 		map.put("价格", goodsAttributes7);
 		map.put("香调", goodsAttributes8);
-		
+
 		return map;
 	}
-	
-	
-	//品牌首字母归类，得到Map
+
+	// 品牌首字母归类，得到Map
 	public Object getGoodsBrandsLetterMap(List<Brand> brands) {
-		
+
 		List<Brand> brands1 = new ArrayList<Brand>();
 		List<Brand> brands2 = new ArrayList<Brand>();
 		List<Brand> brands3 = new ArrayList<Brand>();
@@ -340,35 +327,53 @@ public class GoodsServiceImpl implements GoodsService {
 		List<Brand> brands8 = new ArrayList<Brand>();
 		for (Brand brand : brands) {
 			switch (brand.getBrandDesc()) {
-			case "A":case "B":case "C":case "D":
+			case "A":
+			case "B":
+			case "C":
+			case "D":
 				brands1.add(brand);
 				break;
-			case "E":case "F":case "G":
+			case "E":
+			case "F":
+			case "G":
 				brands2.add(brand);
 				break;
-			case "H":case "I":case "J":case "K":
+			case "H":
+			case "I":
+			case "J":
+			case "K":
 				brands3.add(brand);
 				break;
-			case "L":case "M":case "N":
+			case "L":
+			case "M":
+			case "N":
 				brands4.add(brand);
 				break;
-			case "O":case "P":case "Q":
+			case "O":
+			case "P":
+			case "Q":
 				brands5.add(brand);
 				break;
-			case "R":case "S":case "T":
+			case "R":
+			case "S":
+			case "T":
 				brands6.add(brand);
 				break;
-			case "U":case "V":case "W":
+			case "U":
+			case "V":
+			case "W":
 				brands7.add(brand);
 				break;
-			case "X":case "Y":case "Z":
+			case "X":
+			case "Y":
+			case "Z":
 				brands8.add(brand);
 				break;
 
 			default:
 				break;
 			}
-			
+
 		}
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("ABCD", brands1);
@@ -381,5 +386,5 @@ public class GoodsServiceImpl implements GoodsService {
 		map.put("XYZ", brands8);
 		return map;
 	}
-	
+
 }

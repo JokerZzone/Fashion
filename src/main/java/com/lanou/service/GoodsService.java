@@ -20,8 +20,7 @@ public interface GoodsService {
 	//展示清仓商品
 	public List<Goods> saleOutGoods(); 
 	
-	//wz
-	public Goods showGoodsById(int goodsId);
-	
-	public void updateImgDesc();
+	//展示本周特价
+	public Map<String, Object> weeklyGoods(int weeklyId, int chooseId, int pageId);
+
 }
