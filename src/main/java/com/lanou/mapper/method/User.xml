@@ -17,8 +17,19 @@
 	</insert>
 	
 	<update id="updatePassword" parameterType="User">
-		update users set password = #{password} where user_name = #{username}
+		update users set password = #{password} where user_id = #{uId}
 	</update>
+	
+	<select id="selectUserByUId" parameterType="int" resultMap="UserResultMap.userResult">
+		select * from users where user_id = #{user_id}
+	</select>
+
+	<select id="updateUserByUId" parameterType="User">
+		update users set real_name = #{realname}, sex = #{sex} ,email = #{email} , telephone = #{telephone}
+		 	, mobile_phone = #{phone} , birthday = #{birthday} where user_id = #{uId}
+	</select>
+	
+	
 	
   	<select id="comfirm" >
   		select count(*) from cart where username

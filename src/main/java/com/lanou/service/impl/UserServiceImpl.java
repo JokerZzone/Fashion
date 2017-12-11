@@ -39,6 +39,20 @@ public class UserServiceImpl implements UserService{
 	}
 
 
+	@Override
+	public User selectUserByUId(int user_id) {
+		// TODO Auto-generated method stub
+		return userMapper.selectUserByUId(user_id);
+	}
+
+
+	@Override
+	public void updateUserByUId(User user) {
+		// TODO Auto-generated method stub
+		userMapper.updateUserByUId(user);
+	}
+
+	
 	
 	
 	
