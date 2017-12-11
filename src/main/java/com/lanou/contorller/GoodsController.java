@@ -70,4 +70,8 @@ public class GoodsController {
 		return maps;
 	}
 
+	@RequestMapping("/detail")
+	public Goods detail(@RequestParam("id") int goodsId) {
+		return goodsService.findGoods(goodsId);
+	}
 }

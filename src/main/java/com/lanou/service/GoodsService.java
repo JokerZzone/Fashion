@@ -7,7 +7,6 @@ import com.lanou.entity.Goods;
 
 public interface GoodsService {
 
-	// xy
 	// 根据标题进行展示，分页，排序
 	public Map<String, Object> titleGoods(int titleId, int chooseId, int pageId, int sortId,int brandId,String[] attr_idAndType);
 
@@ -22,5 +21,6 @@ public interface GoodsService {
 	
 	//展示本周特价
 	public Map<String, Object> weeklyGoods(int weeklyId, int chooseId, int pageId);
-
+	
+	public Goods findGoods(int goodsId);
 }

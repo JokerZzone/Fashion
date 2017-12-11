@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="CartResultMap">
+	
+  	<resultMap type="Cart" id="cartResult">
+  		<id column="rec_id" property="recId" javaType="int"/>
+  		<result column="user_id" property="userId" javaType="int"/>
+  		<result column="session_id" property="sessionId" javaType="String"/>
+  		<result column="goods_id" property="goodsId" javaType="int"/>
+  		<result column="cart_id" property="cartId" javaType="int"/>
+  		<result column="goods_name" property="goodsName" javaType="String"/>
+  		<result column="shop_price" property="shopPrice" javaType="double"/>
+  		<result column="goods_number" property="goodsNumber" javaType="int"/>
+  	</resultMap>
+  	
+</mapper>

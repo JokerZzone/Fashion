@@ -387,4 +387,9 @@ public class GoodsServiceImpl implements GoodsService {
 		return map;
 	}
 
+	@Override
+	public Goods findGoods(int goodsId) {
+		return goodsMapper.findGoods(goodsId);
+	}
+
 }

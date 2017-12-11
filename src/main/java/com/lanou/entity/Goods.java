@@ -5,6 +5,10 @@ import java.util.List;
 public class Goods {
 
 	private Integer goodsId;
+	
+	private Integer brandId;
+	
+	private String goodsAttr_id;
 
 	private String goodsName;
 	
@@ -24,31 +28,15 @@ public class Goods {
 
 	private int isHot;
 
-	private Brand subBrand;
-	
-	private Category subCategory;
-	
 	private List<GoodsGallery> goodsGalleries;
 	
-	//sp
-	private String goodsAttr_id;
+	private Brand subBrand;
 	
-	private Integer brandId;
-
 	public Goods(Integer goodsId, String goodsAttr_id, Integer brandId) {
 		super();
 		this.goodsId = goodsId;
 		this.goodsAttr_id = goodsAttr_id;
 		this.brandId = brandId;
-	}
-
-	@Override
-	public String toString() {
-		return "Goods [goodsId=" + goodsId + ", goodsName=" + goodsName + ", goodsNameEn=" + goodsNameEn
-				+ ", goodsDesc=" + goodsDesc + ", marketPrice=" + marketPrice + ", shopPrice=" + shopPrice
-				+ ", discount=" + discount + ", imgDesc=" + imgDesc + ", clickCount=" + clickCount + ", isHot=" + isHot
-				+ ", subBrand=" + subBrand + ", subCategory=" + subCategory + ", goodsGalleries=" + goodsGalleries
-				+ "]";
 	}
 
 	public Goods() {
@@ -142,14 +130,6 @@ public class Goods {
 
 	public void setSubBrand(Brand subBrand) {
 		this.subBrand = subBrand;
-	}
-
-	public Category getSubCategory() {
-		return subCategory;
-	}
-
-	public void setSubCategory(Category subCategory) {
-		this.subCategory = subCategory;
 	}
 
 	public List<GoodsGallery> getGoodsGalleries() {

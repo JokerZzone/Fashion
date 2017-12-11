@@ -231,20 +231,20 @@
 	<!-- 明星推荐方法 -->
 	<select id="recommendGoods" resultMap="GoodsResultMap.goodsResult">
 		select
-		goods_id,goods_name,shop_price,discount from goods where is_recommend
+		* from goods where is_recommend
 		= 1
 	</select>
 
 	<!-- 清仓方法 -->
 	<select id="saleOut" resultMap="GoodsResultMap.goodsResult">
 		select
-		goods_id,goods_name,shop_price,discount from goods where is_out = 1
+		* from goods where is_out = 1
 	</select>
 
 	<!-- 本周特价 -->
 	<select id="weeklyGoods" resultMap="GoodsResultMap.goodsResult">
-		select goods_id,goods_name,shop_price,discount from goods
-		where is_weekly = #{weeklyId}
+		select * 
+		from goods where is_weekly = #{weeklyId}
 		<if test="chooseId ==1">
 			order by shop_price Asc LIMIT #{pageId},#{pageCount}
 		</if>
