@@ -16,6 +16,10 @@
 		insert into users(user_name,password,email) values(#{username},#{password},#{email})
 	</insert>
 	
+	<update id="updatePassword" parameterType="User">
+		update users set password = #{password} where user_name = #{username}
+	</update>
+	
   	<select id="comfirm" >
   		select count(*) from cart where username
   	</select>
