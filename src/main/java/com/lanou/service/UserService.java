@@ -10,4 +10,5 @@ public interface UserService {
 	
 	public void addUser(User user);
 	
+	public void updatePassword(User user);
 }

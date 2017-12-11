@@ -84,6 +84,32 @@ public class UserContorller {
 		return result;
 	}
 	
+	//修改密码
+	@RequestMapping(value="updatePassword",method=RequestMethod.GET)
+	@ResponseBody
+	public String updatePassword(User user,String oldPassword,String password2) {
+		String result = null;
+		User user2 = userService.confirmUser(user.getUsername());
+		if (user2 == null || !oldPassword.equals(user2.getPassword())) {
+			return "error1";//原密码错误
+		}else {
+			if (user.getPassword().equals(password2)) {
+				userService.updatePassword(user);
+				result = "success";
+			}else {
+				result = "error2";//两次密码不一致
+			}
+			
+		}
+		return result;
+	}
+	
+	//查看个人资料
+	public User lookPersonalInfo(User user) {
+		
+		return userService.confirmUser(user.getUsername());
+	}
+	
 	@InitBinder("user")
 	public void initUser(WebDataBinder wBinder) {
 		wBinder.setFieldDefaultPrefix("user.");
