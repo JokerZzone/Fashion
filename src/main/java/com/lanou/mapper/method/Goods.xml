@@ -18,6 +18,7 @@
 		= b.goods_id and
 		a.goods_id = #{aa}
 	</select>
+	
 	<select id="findBrand" parameterType="int"
 		resultMap="GoodsResultMap.goodsResult">
 		select *
@@ -348,5 +349,64 @@
 		</if>
 
 	</select>
+	
+	<!-- xy 卖家功能 -->
+	<!-- 获取商品总数量 -->
+	<select id="goodsCount" resultType="int">
+		select count(*) from goods
+	</select>
+	
+	<!-- 展示所有商品信息 -->
+	<select id="allGoodsNews" parameterType="int" resultMap="GoodsResultMap.sellerResult">
+		select * from goods limit #{pageId},#{pageNumber} where is_delete = 0
+	</select>
+	
+	<!-- 查看单个商品信息 -->
+	<select id="goodNews" parameterType="int" resultMap="GoodsResultMap.sellerResult">
+		select * from goods where goods_id = #{goodsId} and is_delete = 0
+	</select>
+	
+	<!-- 根据一级分类查找下面商品 -->
+	<select id="firstGoods" parameterType="int" resultMap="GoodsResultMap.sellerResult">
+		select * from category as a,goods_cat as b,goods as c where a.cat_id = b.cat_id 
+		and b.goods_id = c.goods_id and a.parent_id = 0 and is_delete = 0 
+		and b.cat_id = #{catId} limit #{pageId},#{pageNumber}
+	</select>
+	
+	<!-- 获取一级分类商品数量 -->
+	<select id="firstGoodsCount" parameterType="int" resultType="int">
+		select count(*) from category as a,goods_cat as b,goods as c where a.cat_id = b.cat_id 
+		and b.goods_id = c.goods_id and a.parent_id = 0 and is_delete = 0 
+		and b.cat_id = #{catId}
+	</select>
+	
+	<!-- 模糊查询商品 -->
+	<select id="likes" resultMap="GoodsResultMap.sellerResult">
+		select * from goods where goods_name like CONCAT('%','${name}','%') limit #{pageId},#{pageNumber}
+	</select>
+	
+	<!-- 模糊查询的商品的数量 -->
+	<select id="likesCount" resultType="int" parameterType="String" >
+		select count(*) from goods where goods_name like CONCAT('%','${name}','%')
+	</select>
+	
+	<!-- 编辑单个商品信息 -->
+	<select id="updateGoods" parameterType="int" resultMap="GoodsResultMap.sellerResult">
+		update goods set goods_name=#{goodsName},goodsSn=#{goodsSn},shop_price=#{shopPrice},
+		market_price=#{marketPrice},goods_number=#{goodsNumber} 
+		where goods_id = #{goodsId} and is_delete = 0
+	</select>
+	
+	<!-- 删除商品 -->
+	<delete id="deleteGood" parameterType="int">
+		update goods set is_delete = 1 where goods_id = #{goodsId}
+	</delete>
+	
+	<!-- 添加商品信息 -->
+	<select id="addGood" parameterType="Goods">
+		insert into goods (goods_sn,goods_name,shop_price,market_price,goods_number) 
+		 values (#{goodsSn},#{goodsName},#{shop_price},#{market_price},#{goods_number})
+	</select>
+	
 
 </mapper>

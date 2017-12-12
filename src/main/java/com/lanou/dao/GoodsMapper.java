@@ -130,4 +130,40 @@ public interface GoodsMapper {
 			@Param("typeId7") int typeId7,
 			@Param("typeId8") int typeId8);
 
+	/**
+	 * xy
+	 * 卖家功能
+	 * 商品列表
+	 */
+	
+	//获取商品总数
+	public int goodsCount();
+	
+	//1.展示所有商品信息
+	public List<Goods> allGoodsNews(@Param("pageId")int pageId,@Param("pageNumber")int pageNumber);
+	
+	//根据一级分类查找商品
+	public List<Goods> firstGoods(@Param("catId")int catId,@Param("pageId")int pageId,@Param("pageNumber")int pageNumber);
+	
+	//获取一级分类总数
+	public int firstGoodsCount(int catId);
+	
+	//模糊查询功能
+	public List<Goods> likes(@Param("name")String name,@Param("pageId")int pageId,@Param("pageNumber")int pageNumber);
+	
+	//模糊查询的结果的商品数量
+	public int likesCount(@Param("name")String name);
+	
+	//查看功能
+	public Goods goodNews(@Param("goodsId")int goodsId);
+	
+	//编辑功能
+	public boolean updateGoods(Goods good);
+	
+	//删除功能
+	public boolean deleteGood(@Param("goodsId")int goodsId);
+	
+	//2.添加新商品
+	public boolean addGood(Goods good);
+
 }

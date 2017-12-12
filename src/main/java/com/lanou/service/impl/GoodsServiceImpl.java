@@ -392,4 +392,82 @@ public class GoodsServiceImpl implements GoodsService {
 		return goodsMapper.findGoods(goodsId);
 	}
 
+	
+	/**
+	 * 卖家内容
+	 */
+	@Override
+	public Map<String, Object> allGoodsNews(int pageId, int pageNumber) {
+		// TODO Auto-generated method stub
+		int pageFirst = (pageId-1)*pageNumber;
+		List<Goods> goods = goodsMapper.allGoodsNews(pageFirst, pageNumber);
+		int counts = goodsMapper.goodsCount();
+		int page = (int)Math.ceil((double)counts/pageNumber);
+		Map<String, Object> maps = new HashMap<>();
+		maps.put("counts", counts);
+		maps.put("pageId	", pageId);
+		maps.put("page", page);
+		maps.put("goods", goods);
+		maps.put("pageNumber", pageNumber);
+		return maps;
+	}
+
+	@Override
+	public Goods goodNews(int goodsId) {
+		// TODO Auto-generated method stub
+		return goodsMapper.goodNews(goodsId);
+	}
+
+	@Override
+	public boolean updateGood(Goods good) {
+		// TODO Auto-generated method stub
+		boolean result = goodsMapper.updateGoods(good);
+		return result;
+	}
+
+	@Override
+	public boolean deleteGood(int goodsId) {
+		// TODO Auto-generated method stub
+		return goodsMapper.deleteGood(goodsId);
+	}
+	
+	@Override
+	public boolean addGood(Goods good) {
+		// TODO Auto-generated method stub
+		return goodsMapper.addGood(good);
+	}
+
+	@Override
+	public Map<String, Object> firstGoods(int catId, int pageId, int pageNumber) {
+		// TODO Auto-generated method stub
+		int pageFirst = (pageId-1)*pageNumber;
+		List<Goods> goods = goodsMapper.firstGoods(catId,pageFirst,pageNumber);
+		int counts = goodsMapper.firstGoodsCount(catId);
+		int page = (int)Math.ceil((double)counts/pageNumber);
+		Map<String, Object> maps = new HashMap<>();
+		maps.put("counts", counts);
+		maps.put("pageId", pageId);
+		maps.put("page", page);
+		maps.put("goods", goods);
+		maps.put("pageNumber", pageNumber);
+		return maps;
+	}
+
+	@Override
+	public Map<String, Object> likesGoods(String name, int pageId, int pageNumber) {
+		// TODO Auto-generated method stub
+		int pageFirst = (pageId-1)*pageNumber;
+		List<Goods> goods = goodsMapper.likes(name, pageFirst, pageNumber);
+		int counts = goodsMapper.likesCount(name);
+		int page = (int)Math.ceil((double)counts/pageNumber);
+		Map<String, Object> maps = new HashMap<>();
+		maps.put("counts", counts);
+		maps.put("pageId", pageId);
+		maps.put("page", page);
+		maps.put("goods", goods);
+		maps.put("pageNumber", pageNumber);
+		return maps;
+	}
+
+
 }

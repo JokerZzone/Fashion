@@ -12,9 +12,11 @@ public class Ad {
 	
 	private String endTime;
 	
-	private String imgDesc;
+	private List<String> imgPre;
 	
-	private List<AdGallery> adGalleries;
+	private List<String> detailImg;
+	
+	private List<String> imgSuff;
 	
 	public Ad() {
 		super();
@@ -52,20 +54,28 @@ public class Ad {
 	public void setEndTime(String endTime) {
 		this.endTime = endTime;
 	}
-
-	public String getImgDesc() {
-		return imgDesc;
+	
+	public List<String> getDetailImg() {
+		return detailImg;
 	}
 
-	public void setImgDesc(String imgDesc) {
-		this.imgDesc = imgDesc;
+	public void setDetailImg(List<String> detailImg) {
+		this.detailImg = detailImg;
 	}
 
-	public List<AdGallery> getAdGalleries() {
-		return adGalleries;
+	public List<String> getImgSuff() {
+		return imgSuff;
 	}
 
-	public void setAdGalleries(List<AdGallery> adGalleries) {
-		this.adGalleries = adGalleries;
+	public void setImgSuff(List<String> imgSuff) {
+		this.imgSuff = imgSuff;
+	}
+
+	public List<String> getImgPre() {
+		return imgPre;
+	}
+
+	public void setImgPre(List<String> imgPre) {
+		this.imgPre = imgPre;
 	}
 }

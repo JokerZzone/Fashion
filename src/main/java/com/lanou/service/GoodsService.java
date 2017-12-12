@@ -23,4 +23,29 @@ public interface GoodsService {
 	public Map<String, Object> weeklyGoods(int weeklyId, int chooseId, int pageId);
 	
 	public Goods findGoods(int goodsId);
+	
+	/**
+	 * 卖家功能 
+	 */
+	//1.展示所有商品信息
+	public Map<String, Object> allGoodsNews(int pageId,int pageNumber);
+	
+	//查看单个商品信息
+	public Goods goodNews(int goodsId);
+	
+	//根据一级分类查看商品
+	public Map<String, Object> firstGoods(int catId,int pageId,int pageNumber);
+	
+	//模糊查询的功能
+	public Map<String, Object> likesGoods(String name,int pageId,int pageNumber);
+	
+	//修改单个商品信息
+	public boolean updateGood(Goods good);
+	
+	//删除商品信息
+	public boolean deleteGood(int goodsId);
+	
+	//添加商品信息
+	public boolean addGood(Goods good);
+
 }

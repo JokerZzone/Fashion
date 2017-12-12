@@ -1,5 +1,6 @@
 package com.lanou.contorller;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -49,4 +50,35 @@ public class CategoryController {
 	public String findTwo(@RequestParam("id") Integer catId) {
 		return categoryService.selectCat(catId);
 	}
+	//卖家
+	//商品分类
+	@RequestMapping("/goodsCategory")
+	@ResponseBody
+	public Map<String, Object> findGoodsCategory(int pageId) {
+		Map<String, Object> maps = new HashMap<>();
+		List<Category> category = categoryService.findCategory(pageId);
+		int total = categoryService.categoryTotal();
+		int page = (int)Math.ceil((double)total/40);
+		System.out.println(page);
+		maps.put("total", total);
+		maps.put("pageId", pageId);
+		maps.put("page", page);
+		maps.put("category", category);
+		return maps;
+	}
+	
+	@RequestMapping("/updateCategory")
+	@ResponseBody
+	public boolean updateGoodsCategory(Category category) {
+		Boolean result = categoryService.updateGoodCategory(category);
+		return result;
+	}
+	
+	@RequestMapping("/oneCategory")
+	@ResponseBody
+	public Category findOneCategory(int catId) {
+		Category category = categoryService.findOneCategory(catId);
+		return category;
+	}
+
 }

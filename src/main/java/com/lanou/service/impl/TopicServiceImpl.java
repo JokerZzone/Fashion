@@ -47,7 +47,7 @@ public class TopicServiceImpl implements TopicService {
 			String[] temp = topic.getTempGoods().split("#");
 			List<Goods> goods = new ArrayList<Goods>();
 			for (int i = 0; i < temp.length; i++) {
-				goods.add(goodsMapper.findGoodsById(Integer.parseInt(temp[i])));
+				goods.add(goodsMapper.findGoods(Integer.parseInt(temp[i])));
 			}
 			topic.setGoods(goods);
 		}

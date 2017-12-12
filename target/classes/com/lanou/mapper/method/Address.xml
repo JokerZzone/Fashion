@@ -4,8 +4,20 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lanou.dao.AddressMapper">
 	
-	<select id="selectAllAddressesByUId" parameterType="int" resultMap="AddressResultMap.AddressResult">
-		select * from address a,city c where 
+	<select id="selectAll" resultMap="AddressResultMap.addressResult">
+		select * from address where user_id = #{userId}
 	</select>
+	
+	<insert id="addAddress">
+		insert into address(user_id,consignee,tel,mobile,email,province,city,country,address,
+		zipcode) values(#{userId},#{consignee},#{tel},#{mobile},#{email},
+		#{province},#{city},#{country},#{address},#{zipCode}) 
+	</insert>
+	
+	<update id="upateAddress">
+		update address set consignee=#{consignee}, tel=#{tel},mobile=#{mobile},
+		email=#{email},province=#{province},city=#{city},country=#{country},
+		address=#{address},zipcode=#{zipCode} where user_id = #{userId}
+	</update>
 	
 </mapper>

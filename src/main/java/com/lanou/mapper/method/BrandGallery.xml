@@ -4,10 +4,19 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lanou.dao.BrandGalleryMapper">
 
-	<select id="findBrandGalleryById" parameterType="int" 
-		resultMap="BrandGalleryResultMap.brandGalleryResult">
+	<select id="findImgPre" resultType="String">
+		select img_pre from brand_gallery 
+			where brand_id = #{0}
+	</select>
+
+	<select id="findDetail" resultType="String">
+		select brand_img from brand_gallery 
+			where brand_id = #{0}
+	</select>
 	
-		select * from brand_gallery where brand_id = #{brandId}
+	<select id="findImgSuff" resultType="String">
+		select img_suff from brand_gallery 
+			where brand_id = #{0}
 	</select>
   
 </mapper>

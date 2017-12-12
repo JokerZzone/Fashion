@@ -9,9 +9,14 @@
   		<result column="ad_name" property="adName" javaType="String"/>
   		<result column="start_time" property="startTime" javaType="String"/>
   		<result column="end_time" property="endTime" javaType="String"/>
-  		<result column="img_desc" property="imgDesc" javaType="String"/>
-  		<collection select="com.lanou.dao.AdGalleryMapper.findByAdGalleryById" 
-  			column="ad_id" property="adGalleries" javaType="java.util.List"/>
+  		<association select="com.lanou.dao.AdGalleryMapper.findImgPre" 
+			column="ad_id" property="imgPre" javaType="java.util.ArrayList"/>
+			
+  		<association select="com.lanou.dao.AdGalleryMapper.findDetail" 
+			column="ad_id" property="detailImg" javaType="java.util.ArrayList"/>
+			
+		<association select="com.lanou.dao.AdGalleryMapper.findImgSuff" 
+			column="ad_id" property="imgSuff" javaType="java.util.ArrayList"/>
   	</resultMap>
   	
 </mapper>

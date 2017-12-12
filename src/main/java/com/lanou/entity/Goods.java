@@ -27,8 +27,14 @@ public class Goods {
 	private int clickCount;
 
 	private int isHot;
-
-	private List<GoodsGallery> goodsGalleries;
+	
+	private List<String> imgPre;
+	
+	private List<String> leftImg;
+	
+	private List<String> detailImg;
+	
+	private List<String> imgSuff;
 	
 	private Brand subBrand;
 	
@@ -132,14 +138,6 @@ public class Goods {
 		this.subBrand = subBrand;
 	}
 
-	public List<GoodsGallery> getGoodsGalleries() {
-		return goodsGalleries;
-	}
-
-	public void setGoodsGalleries(List<GoodsGallery> goodsGalleries) {
-		this.goodsGalleries = goodsGalleries;
-	}
-	
 	public String getGoodsAttr_id() {
 		return goodsAttr_id;
 	}
@@ -156,4 +154,35 @@ public class Goods {
 		this.brandId = brandId;
 	}
 
+	public List<String> getLeftImg() {
+		return leftImg;
+	}
+
+	public void setLeftImg(List<String> leftImg) {
+		this.leftImg = leftImg;
+	}
+
+	public List<String> getDetailImg() {
+		return detailImg;
+	}
+
+	public void setDetailImg(List<String> detailImg) {
+		this.detailImg = detailImg;
+	}
+
+	public List<String> getImgPre() {
+		return imgPre;
+	}
+
+	public void setImgPre(List<String> imgPre) {
+		this.imgPre = imgPre;
+	}
+
+	public List<String> getImgSuff() {
+		return imgSuff;
+	}
+
+	public void setImgSuff(List<String> imgSuff) {
+		this.imgSuff = imgSuff;
+	}
 }

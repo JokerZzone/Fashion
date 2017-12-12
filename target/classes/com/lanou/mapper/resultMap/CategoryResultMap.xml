@@ -3,6 +3,17 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="CategoryResultMap">
+
+	<resultMap type="Category" id="sellerResult">
+		<id column="cat_id" property="catId" javaType="int"/>
+		<result column="cat_name" property="catName" javaType="String"/>
+		<result column="parent_id" property="parentId" javaType="int"/>
+		<result column="sort_order" property="sortOrder" javaType="int"/>
+		<result column="show_in_nav" property="showInNav" javaType="int"/>
+		<result column="style" property="style" javaType="String"/>
+		<result column="is_show" property="isShow" javaType="int" />
+		<result column="good_number" property="goodNumber" javaType="int"/>
+	</resultMap>
 	
   	<resultMap type="Category" id="result">
 		<id column="cat_id" property="catId" javaType="int"/>

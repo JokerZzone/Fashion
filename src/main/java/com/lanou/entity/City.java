@@ -3,35 +3,47 @@ package com.lanou.entity;
 public class City {
 
 	private int cityId;
-	private String cityName;
-	private String cityCode;
-	private int parent_id;
 	
+	private String cityName;
+	
+	private String cityCode;
+	
+	private int parentId;
+
+	public City() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getCityId() {
 		return cityId;
 	}
+
 	public void setCityId(int cityId) {
 		this.cityId = cityId;
 	}
+
 	public String getCityName() {
 		return cityName;
 	}
+
 	public void setCityName(String cityName) {
 		this.cityName = cityName;
 	}
+
 	public String getCityCode() {
 		return cityCode;
 	}
+
 	public void setCityCode(String cityCode) {
 		this.cityCode = cityCode;
 	}
-	public int getParent_id() {
-		return parent_id;
+
+	public int getParentId() {
+		return parentId;
 	}
-	public void setParent_id(int parent_id) {
-		this.parent_id = parent_id;
+
+	public void setParentId(int parentId) {
+		this.parentId = parentId;
 	}
-	
-	
-	
 }

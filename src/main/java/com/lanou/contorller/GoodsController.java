@@ -74,4 +74,64 @@ public class GoodsController {
 	public Goods detail(@RequestParam("id") int goodsId) {
 		return goodsService.findGoods(goodsId);
 	}
+	
+	/**
+	 * 卖家功能  
+	 */
+	//1.展示商品信息
+	@RequestMapping("/goodsNews")
+	@ResponseBody
+	public Map<String, Object> lookGoodsNews(@RequestParam("pageId")int pageId,@RequestParam("pageNumber")int pageNumber) {
+		Map<String, Object> maps = goodsService.allGoodsNews(pageId, pageNumber);
+		return maps;
+	}
+	
+	//筛选一级分类商品
+	@RequestMapping("/firstGoods")
+	@ResponseBody
+	public Map<String, Object> lookFirstGoods(@RequestParam("catId")int catId,@RequestParam("pageId")int pageId,@RequestParam("pageNumber")int pageNumber) {
+		Map<String, Object> maps = goodsService.firstGoods(catId, pageId, pageNumber);
+		return maps;
+	}
+	
+	//模糊查询
+	@RequestMapping("/likeGoods")
+	@ResponseBody
+	public Map<String, Object> findLikeGoods(@RequestParam("name")String name,@RequestParam("pageId")int pageId,@RequestParam("pageNumber")int pageNumber) {
+		Map<String, Object> maps = goodsService.likesGoods(name, pageId, pageNumber);
+		return maps;
+	}
+	
+	//查看单个商品信息
+	@RequestMapping("/oneGoodNews")
+	@ResponseBody
+	public Goods oneGoodNews(@RequestParam("goodsId")int goodsId) {
+		Goods good = goodsService.goodNews(goodsId);
+		return good;
+	}
+	
+	//修改单个商品信息
+	@RequestMapping("/updateGood")
+	@ResponseBody
+	public boolean updateGoodNews(Goods good) {
+		boolean result = goodsService.updateGood(good);
+		return result;
+	}
+	
+	//删除商品功能
+	@RequestMapping("/deleteGood")
+	@ResponseBody
+	public boolean deleteGoodNews(@RequestParam("goodsId")int goodsId) {
+		boolean result = goodsService.deleteGood(goodsId);
+		return result;
+	}
+	
+	//添加商品
+	@RequestMapping("/addGood")
+	@ResponseBody
+	public boolean addGoodNews(Goods good) {
+		boolean result = goodsService.addGood(good);
+		return result;
+	}
+
 }
