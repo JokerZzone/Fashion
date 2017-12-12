@@ -28,7 +28,7 @@
 	<!-- xy -->
 	<!-- 点击标题获取的商品 -->
 	<select id="findAllGoods" resultMap="GoodsResultMap.goodsResult">
-		select a.goods_id,a.goods_name,a.shop_price,a.discount from goods as
+		select a.goods_id,a.goods_name,a.shop_price,a.discount,a.img_desc from goods as
 		a,goods_cat as b
 		where a.goods_id = b.goods_id and b.nav_id =
 		#{titleId}
@@ -68,22 +68,20 @@
 			and a.attr_id like
 			concat_ws('#','%','%','%','%','%','%','%',#{typeId8})
 		</if>
-
-
 		<!-- /sp -->
-
 		<if test="chooseId ==1">
 			<if test="sortId == 0">
-				order by shop_price Asc LIMIT #{pageId},#{pageCount}
+				order by a.shop_price Asc LIMIT #{pageId},#{pageCount}
 			</if>
 			<if test="sortId == 1">
-				order by shop_price Desc LIMIT #{pageId},#{pageCount}
+				order by a.shop_price Desc LIMIT #{pageId},#{pageCount}
 			</if>
 		</if>
 		<if test="chooseId == 0">
 			LIMIT #{pageId},36
 		</if>
 	</select>
+	
 	<!-- 获取标题所有商品数量 -->
 	<select id="goodsTotal" resultType="int">
 		select count(a.goods_id)
@@ -131,7 +129,7 @@
 
 	<!-- 获取二级分类的商品 -->
 	<select id="findSecondGoods" resultMap="GoodsResultMap.goodsResult">
-		select a.goods_id,a.goods_name,a.shop_price,a.discount from goods as
+		select a.goods_id,a.goods_name,a.shop_price,a.discount,a.img_desc from goods as
 		a,goods_cat as b
 		where a.goods_id = b.goods_id and b.cat_id = #{catId}
 		<!-- sp -->
@@ -171,19 +169,19 @@
 			concat_ws('#','%','%','%','%','%','%','%',#{typeId8})
 		</if>
 		<!-- /sp -->
-
 		<if test="chooseId ==1">
 			<if test="sortId == 0">
-				order by shop_price Asc LIMIT #{pageId},#{pageCount}
+				order by a.shop_price Asc LIMIT #{pageId},#{pageCount}
 			</if>
 			<if test="sortId == 1">
-				order by shop_price Desc LIMIT #{pageId},#{pageCount}
+				order by a.shop_price Desc LIMIT #{pageId},#{pageCount}
 			</if>
 		</if>
 		<if test="chooseId == 0">
 			LIMIT #{pageId},36
 		</if>
 	</select>
+	
 	<!-- 获取二级分类所有商品数量 -->
 	<select id="SecondGoodsTotal" resultType="int">
 		select count(a.goods_id)
@@ -231,23 +229,22 @@
 
 	<!-- 明星推荐方法 -->
 	<select id="recommendGoods" resultMap="GoodsResultMap.goodsResult">
-		select
-		* from goods where is_recommend
-		= 1
+		select a.goods_id,a.goods_name,a.shop_price,a.img_desc 
+		from goods as a where a.is_recommend = 1
 	</select>
 
 	<!-- 清仓方法 -->
 	<select id="saleOut" resultMap="GoodsResultMap.goodsResult">
-		select
-		* from goods where is_out = 1
+		select a.goods_id,a.goods_name,a.shop_price,a.discount,a.img_desc,a.market_price 
+		from goods as a where a.is_out = 1
 	</select>
 
 	<!-- 本周特价 -->
 	<select id="weeklyGoods" resultMap="GoodsResultMap.goodsResult">
-		select * 
-		from goods where is_weekly = #{weeklyId}
+		select a.goods_id,a.goods_name,a.shop_price,a.discount,a.img_desc,a.market_price 
+		from goods as a where is_weekly = #{weeklyId}
 		<if test="chooseId ==1">
-			order by shop_price Asc LIMIT #{pageId},#{pageCount}
+			order by a.shop_price Asc LIMIT #{pageId},#{pageCount}
 		</if>
 		<if test="chooseId == 0">
 			LIMIT #{pageId},36

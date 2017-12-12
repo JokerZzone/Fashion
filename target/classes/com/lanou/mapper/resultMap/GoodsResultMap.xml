@@ -44,6 +44,7 @@
 		<result column="discount" property="discount" javaType="String" />
 		<result column="img_desc" property="imgDesc" javaType="String" />
 	</resultMap>
+	
 	<!-- xy 卖家 -->
 	<resultMap type="Goods" id="sellerResult">
 		<id column="goods_id" property="goodsId" javaType="int" />
