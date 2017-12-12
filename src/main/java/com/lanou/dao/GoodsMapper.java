@@ -95,7 +95,7 @@ public interface GoodsMapper {
 	public List<Goods> saleOut();
 	
 	//本周特价
-	public List<Goods> weeklyGoods(@Param("weeklyId") int weeklyId, @Param("chooseId") int chooseId,
+	public List<Goods> weeklyGoods(@Param("chooseId") int chooseId,@Param("orders") int orders,
 			@Param("pageId") int pageId,@Param("pageCount") int pageCount);
 	
 	// 获取本周特价商品数量
