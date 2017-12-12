@@ -34,14 +34,21 @@ public class MergeController {
 	public Map<String, Object> first() {
 		Map<String, Object> map = new HashMap<String, Object>();
 		List<Nav> navs = navService.showAll();
+		List<Map<String, Object>> caList = categoryService.selectDesc();
+		map.put("nav", navs);
+		map.put("category", caList);
+		return map;
+	}
+	
+	@RequestMapping("/2")
+	@ResponseBody
+	public Map<String, Object> second() {
+		Map<String, Object> map = new HashMap<String, Object>();
 		List<Topic> topics = new ArrayList<Topic>();
 		for (int i = 1; i < 4; i++) {
 			topics.add(topicService.showTopic(i));
 		}
-		List<Map<String, Object>> caList = categoryService.selectDesc();
-		map.put("nav", navs);
 		map.put("topic", topics);
-		map.put("category", caList);
 		return map;
 	}
 	
