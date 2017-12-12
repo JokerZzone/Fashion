@@ -26,6 +26,12 @@ public class BrandServiceImpl implements BrandService {
 		return brandMapper.selectLikeDesc_Country(braDesc);
 	}
 
+	@Override
+	public void addBrand(Brand brand) {
+		// TODO Auto-generated method stub
+		brandMapper.addBrand(brand);
+	}
+
 
 	
 }

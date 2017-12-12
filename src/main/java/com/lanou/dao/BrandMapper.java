@@ -15,4 +15,6 @@ public interface BrandMapper {
 	
 	public List<Brand> selectLikeDesc_Country(String braDesc);
 	
+	public void addBrand(Brand brand);
+	
 }

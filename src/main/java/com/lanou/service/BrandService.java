@@ -10,4 +10,5 @@ public interface BrandService {
 	
 	public List<Brand> selectLikeDesc_Country(String braDesc);
 	
+	public void addBrand(Brand brand);
 }

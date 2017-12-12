@@ -349,4 +349,8 @@
 
 	</select>
 
+	<select id="findCollectionGoods" parameterType="int" resultMap="GoodsResultMap.findCollectionGoodsResult">
+		select goods_id,goods_name,market_price,shop_price,img_desc from goods where goods_id = #{goods_id}
+	</select>
+
 </mapper>

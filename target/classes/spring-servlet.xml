@@ -21,7 +21,7 @@
 		<mvc:message-converters>  
 			<bean class="org.springframework.http.converter.StringHttpMessageConverter">  
 				<constructor-arg value="UTF-8" />  
-			</bean>  
+			</bean>
 		</mvc:message-converters>
 	</mvc:annotation-driven>
 	
@@ -31,7 +31,7 @@
 			<bean class="com.lanou.interceptor.DefaultInterceptor"></bean>
 		</mvc:interceptor>
 		<mvc:interceptor>
-			<mvc:mapping path="/user/*"/>
+			<mvc:mapping path="/user/login"/>
 			<bean class="com.lanou.interceptor.LoginInterceptor"></bean>
 		</mvc:interceptor>
 		<mvc:interceptor>

@@ -29,13 +29,20 @@
 		 	, mobile_phone = #{phone} , birthday = #{birthday} where user_id = #{uId}
 	</select>
 	
-	<select id="selectAllUserByNowPage" parameterType="int" resultMap="UserResultMap.userResult">
-		select * from users limit #{0},#{1}
-	</select>
-	<select id="selectCountOfAllUser" resultType="int">
-		select count(*) from users
-	</select>
 	
+	<select id="selectUserByNowPage" resultMap="UserResultMap.userResult">
+		select * from users 
+		<if test="username != null">
+			where user_name like concat('%',#{username},'%') 
+		</if>
+		limit #{startPos},#{pageSize}
+	</select>
+	<select id="selectUserCount" resultType="int">
+		select count(*) from users
+		<if test="username != null">
+			where user_name like concat('%',#{username},'%')
+		</if>
+	</select>
 	
   	<select id="comfirm" >
   		select count(*) from cart where username

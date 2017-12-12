@@ -1,16 +1,18 @@
 package com.lanou.contorller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.lanou.entity.User;
@@ -114,12 +116,20 @@ public class UserContorller {
 		return "success";
 	}
 
+	
+	//卖家版
+	
 	//查找所有user分页展示
-	@RequestMapping(value="/selectAllUserByNowPage",method=RequestMethod.GET)
+	//会员名称模糊查询
+	@RequestMapping(value="/selectUserByNowPage",method=RequestMethod.GET)
 	@ResponseBody
-	public List<User> selectAllUserByNowPage(int nowPage) {
-		Page page = new Page(userService.selectCountOfAllUser(), nowPage);
-		return userService.selectAllUserByNowPage(page.getStartPos(), page.getPageSize()); 
+	public Map<String, Object> selectUserByNowPage(@RequestParam(value="username",required=false,defaultValue="") String username,
+			int nowPage) {
+		Page page = new Page(userService.selectUserCount(username), nowPage);
+		Map<String, Object> map = new HashMap<>();
+		map.put("userList", userService.selectUserByNowPage(username, page.getStartPos(), page.getPageSize()));
+		map.put("page", page);
+		return map;
 	}
 	
 	@InitBinder("user")

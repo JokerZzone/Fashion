@@ -19,6 +19,7 @@ public interface UserService {
 	public void updateUserByUId(User user);
 	
 	//查找所有user并实现分页
-	public List<User> selectAllUserByNowPage(int startPos,int pageSize);
-	public int selectCountOfAllUser();
+	//会员搜索 模糊查询
+	public List<User> selectUserByNowPage(String username,int startPos,int pageSize);
+	public int selectUserCount(String username);
 }

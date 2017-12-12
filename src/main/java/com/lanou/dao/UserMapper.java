@@ -2,6 +2,7 @@ package com.lanou.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import com.lanou.entity.User;
@@ -21,8 +22,11 @@ public interface UserMapper {
 	
 	public void updateUserByUId(User user);
 	
-	public List<User> selectAllUserByNowPage(int startPos,int pageSize);
-	public int selectCountOfAllUser();
 	
-	
+	public List<User> selectUserByNowPage(
+			@Param("username") String username,
+			@Param("startPos") int startPos,
+			@Param("pageSize") int pageSize
+		);
+	public int selectUserCount(@Param("username") String username);
 }

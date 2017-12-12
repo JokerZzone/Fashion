@@ -54,16 +54,16 @@ public class UserServiceImpl implements UserService{
 		userMapper.updateUserByUId(user);
 	}
 
-
+	
 	@Override
-	public List<User> selectAllUserByNowPage(int startPos, int pageSize) {
+	public List<User> selectUserByNowPage(String username, int startPos, int pageSize) {
 		// TODO Auto-generated method stub
-		return userMapper.selectAllUserByNowPage(startPos, pageSize);
+		return userMapper.selectUserByNowPage(username, startPos, pageSize);
 	}
 	@Override
-	public int selectCountOfAllUser() {
+	public int selectUserCount(String username) {
 		// TODO Auto-generated method stub
-		return userMapper.selectCountOfAllUser();
+		return userMapper.selectUserCount(username);
 	}
 
 	
