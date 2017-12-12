@@ -50,10 +50,10 @@ public class GoodsServiceImpl implements GoodsService {
 		return goodsMapper.saleOut();
 	}
 
-	public Map<String, Object> weeklyGoods(int weeklyId, int chooseId, int pageId) {
+	public Map<String, Object> weeklyGoods(int chooseId,int orders, int pageId) {
 		// TODO Auto-generated method stub
 		int pageId2 = (pageId - 1) * PAGE;
-		List<Goods> goods = goodsMapper.weeklyGoods(weeklyId, chooseId, pageId2, 36);
+		List<Goods> goods = goodsMapper.weeklyGoods(chooseId,orders,pageId2, 36);
 		total = goodsMapper.weeklyGoodsTotal();
 		totalPage = (int) Math.ceil((double) (total) / (PAGE));
 		Map<String, Object> maps = new HashMap<String, Object>();

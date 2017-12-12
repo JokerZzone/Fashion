@@ -20,7 +20,7 @@ public interface GoodsService {
 	public List<Goods> saleOutGoods(); 
 	
 	//展示本周特价
-	public Map<String, Object> weeklyGoods(int weeklyId, int chooseId, int pageId);
+	public Map<String, Object> weeklyGoods(int chooseId,int orders, int pageId);
 	
 	public Goods findGoods(int goodsId);
 	

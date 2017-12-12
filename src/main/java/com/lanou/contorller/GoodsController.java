@@ -64,9 +64,8 @@ public class GoodsController {
 	// 本周特价商品
 	@RequestMapping("/weekly")
 	@ResponseBody
-	public Map<String, Object> weeklyGoods(@RequestParam("weeklyId") int weeklyId,
-			@RequestParam("chooseId") int chooseId, @RequestParam("pageId") int pageId) {
-		Map<String, Object> maps = goodsService.weeklyGoods(weeklyId, chooseId, pageId);
+	public Map<String, Object> weeklyGoods(@RequestParam("chooseId") int chooseId, @RequestParam("orders") int orders,@RequestParam("pageId") int pageId) {
+		Map<String, Object> maps = goodsService.weeklyGoods(chooseId,orders, pageId);
 		return maps;
 	}
 
