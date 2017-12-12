@@ -1,5 +1,7 @@
 package com.lanou.service;
 
+import java.util.List;
+
 import com.lanou.entity.User;
 
 public interface UserService {
@@ -15,4 +17,8 @@ public interface UserService {
 	public void updatePassword(User user);
 	
 	public void updateUserByUId(User user);
+	
+	//查找所有user并实现分页
+	public List<User> selectAllUserByNowPage(int startPos,int pageSize);
+	public int selectCountOfAllUser();
 }

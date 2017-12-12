@@ -1,5 +1,7 @@
 package com.lanou.contorller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.lanou.entity.User;
 import com.lanou.service.UserService;
+import com.lanou.util.Page;
 
 @Controller
 @RequestMapping(value = "/user")
@@ -22,7 +25,7 @@ public class UserContorller {
 	private UserService userService;
 
 	// 登录验证
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	@ResponseBody
 	public String confirmUser(User user, HttpServletRequest request) {
 		String result = null;
@@ -65,7 +68,7 @@ public class UserContorller {
 	}
 
 	// 注册验证
-	@RequestMapping(value = "/reg", method = RequestMethod.GET)
+	@RequestMapping(value = "/reg", method = RequestMethod.POST)
 	@ResponseBody
 	public String reg(User user, String password2) {
 		
@@ -77,7 +80,7 @@ public class UserContorller {
 	}
 
 	// 修改密码
-	@RequestMapping(value = "/updatePassword", method = RequestMethod.GET)
+	@RequestMapping(value = "/updatePassword", method = RequestMethod.POST)
 	@ResponseBody
 	public String updatePassword(User user, String oldPassword, String password2) {
 		String result = null;
@@ -96,14 +99,14 @@ public class UserContorller {
 	}
 
 	// 查看个人资料
-	@RequestMapping(value = "/lookPersonalInfo", method = RequestMethod.GET)
+	@RequestMapping(value = "/lookPersonalInfo", method = RequestMethod.POST)
 	@ResponseBody
 	public User lookPersonalInfo(User user) {
 		return userService.selectUserByUId(user.getuId());
 	}
 
 	// 修改个人资料
-	@RequestMapping(value = "/updatePersonalInfo", method = RequestMethod.GET)
+	@RequestMapping(value = "/updatePersonalInfo", method = RequestMethod.POST)
 	@ResponseBody
 	public String updatePersonalInfo(User user) {
 
@@ -111,6 +114,14 @@ public class UserContorller {
 		return "success";
 	}
 
+	//查找所有user分页展示
+	@RequestMapping(value="/selectAllUserByNowPage",method=RequestMethod.GET)
+	@ResponseBody
+	public List<User> selectAllUserByNowPage(int nowPage) {
+		Page page = new Page(userService.selectCountOfAllUser(), nowPage);
+		return userService.selectAllUserByNowPage(page.getStartPos(), page.getPageSize()); 
+	}
+	
 	@InitBinder("user")
 	public void initUser(WebDataBinder wBinder) {
 		wBinder.setFieldDefaultPrefix("user.");

@@ -1,5 +1,7 @@
 package com.lanou.dao;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import com.lanou.entity.User;
@@ -18,5 +20,9 @@ public interface UserMapper {
 	public void updatePassword(User user);
 	
 	public void updateUserByUId(User user);
+	
+	public List<User> selectAllUserByNowPage(int startPos,int pageSize);
+	public int selectCountOfAllUser();
+	
 	
 }
