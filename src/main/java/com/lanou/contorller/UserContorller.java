@@ -29,16 +29,13 @@ public class UserContorller {
 	// 登录验证
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	@ResponseBody
-	public String confirmUser(User user, HttpServletRequest request) {
-		String result = null;
+	public int confirmUser(User user) {
 		User nowUser = userService.confirmUser(user.getUsername());
 		if (nowUser != null && user.getPassword().equals(nowUser.getPassword())) {
-			request.setAttribute("user", nowUser);
-			result = "success";
+			return nowUser.getuId();
 		} else {
-			result = "error";// 用户名或密码错误
+			return 0;// 用户名或密码错误
 		}
-		return result;
 	}
 
 	// 注册用户名失焦
@@ -72,13 +69,13 @@ public class UserContorller {
 	// 注册验证
 	@RequestMapping(value = "/reg", method = RequestMethod.POST)
 	@ResponseBody
-	public String reg(User user, String password2) {
+	public int reg(User user, String password2) {
 		
 		if (!password2.equals(user.getPassword())) {
-			return "error";// 两次密码不一致
+			return 0;// 两次密码不一致
 		}
 		userService.addUser(user);
-		return "success";
+		return userService.confirmUser(user.getUsername()).getuId();
 	}
 
 	// 修改密码
