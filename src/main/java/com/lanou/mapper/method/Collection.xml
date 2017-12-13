@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lanou.dao.CollectionMapper">
+	
+	<!-- 查看收藏夹 -->
+	<select id="findCollectionByUId" parameterType="int" resultMap="CollectionResultMap.CollectionResult">
+		select * from collections where user_id = #{0} and delete_id = 0 limit #{1},#{2}
+	</select>
+	<select id="getCountOfCollection" parameterType="int" resultType="int">
+		select count(*) from collections where user_id = #{user_id} and delete_id = 0 
+	</select>
+	
+	<insert id="addCollection">
+		insert into collections(user_id,goods_id,add_time) values(#{user_id},#{goods_id},#{add_time})
+	</insert>
+	
+	<update id="deleteCollectionById">
+		update collections set delete_id = 1 where user_id = #{user_id} and goods_id in  
+		<foreach collection="array" index="index" item="item" open="(" separator="," close=")">
+            #{item}  
+        </foreach>  
+	</update>
+	
+	<update id="deleteAllCollection" parameterType="int">
+		update collections set delete_id = 1 where user_id = #{user_id}
+	</update>
+</mapper>

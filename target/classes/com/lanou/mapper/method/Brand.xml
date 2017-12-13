@@ -17,6 +17,8 @@
 		select * from brand where brand_desc like concat('%',#{braDesc})
 	</select>
 	
-	
-  
+	<insert id="addBrand" parameterType="Brand">
+		insert into brand(brand_name,brand_desc,img_desc) values(#{brandName},#{brandDesc},#{imgDesc})
+	</insert>
+ 
 </mapper>

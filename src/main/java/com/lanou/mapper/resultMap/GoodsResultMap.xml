@@ -83,4 +83,12 @@
 		<result column="attr_id" property="goodsAttr_id" javaType="String" />
 		<result column="brand_id" property="brandId" javaType="int" />
 	</resultMap>
+	
+	<resultMap type="Goods" id="findCollectionGoodsResult">
+		<id column="goods_id" property="goodsId" javaType="int" />
+		<result column="goods_name" property="goodsName" javaType="String" />
+		<result column="market_price" property="marketPrice" javaType="double" />
+		<result column="shop_price" property="shopPrice" javaType="double" />
+		<result column="img_desc" property="imgDesc" javaType="String" />
+	</resultMap>
 </mapper>

@@ -2,6 +2,7 @@ package com.lanou.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import com.lanou.entity.User;
@@ -21,11 +22,16 @@ public interface UserMapper {
 	
 	public void updateUserByUId(User user);
 	
-	//查找所有user并实现分页
 	public List<User> selectAllUserByNowPage(int startPos,int pageSize);
 	
 	public int selectCountOfAllUser();
 
 	public User selectUserByUId(int user_id);
-	
+
+	public List<User> selectUserByNowPage(
+			@Param("username") String username,
+			@Param("startPos") int startPos,
+			@Param("pageSize") int pageSize
+		);
+	public int selectUserCount(@Param("username") String username);
 }
