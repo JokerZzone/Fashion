@@ -13,5 +13,4 @@
 		<result column="shop_price" property="shopPrice" javaType="double" />
 		<result column="goods_number" property="goodsNumber" javaType="int" />
 	</resultMap>
-
 </mapper>
