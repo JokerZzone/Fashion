@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="OrderInfoResultMap">
+
+	<resultMap type="OrderInfo" id="orderInfoResult">
+		<id column="order_id" property="orderId" javaType="int" />
+		<result column="order_sn" property="orderSn" javaType="String" />
+		<result column="user_id" property="userId" javaType="int" />
+		<result column="order_status" property="orderStatus" javaType="int" />
+		<result column="shipping_status" property="shippingStatus" javaType="int" />
+		<result column="pay_status" property="payStatus" javaType="int" />
+		<association select="" 
+			column="user_id" property="address" javaType="Address"/>
+	</resultMap>
+
+</mapper>

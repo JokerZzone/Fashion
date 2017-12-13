@@ -15,4 +15,14 @@
   		<result column="goods_number" property="goodsNumber" javaType="int"/>
   	</resultMap>
   	
+  	<resultMap type="Cart" id="cartResult1">
+  		<id column="rec_id" property="recId" javaType="int"/>
+  		<result column="user_id" property="userId" javaType="int"/>
+  		<result column="goods_id" property="goodsId" javaType="int"/>
+  		<result column="cart_id" property="cartId" javaType="int"/>
+  		<result column="goods_name" property="goodsName" javaType="String"/>
+  		<result column="shop_price" property="shopPrice" javaType="double"/>
+  		<result column="goods_number" property="goodsNumber" javaType="int"/>
+  		<association property=""></association>
+  	</resultMap>
 </mapper>

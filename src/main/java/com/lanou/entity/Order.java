@@ -1,22 +1,78 @@
 package com.lanou.entity;
 
-import java.util.List;
-
 public class Order {
-
+	
+	private int recId;
+	
 	private int orderId;
 	
-	private String orderSn;
+	private int goodsId;
 	
-	private int userId;
+	private int parentId;
 	
-	private int orderStatus;
+	private String goodsName;
 	
-	private int shippingStatus;
+	private double shopPrice;
 	
-	private int payStatus;
+	private int goodsNumber;
 	
-	private List<Address> address;
-	
-	
+	public Order() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public int getRecId() {
+		return recId;
+	}
+
+	public void setRecId(int recId) {
+		this.recId = recId;
+	}
+
+	public int getOrderId() {
+		return orderId;
+	}
+
+	public void setOrderId(int orderId) {
+		this.orderId = orderId;
+	}
+
+	public int getGoodsId() {
+		return goodsId;
+	}
+
+	public void setGoodsId(int goodsId) {
+		this.goodsId = goodsId;
+	}
+
+	public int getParentId() {
+		return parentId;
+	}
+
+	public void setParentId(int parentId) {
+		this.parentId = parentId;
+	}
+
+	public String getGoodsName() {
+		return goodsName;
+	}
+
+	public void setGoodsName(String goodsName) {
+		this.goodsName = goodsName;
+	}
+
+	public double getShopPrice() {
+		return shopPrice;
+	}
+
+	public void setShopPrice(double shopPrice) {
+		this.shopPrice = shopPrice;
+	}
+
+	public int getGoodsNumber() {
+		return goodsNumber;
+	}
+
+	public void setGoodsNumber(int goodsNumber) {
+		this.goodsNumber = goodsNumber;
+	}
 }

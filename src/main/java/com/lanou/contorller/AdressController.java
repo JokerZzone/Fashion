@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.lanou.entity.Address;
 import com.lanou.entity.User;
@@ -28,6 +29,7 @@ public class AdressController {
 	}
 	
 	@RequestMapping("/show")
+	@ResponseBody
 	public List<Address> show(HttpServletRequest request) {
 		User user = (User) request.getSession().getAttribute("user");
 		return addressService.selectAll(user.getuId());

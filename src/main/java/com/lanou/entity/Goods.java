@@ -28,6 +28,8 @@ public class Goods {
 
 	private int isHot;
 	
+	private int virtualSales;
+	
 	private List<String> imgPre;
 	
 	private List<String> leftImg;
@@ -184,5 +186,13 @@ public class Goods {
 
 	public void setImgSuff(List<String> imgSuff) {
 		this.imgSuff = imgSuff;
+	}
+
+	public int getVirtualSales() {
+		return virtualSales;
+	}
+
+	public void setVirtualSales(int virtualSales) {
+		this.virtualSales = virtualSales;
 	}
 }

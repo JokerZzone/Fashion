@@ -2,26 +2,22 @@ package com.lanou.entity;
 
 public class OrderInfo {
 
-private int recId;
-	
 	private int orderId;
 	
-	private int goodsId;
+	private String orderSn;
 	
-	private int parentId;
+	private int userId;
 	
-	private String goodsName;
+	private int orderStatus;
 	
-	private double shopPrice;
+	private int shippingStatus;
 	
-	private int goodsNumber;
+	private int payStatus;
+	
+	private Address address;
 
-	public int getRecId() {
-		return recId;
-	}
-
-	public void setRecId(int recId) {
-		this.recId = recId;
+	public OrderInfo() {
+		// TODO Auto-generated constructor stub
 	}
 
 	public int getOrderId() {
@@ -32,43 +28,51 @@ private int recId;
 		this.orderId = orderId;
 	}
 
-	public int getGoodsId() {
-		return goodsId;
+	public String getOrderSn() {
+		return orderSn;
 	}
 
-	public void setGoodsId(int goodsId) {
-		this.goodsId = goodsId;
+	public void setOrderSn(String orderSn) {
+		this.orderSn = orderSn;
 	}
 
-	public int getParentId() {
-		return parentId;
+	public int getUserId() {
+		return userId;
 	}
 
-	public void setParentId(int parentId) {
-		this.parentId = parentId;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
-	public String getGoodsName() {
-		return goodsName;
+	public int getOrderStatus() {
+		return orderStatus;
 	}
 
-	public void setGoodsName(String goodsName) {
-		this.goodsName = goodsName;
+	public void setOrderStatus(int orderStatus) {
+		this.orderStatus = orderStatus;
 	}
 
-	public double getShopPrice() {
-		return shopPrice;
+	public int getShippingStatus() {
+		return shippingStatus;
 	}
 
-	public void setShopPrice(double shopPrice) {
-		this.shopPrice = shopPrice;
+	public void setShippingStatus(int shippingStatus) {
+		this.shippingStatus = shippingStatus;
 	}
 
-	public int getGoodsNumber() {
-		return goodsNumber;
+	public int getPayStatus() {
+		return payStatus;
 	}
 
-	public void setGoodsNumber(int goodsNumber) {
-		this.goodsNumber = goodsNumber;
+	public void setPayStatus(int payStatus) {
+		this.payStatus = payStatus;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 }

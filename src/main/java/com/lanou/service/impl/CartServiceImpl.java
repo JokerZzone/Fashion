@@ -1,5 +1,7 @@
 package com.lanou.service.impl;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -27,26 +29,43 @@ public class CartServiceImpl implements CartService {
 		User user = (User) session.getAttribute("user");
 		int userId = user.getuId();
 		String sessionId = session.getId();
-		Cart cart = cartMapper.selectByUserId(userId);
-		int parentId = 0;
-		if (cart == null) {
-			if (cartMapper.selectMax() == null) {
-				parentId = 0;
-			}else {
-				parentId = cartMapper.selectMax();
+		List<Cart> carts = cartMapper.selectByUserId(userId);
+		if (carts.size() != 0) {
+			for (int i = 0; i < goods.length; i++) {
+				for (Cart cart : carts) {
+					if (cart.getGoodsId() == goods[i]) {
+						int temp = cart.getGoodsNumber();
+						temp += num[i];
+						cart.setGoodsNumber(temp);
+						cartMapper.updateCart(cart);
+					}else {
+						int goodsId = goods[i];
+						int goodsNumber = num[i];
+						Goods good = goodsMapper.findGoods(goodsId);
+						String goodsName = good.getGoodsName();
+						double shopPrice = good.getShopPrice();
+						Cart nowCart = new Cart(userId,sessionId,goodsId,goodsName,shopPrice,goodsNumber);
+						cartMapper.addCart(nowCart);
+					}
+				}
 			}
 		}else {
-			parentId = cart.getParentId();
+			for (int i = 0; i < goods.length; i++) {
+				int goodsId = goods[i];
+				int goodsNumber = num[i];
+				Goods good = goodsMapper.findGoods(goodsId);
+				String goodsName = good.getGoodsName();
+				double shopPrice = good.getShopPrice();
+				Cart nowCart = new Cart(userId,sessionId,goodsId,goodsName,shopPrice,goodsNumber);
+				cartMapper.addCart(nowCart);
+			}
 		}
-		for (int i = 0; i < goods.length; i++) {
-			int goodsId = goods[i];
-			int goodsNumber = num[i];
-			Goods good = goodsMapper.findGoods(goodsId);
-			String goodsName = good.getGoodsName();
-			double shopPrice = good.getShopPrice();
-			Cart nowCart = new Cart(userId,sessionId,goodsId,parentId,goodsName,shopPrice,goodsNumber);
-			cartMapper.addCart(nowCart);
-		}
+	}
+	
+	
+	public List<Cart> showCart(int userId) {
+		
+		return cartMapper.selectByUserId(userId);
 	}
 
 }

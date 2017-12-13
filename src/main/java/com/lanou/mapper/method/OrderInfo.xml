@@ -2,11 +2,11 @@
 <!DOCTYPE mapper
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.lanou.dao.OrderMapper">
+<mapper namespace="com.lanou.dao.OrderInfoMapper">
 	
-	<!-- 根据用户id查找到用户的订单 -->
+	<!-- 根据用户id查找到用户的订单詳情 -->
 	<select id="findOrderById">
-		select * from order where user_id = #{userId}
+		select * from order_info where user_id = #{userId}
 	</select>
 	
 </mapper>

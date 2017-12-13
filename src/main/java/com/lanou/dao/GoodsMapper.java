@@ -14,6 +14,8 @@ public interface GoodsMapper {
 	public Goods findGoodsById(int goodsId);
 	
 	public Goods findGoods(int goodsId);
+	
+	public Goods findGoodsToIndex(int goodsId);
 
 	// xy
 	//title模块

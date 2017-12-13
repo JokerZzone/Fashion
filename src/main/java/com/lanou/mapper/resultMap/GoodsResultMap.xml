@@ -14,6 +14,7 @@
 		<result column="shop_price" property="shopPrice" javaType="double" />
 		<result column="discount" property="discount" javaType="String" />
 		<result column="is_hot" property="isHot" javaType="int" />
+		<result column="virtual_sales" property="virtualSales" javaType="int" />
 		<association select="com.lanou.dao.GoodsGalleryMapper.findImgPre" 
 			column="goods_id" property="imgPre" javaType="java.util.ArrayList"/>	
 		<association select="com.lanou.dao.GoodsGalleryMapper.findLeft" 
@@ -26,6 +27,18 @@
 			column="brand_id" property="subBrand" javaType="Brand"/>
 	</resultMap>
 	
+	<!-- 主页楼层 -->
+	<resultMap type="Goods" id="indexResult">
+		<id column="goods_id" property="goodsId" javaType="int" />
+		<result column="goods_name" property="goodsName" javaType="String" />
+		<result column="goods_desc" property="goodsDesc" javaType="String" />
+		<result column="img_desc" property="imgDesc" javaType="String" />
+		<result column="shop_price" property="shopPrice" javaType="double" />
+		<result column="discount" property="discount" javaType="String" />
+		<result column="is_hot" property="isHot" javaType="int" />
+		<result column="virtual_sales" property="virtualSales" javaType="int" />
+	</resultMap>
+	
 	<!-- 超值小樣map -->
 	<resultMap type="Goods" id="goodsResult1">
 		<id column="goods_id" property="goodsId" javaType="int" />
@@ -34,6 +47,7 @@
 		<result column="img_desc" property="imgDesc" javaType="String" />
 		<result column="shop_price" property="shopPrice" javaType="double" />
 		<result column="discount" property="discount" javaType="String" />
+		<result column="market_price" property="marketPrice" javaType="double"/>
 	</resultMap>
 	
 	<!-- xy -->

@@ -24,7 +24,7 @@ public class UserContorller {
 	private UserService userService;
 
 	// 登录验证
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	@ResponseBody
 	public String confirmUser(User user, HttpServletRequest request) {
 		String result = null;

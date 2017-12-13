@@ -4,6 +4,7 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lanou.dao.AddressMapper">
 	
+	<!-- 根據用戶id查出所有地址簿 -->
 	<select id="selectAll" resultMap="AddressResultMap.addressResult">
 		select * from address where user_id = #{userId}
 	</select>

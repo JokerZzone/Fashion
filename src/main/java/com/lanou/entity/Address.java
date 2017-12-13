@@ -14,18 +14,17 @@ public class Address {
 	
 	private String email;
 	
-	private int provinceId;
+	private int province;
 	
-	private int cityId;
+	private int city;
 	
-	private int countryId;
+	private int country;
 	
 	private String address;
 	
 	private String zipcode;
 
 	public Address() {
-		super();
 		// TODO Auto-generated constructor stub
 	}
 
@@ -77,6 +76,30 @@ public class Address {
 		this.email = email;
 	}
 
+	public int getProvince() {
+		return province;
+	}
+
+	public void setProvince(int province) {
+		this.province = province;
+	}
+
+	public int getCity() {
+		return city;
+	}
+
+	public void setCity(int city) {
+		this.city = city;
+	}
+
+	public int getCountry() {
+		return country;
+	}
+
+	public void setCountry(int country) {
+		this.country = country;
+	}
+
 	public String getAddress() {
 		return address;
 	}
@@ -91,29 +114,5 @@ public class Address {
 
 	public void setZipcode(String zipcode) {
 		this.zipcode = zipcode;
-	}
-
-	public int getProvinceId() {
-		return provinceId;
-	}
-
-	public void setProvinceId(int provinceId) {
-		this.provinceId = provinceId;
-	}
-
-	public int getCityId() {
-		return cityId;
-	}
-
-	public void setCityId(int cityId) {
-		this.cityId = cityId;
-	}
-
-	public int getCountryId() {
-		return countryId;
-	}
-
-	public void setCountryId(int countryId) {
-		this.countryId = countryId;
 	}
 }

@@ -9,6 +9,13 @@
 		select *
 		from goods where goods_id = #{aa}
 	</select>
+	
+	<!-- 查询主页楼层中商品 -->
+	<select id="findGoodsToIndex" parameterType="int"
+		resultMap="GoodsResultMap.indexResult">
+		select *
+		from goods where goods_id = #{aa}
+	</select>
 
 	<select id="findGoodsById" parameterType="int"
 		resultMap="GoodsResultMap.goodsResult">

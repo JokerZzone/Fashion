@@ -8,9 +8,9 @@ public class Cart {
 	
 	private String sessionId;
 	
-	private int goodsId;
-	
 	private int parentId;
+	
+	private int goodsId;
 	
 	private String goodsName;
 	
@@ -18,16 +18,22 @@ public class Cart {
 	
 	private int goodsNumber;
 	
-	public Cart(int userId, String sessionId, int goodsId, int parentId, String goodsName, double shopPrice,
-			int goodsNumber) {
+	private Goods goods;
+	
+	public Cart(int userId, String sessionId, int goodsId, String goodsName, double shopPrice, int goodsNumber) {
 		super();
 		this.userId = userId;
 		this.sessionId = sessionId;
 		this.goodsId = goodsId;
-		this.parentId = parentId;
 		this.goodsName = goodsName;
 		this.shopPrice = shopPrice;
 		this.goodsNumber = goodsNumber;
+	}
+
+	@Override
+	public String toString() {
+		return "Cart [userId=" + userId + ", sessionId=" + sessionId + ", goodsId=" + goodsId + ", goodsName="
+				+ goodsName + ", shopPrice=" + shopPrice + ", goodsNumber=" + goodsNumber + "]";
 	}
 
 	public Cart() {
@@ -97,5 +103,13 @@ public class Cart {
 
 	public void setGoodsNumber(int goodsNumber) {
 		this.goodsNumber = goodsNumber;
+	}
+
+	public Goods getGoods() {
+		return goods;
+	}
+
+	public void setGoods(Goods goods) {
+		this.goods = goods;
 	}
 }

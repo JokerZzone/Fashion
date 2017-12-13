@@ -72,7 +72,6 @@ public class GoodsController {
 	@RequestMapping("/detail")
 	@ResponseBody
 	public Goods detail(@RequestParam("id") int goodsId) {
-		System.out.println(666666666);
 		return goodsService.findGoods(goodsId);
 	}
 	
