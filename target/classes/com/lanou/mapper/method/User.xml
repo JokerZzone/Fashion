@@ -48,13 +48,5 @@
 			where user_name like concat('%',#{username},'%')
 		</if>
 	</select>
-<<<<<<< HEAD
-  	
-=======
 	
-  	<select id="comfirm" >
-  		select count(*) from cart where username
-  	</select>
->>>>>>> origin/sun1
-  
 </mapper>

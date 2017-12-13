@@ -21,6 +21,7 @@ public class UserServiceImpl implements UserService{
 		userMapper.addUser(user);
 	}
 
+
 	public User confirmUser(String username) {
 		// TODO Auto-generated method stub
 		return userMapper.confirmUser(username);
@@ -41,15 +42,19 @@ public class UserServiceImpl implements UserService{
 
 
 	@Override
+	public User selectUserByUId(int user_id) {
+		// TODO Auto-generated method stub
+		return userMapper.selectUserByUId(user_id);
+	}
+
+
+	@Override
 	public void updateUserByUId(User user) {
 		// TODO Auto-generated method stub
 		userMapper.updateUserByUId(user);
 	}
 
-<<<<<<< HEAD
-=======
 	
->>>>>>> origin/sun1
 	@Override
 	public List<User> selectUserByNowPage(String username, int startPos, int pageSize) {
 		// TODO Auto-generated method stub
@@ -60,10 +65,6 @@ public class UserServiceImpl implements UserService{
 		// TODO Auto-generated method stub
 		return userMapper.selectUserCount(username);
 	}
-
-	@Override
-	public User selectUserByUId(int user_id) {
-		// TODO Auto-generated method stub
-		return userMapper.selectUserByUId(user_id);
-	}
+	
+	
 }
