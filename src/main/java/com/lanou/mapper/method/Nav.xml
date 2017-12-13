@@ -28,5 +28,24 @@
   	<update id="addCatData">
 		update nav set cat_data = #{0} where nav_id = #{1}
 	</update>
+	
+	<!-- xy -->
+	<!-- 6.展示导航栏 -->
+  	<select id="lookNav" resultMap="result">
+  		select nav_id,nav_name,nav_type,vieworder,url,opennew from nav 
+  	</select>
+  	
+  	<!-- 添加自定义导航栏 -->
+  	<insert id="addNav" parameterType="Nav">
+  		insert into nav (nav_name,nav_type,vieworder,url,opennew) 
+  		values (#{navName},#{navType},#{viewOrder},#{url},#{openNew})
+  	</insert>
+  	
+  	<!-- 修改导航栏 -->
+  	<update id="updateNav" parameterType="Nav">
+  		update nav set nav_name=#{navName},nav_type=#{navType},vieworder=#{viewOrder},
+  		url=#{url},opennew=#{openNew} where nav_id = #{navId}
+  	</update>
+  	
   	
 </mapper>

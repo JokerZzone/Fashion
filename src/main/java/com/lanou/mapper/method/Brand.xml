@@ -7,18 +7,58 @@
 	<select id="findBrandById" parameterType="int" resultMap="BrandResultMap.brandResult">
 		select * from brand where brand_id = #{brandId}
 	</select>
-	
-	
-	
+
 	<select id="selectLikeDesc_Letter" resultMap="BrandResultMap.brandResult">
 		select * from brand where brand_desc like concat(#{braDesc},'%')
 	</select>
+	
 	<select id="selectLikeDesc_Country" resultMap="BrandResultMap.brandResult">
 		select * from brand where brand_desc like concat('%',#{braDesc})
 	</select>
 	
+<<<<<<< HEAD
 	<insert id="addBrand" parameterType="Brand">
 		insert into brand(brand_name,brand_desc,img_desc) values(#{brandName},#{brandDesc},#{imgDesc})
 	</insert>
  
+=======
+	<!-- 4.商品品牌 -->
+	<!-- 查看所有商品信息 -->
+	<select id="allBrands" parameterType="int" resultMap="BrandResultMap.brandResult">
+		select * from brand where is_delete = 0 limit #{pageId},#{pageNumber}
+	</select>
+	
+	<!-- 获取所有品牌的数量 -->
+	<select id="brandCount" resultType="int">
+		select count(*) from brand where is_delete = 0
+	</select>
+	
+	<!-- 模糊查询品牌 -->
+	<select id="likeBrands" resultMap="BrandResultMap.brandResult">
+		select * from brand where brand_name like concat ('%','${name}','%') limit #{pageId},#{pageNumber}
+	</select>
+	
+	<!-- 模糊查询品牌的数量 -->
+	<select id="likeBrandsCount" resultType="int">
+		select count(*) from brand where brand_name like concat ('%','${name}','%')
+	</select>
+	
+	<!-- 添加品牌 -->
+	<insert id="addBrand" parameterType="Brand">
+		insert into brand (brand_name,brand_desc,sort_order,is_show) 
+		values (#{brandName},#{brandDesc},#{sortOrder},#{isShow})
+	</insert>
+	
+	<!-- 修改品牌 -->
+	<update id="updateBrand" parameterType="Brand">
+		update brand set brand_name=#{brandName},brand_desc=#{brandDesc},sort_order=#{sortOrder},
+		is_show=#{isShow} where brand_id = #{brandId}
+	</update>
+	
+	<!-- 删除品牌 -->
+	<update id="deleteBrand" parameterType="int">
+		update brand set is_delete = 1 where brand_id = #{brandId}
+	</update>
+  
+>>>>>>> origin/12.12
 </mapper>

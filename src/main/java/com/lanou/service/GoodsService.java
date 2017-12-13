@@ -47,5 +47,16 @@ public interface GoodsService {
 	
 	//添加商品信息
 	public boolean addGood(Goods good);
-
+	
+	//5.查看已经删除的商品的信息
+	public Map<String, Object> findDeletedGoods(int pageId,int pageNumber);
+	
+	//删除商品的模糊查询
+	public Map<String, Object> likeDeleteGoods(String name,int pageId,int pageNumber);
+	
+	//还原商品
+	public boolean restoreGood(int goodId);
+	
+	//物理删除
+	public boolean physicalDelete(int goodId);
 }

@@ -23,9 +23,9 @@ public class CartController {
 	
 	@RequestMapping("/cart")
 	public void getCart(@RequestParam("goods[]") int[] goods, @RequestParam("num[]") int[] num, HttpServletRequest request) {
-		
 		cartService.saveCart(goods, num, request);
 	}
+<<<<<<< HEAD
 	
 	@RequestMapping("/showCart")
 	@ResponseBody
@@ -34,4 +34,6 @@ public class CartController {
 		return cartService.showCart(user.getuId());
 	}
 	
+=======
+>>>>>>> origin/12.12
 }

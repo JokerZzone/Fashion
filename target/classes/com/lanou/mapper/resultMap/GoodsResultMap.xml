@@ -68,8 +68,6 @@
 		<result column="shop_price" property="shopPrice" javaType="double" />
 		<result column="discount" property="discount" javaType="String" />
 		<result column="goods_number" property="goodsNumber" javaType="int"/>
-		<collection select="com.lanou.dao.GoodsGalleryMapper.findGoodsGolleryById"
-			column="goods_id" property="goodsGalleries" javaType="java.util.List" />
 	</resultMap>
 	
 	<!-- sp -->

@@ -469,5 +469,47 @@ public class GoodsServiceImpl implements GoodsService {
 		return maps;
 	}
 
+	@Override
+	public Map<String, Object> findDeletedGoods(int pageId, int pageNumber) {
+		// TODO Auto-generated method stub
+		int pageFirst = (pageId-1)*pageNumber;
+		List<Goods> goods = goodsMapper.deletedGoods(pageFirst, pageNumber);
+		int counts = goodsMapper.deletedGoodsCount();
+		int page = (int)Math.ceil((double)counts/pageNumber);
+		Map<String, Object> maps = new HashMap<>();
+		maps.put("counts", counts);
+		maps.put("pageId", pageId);
+		maps.put("page", page);
+		maps.put("goods", goods);
+		maps.put("pageNumber", pageNumber);
+		return maps;
+	}
 
+	@Override
+	public Map<String, Object> likeDeleteGoods(String name, int pageId, int pageNumber) {
+		// TODO Auto-generated method stub
+		int pageFirst = (pageId-1)*pageNumber;
+		List<Goods> goods = goodsMapper.likeDeleteGoods(name, pageFirst, pageNumber);
+		int counts = goodsMapper.likeDeleteGoodsCount(name);
+		int page = (int)Math.ceil((double)counts/pageNumber);
+		Map<String, Object> maps = new HashMap<>();
+		maps.put("counts", counts);
+		maps.put("pageId", pageId);
+		maps.put("page", page);
+		maps.put("goods", goods);
+		maps.put("pageNumber", pageNumber);
+		return maps;
+	}
+
+	@Override
+	public boolean restoreGood(int goodId) {
+		// TODO Auto-generated method stub
+		return goodsMapper.restoreGood(goodId);
+	}
+
+	@Override
+	public boolean physicalDelete(int goodId) {
+		// TODO Auto-generated method stub
+		return goodsMapper.physicalDelete(goodId);
+	}
 }
