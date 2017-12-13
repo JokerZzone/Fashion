@@ -34,6 +34,9 @@ public interface CategoryMapper {
 	//商品分类编辑
 	public boolean updateCategory(Category category);
 	
+	//添加商品分类
+	public boolean addCategory(Category category);
+	
 	//根据id获取单个分类
 	public Category oneCategory(int catId);
 

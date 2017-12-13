@@ -3,6 +3,7 @@ package com.lanou.dao;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
+import org.junit.runners.Parameterized.Parameters;
 import org.springframework.stereotype.Repository;
 
 import com.lanou.entity.Goods;
@@ -165,5 +166,25 @@ public interface GoodsMapper {
 	
 	//2.添加新商品
 	public boolean addGood(Goods good);
+	
+	//5.商品回收站
+	public List<Goods> deletedGoods(@Param("pageId")int pageId,@Param("pageNumber")int pageNumber);
 
+	//回收站商品的总数
+	public int deletedGoodsCount();
+	
+	//商品回收站的模糊查询
+	public List<Goods> likeDeleteGoods(@Param("name")String name,@Param("pageId")int pageId,@Param("pageNumber")int pageNumber);
+	
+	//商品回收站的模糊查询的商品数量
+	public int likeDeleteGoodsCount(@Param("name")String name);
+	
+	//商品回收站还原
+	public boolean restoreGood(@Param("goodId")int goodId);
+	
+	//商品回收站彻底删除
+	public boolean physicalDelete(@Param("goodId")int goodId);
+	
+	
+	
 }

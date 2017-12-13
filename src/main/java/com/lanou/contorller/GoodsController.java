@@ -5,6 +5,8 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -78,7 +80,7 @@ public class GoodsController {
 	 * 卖家功能  
 	 */
 	//1.展示商品信息
-	@RequestMapping("/goodsNews")
+	@RequestMapping("/")
 	@ResponseBody
 	public Map<String, Object> lookGoodsNews(@RequestParam("pageId")int pageId,@RequestParam("pageNumber")int pageNumber) {
 		Map<String, Object> maps = goodsService.allGoodsNews(pageId, pageNumber);
@@ -132,5 +134,43 @@ public class GoodsController {
 		boolean result = goodsService.addGood(good);
 		return result;
 	}
-
+	
+	//5.查看商品回收站
+	@RequestMapping("/goodsBin")
+	@ResponseBody
+	public Map<String, Object> lookGoodsBin(@RequestParam("pageId")int pageId,@RequestParam("pageNumber")int pageNumber) {
+		Map<String, Object> maps = goodsService.findDeletedGoods(pageId, pageNumber);
+		return maps;
+	}
+	
+	//回收站的模糊查询
+	@RequestMapping("/likeGoodsBin")
+	@ResponseBody
+	public Map<String, Object> likeGoodsBin(@RequestParam("name")String name,@RequestParam("pageId")int pageId,@RequestParam("pageNumber")int pageNumber) {
+		Map<String, Object> maps = goodsService.likeDeleteGoods(name, pageId, pageNumber);
+		return maps;
+	}
+	
+	//回收站的恢复
+	@RequestMapping("/restoreGood")
+	@ResponseBody
+	public boolean restoreGood(@RequestParam("goodId") int goodId) {
+		boolean result = goodsService.restoreGood(goodId);
+		return result;
+	}
+	
+	//回收站的物理删除
+	@RequestMapping("/physicalDelete")
+	@ResponseBody
+	public boolean physicalDeleteGood(@RequestParam("goodId") int goodId) {
+		boolean result = goodsService.physicalDelete(goodId);
+		return result;
+	}
+	
+	@InitBinder("good")
+	public void initUser(WebDataBinder wBinder) {
+		wBinder.setFieldDefaultPrefix("good.");
+	}
+	
+	
 }

@@ -6,6 +6,8 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -47,9 +49,10 @@ public class CategoryController {
 	
 	@RequestMapping("/findTwo")
 	@ResponseBody
-	public String findTwo(@RequestParam("id") Integer catId) {
+	public String findTwo(@RequestParam("id") int catId) {
 		return categoryService.selectCat(catId);
 	}
+	
 	//卖家
 	//商品分类
 	@RequestMapping("/goodsCategory")
@@ -67,6 +70,15 @@ public class CategoryController {
 		return maps;
 	}
 	
+	//添加分类
+	@RequestMapping("/addCategory")
+	@ResponseBody
+	public boolean addCategory(Category category) {
+		boolean result = categoryService.addGoodCategory(category);
+		return result;
+	}
+	
+	//修改分类
 	@RequestMapping("/updateCategory")
 	@ResponseBody
 	public boolean updateGoodsCategory(Category category) {
@@ -74,11 +86,17 @@ public class CategoryController {
 		return result;
 	}
 	
+	//查看当前分类
 	@RequestMapping("/oneCategory")
 	@ResponseBody
 	public Category findOneCategory(int catId) {
 		Category category = categoryService.findOneCategory(catId);
 		return category;
+	}
+	
+	@InitBinder("category")
+	public void initUser(WebDataBinder wBinder) {
+		wBinder.setFieldDefaultPrefix("category.");
 	}
 
 }

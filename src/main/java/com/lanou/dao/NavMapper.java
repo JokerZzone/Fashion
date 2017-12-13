@@ -16,4 +16,14 @@ public interface NavMapper {
 	
 	public int addCatData(String json, int navId);
 	
+	//xy
+	//6.查看自定义导航栏
+	public List<Nav> lookNav();
+	
+	//添加自定义导航栏
+	public boolean addNav(Nav nav);
+	
+	//修改导航栏
+	public boolean updateNav(Nav nav);
+	
 }

@@ -18,8 +18,6 @@ public class CartController {
 	
 	@RequestMapping("/cart")
 	public void getCart(@RequestParam("goods[]") int[] goods, @RequestParam("num[]") int[] num, HttpServletRequest request) {
-		
 		cartService.saveCart(goods, num, request);
 	}
-	
 }

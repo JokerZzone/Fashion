@@ -38,6 +38,10 @@ public class Goods {
 	
 	private Brand subBrand;
 	
+	private String goodsSn;
+	
+	private int goodsNumber; 
+	
 	public Goods(Integer goodsId, String goodsAttr_id, Integer brandId) {
 		super();
 		this.goodsId = goodsId;
@@ -48,6 +52,22 @@ public class Goods {
 	public Goods() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+	
+	public int getGoodsNumber() {
+		return goodsNumber;
+	}
+
+	public void setGoodsNumber(int goodsNumber) {
+		this.goodsNumber = goodsNumber;
+	}
+
+	public String getGoodsSn() {
+		return goodsSn;
+	}
+
+	public void setGoodsSn(String goodsSn) {
+		this.goodsSn = goodsSn;
 	}
 
 	public int getIsHot() {

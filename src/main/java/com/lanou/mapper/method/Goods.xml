@@ -360,7 +360,7 @@
 	
 	<!-- 展示所有商品信息 -->
 	<select id="allGoodsNews" parameterType="int" resultMap="GoodsResultMap.sellerResult">
-		select * from goods limit #{pageId},#{pageNumber} where is_delete = 0
+		select * from goods where is_delete = 0 limit #{pageId},#{pageNumber} 
 	</select>
 	
 	<!-- 查看单个商品信息 -->
@@ -393,22 +393,54 @@
 	</select>
 	
 	<!-- 编辑单个商品信息 -->
-	<select id="updateGoods" parameterType="int" resultMap="GoodsResultMap.sellerResult">
-		update goods set goods_name=#{goodsName},goodsSn=#{goodsSn},shop_price=#{shopPrice},
+	<update id="updateGoods">
+		update goods set goods_name=#{goodsName},goods_sn=#{goodsSn},shop_price=#{shopPrice},
 		market_price=#{marketPrice},goods_number=#{goodsNumber} 
 		where goods_id = #{goodsId} and is_delete = 0
-	</select>
+	</update>
 	
 	<!-- 删除商品 -->
-	<delete id="deleteGood" parameterType="int">
+	<update id="deleteGood" parameterType="int">
 		update goods set is_delete = 1 where goods_id = #{goodsId}
-	</delete>
+	</update>
 	
 	<!-- 添加商品信息 -->
-	<select id="addGood" parameterType="Goods">
+	<insert id="addGood" parameterType="Goods">
 		insert into goods (goods_sn,goods_name,shop_price,market_price,goods_number) 
-		 values (#{goodsSn},#{goodsName},#{shop_price},#{market_price},#{goods_number})
+		 values (#{goodsSn},#{goodsName},#{shopPrice},#{marketPrice},#{goodsNumber})
+	</insert>
+	
+	<!-- 5.查看已经删除的商品 -->
+	<select id="deletedGoods" parameterType="int" resultMap="GoodsResultMap.sellerResult">
+		select goods_id,goods_name,goods_sn,shop_price from goods where is_delete = 1 limit #{pageId},#{pageNumber}
 	</select>
 	
-
+	<!-- 回收站商品总数 -->
+	<select id="deletedGoodsCount" resultType="int">
+		select count(*) from goods where is_delete = 1
+	</select>
+	
+	<!-- 模糊查询的商品结果 -->
+	<select id="likeDeleteGoods" resultMap="GoodsResultMap.sellerResult">
+		select goods_id,goods_name,goods_sn,shop_price from goods 
+		where is_delete = 1 and goods_name like concat ('%','${name}','%')
+		limit #{pageId},#{pageNumber}
+	</select>
+	
+	<!-- 模糊查询的数量 -->
+	<select id="likeDeleteGoodsCount" resultType="int">
+		select count(*) from goods where is_delete = 1 and goods_name like concat ('%','${name}','%')
+	</select>
+	
+	<!-- 商品回收站的还原 -->
+	<update id="restoreGood" parameterType="int">
+		update goods set is_delete = 0 where goods_id = #{goodId}
+	</update>
+	
+	<!-- 物理删除 -->
+	<delete id="physicalDelete" parameterType="int">
+		delete from goods where goods_id = #{goodId}
+	</delete>
+	
+	
 </mapper>

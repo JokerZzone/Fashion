@@ -123,5 +123,11 @@ public class CategoryServiceImpl implements CategoryService {
 		return categoryMapper.oneCategory(catId);
 	}
 
+	@Override
+	public boolean addGoodCategory(Category category) {
+		// TODO Auto-generated method stub
+		return categoryMapper.addCategory(category);
+	}
+
 	
 }
