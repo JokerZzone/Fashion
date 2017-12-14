@@ -16,7 +16,12 @@
 		insert into users(user_name,password,email) values(#{username},#{password},#{email})
 	</insert>
 	
-	<update id="updatePassword" parameterType="User">
+  	<select id="comfirm" >
+  		select count(*) from cart where username
+  	</select>
+  	
+  	<!-- 卖家版 -->
+  	<update id="updatePassword" parameterType="User">
 		update users set password = #{password} where user_id = #{uId}
 	</update>
 	
@@ -44,8 +49,4 @@
 		</if>
 	</select>
 	
-  	<select id="comfirm" >
-  		select count(*) from cart where username
-  	</select>
-  
 </mapper>

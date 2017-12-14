@@ -1,7 +1,6 @@
 package com.lanou.contorller;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -27,7 +26,7 @@ public class UserContorller {
 	private UserService userService;
 
 	// 登录验证
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	@ResponseBody
 	public int confirmUser(User user) {
 		User nowUser = userService.confirmUser(user.getUsername());
@@ -67,7 +66,7 @@ public class UserContorller {
 	}
 
 	// 注册验证
-	@RequestMapping(value = "/reg", method = RequestMethod.POST)
+	@RequestMapping(value = "/reg", method = RequestMethod.GET)
 	@ResponseBody
 	public int reg(User user, String password2) {
 		
@@ -79,7 +78,7 @@ public class UserContorller {
 	}
 
 	// 修改密码
-	@RequestMapping(value = "/updatePassword", method = RequestMethod.POST)
+	@RequestMapping(value = "/updatePassword", method = RequestMethod.GET)
 	@ResponseBody
 	public String updatePassword(User user, String oldPassword, String password2) {
 		String result = null;
@@ -98,14 +97,14 @@ public class UserContorller {
 	}
 
 	// 查看个人资料
-	@RequestMapping(value = "/lookPersonalInfo", method = RequestMethod.POST)
+	@RequestMapping(value = "/lookPersonalInfo", method = RequestMethod.GET)
 	@ResponseBody
 	public User lookPersonalInfo(User user) {
 		return userService.selectUserByUId(user.getuId());
 	}
 
 	// 修改个人资料
-	@RequestMapping(value = "/updatePersonalInfo", method = RequestMethod.POST)
+	@RequestMapping(value = "/updatePersonalInfo", method = RequestMethod.GET)
 	@ResponseBody
 	public String updatePersonalInfo(User user) {
 

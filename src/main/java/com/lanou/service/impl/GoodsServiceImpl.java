@@ -50,10 +50,10 @@ public class GoodsServiceImpl implements GoodsService {
 		return goodsMapper.saleOut();
 	}
 
-	public Map<String, Object> weeklyGoods(int weeklyId, int chooseId, int pageId) {
+	public Map<String, Object> weeklyGoods(int chooseId,int orders, int pageId) {
 		// TODO Auto-generated method stub
 		int pageId2 = (pageId - 1) * PAGE;
-		List<Goods> goods = goodsMapper.weeklyGoods(weeklyId, chooseId, pageId2, 36);
+		List<Goods> goods = goodsMapper.weeklyGoods(chooseId,orders,pageId2, 36);
 		total = goodsMapper.weeklyGoodsTotal();
 		totalPage = (int) Math.ceil((double) (total) / (PAGE));
 		Map<String, Object> maps = new HashMap<String, Object>();
@@ -387,4 +387,129 @@ public class GoodsServiceImpl implements GoodsService {
 		return map;
 	}
 
+	@Override
+	public Goods findGoods(int goodsId) {
+		return goodsMapper.findGoods(goodsId);
+	}
+
+	
+	/**
+	 * 卖家内容
+	 */
+	@Override
+	public Map<String, Object> allGoodsNews(int pageId, int pageNumber) {
+		// TODO Auto-generated method stub
+		int pageFirst = (pageId-1)*pageNumber;
+		List<Goods> goods = goodsMapper.allGoodsNews(pageFirst, pageNumber);
+		int counts = goodsMapper.goodsCount();
+		int page = (int)Math.ceil((double)counts/pageNumber);
+		Map<String, Object> maps = new HashMap<>();
+		maps.put("counts", counts);
+		maps.put("pageId	", pageId);
+		maps.put("page", page);
+		maps.put("goods", goods);
+		maps.put("pageNumber", pageNumber);
+		return maps;
+	}
+
+	@Override
+	public Goods goodNews(int goodsId) {
+		// TODO Auto-generated method stub
+		return goodsMapper.goodNews(goodsId);
+	}
+
+	@Override
+	public boolean updateGood(Goods good) {
+		// TODO Auto-generated method stub
+		boolean result = goodsMapper.updateGoods(good);
+		return result;
+	}
+
+	@Override
+	public boolean deleteGood(int goodsId) {
+		// TODO Auto-generated method stub
+		return goodsMapper.deleteGood(goodsId);
+	}
+	
+	@Override
+	public boolean addGood(Goods good) {
+		// TODO Auto-generated method stub
+		return goodsMapper.addGood(good);
+	}
+
+	@Override
+	public Map<String, Object> firstGoods(int catId, int pageId, int pageNumber) {
+		// TODO Auto-generated method stub
+		int pageFirst = (pageId-1)*pageNumber;
+		List<Goods> goods = goodsMapper.firstGoods(catId,pageFirst,pageNumber);
+		int counts = goodsMapper.firstGoodsCount(catId);
+		int page = (int)Math.ceil((double)counts/pageNumber);
+		Map<String, Object> maps = new HashMap<>();
+		maps.put("counts", counts);
+		maps.put("pageId", pageId);
+		maps.put("page", page);
+		maps.put("goods", goods);
+		maps.put("pageNumber", pageNumber);
+		return maps;
+	}
+
+	@Override
+	public Map<String, Object> likesGoods(String name, int pageId, int pageNumber) {
+		// TODO Auto-generated method stub
+		int pageFirst = (pageId-1)*pageNumber;
+		List<Goods> goods = goodsMapper.likes(name, pageFirst, pageNumber);
+		int counts = goodsMapper.likesCount(name);
+		int page = (int)Math.ceil((double)counts/pageNumber);
+		Map<String, Object> maps = new HashMap<>();
+		maps.put("counts", counts);
+		maps.put("pageId", pageId);
+		maps.put("page", page);
+		maps.put("goods", goods);
+		maps.put("pageNumber", pageNumber);
+		return maps;
+	}
+
+	@Override
+	public Map<String, Object> findDeletedGoods(int pageId, int pageNumber) {
+		// TODO Auto-generated method stub
+		int pageFirst = (pageId-1)*pageNumber;
+		List<Goods> goods = goodsMapper.deletedGoods(pageFirst, pageNumber);
+		int counts = goodsMapper.deletedGoodsCount();
+		int page = (int)Math.ceil((double)counts/pageNumber);
+		Map<String, Object> maps = new HashMap<>();
+		maps.put("counts", counts);
+		maps.put("pageId", pageId);
+		maps.put("page", page);
+		maps.put("goods", goods);
+		maps.put("pageNumber", pageNumber);
+		return maps;
+	}
+
+	@Override
+	public Map<String, Object> likeDeleteGoods(String name, int pageId, int pageNumber) {
+		// TODO Auto-generated method stub
+		int pageFirst = (pageId-1)*pageNumber;
+		List<Goods> goods = goodsMapper.likeDeleteGoods(name, pageFirst, pageNumber);
+		int counts = goodsMapper.likeDeleteGoodsCount(name);
+		int page = (int)Math.ceil((double)counts/pageNumber);
+		Map<String, Object> maps = new HashMap<>();
+		maps.put("counts", counts);
+		maps.put("pageId", pageId);
+		maps.put("page", page);
+		maps.put("goods", goods);
+		maps.put("pageNumber", pageNumber);
+		return maps;
+	}
+
+	@Override
+	public boolean restoreGood(int goodId) {
+		// TODO Auto-generated method stub
+		return goodsMapper.restoreGood(goodId);
+	}
+
+	@Override
+	public boolean physicalDelete(int goodId) {
+		// TODO Auto-generated method stub
+		return goodsMapper.physicalDelete(goodId);
+	}
 }

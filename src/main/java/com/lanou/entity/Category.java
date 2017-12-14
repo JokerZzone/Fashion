@@ -17,6 +17,8 @@ public class Category {
 	private int isShow;
 	
 	private String style;
+	
+	private int goodNumber;
 
 	private List<Category> categories;
 
@@ -27,6 +29,14 @@ public class Category {
 
 	public Integer getCatId() {
 		return catId;
+	}
+	
+	public int getGoodNumber() {
+		return goodNumber;
+	}
+
+	public void setGoodNumber(int goodNumber) {
+		this.goodNumber = goodNumber;
 	}
 
 	public void setCatId(Integer catId) {

@@ -4,11 +4,19 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lanou.dao.AdGalleryMapper">
 
-	<!-- 根据adId查询所有adGallery，有select关联 -->
-	<select id="findByAdGalleryById" parameterType="int" 
-		resultMap="AdGalleryResultMap.adGalleryResult">
-		
-		select * from ad_gallery where ad_id = #{adId}
-	</select>	
+	<select id="findImgPre" resultType="String">
+		select img_pre from ad_gallery 
+			where ad_id = #{0}
+	</select>
+	
+	<select id="findDetail" resultType="String">
+		select ad_img from ad_gallery 
+			where ad_id = #{0}
+	</select>
+	
+	<select id="findImgSuff" resultType="String">
+		select img_suff from ad_gallery 
+			where ad_id = #{0}
+	</select>
   		
 </mapper>

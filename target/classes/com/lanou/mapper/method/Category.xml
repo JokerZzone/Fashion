@@ -19,7 +19,6 @@
 	</select>
 	<select id="selectCategoryChildrenByParentId"  parameterType="int" 
 		resultMap="CategoryResultMap.findCategoryResult">
-		
 		select * from category where parent_id = #{parentId}
 	</select>
 
@@ -27,6 +26,36 @@
 	<select id="confirmCategoryType"  parameterType="int" resultType="int">
 		select parent_id from category where cat_id = #{cat_id}
 	</select>
+	
+	<!-- xy -->
+	<!-- 商品分类 -->
+	<select id="goodsCategory" resultMap="CategoryResultMap.sellerResult">
+		select * from category
+		limit #{pageId},40
+	</select>
+	
+	<!-- 商品分类总数 -->
+	<select id="categoryTotal" resultType="int">
+		select count(*) from category
+	</select>
+	
+	<!-- 商品分类编辑 -->
+	<update id="updateCategory">
+		update category set cat_name=#{catName},good_number=#{goodNumber},parent_id=#{parentId},
+		show_in_nav=#{showInNav},is_show=#{isShow} where cat_id = #{catId}
+	</update>
+	
+	<!-- 添加商品分类 -->
+	<insert id="addCategory">
+		insert into category (cat_name,good_number,parent_id,show_in_nav,is_show) 
+		values (#{catName},#{goodNumber},#{parentId},#{showInNav},#{isShow})
+	</insert>
+	
+
+	<select id="oneCategory" parameterType="int" resultMap="CategoryResultMap.sellerResult">
+		select * from category where cat_id = #{catId}
+	</select>
+	
 	
 	
 </mapper>

@@ -7,7 +7,11 @@
 	<select id="selectByUserId" resultMap="CartResultMap.cartResult">
 		select * from cart 
 			where user_id = #{userId}
-	</select>	
+	</select>
+	
+	<select id="selectByGoodsId" resultMap="CartResultMap.cartResult">
+		select * from cart where goods_id = #{goodsId}
+	</select>
 	
 	<select id="selectMax" resultType="Integer">
 		select max(parent_id) from cart 
@@ -16,15 +20,12 @@
 	
 	<insert id="addCart">
 		insert into cart(user_id,session_id,goods_id,
-			parent_id,goods_name,shop_price,goods_number) values
-		(#{userId},#{sessionId},#{goodsId},#{parentId},#{goodsName},
-		#{shopPrice},#{goodsNumber})
+			goods_name,shop_price,goods_number) values
+			(#{userId},#{sessionId},#{goodsId},#{goodsName},#{shopPrice},#{goodsNumber})
 	</insert>
   
-  <!-- 
-  (#{cart.userId},#{cart.sessionId},#{cart.goodsId},#{cart.parentId},
-		#{cart.goodsName},#{cart.shopPrice},#{cart.goodsNumber})
-  
-   -->
-  
+  	<update id="updateCart">
+		update cart set goods_number=#{goodsNumber}
+		where goods_id=#{goodsId} and user_id=#{userId}
+	</update>
 </mapper>

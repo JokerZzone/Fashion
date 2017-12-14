@@ -96,4 +96,38 @@ public class CategoryServiceImpl implements CategoryService {
 		// TODO Auto-generated method stub
 		return categoryMapper.findSimpleFatherCategory();
 	}
+	
+	@Override
+	public List<Category> findCategory(int pageId) {
+		// TODO Auto-generated method stub
+		int page = (pageId-1)*40;
+		List<Category> category = categoryMapper.goodsCategory(page);
+		return category;
+	}
+
+	@Override
+	public int categoryTotal() {
+		// TODO Auto-generated method stub
+		return categoryMapper.categoryTotal();
+	}
+
+	@Override
+	public boolean updateGoodCategory(Category category) {
+		// TODO Auto-generated method stub
+		return categoryMapper.updateCategory(category);
+	}
+
+	@Override
+	public Category findOneCategory(int catId) {
+		// TODO Auto-generated method stub	
+		return categoryMapper.oneCategory(catId);
+	}
+
+	@Override
+	public boolean addGoodCategory(Category category) {
+		// TODO Auto-generated method stub
+		return categoryMapper.addCategory(category);
+	}
+
+	
 }

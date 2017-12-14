@@ -11,8 +11,14 @@
 		<result column="site_url" property="siteUrl" jdbcType="VARCHAR"/>
 		<result column="sort_order" property="sortOrder" javaType="int"/>
 		<result column="img_desc" property="imgDesc" jdbcType="VARCHAR"/>
-		<collection select="com.lanou.dao.BrandGalleryMapper.findBrandGalleryById" 
-  			column="brand_id" property="brandGalleries" javaType="java.util.List"/>
+		<association select="com.lanou.dao.BrandGalleryMapper.findImgPre" 
+			column="brand_id" property="imgPre" javaType="java.util.ArrayList"/>
+			
+		<association select="com.lanou.dao.BrandGalleryMapper.findDetail" 
+			column="brand_id" property="detailImg" javaType="java.util.ArrayList"/>
+			
+		<association select="com.lanou.dao.BrandGalleryMapper.findImgSuff" 
+			column="brand_id" property="imgSuff" javaType="java.util.ArrayList"/>
   	</resultMap>
   	
 </mapper>

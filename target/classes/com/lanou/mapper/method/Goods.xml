@@ -9,6 +9,13 @@
 		select *
 		from goods where goods_id = #{aa}
 	</select>
+	
+	<!-- 查询主页楼层中商品 -->
+	<select id="findGoodsToIndex" parameterType="int"
+		resultMap="GoodsResultMap.indexResult">
+		select *
+		from goods where goods_id = #{aa}
+	</select>
 
 	<select id="findGoodsById" parameterType="int"
 		resultMap="GoodsResultMap.goodsResult">
@@ -18,6 +25,7 @@
 		= b.goods_id and
 		a.goods_id = #{aa}
 	</select>
+	
 	<select id="findBrand" parameterType="int"
 		resultMap="GoodsResultMap.goodsResult">
 		select *
@@ -26,8 +34,8 @@
 
 	<!-- xy -->
 	<!-- 点击标题获取的商品 -->
-	<select id="findAllGoods" resultMap="GoodsResultMap.goodsResult">
-		select a.goods_id,a.goods_name,a.shop_price,a.discount from goods as
+	<select id="findAllGoods" resultMap="GoodsResultMap.goodsResult1">
+		select a.goods_id,a.goods_name,a.shop_price,a.discount,a.img_desc from goods as
 		a,goods_cat as b
 		where a.goods_id = b.goods_id and b.nav_id =
 		#{titleId}
@@ -67,22 +75,20 @@
 			and a.attr_id like
 			concat_ws('#','%','%','%','%','%','%','%',#{typeId8})
 		</if>
-
-
 		<!-- /sp -->
-
 		<if test="chooseId ==1">
 			<if test="sortId == 0">
-				order by shop_price Asc LIMIT #{pageId},#{pageCount}
+				order by a.shop_price Asc LIMIT #{pageId},#{pageCount}
 			</if>
 			<if test="sortId == 1">
-				order by shop_price Desc LIMIT #{pageId},#{pageCount}
+				order by a.shop_price Desc LIMIT #{pageId},#{pageCount}
 			</if>
 		</if>
 		<if test="chooseId == 0">
 			LIMIT #{pageId},36
 		</if>
 	</select>
+	
 	<!-- 获取标题所有商品数量 -->
 	<select id="goodsTotal" resultType="int">
 		select count(a.goods_id)
@@ -129,8 +135,8 @@
 	</select>
 
 	<!-- 获取二级分类的商品 -->
-	<select id="findSecondGoods" resultMap="GoodsResultMap.goodsResult">
-		select a.goods_id,a.goods_name,a.shop_price,a.discount from goods as
+	<select id="findSecondGoods" resultMap="GoodsResultMap.goodsResult1">
+		select a.goods_id,a.goods_name,a.shop_price,a.discount,a.img_desc from goods as
 		a,goods_cat as b
 		where a.goods_id = b.goods_id and b.cat_id = #{catId}
 		<!-- sp -->
@@ -170,19 +176,19 @@
 			concat_ws('#','%','%','%','%','%','%','%',#{typeId8})
 		</if>
 		<!-- /sp -->
-
 		<if test="chooseId ==1">
 			<if test="sortId == 0">
-				order by shop_price Asc LIMIT #{pageId},#{pageCount}
+				order by a.shop_price Asc LIMIT #{pageId},#{pageCount}
 			</if>
 			<if test="sortId == 1">
-				order by shop_price Desc LIMIT #{pageId},#{pageCount}
+				order by a.shop_price Desc LIMIT #{pageId},#{pageCount}
 			</if>
 		</if>
 		<if test="chooseId == 0">
 			LIMIT #{pageId},36
 		</if>
 	</select>
+	
 	<!-- 获取二级分类所有商品数量 -->
 	<select id="SecondGoodsTotal" resultType="int">
 		select count(a.goods_id)
@@ -229,24 +235,28 @@
 	</select>
 
 	<!-- 明星推荐方法 -->
-	<select id="recommendGoods" resultMap="GoodsResultMap.goodsResult">
-		select
-		goods_id,goods_name,shop_price,discount from goods where is_recommend
-		= 1
+	<select id="recommendGoods" resultMap="GoodsResultMap.goodsResult1">
+		select a.goods_id,a.goods_name,a.shop_price,a.img_desc 
+		from goods as a where a.is_recommend = 1
 	</select>
 
 	<!-- 清仓方法 -->
-	<select id="saleOut" resultMap="GoodsResultMap.goodsResult">
-		select
-		goods_id,goods_name,shop_price,discount from goods where is_out = 1
+	<select id="saleOut" resultMap="GoodsResultMap.goodsResult1">
+		select a.goods_id,a.goods_name,a.shop_price,a.discount,a.img_desc,a.market_price 
+		from goods as a where a.is_out = 1
 	</select>
 
 	<!-- 本周特价 -->
-	<select id="weeklyGoods" resultMap="GoodsResultMap.goodsResult">
-		select goods_id,goods_name,shop_price,discount from goods
-		where is_weekly = #{weeklyId}
-		<if test="chooseId ==1">
-			order by shop_price Asc LIMIT #{pageId},#{pageCount}
+	<select id="weeklyGoods" resultMap="GoodsResultMap.goodsResult1">
+		select a.goods_id,a.goods_name,a.shop_price,a.discount,a.img_desc,a.market_price 
+		from goods as a where is_weekly = 1
+		<if test="chooseId ==2">
+			<if test="orders==0">
+				order by a.shop_price Asc LIMIT #{pageId},#{pageCount}
+			</if>
+			<if test="orders==1">
+				order by a.shop_price Desc LIMIT #{pageId},#{pageCount}
+			</if>
 		</if>
 		<if test="chooseId == 0">
 			LIMIT #{pageId},36
@@ -348,9 +358,104 @@
 		</if>
 
 	</select>
+	
+	<!-- xy 卖家功能 -->
+	<!-- 获取商品总数量 -->
+	<select id="goodsCount" resultType="int">
+		select count(*) from goods
+	</select>
+	
+	<!-- 展示所有商品信息 -->
+	<select id="allGoodsNews" parameterType="int" resultMap="GoodsResultMap.sellerResult">
+		select * from goods where is_delete = 0 limit #{pageId},#{pageNumber} 
+	</select>
+	
+	<!-- 查看单个商品信息 -->
+	<select id="goodNews" parameterType="int" resultMap="GoodsResultMap.sellerResult">
+		select * from goods where goods_id = #{goodsId} and is_delete = 0
+	</select>
+	
+	<!-- 根据一级分类查找下面商品 -->
+	<select id="firstGoods" parameterType="int" resultMap="GoodsResultMap.sellerResult">
+		select * from category as a,goods_cat as b,goods as c where a.cat_id = b.cat_id 
+		and b.goods_id = c.goods_id and a.parent_id = 0 and is_delete = 0 
+		and b.cat_id = #{catId} limit #{pageId},#{pageNumber}
+	</select>
+	
+	<!-- 获取一级分类商品数量 -->
+	<select id="firstGoodsCount" parameterType="int" resultType="int">
+		select count(*) from category as a,goods_cat as b,goods as c where a.cat_id = b.cat_id 
+		and b.goods_id = c.goods_id and a.parent_id = 0 and is_delete = 0 
+		and b.cat_id = #{catId}
+	</select>
+	
+	<!-- 模糊查询商品 -->
+	<select id="likes" resultMap="GoodsResultMap.sellerResult">
+		select * from goods where goods_name like CONCAT('%','${name}','%') limit #{pageId},#{pageNumber}
+	</select>
+	
+	<!-- 模糊查询的商品的数量 -->
+	<select id="likesCount" resultType="int" parameterType="String" >
+		select count(*) from goods where goods_name like CONCAT('%','${name}','%')
+	</select>
+	
+	<!-- 编辑单个商品信息 -->
+	<update id="updateGoods">
+		update goods set goods_name=#{goodsName},goods_sn=#{goodsSn},shop_price=#{shopPrice},
+		market_price=#{marketPrice},goods_number=#{goodsNumber} 
+		where goods_id = #{goodsId} and is_delete = 0
+	</update>
+	
+	<!-- 删除商品 -->
+	<update id="deleteGood" parameterType="int">
+		update goods set is_delete = 1 where goods_id = #{goodsId}
+	</update>
+	
+	<!-- 添加商品信息 -->
+	<insert id="addGood" parameterType="Goods">
+		insert into goods (goods_sn,goods_name,shop_price,market_price,goods_number) 
+		 values (#{goodsSn},#{goodsName},#{shopPrice},#{marketPrice},#{goodsNumber})
+	</insert>
+	
+	<!-- 5.查看已经删除的商品 -->
+	<select id="deletedGoods" parameterType="int" resultMap="GoodsResultMap.sellerResult">
+		select goods_id,goods_name,goods_sn,shop_price from goods where is_delete = 1 limit #{pageId},#{pageNumber}
+	</select>
+	
+<<<<<<< HEAD
 
 	<select id="findCollectionGoods" parameterType="int" resultMap="GoodsResultMap.findCollectionGoodsResult">
 		select goods_id,goods_name,market_price,shop_price,img_desc from goods where goods_id = #{goods_id}
 	</select>
 
+=======
+	<!-- 回收站商品总数 -->
+	<select id="deletedGoodsCount" resultType="int">
+		select count(*) from goods where is_delete = 1
+	</select>
+	
+	<!-- 模糊查询的商品结果 -->
+	<select id="likeDeleteGoods" resultMap="GoodsResultMap.sellerResult">
+		select goods_id,goods_name,goods_sn,shop_price from goods 
+		where is_delete = 1 and goods_name like concat ('%','${name}','%')
+		limit #{pageId},#{pageNumber}
+	</select>
+	
+	<!-- 模糊查询的数量 -->
+	<select id="likeDeleteGoodsCount" resultType="int">
+		select count(*) from goods where is_delete = 1 and goods_name like concat ('%','${name}','%')
+	</select>
+	
+	<!-- 商品回收站的还原 -->
+	<update id="restoreGood" parameterType="int">
+		update goods set is_delete = 0 where goods_id = #{goodId}
+	</update>
+	
+	<!-- 物理删除 -->
+	<delete id="physicalDelete" parameterType="int">
+		delete from goods where goods_id = #{goodId}
+	</delete>
+	
+	
+>>>>>>> origin/12.12
 </mapper>

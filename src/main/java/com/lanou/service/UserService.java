@@ -6,7 +6,7 @@ import com.lanou.entity.User;
 
 public interface UserService {
 
-	public User confirmUser(String username);
+public User confirmUser(String username);
 	
 	public User selectUserByUId(int user_id);
 	
@@ -22,4 +22,6 @@ public interface UserService {
 	//会员搜索 模糊查询
 	public List<User> selectUserByNowPage(String username,int startPos,int pageSize);
 	public int selectUserCount(String username);
+
+
 }

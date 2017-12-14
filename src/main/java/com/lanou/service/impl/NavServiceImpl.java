@@ -21,4 +21,23 @@ public class NavServiceImpl implements NavService {
 		return navMapper.selectAll();
 	}
 
+	//xy
+	@Override
+	public List<Nav> showNav() {
+		// TODO Auto-generated method stub
+		return navMapper.lookNav();
+	}
+
+	@Override
+	public boolean addNav(Nav nav) {
+		// TODO Auto-generated method stub
+		return navMapper.addNav(nav);
+	}
+
+	@Override
+	public boolean updateNav(Nav nav) {
+		// TODO Auto-generated method stub
+		return navMapper.updateNav(nav);
+	}
+
 }

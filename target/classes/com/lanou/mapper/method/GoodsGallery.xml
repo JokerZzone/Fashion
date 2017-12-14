@@ -4,10 +4,24 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lanou.dao.GoodsGalleryMapper">
 
-	<select id="findGoodsGolleryById" parameterType="int" 
-		resultMap="GoodsGalleryResultMap.goodsGalleryResult">
-		
-		select * from goods_gallery where goods_id = #{goodsId}
+	<select id="findImgPre" resultType="String">
+		select img_pre from goods_gallery 
+			where goods_id = #{0}
+	</select>
+	
+	<select id="findLeft" resultType="String">
+		select goods_img from goods_gallery 
+			where goods_id = #{0} and type = 0
+	</select>
+	
+	<select id="findDetail" resultType="String">
+		select goods_img from goods_gallery 
+			where goods_id = #{0} and type = 1
+	</select>
+	
+	<select id="findImgSuff" resultType="String">
+		select img_suff from goods_gallery 
+			where goods_id = #{0}
 	</select>
 	
 	<update id="updateImgDesc">

@@ -17,4 +17,18 @@ public interface CategoryService {
 	
 	public List<Category> findOne();
 	
+	//商品分类
+	public List<Category> findCategory(int pageId);
+	
+	public int categoryTotal();
+	
+	//修改商品分类
+	public boolean updateGoodCategory(Category category);
+	
+	//添加商品分类
+	public boolean addGoodCategory(Category category);
+	
+	//根据前台返回的id获取商品信息
+	public Category findOneCategory(int catId);
+
 }

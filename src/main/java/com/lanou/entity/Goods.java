@@ -5,6 +5,10 @@ import java.util.List;
 public class Goods {
 
 	private Integer goodsId;
+	
+	private Integer brandId;
+	
+	private String goodsAttr_id;
 
 	private String goodsName;
 	
@@ -23,18 +27,23 @@ public class Goods {
 	private int clickCount;
 
 	private int isHot;
-
+	
+	private int virtualSales;
+	
+	private List<String> imgPre;
+	
+	private List<String> leftImg;
+	
+	private List<String> detailImg;
+	
+	private List<String> imgSuff;
+	
 	private Brand subBrand;
 	
-	private Category subCategory;
+	private String goodsSn;
 	
-	private List<GoodsGallery> goodsGalleries;
+	private int goodsNumber; 
 	
-	//sp
-	private String goodsAttr_id;
-	
-	private Integer brandId;
-
 	public Goods(Integer goodsId, String goodsAttr_id, Integer brandId) {
 		super();
 		this.goodsId = goodsId;
@@ -42,18 +51,25 @@ public class Goods {
 		this.brandId = brandId;
 	}
 
-	@Override
-	public String toString() {
-		return "Goods [goodsId=" + goodsId + ", goodsName=" + goodsName + ", goodsNameEn=" + goodsNameEn
-				+ ", goodsDesc=" + goodsDesc + ", marketPrice=" + marketPrice + ", shopPrice=" + shopPrice
-				+ ", discount=" + discount + ", imgDesc=" + imgDesc + ", clickCount=" + clickCount + ", isHot=" + isHot
-				+ ", subBrand=" + subBrand + ", subCategory=" + subCategory + ", goodsGalleries=" + goodsGalleries
-				+ "]";
-	}
-
 	public Goods() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+	
+	public int getGoodsNumber() {
+		return goodsNumber;
+	}
+
+	public void setGoodsNumber(int goodsNumber) {
+		this.goodsNumber = goodsNumber;
+	}
+
+	public String getGoodsSn() {
+		return goodsSn;
+	}
+
+	public void setGoodsSn(String goodsSn) {
+		this.goodsSn = goodsSn;
 	}
 
 	public int getIsHot() {
@@ -144,22 +160,6 @@ public class Goods {
 		this.subBrand = subBrand;
 	}
 
-	public Category getSubCategory() {
-		return subCategory;
-	}
-
-	public void setSubCategory(Category subCategory) {
-		this.subCategory = subCategory;
-	}
-
-	public List<GoodsGallery> getGoodsGalleries() {
-		return goodsGalleries;
-	}
-
-	public void setGoodsGalleries(List<GoodsGallery> goodsGalleries) {
-		this.goodsGalleries = goodsGalleries;
-	}
-	
 	public String getGoodsAttr_id() {
 		return goodsAttr_id;
 	}
@@ -176,4 +176,43 @@ public class Goods {
 		this.brandId = brandId;
 	}
 
+	public List<String> getLeftImg() {
+		return leftImg;
+	}
+
+	public void setLeftImg(List<String> leftImg) {
+		this.leftImg = leftImg;
+	}
+
+	public List<String> getDetailImg() {
+		return detailImg;
+	}
+
+	public void setDetailImg(List<String> detailImg) {
+		this.detailImg = detailImg;
+	}
+
+	public List<String> getImgPre() {
+		return imgPre;
+	}
+
+	public void setImgPre(List<String> imgPre) {
+		this.imgPre = imgPre;
+	}
+
+	public List<String> getImgSuff() {
+		return imgSuff;
+	}
+
+	public void setImgSuff(List<String> imgSuff) {
+		this.imgSuff = imgSuff;
+	}
+
+	public int getVirtualSales() {
+		return virtualSales;
+	}
+
+	public void setVirtualSales(int virtualSales) {
+		this.virtualSales = virtualSales;
+	}
 }

@@ -15,9 +15,13 @@ public class Brand {
 	private int isShow;
 	
 	private String imgDesc;
+	
+	private List<String> imgPre;
 
-	private List<BrandGallery> brandGalleries;
-
+	private List<String> detailImg;
+	
+	private List<String> imgSuff;
+	
 	public Brand() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -71,11 +75,27 @@ public class Brand {
 		this.imgDesc = imgDesc;
 	}
 
-	public List<BrandGallery> getBrandGalleries() {
-		return brandGalleries;
+	public List<String> getDetailImg() {
+		return detailImg;
 	}
 
-	public void setBrandGalleries(List<BrandGallery> brandGalleries) {
-		this.brandGalleries = brandGalleries;
+	public void setDetailImg(List<String> detailImg) {
+		this.detailImg = detailImg;
+	}
+
+	public List<String> getImgSuff() {
+		return imgSuff;
+	}
+
+	public void setImgSuff(List<String> imgSuff) {
+		this.imgSuff = imgSuff;
+	}
+
+	public List<String> getImgPre() {
+		return imgPre;
+	}
+
+	public void setImgPre(List<String> imgPre) {
+		this.imgPre = imgPre;
 	}
 }

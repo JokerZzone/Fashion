@@ -1,7 +1,7 @@
 package com.lanou.entity;
 
 public class Order {
-
+	
 	private int recId;
 	
 	private int orderId;
@@ -15,9 +15,8 @@ public class Order {
 	private double shopPrice;
 	
 	private int goodsNumber;
-
+	
 	public Order() {
-		super();
 		// TODO Auto-generated constructor stub
 	}
 

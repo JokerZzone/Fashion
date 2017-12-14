@@ -5,6 +5,8 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -62,10 +64,112 @@ public class GoodsController {
 	// 本周特价商品
 	@RequestMapping("/weekly")
 	@ResponseBody
-	public Map<String, Object> weeklyGoods(@RequestParam("weeklyId") int weeklyId,
-			@RequestParam("chooseId") int chooseId, @RequestParam("pageId") int pageId) {
-		Map<String, Object> maps = goodsService.weeklyGoods(weeklyId, chooseId, pageId);
+	public Map<String, Object> weeklyGoods(@RequestParam("chooseId") int chooseId, @RequestParam("orders") int orders,@RequestParam("pageId") int pageId) {
+		Map<String, Object> maps = goodsService.weeklyGoods(chooseId,orders, pageId);
 		return maps;
 	}
 
+	@RequestMapping("/detail")
+	@ResponseBody
+	public Goods detail(@RequestParam("id") int goodsId) {
+		return goodsService.findGoods(goodsId);
+	}
+	
+	/**
+	 * 卖家功能  
+	 */
+	//1.展示商品信息
+	@RequestMapping("/")
+	@ResponseBody
+	public Map<String, Object> lookGoodsNews(@RequestParam("pageId")int pageId,@RequestParam("pageNumber")int pageNumber) {
+		Map<String, Object> maps = goodsService.allGoodsNews(pageId, pageNumber);
+		return maps;
+	}
+	
+	//筛选一级分类商品
+	@RequestMapping("/firstGoods")
+	@ResponseBody
+	public Map<String, Object> lookFirstGoods(@RequestParam("catId")int catId,@RequestParam("pageId")int pageId,@RequestParam("pageNumber")int pageNumber) {
+		Map<String, Object> maps = goodsService.firstGoods(catId, pageId, pageNumber);
+		return maps;
+	}
+	
+	//模糊查询
+	@RequestMapping("/likeGoods")
+	@ResponseBody
+	public Map<String, Object> findLikeGoods(@RequestParam("name")String name,@RequestParam("pageId")int pageId,@RequestParam("pageNumber")int pageNumber) {
+		Map<String, Object> maps = goodsService.likesGoods(name, pageId, pageNumber);
+		return maps;
+	}
+	
+	//查看单个商品信息
+	@RequestMapping("/oneGoodNews")
+	@ResponseBody
+	public Goods oneGoodNews(@RequestParam("goodsId")int goodsId) {
+		Goods good = goodsService.goodNews(goodsId);
+		return good;
+	}
+	
+	//修改单个商品信息
+	@RequestMapping("/updateGood")
+	@ResponseBody
+	public boolean updateGoodNews(Goods good) {
+		boolean result = goodsService.updateGood(good);
+		return result;
+	}
+	
+	//删除商品功能
+	@RequestMapping("/deleteGood")
+	@ResponseBody
+	public boolean deleteGoodNews(@RequestParam("goodsId")int goodsId) {
+		boolean result = goodsService.deleteGood(goodsId);
+		return result;
+	}
+	
+	//添加商品
+	@RequestMapping("/addGood")
+	@ResponseBody
+	public boolean addGoodNews(Goods good) {
+		boolean result = goodsService.addGood(good);
+		return result;
+	}
+	
+	//5.查看商品回收站
+	@RequestMapping("/goodsBin")
+	@ResponseBody
+	public Map<String, Object> lookGoodsBin(@RequestParam("pageId")int pageId,@RequestParam("pageNumber")int pageNumber) {
+		Map<String, Object> maps = goodsService.findDeletedGoods(pageId, pageNumber);
+		return maps;
+	}
+	
+	//回收站的模糊查询
+	@RequestMapping("/likeGoodsBin")
+	@ResponseBody
+	public Map<String, Object> likeGoodsBin(@RequestParam("name")String name,@RequestParam("pageId")int pageId,@RequestParam("pageNumber")int pageNumber) {
+		Map<String, Object> maps = goodsService.likeDeleteGoods(name, pageId, pageNumber);
+		return maps;
+	}
+	
+	//回收站的恢复
+	@RequestMapping("/restoreGood")
+	@ResponseBody
+	public boolean restoreGood(@RequestParam("goodId") int goodId) {
+		boolean result = goodsService.restoreGood(goodId);
+		return result;
+	}
+	
+	//回收站的物理删除
+	@RequestMapping("/physicalDelete")
+	@ResponseBody
+	public boolean physicalDeleteGood(@RequestParam("goodId") int goodId) {
+		boolean result = goodsService.physicalDelete(goodId);
+		return result;
+	}
+	
+	@InitBinder("good")
+	public void initUser(WebDataBinder wBinder) {
+		wBinder.setFieldDefaultPrefix("good.");
+	}
+	
+	
 }

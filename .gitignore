@@ -1,2 +1,11 @@
 
+<<<<<<< HEAD
 target/.DS_Store
+=======
+*.class
+*.class
+*.properties
+*.java
+*.class
+>>>>>>> origin/joker
+*.class
