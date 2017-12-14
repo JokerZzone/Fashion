@@ -422,13 +422,10 @@
 		select goods_id,goods_name,goods_sn,shop_price from goods where is_delete = 1 limit #{pageId},#{pageNumber}
 	</select>
 	
-<<<<<<< HEAD
-
 	<select id="findCollectionGoods" parameterType="int" resultMap="GoodsResultMap.findCollectionGoodsResult">
 		select goods_id,goods_name,market_price,shop_price,img_desc from goods where goods_id = #{goods_id}
 	</select>
 
-=======
 	<!-- 回收站商品总数 -->
 	<select id="deletedGoodsCount" resultType="int">
 		select count(*) from goods where is_delete = 1
@@ -456,6 +453,4 @@
 		delete from goods where goods_id = #{goodId}
 	</delete>
 	
-	
->>>>>>> origin/12.12
 </mapper>

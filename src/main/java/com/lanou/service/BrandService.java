@@ -11,9 +11,7 @@ public interface BrandService {
 	
 	public List<Brand> selectLikeDesc_Country(String braDesc);
 	
-<<<<<<< HEAD
-	public void addBrand(Brand brand);
-=======
+
 	//4.商品品牌
 	//查看所有品牌信息	
 	public Map<String, Object> findAllBrands(int pageId,int pageNumber);
@@ -30,5 +28,4 @@ public interface BrandService {
 	//删除品牌
 	public boolean deleteBrand(int brandId);
 	
->>>>>>> origin/12.12
 }

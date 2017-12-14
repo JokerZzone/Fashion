@@ -6,10 +6,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-<<<<<<< HEAD
-=======
 import org.springframework.web.bind.WebDataBinder;
->>>>>>> origin/12.12
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -50,9 +47,6 @@ public class BrandContorller {
 		return map;
 	}
 	
-<<<<<<< HEAD
-
-=======
 	//卖家
 	//四.商品品牌
 	//1.查看商品品牌
@@ -99,5 +93,4 @@ public class BrandContorller {
 	public void initUser(WebDataBinder wBinder) {
 		wBinder.setFieldDefaultPrefix("brand.");
 	}
->>>>>>> origin/12.12
 }
