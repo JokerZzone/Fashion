@@ -65,7 +65,7 @@ public class GoodsServiceImpl implements GoodsService {
 	}
 
 	public Map<String, Object> titleGoods(int titleId, int chooseId, int pageId, int sortId, int brandId,
-			String[] attr_idAndType) {
+			int[] attr_idAndType) {
 		// TODO Auto-generated method stub
 		int[] attrIds = getAttrIds(attr_idAndType);
 		int typeId1 = attrIds[0];
@@ -96,7 +96,7 @@ public class GoodsServiceImpl implements GoodsService {
 	}
 
 	public Map<String, Object> SecondGoods(int catId, int chooseId, int pageId, int sortId, int brandId,
-			String[] attr_idAndType) {
+			int[] attr_idAndType) {
 		// TODO Auto-generated method stub
 		int[] attrIds = getAttrIds(attr_idAndType);
 		int typeId1 = attrIds[0];
@@ -245,12 +245,12 @@ public class GoodsServiceImpl implements GoodsService {
 
 	// 一维数组[id,type,id,type...]
 	// 数组处理
-	public int[] getAttrIds(String[] attr_idAndType) {
+	public int[] getAttrIds(int[] attr_idAndType) {
 		int[] attrIds = new int[8];
 		for (int i = 0; i < attr_idAndType.length; i += 2) {
 			for (int j = 1; j <= 8; j++) {
-				if (Integer.parseInt(attr_idAndType[i + 1]) == j) {
-					attrIds[j - 1] = Integer.parseInt(attr_idAndType[i]);
+				if (attr_idAndType[i + 1] == j) {
+					attrIds[j - 1] = attr_idAndType[i];
 				}
 			}
 		}
