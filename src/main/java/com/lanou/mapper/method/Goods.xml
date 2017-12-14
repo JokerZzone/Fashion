@@ -304,8 +304,8 @@
 			and a.attr_id like
 			concat_ws('#','%','%','%','%','%','%','%',#{typeId8})
 		</if>
-
 	</select>
+	
 	<select id="selectGoodsAttr_idByCate" resultMap="GoodsResultMap.findGoodsAttr_idByCateResult">
 		select a.attr_id,a.brand_id,a.goods_id
 		from
@@ -349,8 +349,29 @@
 			and a.attr_id like
 			concat_ws('#','%','%','%','%','%','%','%',#{typeId8})
 		</if>
-
 	</select>
+	
+	<!-- 首页商品的模糊查询 -->
+	<select id="findPageGoods" resultMap="GoodsResultMap.goodsResult1">
+		select * from goods where goods_name like concat ('%','${name}','%')
+		<if test="chooseId ==2">
+			<if test="sortId==0">
+				order by a.shop_price Asc LIMIT #{pageId},#{pageCount}
+			</if>
+			<if test="sortId==1">
+				order by a.shop_price Desc LIMIT #{pageId},#{pageCount}
+			</if>
+		</if>
+		<if test="chooseId == 1">
+			LIMIT #{pageId},36
+		</if>
+	</select>
+	
+	<select id="likeGoodsTotal" parameterType="String" resultType="int">
+		select count(*) from goods where goods_name like concat ('%','${name}','%')
+	</select>
+	
+	
 	
 	<!-- xy 卖家功能 -->
 	<!-- 获取商品总数量 -->

@@ -87,7 +87,7 @@ public interface GoodsMapper {
 			@Param("pageId") int pageId, @Param("sortId") int sortId, @Param("pageCount") int pageCount);
 	
 	//首页商品数量
-	public int  homePageGoodsTotal(int keyId);
+	public int homePageGoodsTotal(int keyId);
 	
 	//明星推荐
 	public List<Goods> recommendGoods();
@@ -130,6 +130,14 @@ public interface GoodsMapper {
 			@Param("typeId6") int typeId6,
 			@Param("typeId7") int typeId7,
 			@Param("typeId8") int typeId8);
+	
+	//首页商品的模糊查询
+	public List<Goods> findPageGoods(@Param("name")String name, @Param("chooseId") int chooseId,
+			@Param("pageId") int pageId, @Param("sortId") int sortId,
+			@Param("pageCount") int pageCount);
+	
+	//获取模糊查询的商品的总数
+	public int likeGoodsTotal(@Param("name")String name);
 
 	/**
 	 * xy
