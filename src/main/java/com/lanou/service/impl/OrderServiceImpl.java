@@ -2,6 +2,8 @@ package com.lanou.service.impl;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +28,15 @@ public class OrderServiceImpl implements OrderService {
 		
 		return null;
 	}
+
+	@Override
+	public void addOrder(int[] goods, int[] num, HttpServletRequest request) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+
 
 	
 }

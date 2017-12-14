@@ -29,12 +29,7 @@ public class BrandServiceImpl implements BrandService {
 		return brandMapper.selectLikeDesc_Country(braDesc);
 	}
 
-	@Override
-<<<<<<< HEAD
-	public void addBrand(Brand brand) {
-		// TODO Auto-generated method stub
-		brandMapper.addBrand(brand);
-=======
+		
 	public Map<String, Object> findAllBrands(int pageId, int pageNumber) {
 		// TODO Auto-generated method stub
 		int pageId2 = (pageId - 1) * pageNumber;
@@ -80,9 +75,7 @@ public class BrandServiceImpl implements BrandService {
 	public boolean deleteBrand(int brandId) {
 		// TODO Auto-generated method stub
 		return brandMapper.deleteBrand(brandId);
->>>>>>> origin/12.12
 	}
-
 
 	
 }

@@ -16,9 +16,6 @@ public interface BrandMapper {
 	
 	public List<Brand> selectLikeDesc_Country(String braDesc);
 	
-<<<<<<< HEAD
-	public void addBrand(Brand brand);
-=======
 	//4.商品品牌
 	//查看所有品牌信息
 	public List<Brand> allBrands(@Param("pageId")int pageId,@Param("pageNumber")int pageNumber);
@@ -43,8 +40,5 @@ public interface BrandMapper {
 	
 	
 	
-	
-	
->>>>>>> origin/12.12
 	
 }

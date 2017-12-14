@@ -16,12 +16,6 @@
 		select * from brand where brand_desc like concat('%',#{braDesc})
 	</select>
 	
-<<<<<<< HEAD
-	<insert id="addBrand" parameterType="Brand">
-		insert into brand(brand_name,brand_desc,img_desc) values(#{brandName},#{brandDesc},#{imgDesc})
-	</insert>
- 
-=======
 	<!-- 4.商品品牌 -->
 	<!-- 查看所有商品信息 -->
 	<select id="allBrands" parameterType="int" resultMap="BrandResultMap.brandResult">
@@ -60,5 +54,4 @@
 		update brand set is_delete = 1 where brand_id = #{brandId}
 	</update>
   
->>>>>>> origin/12.12
 </mapper>

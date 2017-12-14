@@ -2,6 +2,7 @@ package com.lanou.service.impl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.lanou.dao.CityMapper;
@@ -11,6 +12,7 @@ import com.lanou.service.CityService;
 @Service("cityService")
 public class CityServiceImpl implements CityService {
 
+	@Autowired
 	private CityMapper cityMapper;
 
 	@Override
