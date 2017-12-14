@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>商品列表</title>
+		<link rel="stylesheet" type="text/css" href="../css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/goodsList.css"/>
+	</head>
+	<body>
+		<div class="top"></div>
+		<div class="content clearfix">
+			<div class="left fl">
+				<div class="listLeft">
+					<div class="listOne">商品管理</div>
+					<ol>
+						<li><a>商品列表</a></li>
+						<li><a>商品分类</a></li>
+						<li><a>商品品牌</a></li>
+						<li><a>商品回收站</a></li>
+					</ol>
+				</div>
+			</div>
+			<div class="right fl">
+				<!--商品列表-->
+				<div class="goodsList1">
+					<!--商品列表头部-->
+					<div class="header clearfix">
+						<a href="###" class="title fl">ECSHOP 管理中心</a>
+						<div class="fl splb">商品列表</div>
+						<div class="buttons fr clearfix">
+							<div class="luru fl"></div>
+							<div class="tianjia fl"></div>
+						</div>
+					</div>
+					<!--商品列表功能栏-->
+					<div class="gongneng">
+						<span class="sousuoImg"></span>
+						<select name="">
+							<option value="">所有分类</option>
+							<option value="">所有分类</option>
+						</select>
+						<label for="" class="word">关键字</label>
+						<input type="text" name="key" id="key" value="" />
+						<span class="sousuo_btn">搜索</span>
+				</div>
+					<!--表格-->
+					<table border="" cellspacing="" cellpadding="">
+						<tr>
+							<th>
+								<input type="checkbox" name="chooseAll" id="chooseAll" value="" />
+								编号
+							</th>
+							<th>商品名称</th>
+							<th>货号</th>
+							<th>价格</th>
+							<th>库存</th>
+							<th>操作</th>
+						</tr>
+						<tr>
+							<td>
+								<input type="checkbox" name="choose" class="choose" value="" />
+								1
+							</td>
+							<td>ghfg</td>
+							<td>ECS000006</td>
+							<td>0.00</td>
+							<td>1</td>
+							<td>
+								<div class="check" title="查看"></div>
+								<div class="edit" title="编辑"></div>
+								<div class="remove" title="删除"></div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<input type="checkbox" name="choose" class="choose" value="" />
+								1
+							</td>
+							<td>df</td>
+							<td>ECS000004</td>
+							<td>0.00</td>
+							<td>1</td>
+							<td class="clearfix">
+								<div class="check" title="查看"></div>
+								<div class="edit" title="编辑"></div>
+								<div class="remove" title="删除"></div>
+							</td>
+						</tr>
+					</table>
+					<!--表格下面的页数操作-->
+					<div class="table_bottom">
+						<span class="desc fl">总计<span class="number"> 6 </span>个记录分为 <span class="pages"> 1 </span>页当前第<span class="page"> 1 </span>页，每页</span>
+						<input class="fl" type="text" name="page" id="page" value="15" />
+						<span class="fenge fl">|</span>
+						<a href="###">第一页</a>
+						<a href="###">上一页</a>
+						<a href="###">下一页</a>
+						<a href="###">最末页</a>
+						<select name="">
+							<option value="">1</option>
+						</select>
+					</div>
+					<!--底部的版权-->
+					<div class="footer">
+						版权所有 © 2005-2017 上海商派软件有限公司，并保留所有权利。
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../js/jquery.min.js"></script>
+	<script type="text/javascript" src="../js/goodList.js"></script>
+</html>

@@ -1,0 +1,352 @@
+#brandActivity{
+	width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.brandWord{
+	font-size: 18px;
+	color: #333;
+	font-weight: bold;
+	line-height: 40px;
+}
+.brandMain{
+	width: 1200px;
+	height: 300px;
+	display: flex;
+	justify-content: space-between;
+}
+#skinCare{
+	width: 1200px;
+	// height: 591px;
+	// border: 1px solid gray;
+	margin-left: auto;
+	margin-right: auto;
+	border-bottom: 1px solid #e4e4e4;
+}
+.start{
+	width: 1200px;
+	height: 40px;
+	margin: 24px 0px 10px 0px;
+	border-bottom: 2px solid #0094ff;
+}
+.startS{
+	border-bottom: 2px solid #d0d0d0;
+}
+.leftPart{
+	// width: 170px;
+	height: 40px;
+	padding-left: 2px;
+	float: left;
+}
+.rightPart{
+	width: 900px;
+	height: 25px;
+	float: right;
+	margin-top: 10px;
+	line-height: 25px;
+}
+.rightPart li{
+	float: right;
+	height: 25px;
+	font-size: 12px;
+}
+.rightPart li a{
+	padding: 0px 15px;
+}
+.rightPart .li a{
+	background: url(http://photo.no5.com.cn/page_2014/images/brangtit.jpg) no-repeat right center;
+}
+#skinCare .middle{
+	height: 479px;
+	border-bottom: 1px solid #f1f1f1;
+}
+#skinCare .middle .leftPic{
+	width: 268px;
+	height: 480px;
+	float: left;
+}
+#skinCare .middle .hufuList{
+	width: 690px;
+	height: 479px;
+	
+}
+#skinCare .middle .hufuList li{
+	float: left;
+}
+.index_img1{
+	width: 180px;
+	height: 180px;
+}
+.index_img2{
+	width: 160px;
+	height: 160px;
+}
+.hufu_item1,.hufu_item2{
+	width: 344px;
+	height: 180px;
+	border-bottom: 1px solid #f1f1f1;
+	padding: 7px 0px 14px 0px;
+}
+.hufu_item1{
+	border-right: 1px solid #f1f1f1;
+}
+.hufu_item1_word{
+	width: 150px;
+	float: right;
+	font-size: 14px;
+}
+.hufu_item1_word .hufu_word1{
+	overflow: hidden;
+	height: 36px;
+	margin: 28px 0px 10px 0px;
+}
+.hufu_item1_word .hufu_word1 a{
+	color: #666;
+}
+.hufu_item1_word .hufu_word2{
+	margin-bottom: 30px;
+}
+.hufu_price{
+	font-size: 18px;
+	color: red;
+	margin-top: -5px;
+}
+.hufu_price1{
+	font-size: 24px;
+	font-weight: bold;
+}
+.hufu_price2{
+	font-weight: bold;
+}
+.hufu_discount{
+	font-size: 12px;
+	color: red;
+}
+.hufu_item3,.hufu_item4{
+	border-right: 1px solid #f1f1f1;
+}
+.hufu_item3,.hufu_item4,.hufu_item5{
+	width: 181px;
+	height: 259px;
+	padding: 15px 24px 0px 24px;
+	font-size: 14px;
+}
+.hufu_function1{
+	color: #666;
+}
+.hufu_function1,.hufu_function2{
+	width: 181px;
+	display: inline-block;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+.hotSales{
+	width: 218px;
+	height: 480px;
+	float: right;
+	margin-left: 24px;
+	font-size: 12px;
+}
+.hotSales h2{
+	font-size: 16px;
+	height: 32px;
+	width: 218px;
+	color: red;
+	font-weight: bold;
+	text-align: center;
+	border-bottom: 2px solid #d0d0d0;
+}
+.hotSales li{
+	width: 218px;
+	/*line-height: 42px;*/
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+	border-bottom: 1px solid #e4e4e4;
+}
+.hotSales span:nth-child(1){
+	display: inline-block;
+	float: left;
+	width: 22px;
+	height: 42px;
+	text-align: center;
+	line-height: 42px;
+	color: red;
+	padding-left: 5px;
+	font-weight: bold;
+	background: url(http://photo.no5.com.cn/page_2014/images/topbg.jpg) no-repeat 7px 13px;
+}
+.hotSales .showPart span:nth-child(2){
+	float: left;
+	width: 191px;
+	display: inline-block;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+.showPartOne{
+	display: none;
+	height: 43px;
+}
+.hiddenPart{
+	display: none;
+	width: 176px;
+	height: 199px;
+	color: #aa0;
+	text-align: center;
+	padding: 13px 21px;
+}
+/*********************************************************/ 
+.showPart{
+	line-height: 42px; 
+}
+.hiddenPart p:nth-of-type(1){
+	height: 28px;
+	line-height: 28px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-weight: bold;
+}
+.hiddenPart p:nth-of-type(2){
+	height: 20px;
+	font-size: 14px;
+	color: #ff1a3a;
+	font-weight: bold;
+}
+.hiddenPart p{
+	margin: 0px;
+	padding: 0px;
+}
+/*彩妆*/
+/*修改的代码*/
+#perfume{
+	width: 1200px;
+	// height: 591px;
+	// border: 1px solid gray;
+	margin-left: auto;
+	margin-right: auto;
+	border-bottom: 1px solid #e4e4e4;
+}
+#perfume .middle{
+	overflow: hidden;
+}
+#perfume .middle .perfumeList{
+	width: 355px;
+	margin-bottom: 1px;
+}
+#perfume .middle .mr1{
+	float: left;
+}
+#perfume .middle .mr1 a{
+	display: block;
+	font-size: 0px;
+}
+.perfumeLeftPic{
+	width: 326px;
+	height: 480px;
+}
+#perfume .float_left a{
+	display: block;
+	line-height: 0;
+}
+.index_img3{
+	width: 177px;
+	height: 203px;
+}
+.menList li{
+	width: 184px;
+	height: 227px;
+	float: left;
+	padding: 6px 10px;
+	border-right: 1px solid #f1f1f1;
+	border-bottom: 1px solid #f1f1f1;
+	text-align: center;
+	font-size: 14px;
+}
+.index_img4{
+	width: 180px;
+	height: 180px;
+} 
+.ml1{
+	margin-left:1px;
+}
+.mr1{
+	margin-right: 1px;
+}
+.mt1{
+	margin-top:1px;
+}
+.mb1{
+	margin-bottom: 1px;
+}
+/***********************************************************/ 
+.hiddenPartOne{
+	display: block;
+}
+.projectBrand{
+	width: 1188px;
+	height: 58px;
+	// float: left;
+	padding: 0px 6px;
+	display: flex;
+	justify-content: space-between;
+}
+.projectBrand a{
+	display: inline-block;
+	margin: 11px 12px;
+}
+.projectBrand a img{
+	width: 75px;
+	height: 36px;
+}
+.perfumeLeftPic{
+	width: 326px;
+	height: 480px;
+	float: left;
+}
+#skinCare .middle .perfumeList{
+	width: 632px;
+}
+.index_img3{
+	width: 177px;
+	height: 203px;
+}
+// 男士
+// .menList{
+// 	width: 614px;
+// 	height: 480px;
+// 	border: 2px solid black;
+// }
+.menList li{
+	width: 184px;
+	height: 227px;
+	float: left;
+	padding: 6px 10px;
+	border-right: 1px solid #f1f1f1;
+	border-bottom: 1px solid #f1f1f1;
+	text-align: center;
+	font-size: 14px;
+}
+.index_img4{
+	width: 180px;
+	height: 180px;
+}
+// 男士护肤
+.index_img5{
+	width: 343px;
+	height: 480px;
+}
+.menPrice1{
+	color: red;
+	font-size: 16px;
+	font-weight: bold;
+}
+.menPrice2{
+	color: red;
+	font-size: 12px;
+}
+.menPic{
+	width: 343px;
+	height: 480px;
+}

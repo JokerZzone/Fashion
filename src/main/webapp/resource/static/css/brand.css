@@ -1,0 +1,128 @@
+#topWords{
+	width: 100%;
+	height: 72px;
+	margin-bottom: 20px;
+	background: url(../img/brandRoom/brandRoomTop_bg.jpg) repeat-x;
+}
+/*.recommends a:link{
+	color: #a15612;
+}*/
+.wordContent{
+	width: 1132px;
+	margin: 0 auto;
+	height: 25px;
+	line-height: 25px;
+	color: #2d2d2d;
+	padding: 28px 0 19px 68px;
+	font-size: 14px;
+}
+.wordList{
+	float: left;
+	font-weight: bold;
+	height: 25px;
+	line-height: 25px;
+	border-left: 1px solid #fff;
+	border-right: 1px solid #ddd;
+}
+.wordLink{
+	color: #a15612;
+	padding: 7px 12px;
+}
+.wordLink_one{
+	float: left;
+	font-weight: bold;
+	height: 25px;
+	line-height: 25px;
+	border-right: 1px solid #ddd;
+	border-left: 1px solid transparent;
+}
+/* 具体商标分类 */ 
+.trademarkBox{
+	width: 1200px;
+	margin: 0 auto;
+	// margin-top: 92px;
+}
+.recommends{
+	width: 40px;
+	height: 48px;
+	text-align: center;
+	color: #aa794c;
+	font-size: 18px;
+	background: url(../img/brandRoom/recommended.jpg) no-repeat;
+	padding-top: 10px;
+	float: left;
+	/*position: relative;*/
+}
+.recommendTwo{
+	font-size: 14px;
+}
+.trademarkOne{
+	width: 1135px;
+	border-left: 2px solid #ddd;
+	margin-left: 18px;
+	padding-left: 45px;
+	float: left;
+	padding-bottom: 20px;
+}
+.tradeCont{
+	float: left;
+	width: 535px;
+	height: 210px;
+	border: 1px solid #ddd;
+	border-bottom: 2px solid #ddd;
+	margin-left: 20px;
+	margin-bottom: 20px;
+	padding: 5px;
+}
+/*欧美*/ 
+.tradeWord{
+	width: 1112px;
+	border: 1px solid #ddd;
+	border-bottom: 2px solid #ddd;
+	margin-left: 20px;
+	float: left;
+	background: #f8f8f8;
+	padding: 20px 0;
+	font-size: 12px;
+}
+.tradeOl{
+	margin: 0 20px;
+}
+.tradeLi{
+	width: 200px;
+	float: left;
+	margin: 2px 0px 2px 10px;
+	height: 20px;
+	overflow: hidden;
+	line-height: 20px;
+}
+.tradeDiv{
+	padding: 0px 20px;
+}
+.tradeA{
+	color: #735e5e;
+}
+.tradePic{
+	float: left;
+	width: 102px;
+	margin: 10px 7px;
+	text-align: center;
+}
+.tradeImg{
+	width: 100px;
+	height: 53px;
+}
+.tradeName{
+	display: inline-block;
+	padding-top: 8px;
+	height: 14px;
+}
+.qw{
+	border-top: 1px solid #e1e1e1;
+	padding-top: 20px;
+}
+/*.recommends a{
+	display: inline-block;
+	position: absolute;
+	top: 72px;
+}*/

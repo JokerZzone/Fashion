@@ -1,0 +1,153 @@
+.top {
+	width: 100%;
+	height: 120px;
+	background: deepskyblue;
+}
+.content {
+	min-width: 1180px;
+}
+/*左边部分*/
+.listLeft{
+	
+	padding: 5px;
+	margin: 5px;
+	line-height: 18px;
+	cursor: pointer;
+	color: white;
+	font-size: 12px;
+}
+.listOne{
+	font-weight: bold;
+	background: url(../img/goodsList/menu_minus.gif) no-repeat 0 4px;
+	padding-left: 16px;
+	margin-top: 10px;
+}
+.listLeft ol li{
+	list-style-type: none;
+	padding-left: 16px;
+	line-height: 18px;
+	cursor: pointer;
+	font-weight: normal;                                        
+}
+/********/
+.content .left {
+	width: 180px;
+	height: 800px;
+	background: gray;
+}
+.content .right {
+	width: calc(100vw - 200px);
+	min-width: 1000px;
+}
+.header {
+	width: 100%;
+	height: 49px;
+	box-sizing: border-box;
+	padding: 7px 10px;
+	border: 1px solid #e9e9e9;
+	background: #fbfbfb;
+	font-weight: bold;
+	font-size: 14px;
+}
+.header .title {
+	color: #333;
+}
+.header .splb {
+	color: #9CACAF;
+	margin-left: 20px;
+}
+.header .buttons div {
+	width: 135px;
+	height: 33px;
+}
+.header .buttons .luru {
+	background: url(../img/goodsList/sprit.png) no-repeat -66px -1109px;
+	margin-right: 10px;
+}
+.header .buttons .tianjia {
+	background: url(../img/goodsList/sprit.png) no-repeat -66px -1213px;
+}
+.gongneng {
+	box-sizing: border-box;
+	width: 100%;
+	height: 36px;
+	border: 1px solid #BBDDE5;
+	font-size: 12px;
+	line-height: 33px;
+	padding-left: 5px;
+}
+.gongneng .sousuoImg {
+	display: inline-block;
+	vertical-align: top;
+	margin-top: 5px;
+	width: 26px;
+	height: 22px;
+	background: url(../img/goodsList/icon_search.gif) no-repeat;
+}
+table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 12px;
+}
+table th  {
+	background: #e5f6fe;
+	height: 30px;
+	border: 1px solid white;
+}
+table td{
+	height: 30px;
+	text-align: center;
+	border: 1px solid lightgray;
+}
+.check,.edit,.remove {
+	width: 16px;
+	height: 16px;
+	float: left;
+}
+.check {
+	background: url(../img/goodsList/icon_view.gif) no-repeat;
+}
+.edit {
+	background: url(../img/goodsList/icon_edit.gif) no-repeat;
+}
+.remove {
+	background: url(../img/goodsList/icon_trash.gif) no-repeat;
+}
+.table_bottom {
+	width: 100%;
+	height: 25px;
+	line-height: 25px;
+	border: 1px solid lightgray;
+	margin-top: 1px;
+	font-size: 12px;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+.table_bottom .desc {
+	margin-left: 710px;
+}
+.table_bottom input {
+	width: 30px;
+	margin-top: 2px;
+} 
+.table_bottom a {
+	color: #4face5;
+}
+.table_bottom .fenge {
+	margin: 0 5px 0 10px;
+}
+.footer {
+	width: 100%;
+	height: 64px;
+	border: 1px solid #BBDDE5;
+	font-size: 12px;
+	color: #9CACAF;
+	background: #F4FaFb;
+	text-align: center;
+	line-height: 64px;
+	margin-top: 20px;
+}
+/*右边部分*/
+.goodsList1{
+	display: none;
+}

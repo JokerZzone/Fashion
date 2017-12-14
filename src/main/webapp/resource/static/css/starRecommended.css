@@ -1,0 +1,167 @@
+body{
+	font-size: 12px;
+	color: #666
+}
+.recommend_right{
+	width: 960px;
+}
+.recommend_right .partbox{
+	width: 466px;
+    height: 300px;
+    background: #fff;
+    border: 1px solid #e7e7e7;
+    padding: 1px;
+    position: relative;
+    margin-bottom: 10px;
+}
+.recommend_right .partbox:nth-child(even){
+	margin-left: 15px;
+}
+.recommend_right .partbox .partbox_left{
+	width: 228px;
+    height: 300px;
+}
+.recommend_right .partbox .partbox_right{
+	width: 208px;
+    padding: 12px 15px 0;
+}
+.recommend_right .partbox .partbox_right .star_img{
+	width: 40px;
+    height: 40px;
+}
+.recommend_right .partbox .partbox_right .advice{
+	width: 158px;
+}
+.recommend_right .partbox .partbox_right .advice .star_name{
+	color: #379be9;
+}
+.recommend_right .partbox .partbox_right .advice .star_content{
+	margin-top: 8px;
+    line-height: 24px;
+    word-wrap: break-word;
+    height: 190px;
+    overflow: hidden;
+}
+.recommend_right .partbox .partbox_right .shop_price{
+	width: 209px;
+    height: 61px;
+    background: url(../img/detail.gif) no-repeat 0 -262px;
+    position: absolute;
+    top: 232px;
+    left: 224px;
+    padding: 8px 17px 0 24px;
+} 
+.recommend_right .partbox .partbox_right .shop_price .cpname{
+	font-weight: bold;
+    color: #fff;
+    line-height: 28px;
+    height: 28px;
+    overflow: hidden;
+}
+.recommend_right .partbox .partbox_right .shop_price .cpprice{
+	font-family: microsoft yahei;
+    color: #fff000;
+    font-size: 20px;
+}
+.recommend_right .partbox .partbox_right .shop_price .cpprice a{
+	display: block;
+    float: right;
+    padding: 0 15px;
+    height: 24px;
+    line-height: 24px;
+    border-radius: 15px;
+    background: #fff000;
+    text-align: center;
+    font-size: 14px;
+    font-family: microsoft yahei;
+    color: #6c112b;
+}
+
+// 超值小样左边分类
+#smallType{
+	width: 228px;
+	border: 1px solid #e4e4e4;
+	
+	// height: 300px;
+	
+	color: #333;
+
+}
+h3{
+	width: 228px;
+	height: 36px;
+	line-height: 36px;
+	cursor: pointer;
+	font-size: 13px;
+	background: url(../img/smallKind_left_bg.jpg) repeat-x;
+}
+.faceType{
+	width: 15px;
+	height: 14px;
+	float: left;
+	background: url(../img/xueBiTu1.jpg) 0px -248px no-repeat;
+	margin: 12px 10px 0px 12px;
+}
+.smallNumber{
+	font-size: 12px;
+	color: rgb(153, 153, 153);
+	font-weight: normal;
+	margin-left: 2px;
+}
+.dropown{
+	display: none;
+	width: 154px;
+	border-bottom: 1px solid rgb(228, 228, 228);
+	padding: 8px 37px;
+	font-size: 12px;
+	color: rgb(51, 51, 51);
+}
+.dropown li{
+	height: 26px;
+	line-height: 26px;
+	cursor: pointer;
+}
+// 一周排行榜
+.weekList{
+	width: 228px;
+	border: 1px solid #e4e4e4;
+	margin-top: 10px;
+}
+.NO_one{
+	border-bottom: 1px dashed #e4e4e4;
+	text-align: center;
+	padding: 6px;
+	width: 216px;
+}
+.weekTiele{
+	width: 226px;
+	height: 33px;
+	line-height: 33px;
+	margin: 1px;
+	background: url("../img/smallKind_left_bottom_bg.jpg") repeat-x;
+	color: #333;
+	font-size: 14px;
+	font-weight: bold;
+	text-align: center;
+	border-bottom: 1px solid #e4e4e4;
+}
+.weekPics{
+	width: 120px;
+	height: 120px;
+	margin: 10px auto;
+}
+.weekPic{
+	width: 120px;
+	height: 120px;
+}
+.weekWord{
+	width: 210px;
+	text-align: center;
+	padding: 0px 3px;
+	font-size: 12px;
+}
+.weekWordMoney{
+	color: red;
+	font-size: 14px;
+	font-weight: bold;
+}

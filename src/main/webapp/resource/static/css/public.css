@@ -1,0 +1,49 @@
+body,ul,ol,h2{
+	margin: 0px;
+	padding: 0px;
+}
+.auto{
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+ol,ul{
+	list-style-type: none;
+}
+li {
+	list-style: none;
+}
+a{
+	text-decoration: none;
+}
+.float_left{
+	float: left;
+}
+.float_right{
+	float: right;
+}
+.clearfixs{
+	zoom: 1;
+}
+.clearfixs::after{
+	content: "";
+	display: block;
+	height: 0;
+	clear: both;
+}
+h2{
+	font-weight: normal;
+}
+h3{
+	margin: 0px;
+	padding: 0px;
+}
+p{
+	margin: 0px;
+}
+.dot{
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}

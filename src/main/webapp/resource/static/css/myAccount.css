@@ -1,0 +1,627 @@
+#accountWrap{
+	width: 980px;
+	margin: 0 auto;
+	margin-top: 10px;
+}
+
+/*左边侧*/ 
+.accountMenu{
+	width: 159px;
+	height: 480px;
+	background-image: url(../img/myAccount/account_bg.png);
+	background-repeat: no-repeat;
+	background-position: left -2px;
+	float: left;
+	padding: 43px 0px 0px;
+	overflow: hidden;
+	font-size: 12px;
+}
+.accountList1 a:hover{
+	color: #FF6600;
+	text-decoration: underline;
+}
+.accountTitle{
+	height: 32px;
+	width: 135px;
+	text-align: left;
+	line-height: 32px;
+	font-weight: bold;
+	color: #2E2E2E;
+	background-color: #FDF3D5;
+	border: 1px solid #FAD3D5;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding: 0px 0px 0px 6px;
+	margin-left: 10px;
+}
+.accountList1{
+	height: 28px;
+	width: 115px;
+	text-align: left;
+	line-height: 28px;
+	padding: 0px 0px 0px 36px;
+	background-image: url(../img/myAccount/acc-nav-ico.png);
+	background-position: 27px 8px;
+	background-repeat: no-repeat;
+}
+/*右边部分*/
+.accountRight{
+	width: 810px;
+	float: right;
+	margin-left: 4px;
+	margin-top: 2px;
+	overflow: hidden;
+	font-size: 12px;
+}
+.accountList1 a{
+	display: block;
+	width: 115px;
+	height: 28px;
+	line-height: 28px;
+
+}
+.accountContentList{
+	// display: none;
+}
+.accountRightTop{
+	width: 810px;
+	height: 35px;
+	line-height: 35px;
+	background-image: url(../img/myAccount/account_bg.png);
+	background-repeat: no-repeat;
+	background-position: right top;
+	margin-top: 0px;
+	margin-bottom: 8px;
+	text-align: center;
+	letter-spacing: 5px;
+	color: #333333;
+}
+.accountRightBottom{
+	width: 810px;
+	height: 34px;
+	background-image: url(../img/myAccount/account_bg.png);
+	background-repeat: no-repeat;
+	background-position: right -35px;
+}
+.accountRightTitle{
+	height: 35px;
+	font-size: 14px;
+	line-height: 35px;
+	font-weight: bold;
+	color: #333333;
+	margin-bottom: 10px;
+}
+.accountName,.accountLevel,.accountRemaining{
+	color: #FF6600;
+	font-weight: normal;
+}
+.accountItem2,.accountItem3,.accountXinxi{
+	height: 40px;
+	line-height: 35px;
+	padding-left: 6px;
+	padding-right: 10px;
+	margin-right: 75px;
+}
+.accountXinxi{
+	float: left;
+}
+.accountLine{
+	width: 720px;
+	border-bottom: 1px dashed #cccccc;
+	height: 1px;
+	margin-top: 10px;
+	margin-bottom: 15px;
+	margin-left: 5px;
+}
+.accountGoods{
+	padding-left: 5px;
+}
+.accountGoodsItem1{
+	width: 150px;
+	float: left;
+	margin-bottom: 15px;
+	margin-right: 40px;
+}
+.accountGoodsPic{
+	text-align: center;
+}
+.accountGoodsImg{
+	width: 75px;
+	height: 75px;
+}
+.accountGoodsWord1{
+	height: 30px;
+	line-height: 15px;
+	word-break: break-all;
+	overflow: hidden;
+}
+.accountGoodsPrice{
+	height: 18px;
+	line-height: 18px;
+	text-align: center;
+}
+.accountSpecialPrice{
+	color: #FF6600;
+}
+.accountGoodsWord1 a{
+	color: #4870C1;
+}
+.accountContentList1,.accountContentList2,.accountContentList3,.accountContentList4,.accountContentList5,.accountContentList6,.accountContentList7,.accountContentList8,.accountContentList9,.accountContentList10{
+	min-height: 398px;
+	margin-bottom: 10px;
+	display: none;
+}
+.accountTabTitle{
+	width: 810px;
+	margin-bottom: 2px;
+	padding-left: 3px;
+}
+.accountTabStart{
+	background-image: url(../img/myAccount/acc-all-bg.png);
+	background-repeat: no-repeat;
+	background-position: left bottom;
+	padding-bottom: 4px;
+}
+.accountTabTitle li{
+	width: 110px;
+	height: 22px;
+	line-height: 22px;
+	text-align: center;
+	float: left;
+	cursor: pointer;
+	font-weight: normal;
+	background-color: #EAF9FA;
+	background-image: url(../img/myAccount/tab-bg.png);
+	background-repeat: no-repeat;
+	background-position: left -25px;
+	color: #666666;
+	font-weight: normal;
+}
+.accountTabTitle .accountLi{
+	background-position: left top;
+}
+.accountTabTitle table{
+	width: 810px;
+}
+.accountTh{
+	border-bottom: 1px solid #c2d7ea;
+	border-left: 1px solid #c2d7ea;
+	border-top: 1px solid #c2d7ea;
+	text-align: center;
+	padding-bottom: 3px;
+	height: 18px;
+	line-height: 18px;
+	background-color: #eaf9fa;
+	padding-top: 3px;
+	color: #055090;
+	font-weight: normal;
+}
+.accountWords{
+	margin: 5px 0px 8px;
+	float: right;
+	color: #666;
+}
+.arb2,.arb3,.art2,.art3{
+	display: none;
+}
+/*累计消费*/
+.accountTabBottom{
+	width: 758px;
+	height: 22px;
+	line-height: 22px;
+	background-color: #EAF9FA;
+	background-image: url(../img/myAccount/acc-all-bg.png);
+	background-repeat: repeat-y;
+	background-position: left;
+	padding-bottom: 10px;
+	padding-top: 3px;
+	padding-left: 8px;
+}
+.accountTabBottom a{
+	color: #FF6600;
+}
+/*优惠券*/ 
+.art4{
+	display: none;
+}
+.accountGift{
+	height: 130px;
+	border-bottom: 1px dashed #cccccc;
+	width: 740px;
+	margin: 15px auto 15px;
+}
+.accountEnterMoney{
+	font-size: 14px;
+	font-weight: bold;
+	color: #585858;
+	margin-bottom: 10px;
+}
+.verifyCode{
+	float: left;
+	width: 280px;
+	height: 78px;
+	font-size: 12px;
+}
+/*当充值成功的时候，就显示*/
+#divVCardVerify{
+	display: none;
+	margin-top: 15px;
+	color: #6B6B6B;
+	float: left;
+	width: 280px;
+}
+.rechargeAreaLeft{
+	height: 25px;
+	margin-top: 27px;
+	width: 280px;
+	margin-bottom: 5px;
+}
+.rechargeAreaLeft input{
+	vertical-align: middle;
+}
+.rechargeAreaRight{
+	width: 325px;
+	height: 58px;
+	float: left;
+	background-image: url(../img/myAccount/giftcard.jpg);
+	background-repeat: no-repeat;
+	background-position: left;
+	padding: 20px 0px 0px 125px;
+	font-size: 12px;
+	line-height: 18px;
+	margin-left: 5px;
+}
+.cardnumber{
+	margin-right: 5px;
+	margin-left: 5px;
+	border-bottom: 1px solid #E3E3E3;
+	border-right: 1px solid #E3E3E3;
+	border-top: 1px solid #9E9E9E;
+	border-left: 1px solid #9E9E9E;
+	padding: 2px;
+	width: 155px;
+	font-weight: bold;
+}
+/*充值码*/ 
+.accountMoneyCode{
+	color: red;
+	margin-left: 40px;
+	padding-bottom: 5px;
+	display: none;
+}
+.accountGiftBottom{
+	height: 150px;
+	width: 740px;
+	margin: 30px auto 0px;
+	background-image: url(../img/myAccount/getgiftcard.png);
+	background-position: center bottom;
+	background-repeat: no-repeat;
+}
+.accountGiftWord{
+	font-size: 14px;
+	font-weight: bold;
+	color: #585858;
+	margin-bottom: 10px;
+}
+/************收货地址*******************/ 
+.add_btn{
+	margin-bottom: 10px;
+    text-align: left;
+    padding-left: 3px;
+}
+.btn-add{
+	background-image: url(../img/myAccount/btn-add.png);
+    line-height: 23px;
+    border-right-width: 0px;
+    width: 158px;
+    border-top-width: 0px;
+    border-bottom-width: 0px;
+    height: 23px;
+    font-size: 12px;
+    border-left-width: 0px;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    text-align: center;
+    margin: 0px;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 12px;
+    outline: none;
+}
+#tb_consignee_add{
+	display: none;
+}
+#tb_consignee_add div{
+	margin-bottom: 6px;
+}
+#tb_consignee_add input{
+	position: relative;
+    top: -2px;
+    font-size: 12px;
+    border: 1px solid #B9CBEB;
+    padding: 2px;
+}
+.tb_consignee_add_title{
+	margin-left: -10px;
+    background: url(../img/myAccount/t1.gif);
+    padding: 5px 15px;
+}
+
+.address_item {
+    font-size: 12px;
+    line-height: 14px;
+}
+.address_tip{
+	height: 18px;
+    width: 60px;
+    float: left;
+    padding-top: 2px;
+}
+.hackbox{
+	clear: both;
+	margin-bottom: 6px;
+}
+.con_errline{
+	color: #F02400;
+    margin-left: 3px;
+    padding: 3px;
+    padding-left: 22px;
+    background: #FFF5B9 url(../img/myAccount/gth.gif) no-repeat 1px 1px;
+    white-space: normal;
+    visibility: hidden;
+}
+
+.tb_consignee {
+    background-image: url(../img/myAccount/condft.gif);
+    margin: 0 0 5px 4px;
+    float: left;
+    width: 394px;
+    padding-left: 5px;
+    height: 182px;
+    border: 1px solid #bfe6ef;
+    display: none;
+}
+.padtop_spa {
+    height: 5px;
+    width: 361px;
+    overflow: hidden;
+}
+.address_item {
+    font-size: 12px;
+    line-height: 14px;
+}
+.address_tip {
+    height: 18px;
+    width: 60px;
+    float: left;
+    padding-top: 2px;
+}
+.address_cont {
+    float: left;
+    width: 296px;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: left;
+    padding-top: 1px;
+    word-break: break-all;
+}
+.address_edit_btn {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.btn-edi {
+    background-image: url(../img/myAccount/btn-edi.png);
+    line-height: 23px;
+    border-right-width: 0px;
+    width: 50px;
+    border-top-width: 0px;
+    border-bottom-width: 0px;
+    height: 23px;
+    font-size: 12px;
+    border-left-width: 0px;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    padding-left: 13px;
+}
+.btn-dle {
+    background-image: url(../img/myAccount/btn-dle.png);
+    line-height: 23px;
+    border-right-width: 0px;
+    width: 50px;
+    border-top-width: 0px;
+    border-bottom-width: 0px;
+    height: 23px;
+    font-size: 12px;
+    border-left-width: 0px;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    padding-left: 13px;
+}
+/*个人资料*/
+.accountContentList6 form{
+	margin: 0px;
+	color: #666;
+}
+.accountInputBox1{
+	height: 22px;
+	width: 700px;
+	font-size: 12px;
+	padding-left: 10px;
+	margin-bottom: 16px;
+	margin-top: 20px;
+}
+.accountInputBox2{
+	width: 675px;
+	height: 21px;
+	margin-bottom: 16px;
+	font-size: 12px;
+	padding-left: 35px;
+}
+.accountInputBox3{
+	height: 22px;
+	width: 700px;
+	padding-left: 10px;
+	margin-bottom: 16px;
+}
+.accountInputBox4{
+	height: 21px;
+	width: 675px;
+	margin-bottom: 16px;
+	padding-left: 35px;
+}
+.accountInputBox5{
+	width: 675px;
+	height: 21px;
+	margin-bottom: 16px;
+	padding-left: 35px;
+}
+.accountInputBox6{
+	height: 21px;
+	width: 675px;
+	margin-bottom: 16px;
+	padding-left: 35px;
+}
+.accountInput6{
+	width: 42px;
+	margin-left: 5px;
+}
+.qw{
+	width: 200px;
+	// margin: 0px;
+	padding: 2px;
+	border-top: 1px solid #9A9A9A;
+    border-left: 1px solid #9A9A9A;
+    border-bottom: 1px solid #DDDDDD;
+    border-right: 1px solid #DDDDDD;
+    background-color: #FCFCFC;
+    margin-left: 6px;
+}
+/*地址*/
+.accountAddress{
+	width: 700px;
+	border: 3px solid #DDDDDD;
+	padding-bottom: 10px;
+	padding-left: 12px;
+	padding-top: 10px;
+	margin-left: 20px;
+	margin-bottom: 8px;
+	color: #888888;
+}
+.accountAddressBox1{
+	width: 675px;
+	height: 21px;
+	margin-bottom: 13px;
+	color: black;
+}
+.accountDiv{
+	display: inline;
+	border: 1px solid #bababa;
+	background-color: #f5f5f5;
+	padding: 3px 0px 1px 1px;
+	border-right-width: 0px;
+	color: black;
+	position: relative;
+	top: 1px;
+}
+/*隐藏的字*/
+.sas{
+	color: #F02400;
+	margin-left: 3px;
+	padding: 3px;
+	padding-left: 22px;
+	background-color: #FFF5B9;
+	background-image: url(../img/myAccount/gth.gif);
+	background-repeat: no-repeat;
+	background-position: 1px 1px;
+	white-space: normal;
+}
+/*邮箱*/
+.accountInput8{
+	width: 200px;
+	padding: 2px;
+	border-top: 1px solid #9A9A9A;
+    border-left: 1px solid #9A9A9A;
+    border-bottom: 1px solid #DDDDDD;
+    border-right: 1px solid #DDDDDD;
+    background-color: #FCFCFC;
+}
+.accountPeople{
+	color: #FF6600;
+}
+
+
+/********************************/ 
+/*收藏夹*/
+.accountBtn1,.accountBtn2{
+	background-repeat: no-repeat;
+	height: 23px;
+	line-height: 23px;
+	cursor: pointer;
+	margin: 5px auto;
+	border: 0px solid black;
+}
+.accountBtn1{
+	width: 112px;
+	padding-left: 10px;
+	background-image: url(../img/myAccount/btn-dle-pro.png);
+}
+.accountBtn2{
+	width: 88px;
+	padding-left: 14px;
+	background-image: url(../img/myAccount/btn-emp.png);
+}
+/*修改密码*/
+.updatePassword{
+	display: none;
+	padding: 20px;
+	text-align: center;
+	color: #1B651B;
+	border: 1px solid #008B8B;
+	width: 90%;
+	margin: auto;
+	font-size: 14px;
+	background: #E8FFE8;
+}
+.input_box5,.input_box6{
+	height: 20px;
+	width: 630px;
+	margin-right: auto;
+	margin-left: 100px;
+	margin-bottom: 30px;
+	font-size: 12px;
+	padding-left: 35px;
+}
+.input_box7{
+	height: 20px;
+    width: 630px;
+    margin-right: auto;
+    margin-left: 100px;
+    margin-bottom: 35px;
+    font-size: 12px;
+}
+.oldPassword{
+	width: 200px;
+    font-size: 12px;
+    margin: 0px;
+    padding: 2px;
+    font-size: 12px;
+    border-top: 1px solid #9A9A9A;
+    border-left: 1px solid #9A9A9A;
+    border-bottom: 1px solid #DDDDDD;
+    border-right: 1px solid #DDDDDD;
+    background-color: #FCFCFC;
+}
+.hiddenSpan1,.hiddenSpan2{
+	display: none;
+	color: red;
+}
+.btn-change{
+	height: 29px;
+    width: 248px;
+    padding-left: 102px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 40px;
+}
+

@@ -1,0 +1,61 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+a {
+	text-decoration: none;
+}
+.wrap {
+	width: 980px;
+	height: 354px;
+	box-sizing: border-box;
+	border: 1px solid #C6E6F3;
+	margin: 20px auto;
+	font-size: 12px;
+}
+.wrap .wrapContent {
+	width: 671px;
+	height: 252px;
+	margin: 50px auto;
+}
+.wrap .wrapContent .congratulations {
+	width: 671px;
+	height: 56px;
+	margin-bottom: 20px;
+	background: url(../img/register_bg.png) -162px -240px no-repeat;
+}
+.wrap .wrapContent .word {
+	width: 100%;
+	height: 68px;
+	line-height: 18px;
+	box-sizing: border-box;
+	text-align: center;
+}
+.wrap .wrapContent .word .username,.wrap .wrapContent .word .email {
+	color: #00CAFE;
+}
+.wrap .wrapContent .ziliao {
+	width: 179px;
+	height: 42px;
+	margin: 0 auto;
+	background: url(../img/btn-regcom.png) no-repeat;
+}
+.wrap .wrapContent .skip {
+	height: 50px;
+	// line-height: 50px;
+}
+.wrap .wrapContent .skip a:nth-child(1) {
+	margin-left: 170px;
+}
+.wrap .wrapContent .skip a {
+	float: left;
+	margin-top: 30px;
+	margin-right: 40px;
+}
+.wrap .wrapContent .skip a:hover {
+	color: orange;
+}
+.wrap .wrapContent .gradient{
+	height: 3px;
+	background: linear-gradient(to left,white,lightgray,white);
+}

@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>我的账户</title>
+		<link rel="shortcut icon" href="../img/3.png">
+		<link rel="stylesheet" type="text/css" href="../css/base.css">
+		<link rel="stylesheet" type="text/css" href="../css/header.css">
+		<link rel="stylesheet" type="text/css" href="../css/footer.css">
+		<link rel="stylesheet" href="../css/myAccount.css">
+	</head>
+	<body>
+		<!--头部-->
+		<header>
+			<div class="header_info">
+				<div class="info_box clearfix">
+					<ul class="header_welcome fl">
+						<li>
+							<span>晚上好，<span class="vipuser"></span>欢迎光临No5时尚广场。</span>
+							<span class="islogin">
+								<a href="http://118.89.25.129:8080/Fashion/resource/static/html/login.html">[登录]</a>
+								<a href="http://118.89.25.129:8080/Fashion/resource/static/html/register.html">[免费注册]</a>
+							</span>
+						</li>
+					</ul>
+					<ul class="header_usercomtrol fr clearfix">
+						<li class="hide fl">
+							<a href="###" class="">我的账户</a>
+							<b></b>
+			            	<div class="myaccount">
+								<p><a href="###">我的订单</a></p>
+								<p><a href="###">我的积分</a></p>
+								<p><a href="###">我的优惠券</a></p>
+								<p><a href="###">我的收藏</a></p>
+							</div>
+			            </li>
+			            <li class="line fl">|</li>
+			            <li class="fl"><a href="###">收藏本站</a></li>
+			            <li class="line fl">|</li>
+			            <li class="fl"><a href="###">帮助中心</a></li>
+			           	<li class="tel fl"><span></span>010-51666655</li>
+						
+					</ul>
+				</div>
+			</div>
+			<div class="header_box clearfix">
+				<div class="header_logo fl">
+					<a href="###"><img src="http://photo.no5.com.cn/page_2014/images/logo.jpg?v=20140625"></a>
+				</div>
+				<div class="searchbox fl">
+					<div class="serach fl clearfix">
+						
+						<strong id="btn" class="fr">搜索</strong>
+						<div class="del-keywords fl">×</div>
+						<input type="text" name="searchinput" id="searchinput" value="防晒" class="fl">
+					</div>
+					<div class="hotkey fl">
+						热门搜素：
+						<a href="">防敏感专用</a>
+						<a href="" class="active">防敏感专用</a>
+						<a href="">防敏感专用</a>
+						<a href="">防敏感专用</a>
+						<a href="">防敏感专用</a>
+						<a href="">防敏感专用</a>
+					</div>
+					<div class="erweima fl">
+						<ul id="mobile-menu" style="">
+			                <li class="app">
+			                	<strong>app下载</strong>
+			                	<p>
+			                		<a href="###" class="android" target="_blank"></a>
+			                		<a href="###" class="ios" target="_blank"></a>
+			                	</p>
+			                </li>
+			                <li class="gzh"><strong>关注微信公众号</strong></li>
+			                <li></li>
+	           			</ul>
+					</div>
+				</div>
+				<div class="shopping_car fr clearfix">
+					<div class="trigger fl">购物车<strong>0</strong>件</div>
+					<div class="shoplist fl">&nbsp;&nbsp;&nbsp;&nbsp;购物车中还没有商品，赶紧选购吧！</div>
+				</div>
+			</div>
+			<div class="header_nav">
+				<div class="nav_box">
+					<div class="sub_nav">
+						<ul class="clearfix">
+							<li class="fl"><a href="http://118.89.25.129:8080/Fashion/resource/static/html/index.html">首页</a></li>
+							<li class="fl"><a href="http://118.89.25.129:8080/Fashion/resource/static/html/sample.html?titleId=2">超值小样</a></li>
+							<li class="fl"><a href="http://118.89.25.129:8080/Fashion/resource/static/html/starRecommended.html">明星推荐</a></li>
+							<li class="fl"><a href="http://118.89.25.129:8080/Fashion/resource/static/html/newActivity.html">最新活动</a></li>
+							<li class="fl"><a href="http://118.89.25.129:8080/Fashion/resource/static/html/sample.html?titleId=5">新品上架</a></li>
+							<li class="fl"><a href="http://118.89.25.129:8080/Fashion/resource/static/html/weekSpecial.html">本周特价</a></li>
+							<li class="fl"><a href="http://118.89.25.129:8080/Fashion/resource/static/html/clearance.html">清仓</a></li>
+							<li class="fl"><a href="http://118.89.25.129:8080/Fashion/resource/static/html/brand.html">品牌库</a></li>
+						</ul>
+					</div>
+					<div class="first_list">
+						<span class="first_list_btn">全部商品分类</span>
+					</div>
+				</div>
+			</div>
+		</header>
+		
+		<!--内容部分-->
+		<div id="accountWrap">
+		<dl class="accountMenu">
+			<!-- 1 -->
+			<dt class="accountTitle">交易管理</dt>
+			<dd class="accountList1"><a>订单查询</a></dd>
+			<dd class="accountList1"><a>账户余额</a></dd>
+			<dd class="accountList1"><a>累积消费/礼品卡</a></dd>
+			<dd class="accountList1"><a>优惠劵/礼品卡</a></dd>
+			<!-- 2 -->
+			<dt class="accountTitle">个人详细管理</dt>
+			<dd class="accountList1"><a>收货人地址薄</a></dd>
+			<dd class="accountList1"><a>个人资料</a></dd>
+			<dd class="accountList1"><a>修改密码</a></dd>
+			<!-- 3 -->
+			<dt class="accountTitle">个人应用管理</dt>
+			<dd class="accountList1"><a>我的评论</a></dd>
+			<dd class="accountList1"><a>我的提问</a></dd>
+			<dd class="accountList1"><a>收藏夹</a></dd>
+			<dt class="accountTitle">交易管理</dt>
+		</dl>
+		<div class="accountRight">
+			<div class="accountRightTop"><span class="accountRightTopWord"></span></div>
+			<div class="accountContent">
+				<!-- 才进去的首先展示页 -->
+				<div class="accountContentList">
+					<div class="accountRightTitle">
+						您好，<span class="accountName">Sunii</span>,欢迎您回来
+					</div>
+					<div class="accountItem2 clearfix">您目前的级别：<span class="accountLevel">普通会员</span></div>
+					<div class="accountItem3 clearfix">
+						<div class="accountXinxi">账户余额：<span class="accountRemaining">0</span>元</div>
+						<div class="accountXinxi">账户积分：<span class="accountRemaining">0</span></div>
+						<div class="accountXinxi">完成订单：<span class="accountRemaining">0</span></div>
+						<div class="accountXinxi">总消费额：<span class="accountRemaining">0</span>元</div>
+					</div>
+					<div class="accountLine"></div>
+					<div class="accountGoods clearfix">
+						<div class="accountRightTitle">本周特价商品</div>
+						<dl class="accountGoodsItem1">
+							<dt class="accountGoodsPic">
+								<a href=""><img src="../img/myAccount/accountGoods1.jpg" alt="" class="accountGoodsImg"></a>
+							</dt>
+							<dd class="accountGoodsWord1">
+								<a href="">Biotherm 碧欧泉男士焕能润泽保湿露(94528) 本周特价！50ml</a>
+							</dd>
+							<dd class="accountGoodsPrice">一般价：580元</dd>
+							<dd class="accountGoodsPrice">No5价：369元</dd>
+							<dd class="accountGoodsPrice">特价：<span class="accountSpecialPrice">268</span>元</dd>
+						</dl>
+						<dl class="accountGoodsItem1">
+							<dt class="accountGoodsPic">
+								<a href=""><img src="http://photo.no5.com.cn/product/sphoto/prod_2509_S_130415105958_67647682.jpg" alt="" class="accountGoodsImg"></a>
+							</dt>
+							<dd class="accountGoodsWord1">
+								<a href="">Biotherm 碧欧泉男士焕能润泽保湿露(94528) 本周特价！50ml</a>
+							</dd>
+							<dd class="accountGoodsPrice">一般价：580元</dd>
+							<dd class="accountGoodsPrice">No5价：369元</dd>
+							<dd class="accountGoodsPrice">特价：<span class="accountSpecialPrice">268</span>元</dd>
+						</dl>
+					</div>
+					<div class="accountLine"></div>
+					<div class="accountRightTitle">也许您会对以下产品感兴趣</div>
+				</div>
+				<!-- 订单查询 -->
+				<div class="accountContentList1 asa">
+					<div class="accountTabTitle">
+						<div class="accountTabStart">
+							<ol class="clearfix accountRightOne">
+								<li class="accountLi">最近一个月的订单</li>
+								<li>需支付的订单</li>
+								<li>所有订单</li>
+							</ol>
+						</div>
+						<div class="accountRightTable1">
+							<table cellpadding="2" cellspacing="0" bgcolor="#dcdcdc" class="accountRightOneTable1">
+								<tr>
+									<th class="accountTh" style="border-left-width: 0px;" width="13%">订单号</th>
+									<th class="accountTh" width="12%">收货人</th>
+									<th class="accountTh" width="12%">付款方式</th>
+									<th class="accountTh" width="12%">应付款</th>
+									<th class="accountTh" width="12%">订单状态</th>
+									<th class="accountTh" width="19%">订单时间</th>
+									<th class="accountTh">操作</th>
+								</tr>
+							</table>
+						</div>
+						<div class="accountRightTable1 arb2">
+							<table cellpadding="2" cellspacing="0" bgcolor="#dcdcdc" class="accountRightOneTable2">
+								<tr>
+									<th class="accountTh" style="border-left-width: 0px;" width="13%">订单号</th>
+									<th class="accountTh" width="12%">收货人</th>
+									<th class="accountTh" width="12%">付款方式</th>
+									<th class="accountTh" width="12%">应付款</th>
+									<th class="accountTh" width="12%">订单状态</th>
+									<th class="accountTh" width="19%">订单时间</th>
+									<th class="accountTh">操作</th>
+								</tr>
+							</table>
+						</div>
+						<div class="accountRightTable1 arb3">
+							<table cellpadding="2" cellspacing="0" bgcolor="#dcdcdc" class="accountRightOneTable3">
+								<tr>
+									<th class="accountTh" style="border-left-width: 0px;" width="13%">订单号</th>
+									<th class="accountTh" width="12%">收货人</th>
+									<th class="accountTh" width="12%">付款方式</th>
+									<th class="accountTh" width="12%">应付款</th>
+									<th class="accountTh" width="12%">订单状态</th>
+									<th class="accountTh" width="19%">订单时间</th>
+									<th class="accountTh">操作</th>
+								</tr>
+							</table>
+						</div>
+						<div class="accountWords">共 <span>0</span> 条记录，分 <span>0</span> 页显示 当前 /<span>0</span> 页 页码：</div>
+					</div>
+				</div>
+				<!-- 账户余额 -->
+				<div class="accountContentList2 asa">
+					<div class="accountTabTitle">
+						<div class="accountItem2 clearfix">当前会员等级<span class="accountLevel">普通会员</span>我的账户余额：<span class="accountLevel">0</span> (关于账户余额？)</div>
+						<div class="accountTabStart">
+							<ol class="clearfix accountRightTwo">
+								<li class="accountLi">最近半年余额记录</li>
+								<li>所有余额变动记录</li>
+							</ol>
+						</div>
+						<div class="accountRightTable2">
+							<table cellpadding="2" cellspacing="0" bgcolor="#dcdcdc">
+								<tr>
+									<th class="accountTh" style="border-left-width: 0px;" width="100">订单号</th>
+									<th class="accountTh" width="456">变动原因</th>
+									<th class="accountTh" width="60">变动</th>
+									<th class="accountTh" width="60">累积</th>
+									<th class="accountTh" width="100">变动时间</th>
+								</tr>
+							</table>
+						</div>
+						<div class="accountRightTable2 art2">
+							<table cellpadding="2" cellspacing="0" bgcolor="#dcdcdc">
+								<tr>
+									<th class="accountTh" style="border-left-width: 0px;" width="100">订单号</th>
+									<th class="accountTh" width="456">变动原因</th>
+									<th class="accountTh" width="60">变动</th>
+									<th class="accountTh" width="60">累积</th>
+									<th class="accountTh" width="100">变动时间</th>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+				<!-- 累计消费，积分 -->
+				<div class="accountContentList3 asa">
+					<div class="accountTabTitle">
+						<div class="accountItem2 clearfix">当前会员等级：<span class="accountLevel">普通会员</span>；我的累计消费总额：<span class="accountLevel">0元</span>；我的积分余额：<span>0分</span>（关于积分？）</div>
+						<div class="accountTabStart">
+							<ol class="clearfix accountRightThree">
+								<li class="accountLi">最近半年消费记录</li>
+								<li>最近半年积分记录</li>
+							</ol>
+						</div>
+						<div class="accountRightTable3">
+							<div class="accountTabBottom">
+							<a href="">查询所有消费变动记录>></a></div>
+							<table cellpadding="2" cellspacing="0" bgcolor="#dcdcdc">
+								<tr>
+									<th class="accountTh" style="border-left-width: 0px;" width="100">订单号</th>
+									<th class="accountTh" width="456">变动原因</th>
+									<th class="accountTh" width="60">变动</th>
+									<th class="accountTh" width="60">累积</th>
+									<th class="accountTh" width="100">变动时间</th>
+								</tr>
+							</table>
+						</div>
+						<!-- 右边 -->
+						<div class="accountRightTable3 art3">
+							<div class="accountTabBottom">
+							<a href="">查询所有积分变动记录>></a></div>
+							<table cellpadding="2" cellspacing="0" bgcolor="#dcdcdc">
+								<tr>
+									<th class="accountTh" style="border-left-width: 0px;" width="100">订单号</th>
+									<th class="accountTh" width="456">变动原因</th>
+									<th class="accountTh" width="60">变动</th>
+									<th class="accountTh" width="60">累积</th>
+									<th class="accountTh" width="100">变动时间</th>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+				<!-- 优惠劵/礼品卡 -->
+				<div class="accountContentList4 asa">
+					<div class="accountTabTitle">
+						<div class="accountItem2 clearfix">我有 <span class="accountLevel">0</span> 张有效优惠劵，我的礼品卡余额是：<span class="accountLevel">0元</span> (查询使用详情)</div>
+						<div class="accountTabStart">
+							<ol class="clearfix accountRightFour">
+								<li class="accountLi">优惠劵</li>
+								<li>礼品卡</li>
+							</ol>
+						</div>
+						<div class="accountRightTable4">
+							<table cellpadding="2" cellspacing="0" bgcolor="#dcdcdc">
+								<tr>
+									<th class="accountTh" style="border-left-width: 0px;" width="100">订单号</th>
+									<th class="accountTh">代金劵账户</th>
+									<th class="accountTh">代金券密码</th>
+									<th class="accountTh">金额</th>
+									<th class="accountTh">有效期</th>
+									<th class="accountTh">代金卷状态</th>
+									<th class="accountTh">说明</th>
+								</tr>
+							</table>
+						</div>
+						<div class="accountRightTable4  art4">
+							<div class="accountGift">
+								<div class="accountEnterMoney">礼品卡充值</div>
+								<div>
+									<div class="verifyCode">
+										<div id="divVCardVerify">
+											<img src="../img/myAccount/login-loader.gif" alt="">正在充值，请稍后...
+										</div>
+										<form action="">
+											<div class="rechargeAreaLeft">充值码
+											<input type="text" class="cardnumber">
+											<input type="image" src="../img/myAccount/btn-recharge.jpg" class="rechargeBtn" onclick="return false">
+											</div>
+											<div class="accountMoneyCode amd1">请输入充值码</div>
+											<div class="accountMoneyCode amd2">充值码位数不正确！</div>
+										</form>
+									</div>
+
+									<div class="rechargeAreaRight">请输入充值码后点击“充值”按钮，即可把礼品卡金额转入您的礼品卡余额中，以方便购物使用。</div>
+								</div>
+							</div>
+							<div class="accountGiftBottom">
+									<div class="accountGiftWord">如何使用礼品卡</div>
+								</div>
+						</div>
+					</div>
+				</div>
+				<!-- 收获人地址薄 -->
+				<div class="accountContentList5 asa">
+					<div id="con_fulllist">
+						<div class="tb_consignee" id="conRecord_774364">
+							<div class="padtop_spa"></div>
+							<div class="address_item clearfix">
+								<div class="address_tip fl">姓　　名：</div>
+								<div class="address_cont fl">王浩</div>
+								<div class="hackbox"></div>
+							</div>
+							<div class="address_item">
+								<div class="address_tip">手　　机：</div>
+								<div class="address_cont">18895702010</div>
+								<div class="hackbox"></div>
+							</div>
+							<div class="address_item">
+								<div class="address_tip">电子邮件：</div>
+								<div class="address_cont">1171084136@qq.com</div>
+								<div class="hackbox"></div>
+							</div>
+							<div class="address_item">
+								<div class="address_tip">详细地址：</div>
+								<div class="address_cont">上海市上海市松江区泗泾镇</div>
+								<div class="hackbox"></div>
+							</div>
+							<div class="address_item">
+								<div class="address_tip">邮　　编：</div>
+								<div class="address_cont">237200</div>
+								<div class="hackbox"></div>
+							</div>
+							<div class="address_edit_btn">
+								<input class="btn-edi" value="修改" type="button">
+								<input class="btn-dle" value="删除" type="button">
+								<span id="dialog_con_774364"></span>
+								<div class="hackbox"></div>
+							</div>
+						</div>
+						<div class="tb_consignee" id="new_consignee2"></div>
+						<div class="tb_consignee" id="new_consignee3"></div>
+						<div class="tb_consignee" id="new_consignee4"></div>
+						<div class="tb_consignee" id="new_consignee5"></div>
+					</div>
+					<div class="add_btn">
+						<input type="button" id="btn_addconsignee" value="添加一个新的收货人信息" class="btn-add" style="display: block;">
+					</div>
+					<div id="tb_consignee_add">
+						<form action="" name="form_consihnee">
+							<div class="tb_consignee_add_title">
+								<b>添加一个新的收货人信息：</b>
+							</div>
+							<div class="address_item">
+								<div class="address_tip fl">姓　　名：</div>
+								<div class="">
+									<input type="text" name="realname" size="40" maxlength="20" value="">
+									<span class="con_errline"></span>
+								</div>
+								<div class="hackbox"></div>
+							</div>
+
+							<div class="address_item">
+								<div class="address_tip">手　　机：</div>
+								<div>
+									<input type="text" name="cellphone" size="40" maxlength="20" value="">
+									<span class="con_errline">手机号码无效（手机和电话输入一项即可）</span>
+								</div>
+								<div class="hackbox"></div>
+							</div>
+
+							<div class="address_item">
+								<div class="address_tip">电子邮件：</div>
+								<div>
+									<input type="text" name="email" size="40" maxlength="20" value="">
+									<span class="con_errline">邮件格式错误，请您重新输入。</span>
+								</div>
+								<div class="hackbox"></div>
+							</div>
+
+							<div class="address_item">
+								<div class="address_tip">地　　区：</div>
+								<div>
+									<select name="province" id="province">
+										<option value="">请选择...</option>
+										<option value="1">北京市</option>
+										<option value="21">上海市</option>
+										<option value="42">天津市</option>
+										<option value="62">重庆市</option>
+										<option value="105">安徽省</option>
+										<option value="246">福建省</option>
+										<option value="351">甘肃省</option>
+										<option value="467">广东省</option>
+										<option value="632">广西壮族自治区</option>
+										<option value="771">贵州省</option>
+										<option value="879">海南省</option>
+										<option value="910">河北省</option>
+										<option value="1106">河南省</option>
+										<option value="1301">黑龙江省</option>
+										<option value="1462">湖北省</option>
+										<option value="1594">湖南省</option>
+										<option value="1746">吉林省</option>
+										<option value="1826">江苏省</option>
+										<option value="1960">江西省</option>
+										<option value="2083">辽宁省</option>
+										<option value="2213">内蒙古自治区</option>
+										<option value="2340">宁夏回族自治区</option>
+										<option value="2373">青海省</option>
+										<option value="2434">山东省</option>
+										<option value="2610">山西省</option>
+										<option value="2753">陕西省</option>
+										<option value="2882">四川省</option>
+										<option value="3107">西藏自治区</option>
+										<option value="3196">新疆维吾尔自治区</option>
+										<option value="3327">云南省</option>
+										<option value="3490">浙江省</option>
+									</select>
+									<span class="addrtag">省</span>&nbsp;
+									<select name="city" id="city">
+										<option value="">请选择...</option>
+										<option value="">上海市</option>
+									</select>
+									<span class="addrtag">市</span>&nbsp;
+									<select name="area" id="area">
+										<option value="">请选择...</option>
+										<option value="">松江区</option>
+									</select>
+									<span class="addrtag">城区</span>
+									<span id="err_arealist" class="con_errline"></span>
+								</div>
+								<div class="hackbox"></div>
+							</div>
+
+							<div class="address_item">
+								<div class="address_tip">详细地址：</div>
+								<div>
+									<div id="fixAddr" class="fixaddress"></div>
+									<input type="text" name="address" id="address" size="40" maxlength="100" value="">
+									<span class="con_errline"></span>
+								</div>
+								<div class="hackbox"></div>
+							</div>
+
+
+							<div class="address_item">
+								<div class="address_tip">邮　　编：</div>
+								<div>
+									<input type="text" name="youbian" size="40" maxlength="20" value="">
+									<span class="con_errline"></span>
+								</div>
+								<div class="hackbox"></div>
+							</div>
+							
+							<div class="address_edit_btn">
+								<input value="提交收货人信息" name="submit1" type="button" >&nbsp;
+								<input name="reset1" value="取消" type="button">&nbsp;
+								<div class="hackbox"></div>
+							</div>
+						</form>
+					</div>
+				</div>
+				<!-- 个人资料 -->
+				<div class="accountContentList6 asa">
+					<form action="" name="frmMyInfo" id="frmMyInfo">
+						<div class="accountInputBox1">
+							真实姓名: <input type="text" class="accountInput1 qw">
+							 <span class="accountSpan1 sas">请您输入姓名。</span>
+						</div>	
+						<div class="accountInputBox2" >
+							性别: <select name="" id="" style="margin-left: 5px;">
+								<option value=""></option>
+								<option value="">男</option>
+								<option value="">女</option>
+							</select>
+							<span class="accountSpan2 sas">请您选择性别。</span>
+						</div>
+						<div class="accountInputBox3">
+							电子邮件: <input type="text" class="accountInput3 qw">
+							<span class="accountSpan3 sas">请您输入邮件地址。</span>
+						</div>
+						<div class="accountInputBox4">
+							电话: <input type="text"  class="accountInput4 qw">
+							<span class="accountSpan4 sas">电话和手机必须输入一项。</span>
+						</div>
+						<div class="accountInputBox5">
+							手机: <input type="text"  class="accountInput5 qw">
+						</div>
+						<div class="accountInputBox6">
+							生日: <input type="text"  class="accountInput6">年
+							<select name="" id="">
+								<option value=""></option>
+								<option value="">1</option>
+								<option value="">2</option>
+								<option value="">3</option>
+								<option value="">4</option>
+								<option value="">5</option>
+								<option value="">6</option>
+								<option value="">7</option>
+								<option value="">8</option>
+								<option value="">9</option>
+								<option value="">10</option>
+								<option value="">11</option>
+								<option value="">12</option>
+							</select>月
+							<select name="" id="">
+								<option value=""></option>
+								<option value="">1</option>
+								<option value="">2</option>
+								<option value="">3</option>
+								<option value="">4</option>
+								<option value="">5</option>
+								<option value="">6</option>
+								<option value="">7</option>
+								<option value="">8</option>
+								<option value="">9</option>
+								<option value="">10</option>
+								<option value="">11</option>
+								<option value="">12</option>
+								<option value="">13</option>
+								<option value="">14</option>
+								<option value="">15</option>
+								<option value="">16</option>
+								<option value="">17</option>
+								<option value="">18</option>
+								<option value="">19</option>
+								<option value="">20</option>
+								<option value="">21</option>
+								<option value="">22</option>
+								<option value="">23</option>
+								<option value="">24</option>
+								<option value="">25</option>
+								<option value="">26</option>
+								<option value="">27</option>
+								<option value="">28</option>
+								<option value="">29</option>
+								<option value="">30</option>
+								<option value="">31</option>
+							</select>日
+							<span class="accountSpan5 sas">生日格式错误。</span>
+						</div>
+					</form>
+					<div class="accountAddress">
+						<div class="accountAddressBox1">
+							地区: <select name="" id="" style="width: 118px;">
+								<option value="">请选择</option>
+							</select>省
+							<select name="" id="" style="width: 69px;">
+								<option value="">请选择</option>
+							</select>市<select name="" id="" style="width: 70px">
+								<option value="">请选择</option>
+							</select>城区
+						</div>
+						<div class="accountAddressBox1">
+							地址: <div class="accountDiv"></div><input type="text" style="width: 486px;" class="accountInput7">
+							<span class="accountSpan6 sas">详细地址不为空</span>
+						</div>
+						<div class="accountAddressBox1">
+							邮箱: <input type="text" class="accountInput8">
+						</div>
+						<p>此地址仅作为邮寄No5时尚广场刊物使用，请您填写能够接收信函的详细地址和邮编，编辑收货地址请到
+						<span class="accountPeople">收货人信息薄>></span></p>
+					</div>
+					<div>您是通过什么方式知道的No5的：
+						  <select name="" id="">
+						  	<option value=""></option>
+						  	<option value="">别人介绍的</option>
+						  	<option value="">别的网站</option>
+						  	<option value="">杂志</option>
+						  </select>
+					</div>
+				</div>
+				<!-- 修改密码 -->
+				<div class="accountContentList7 asa">
+					<!--隐藏部分-->
+					<div class="updatePassword">
+						<img src="../img/myAccount/right2.gif" alt="" style="margin-right: 5px;vertical-align: middle;"/>
+						<span style="vertical-align: middle;">修改密码成功</span>
+					</div>
+					<form action="" method="post">
+						<div class="input_box5"> 
+							原 密 码：<input type="password" class="oldPassword" />
+							<span class="hiddenSpan1">请您输入原密码</span>
+						</div>
+						<div class="input_box6"> 
+							新 密 码：<input type="password" class="newPassword" />
+						<span class="hiddenSpan2">新密码不符合规则，6～16位，建议使用字母、数字、特殊字符组合</span>
+						</div>
+						<div class="input_box7"> 
+							再次输入新密码：<input type="password" class="newPassword" />
+						</div>
+						<div class="btn-change">
+							<img src="../img/myAccount/change.png" class="buttonImg"/>
+						</div>
+					</form>
+				</div>
+				<!-- 我的评论 -->
+				<div class="accountContentList8 asa">
+					<div class="accountTabTitle">
+						<div>
+							<table cellpadding="2" cellspacing="0" bgcolor="#dcdcdc">
+								<tr>
+									<th class="accountTh" width="111" nowrap>商品编号</th>
+									<th class="accountTh" width="250" nowrap>商品名</th>
+									<th class="accountTh" width="104" nowrap>订单编号</th>
+									<th class="accountTh" width="133" nowrap>购买时间</th>
+									<th class="accountTh" width="94" nowrap>评论</th>
+									<th class="accountTh" width="94" nowrap>奖励分享豆</th>
+								</tr>
+							</table>
+						</div>
+						<div class="accountWords">共 <span>0</span> 条记录，分 <span>0</span> 页显示 当前 /<span>0</span> 页 页码：</div>
+					</div>
+				</div>
+				<!-- 我的提问 -->
+				<div class="accountContentList9 asa">
+					<div class="accountTabTitle">
+						<div>
+							<table cellpadding="2" cellspacing="0" bgcolor="#dcdcdc">
+								<tr>
+									<th class="accountTh" width="111" nowrap>咨询时间</th>
+									<th class="accountTh" width="200" nowrap>商品名</th>
+									<th class="accountTh" width="415" nowrap>问题内容</th>
+									<th class="accountTh" width="60" nowrap>回复</th>
+								</tr>
+							</table>
+						</div>
+						<div class="accountWords">共 <span>0</span> 条记录，分 <span>0</span> 页显示 当前 /<span>0</span> 页 页码：</div>
+					</div>
+				</div>
+				<!-- 收藏夹 -->
+				<div class="accountContentList10 asa">
+					<div class="accountTabTitle">
+						<div>
+							<table cellpadding="2" cellspacing="0" bgcolor="#dcdcdc">
+								<tr>
+									<th class="accountTh"><input type="checkbox" checked></th>
+									<th class="accountTh">商品名称</th>
+									<th class="accountTh">一般价</th>
+									<th class="accountTh">No.5价</th>
+									<th class="accountTh">购买</th>
+									<th class="accountTh">删除</th>
+								</tr>
+							</table>
+						</div>
+						<div>
+							<div style="text-align: right;margin-right: 3px;">
+								<input type="button" class="accountBtn1" value="删除选择的商品">
+								<input type="button" class="accountBtn2" value="清空收藏夹">
+							</div>
+						</div>
+						<div class="accountWords">共 <span>0</span> 条记录，分 <span>0</span> 页显示 当前 /<span>0</span> 页 页码：</div>
+					</div>
+				</div>
+			</div>
+			<div class="accountRightBottom"></div>
+		</div>
+	</div>
+		
+		
+		
+		<!--尾部-->
+		<div class="footer clearfix fl">
+			<div class="footer_top clearfix">
+				<div class="footer_top_one fl">
+					<div class="tel">
+						<p class="num">010-51666655</p>
+						<p class="time">9:00-18:00</p>
+					</div>
+					<p class="weibo">新浪官方微博
+						<a href="http://weibo.com/no5fashion" target="_blank"><img src="http://photo.no5.com.cn/page_2014/images/guanzhu.jpg"></a>
+					</p>
+					<p class="dingyue">
+						<input type="text" placeholder="请输入您的Email地址">
+						<img src="http://photo.no5.com.cn/page_2014/images/ding.jpg">
+					</p>
+					<p class="ps">最新美容资讯，新品及促销信息</p>
+				</div>
+				<dl class="howto fl">
+					<dt>
+						<a href="http://www.no5.com.cn/help/about_order.html" target="_blank">如何订购</a>
+					</dt>
+					<dd>
+						<a href="http://www.no5.com.cn/help/about_order.html#1" target="_blank">网上下单</a>
+					</dd>
+					<dd>
+						<a href="http://www.no5.com.cn/help/about_order.html#2" target="_blank">电话订购网上下单</a>
+					</dd>
+					<dd>
+						<a href="http://www.no5.com.cn/help/about_order.html#3" target="_blank">邮寄订购</a>
+					</dd>
+					<dd>
+						<a href="http://www.no5.com.cn/help/about_order.html#4" target="_blank">传真订购</a>
+					</dd>
+				</dl>
+				<dl class="howto fl">
+					<dt>
+						<a href="http://www.no5.com.cn/help/about_deliver.html" target="_blank">如何送货</a>
+					</dt>
+	            	<dd>
+	            		<a href="http://www.no5.com.cn/help/about_deliver.html#1" target="_blank">送货上门</a>
+	            	</dd>
+	            	<dd>
+	            		<a href="http://www.no5.com.cn/help/about_deliver.html#2" target="_blank">快递</a>
+	            	</dd>
+	       		 </dl>
+				<dl class="howto fl">
+					<dt>
+						<a href="http://www.no5.com.cn/help/about_payment.html" target="_blank">如何付款</a>
+					</dt>
+		            <dd>
+		            	<a href="http://www.no5.com.cn/help/about_payment.html#1" target="_blank">货到付款</a>
+		            </dd>
+		            <dd>
+		            	<a href="http://www.no5.com.cn/help/about_payment.html#4" target="_blank">在线支付</a>
+		            </dd>
+		            <dd>
+		            	<a href="http://www.no5.com.cn/help/about_payment.html#2" target="_blank">邮政汇款</a>
+		            </dd>
+		            <dd>
+		            	<a href="http://www.no5.com.cn/help/about_payment.html#3" target="_blank">银行汇款</a>
+		            </dd>
+	        	</dl>
+	        	<dl class="howto fl">
+					<dt>
+						<a href="http://www.no5.com.cn/help/inquire_order.html" target="_blank">订单查询</a>
+					</dt>
+		            <dd>
+		            	<a href="http://www.no5.com.cn/help/inquire_order.html#1" target="_blank">订单状态</a>
+		            </dd>
+		            <dd>
+		            	<a href="http://www.no5.com.cn/help/inquire_order.html#2" target="_blank">查询订单</a>
+		            </dd>
+		            <dd>
+		            	<a href="http://www.no5.com.cn/help/inquire_order.html#3" target="_blank">无效订单</a>
+		            </dd>
+		            <dd>
+		            	<a href="http://www.no5.com.cn/help/inquire_order.html#4" target="_blank">支付失败</a>
+		            </dd>
+		            <dd>
+		            	<a href="http://www.no5.com.cn/oosregister.html" target="_blank">缺货登记</a>
+		            </dd>
+	       		 </dl>
+	       		 <dl class="howto fl">
+					<dt>
+						<a href="http://www.no5.com.cn/help/member_service.html" target="_blank">会员服务</a>
+					</dt>
+		            <dd>
+		            	<a href="http://www.no5.com.cn/help/member_service.html#1" target="_blank">N°5会员级别</a>
+		            </dd>
+		            <dd>
+		            	<a href="http://www.no5.com.cn/help/member_service.html#3" target="_blank">N°5购物保障</a>
+		            </dd>
+		            <dd>
+		            	<a href="http://www.no5.com.cn/help/member_service.html#4" target="_blank">N°5贴心服务</a>
+		            </dd>
+		            <dd>
+		            	<a href="http://www.no5.com.cn/help/member_service.html#5" target="_blank">账户积分使用</a>
+		            </dd>
+		        </dl>
+		        <dl class="howto lastdl fl">
+					<dt>
+						<a href="http://www.no5.com.cn/help/contact_us.html" target="_blank">联系我们</a>
+					</dt>
+		            <dd>
+		            	<a href="http://www.no5.com.cn/help/contact_us.html#1" target="_blank">关于N°5</a>
+		            </dd>
+		            <dd>
+		            	<a href="http://www.no5.com.cn/help/contact_us.html#2" target="_blank">加入N°5</a>
+		            </dd>
+		            <dd>
+		            	<a href="http://www.no5.com.cn/help/contact_us.html#3" target="_blank">团购加盟</a>
+		            </dd>
+		            <dd>
+		            	<a href="http://www.no5.com.cn/join/join.html" target="_blank">网站加盟</a>
+		            </dd>
+		            <dd>
+		            	<a href="javascript:void(0);" onclick="javascript:LINK.onlineService(1);">投诉</a><a href="javascript:void(0);" onclick="javascript:LINK.onlineService(2);">建议</a>
+		            </dd>
+		        </dl>
+		        <div class="wei fl"><img src="http://photo.no5.com.cn/page_2014/images/2wm.jpg"></div>
+			</div>
+			
+		</div>
+		<div class="footer_middle clearfix">
+			<dl class="footer_middle_list fl">
+				<dt>
+					<img src="http://photo.no5.com.cn/page_2014/images/f_04.jpg">
+				</dt>
+				<dd>足不出户 享受网购乐趣</dd>
+				<dd>北京城区次日送达</dd>
+			</dl>
+			<dl class="footer_middle_list fl">
+				<dt>
+					<img src="http://photo.no5.com.cn/page_2014/images/f_05.jpg">
+				</dt>
+				<dd>品质保证</dd>
+				<dd>15天不满意退换货</dd>
+			</dl>
+			<dl class="footer_middle_list fl">
+				<dt>
+					<img src="http://photo.no5.com.cn/page_2014/images/f_06.jpg">
+				</dt>
+				<dd>价格实惠  购物有积分</dd>
+				<dd>积分抵现金</dd>
+			</dl>
+			<dl class="footer_middle_list fl">
+				<dt>
+					<img src="http://photo.no5.com.cn/page_2014/images/f_07.jpg">
+				</dt>
+				<dd>1800多城市送货上门</dd>
+				<dd>货到付款</dd>
+			</dl>
+		</div>
+		<p class="footer_bottom">Copyright @ 2001-2012 N°5.com.cn All Rights Reserved 京ICP备11045170号</p>
+		<!--悬浮区-->
+		<div id="fs-toolbar1" class="kfbox">
+				<a href="#">
+		            <dl class="top">
+		    	        		<dt></dt>
+		                <dd>顶部</dd>
+		            </dl>
+		        </a>
+		        <dl class="kf">
+	    	        		<dt></dt>
+	                <dd>客服</dd>
+	            </dl>
+	   </div>		
+	</body>
+	<script type="text/javascript" src="../js/jquery.min.js"></script>
+	<script type="text/javascript" src="../js/jquery.cookie.js"></script>
+	<script type="text/javascript" src="../js/jquery.jsoncookie.js"></script>
+	<script type="text/javascript" src="../js/header.js"></script>
+	<script type="text/javascript" src="../js/myAccount.js"></script>
+</html>

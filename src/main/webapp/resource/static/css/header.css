@@ -1,0 +1,557 @@
+body{
+	font-size: 12px;
+	color: #666;
+}
+.kfbox {
+    position: fixed;
+    width: 58px;
+    bottom: 8px;
+  	right: 100px;
+    z-index: 100;
+}
+.kfbox dl{
+	font-family: microsoft yahei;
+    font-size: 12px;
+    color: #444;
+    width: 56px;
+    background: #fff;
+    border: 1px solid #eee;
+    padding: 8px 0;
+    text-align: center;
+    cursor: pointer;
+}
+.kfbox .top dt{
+	width: 22px;
+    height: 21px;
+    overflow: hidden;
+    background: url(http://photo.no5.com.cn/page_2014/images/kf.jpg) no-repeat 0 -24px;
+    margin: 0 auto;
+}
+.kfbox dl dd{
+	margin-top: 8px;
+}
+.kfbox .kf dt{
+	width: 22px;
+    height: 24px;
+    overflow: hidden;
+    background: url(http://photo.no5.com.cn/page_2014/images/kf.jpg) no-repeat 0 0;
+    margin: 0 auto;
+}
+header{
+	width: 100%;
+}
+.header_info{
+	width: 100%;
+    height: 33px;
+    background: url(http://photo.no5.com.cn/page_2014/images/headbg.jpg) repeat-x;
+}
+.info_box{
+	width: 1200px;
+	margin: 0 auto;
+	height: 33px;
+	line-height: 33px;
+}
+.header_usercomtrol li{
+	position: relative;
+    padding-right: 10px;
+}
+.header_usercomtrol .hide{
+	width: 60px;
+    z-index: 1;
+    padding-left: 10px;
+}
+.header_usercomtrol .hide b{
+	position: absolute;
+	top: 13px;
+    right: 8px;
+    width: 7px;
+    height: 4px;
+    background: url(../img/detail.gif) no-repeat -252px -30px;
+   	overflow: hidden;
+}
+.myaccount{
+	position: absolute;
+	top: 32px;
+	left: -1px;
+	display: none;
+	width: 69px;
+    padding-left: 10px;
+    line-height: 24px;
+    background-color: white;
+	// padding: 0px 10px 0 20px;
+}
+.myaccount p a:hover{
+	color: red;
+	text-decoration: underline;
+}
+.header_usercomtrol .hide:hover .myaccount{
+	display: block;
+	 border: 1px solid #dcdcdc;
+	  border-top: none;
+}
+.header_usercomtrol .hide:hover{
+	width: 59px;
+    background: #fff;
+    border: 1px solid #dcdcdc;
+
+    border-bottom: none;
+    border-top: none;
+}
+.header_usercomtrol .line{
+	color: #ddd;
+}
+.header_usercomtrol .tel{
+	color: #ff1a3a;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 30px;
+    font-style: italic;
+}
+.header_usercomtrol .tel span{
+	width: 16px;
+    height: 13px;
+    top: 9px;
+    left: 7px;
+    background: url(../img/detail.gif) no-repeat -269px -30px;
+    position: absolute;
+    overflow: hidden;
+}
+.header_box{
+	width: 1200px;
+    margin: 0 auto;
+    height: 90px;
+}
+.header_nav .nav_box .first_list dl dt a:hover{
+	color: #0098e0;
+}
+.header_nav .nav_box .first_list dl dd .second_list li .float-list-cont a:hover{
+	color: #0098e0;
+}
+.header_nav .nav_box .first_list dl dd .recommend a:hover{
+	color: #0098e0;
+}
+.header_box .header_logo{
+	width: 320px;
+    padding: 15px 0 0 35px;
+    display: inline;
+}
+.header_box .searchbox{
+	width: 650px;
+    margin-top: 22px;
+}
+.header_box .searchbox .serach{
+	width: 428px;
+    height: 30px;
+    background: url(../img/detail.gif) no-repeat 0 -521px;
+    border: 2px solid #02A3F0;
+}
+.header_box .searchbox .serach #btn{
+	width: 67px;
+    height: 30px;
+    line-height: 30px;
+    cursor: pointer;
+    overflow: hidden;
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+}
+.header_box .searchbox .serach .del-keywords{
+	position: absolute;
+    visibility: hidden;
+    cursor: pointer;
+    margin-left: 340px;
+    margin-top: 2px;
+    padding: 5px;
+    font-size: 14px;
+}
+.header_box .searchbox .serach #searchinput{
+	border: none;
+    background: none;
+    width: 341px;
+    height: 14px;
+    color: #666;
+    font-size: 14px;
+    padding: 8px 10px;
+    outline: 0 none;
+}
+.header_box .searchbox .serach:hover{
+	background-position: 0 0;
+}
+.header_box .searchbox .serach:hover .del-keywords{
+	visibility: visible;
+}
+.header_box .searchbox .hotkey{
+	padding-top: 3px;
+    width: 630px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.header_box .searchbox .hotkey a{
+	height: 22px;
+    line-height: 22px;
+    padding: 4px;
+}
+.header_box .searchbox .hotkey .active{
+	color: #ff1a3a;
+}
+.header_box .searchbox .erweima{
+	position: absolute;
+    background: url(http://photo.no5.com.cn/page/common/qrcode-app-80.png?4) no-repeat;
+    width: 80px;
+    height: 80px;
+    margin-left: 500px;
+    margin-top: -15px;
+}
+.header_box .searchbox .erweima #mobile-menu{
+	position: absolute;
+    visibility: hidden;
+    border: 1px solid #999;
+    background-color: #fff;
+    margin-left: -50px;
+    width: 180px;
+    z-index: 10;
+    padding: 5px;
+    box-shadow: 3px 3px 5px #b8b8b8;
+    margin-top: 0px;
+}
+.header_box .searchbox .erweima #mobile-menu .app{
+	background: url(http://photo.no5.com.cn/page/common/qrcode-app-80.png?4) no-repeat;
+    height: 90px;
+    border-bottom: 1px solid #ccc;
+    padding-left: 85px;
+    padding-top: 2px;
+}
+.header_box .searchbox .erweima #mobile-menu .gzh{
+	background: url(http://photo.no5.com.cn/page/common/qrcode-gzh-80.jpg) no-repeat 0px 10px;
+    height: 80px;
+    padding-top: 13px;
+    padding-left: 85px;
+}
+.header_box .searchbox .erweima:hover #mobile-menu{
+	visibility: visible;
+}
+#mobile-menu .app p a{
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    background: url(http://photo.no5.com.cn/page/common/mobile-system.png) no-repeat;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+#mobile-menu .app p .android{
+    background-position: 0px -26px;
+}
+.header_box .shopping_car{
+	height: 44px;
+    line-height: 44px;
+    margin-top: 20px;
+    position: relative;
+    width: 195px;
+}
+.header_box .shopping_car .trigger{
+	background: url(http://photo.no5.com.cn/page_2014/images/detail.gif?v=20140610) no-repeat 0px -30px;
+    display: block;
+    font-size: 12px;
+    padding-left: 70px;
+    position: relative;
+    width: 125px;
+    z-index: 11;
+    height: 44px;
+    line-height: 44px;
+}
+.header_box .shopping_car .trigger strong{
+	color: #ff1a3a;
+    margin: 0 4px;
+}
+.header_box .shopping_car .shoplist{
+	display: none;
+	line-height: 12px;
+	position: absolute;
+	left: -108px;
+	top: 43px;
+	width: 300px;
+	/*height: 59px;*/
+	line-height: 60px;
+	border: 1px solid lightgray;
+	background: white;
+	z-index: 999;
+}
+.header_box .shopping_car .shoplist .nogoods {
+	display: block;
+}
+.header_box .shopping_car .shoplist .havegoods {
+	font-size: 12px;
+	display: none;
+}
+.header_box .shopping_car .shoplist .havegoods .goodscarLi {
+	overflow: hidden;
+	height: 50px;
+	border-bottom: 1px dashed gray;
+	padding-top: 10px;
+}
+.header_box .shopping_car .shoplist .havegoods .goodscarLi a {
+	float: left;
+}
+.header_box .shopping_car .shoplist .havegoods .goodscarLi a:nth-child(2) {
+	width: 150px;
+	height: 40px;
+	margin-left: 10px;
+	line-height: 18px;
+}
+.header_box .shopping_car .shoplist .havegoods .goodscarLi a:nth-child(2):hover {
+	color: orange;
+}
+.header_box .shopping_car .shoplist .havegoods .goodscarLi .right {
+	width: 60px;
+	float: right;
+	margin-right: 10px;
+	line-height: 18px;
+}
+.header_box .shopping_car .shoplist .havegoods .goodscarLi .right .xiaoji {
+	color: red;
+	font-weight: bold;
+}
+.header_box .shopping_car .shoplist .havegoods .goodscarLi .right .del {
+	color: purple;
+}
+.header_box .shopping_car .shoplist .havegoods .goodscarLi img {
+	width: 40px;
+	height: 40px;
+	margin-left: 10px;
+}
+.header_box .shopping_car .shoplist .havegoods .goodscarbottom {
+	height: 60px;
+	background: rgba(0,0,0,0.1);
+	padding-top: 10px;
+}
+.header_box .shopping_car .shoplist .havegoods .goodscarbottom .goodsNum {
+	line-height: 18px;
+}
+.header_box .shopping_car .shoplist .havegoods .goodscarbottom .goodsNum .gongji {
+	display: inline-block;
+	width: 90px;
+	margin-left: 100px;
+}
+.header_box .shopping_car .shoplist .havegoods .goodscarbottom .goodsNum span:nth-child(2) {
+	width: 120px;
+}
+.header_box .shopping_car .shoplist .havegoods .goodscarbottom .goodsNum .allamount,.header_box .shopping_car .shoplist .havegoods .goodscarbottom .goodsNum .allprice {
+	color: red;
+}
+.header_box .shopping_car .shoplist .havegoods .goodscarbottom .jiesuan {
+	width: 100px;
+	height: 28px;
+	line-height: 28px;
+	text-align: center;
+	color: white;
+	background: url(../img/detail.gif) no-repeat 0px -206px;
+	float: right;
+	margin-right: 10px;
+	margin-top: 5px;
+}
+/*.header_box .shopping_car:hover .shoplist{
+	display: block;
+}*/
+.header_nav{
+	width: 100%;
+    background: url(http://photo.no5.com.cn/page_2014/images/navbg.jpg) repeat-x;
+    height: 40px;
+}
+.header_nav .nav_box{
+	width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 999;
+}
+.header_nav .nav_box .sub_nav{
+	position: absolute;
+    top: 0;
+    left: 230px;
+    width: 960px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    font-family: microsoft yahei;
+    padding-left: 10px;
+}
+.header_nav .nav_box .sub_nav ul li{
+	padding: 0 30px;
+}
+.header_nav .nav_box .sub_nav ul li a{
+	color: #fff;
+    display: block;
+}
+.header_nav .nav_box .first_list{
+	display: block;
+    width: 230px;
+    z-index: 2;
+    height: 40px;
+    line-height: 40px;
+    cursor: default;
+    color: #fff;
+    font-family: microsoft yahei;
+    text-align: center;
+    font-size: 16px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: url(http://photo.no5.com.cn/page_2014/images/detail.gif?v=20140610) no-repeat 0 -117px;
+}
+.header_nav .nav_box .first_list dl{
+	position: relative;
+    z-index: 2;
+    width: 230px;
+}
+.header_nav .nav_box .first_list dl dt{
+	display: inline;
+    position: relative;
+    float: left;
+    width: 208px;
+    border: 1px solid #e7e7e7;
+    border-top: none;
+    line-height: 22px;
+    overflow: hidden;
+    text-align: left;
+    padding: 13px 0px 6px 20px;
+    background: #f8f8f8;
+}
+.header_nav .nav_box .first_list dl dt strong{
+	float: left;
+    width: 228px;
+    height: 18px;
+    overflow: hidden;
+    margin: 0 0 4px;
+}
+.header_nav .nav_box .first_list dl dt strong a{
+	color: #333;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: bold;
+    sfont-family: microsoft yahei;
+}
+.header_nav .nav_box .first_list .first_list_first dt strong{
+	padding-top: 5px;
+}
+.header_nav .nav_box .first_list dl dd{
+	position: absolute;
+    left: 230px;
+    width: 650px;
+    background: #fff;
+    border: 1px solid #bdbdbd;
+    z-index: 999;
+}
+.header_nav .nav_box .first_list dl dt a{
+	white-space: nowrap;
+    margin-right: 13px;
+    float: left;
+    color: #666;
+    line-height: 22px;
+    overflow: hidden;
+    font-family: simsun;
+    font-size: 12px;
+}
+.header_nav .nav_box .first_list dl dt b{
+	background: url(../img/detail.gif) no-repeat -310px -30px;
+    width: 6px;
+    height: 9px;
+    position: absolute;
+    top: 17px;
+    right: 15px;
+}
+.header_nav .nav_box .first_list dl dd{
+	position: absolute;
+    left: 230px;
+    width: 650px;
+    background: #fff;
+    border: 1px solid #bdbdbd;
+    z-index: 1;
+}
+.header_nav .nav_box .first_list dl dd .second_list{
+	float: left;
+    width: 380px;
+    padding: 0 20px;
+    font-family: simsun;
+    font-size: 12px;
+}
+.header_nav .nav_box .first_list dl dd .second_list li{
+	width: 380px;
+    padding: 10px 0;
+    border-bottom: 1px dotted #ccc;
+    line-height: 22px;
+    overflow: hidden;
+}
+.header_nav .nav_box .first_list dl dd .second_list li strong{
+	float: left;
+    width: 70px;
+    font-weight: bold;
+    text-align: left;
+    padding-top: 5px;
+}
+.header_nav .nav_box .first_list dl dd .second_list li strong a{
+	padding: 0;
+    color: #444;
+}
+.header_nav .nav_box .first_list dl dd .second_list li .float-list-cont{
+	float: left;
+    width: 310px;
+}
+.header_nav .nav_box .first_list dl dd .second_list li .float-list-cont a{
+	color: black;
+	float: left;
+	padding: 0 13px 0 0;
+}
+.header_nav .nav_box .sub_nav ul li a:hover{
+    color: #2ad0ff;
+}
+.recommend{
+	float: left;
+    width: 200px;
+    background: #f8f8f8;
+    padding: 15px;
+}
+.recommend h4{
+	color: #666;
+    font-family: simsun;
+    border-bottom: 1px solid #666;
+    line-height: 30px;
+    height: 30px;
+    text-align: left;
+}
+.recommend ul{
+	width: 200px;
+    padding: 10px 0;
+    float: left;
+}
+.recommend ul li{
+	border: none;
+    text-align: left;
+    padding-left: 0;
+    font-family: simsun;
+    font-size: 12px;
+    line-height: 22px;
+    float: left;
+    width: 100px;
+}
+.recommend ul li a{
+    color: #666;
+    white-space: nowrap;
+}
+.header_nav .nav_box .first_list dl dd{
+	display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
