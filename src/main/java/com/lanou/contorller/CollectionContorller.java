@@ -4,12 +4,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.lanou.entity.Collections;
+import com.lanou.entity.User;
 import com.lanou.service.CollectionService;
 import com.lanou.util.Page;
 
@@ -23,7 +27,9 @@ public class CollectionContorller {
 	//查看收藏夹
 	@RequestMapping("/findCollectionByUId")
 	@ResponseBody
-	public Map<String, Object> findCollectionByUId(int uId,int nowPage) {
+	public Map<String, Object> findCollectionByUId(HttpSession session,int nowPage) {
+		User user = (User)session.getAttribute("user");
+		int uId = user.getuId();
 		Page page = new Page(collectionService.getCountOfCollection(uId), nowPage);
 		List<Collections> collections = collectionService.findCollectionByUId(uId,page.getStartPos(),page.getPageSize());
 		Map<String, Object> map = new HashMap<>();
