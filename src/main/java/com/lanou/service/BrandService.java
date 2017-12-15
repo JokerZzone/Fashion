@@ -11,7 +11,10 @@ public interface BrandService {
 	
 	public List<Brand> selectLikeDesc_Country(String braDesc);
 	
+<<<<<<< HEAD
 
+=======
+>>>>>>> joker
 	//4.商品品牌
 	//查看所有品牌信息	
 	public Map<String, Object> findAllBrands(int pageId,int pageNumber);

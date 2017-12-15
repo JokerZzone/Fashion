@@ -25,6 +25,7 @@ public class CartController {
 	public void getCart(@RequestParam("goods[]") int[] goods, @RequestParam("num[]") int[] num, HttpServletRequest request) {
 		cartService.saveCart(goods, num, request);
 	}
+
 	@RequestMapping("/showCart")
 	@ResponseBody
 	public List<Cart> showCart(HttpServletRequest request) {

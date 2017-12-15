@@ -25,12 +25,13 @@ public class UserContorller {
 	// 登录验证
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	@ResponseBody
-	public int confirmUser(User user) {
+	public String confirmUser(User user, HttpServletRequest request) {
 		User nowUser = userService.confirmUser(user.getUsername());
 		if (nowUser != null && user.getPassword().equals(nowUser.getPassword())) {
-			return nowUser.getuId();
+			request.setAttribute("user", nowUser);
+			return "success";
 		} else {
-			return 0;// 用户名或密码错误
+			return "error";// 用户名或密码错误
 		}
 	}
 

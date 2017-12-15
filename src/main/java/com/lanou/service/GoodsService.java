@@ -24,6 +24,10 @@ public interface GoodsService {
 	
 	public Goods findGoods(int goodsId);
 	
+	//页面的模糊查询
+	public Map<String, Object> findGoods(String name, int chooseId, int pageId, int sortId);
+
+	
 	/**
 	 * 卖家功能 
 	 */

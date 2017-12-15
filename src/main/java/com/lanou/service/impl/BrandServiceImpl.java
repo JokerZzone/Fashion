@@ -29,7 +29,6 @@ public class BrandServiceImpl implements BrandService {
 		return brandMapper.selectLikeDesc_Country(braDesc);
 	}
 
-
 	public Map<String, Object> findAllBrands(int pageId, int pageNumber) {
 		// TODO Auto-generated method stub
 		int pageId2 = (pageId - 1) * pageNumber;
@@ -77,7 +76,6 @@ public class BrandServiceImpl implements BrandService {
 		return brandMapper.deleteBrand(brandId);
 
 	}
-
 
 	
 }

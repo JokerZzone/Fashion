@@ -5,8 +5,12 @@
 <mapper namespace="com.lanou.dao.OrderInfoMapper">
 	
 	<!-- 根据用户id查找到用户的订单詳情 -->
-	<select id="findOrderById">
+	<select id="findOrderInfoById">
 		select * from order_info where user_id = #{userId}
 	</select>
+	<insert id="insertOrderInfo">
+		insert into order_info(user_id,order_status,shipping_status,pay_status) 
+			values()
+	</insert>
 	
 </mapper>

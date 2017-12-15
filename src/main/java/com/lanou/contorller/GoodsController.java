@@ -75,11 +75,19 @@ public class GoodsController {
 		return goodsService.findGoods(goodsId);
 	}
 	
+	//首页商品的模糊查询
+	@RequestMapping("/findGoods")
+	@ResponseBody
+	public Map<String, Object> findGoods(@RequestParam("name")String name,@RequestParam("chooseId") int chooseId, @RequestParam("sortId") int sortId,@RequestParam("pageId") int pageId) {
+		Map<String, Object> maps = goodsService.findGoods(name, chooseId, pageId, sortId);
+		return maps;
+	}
+	
 	/**
 	 * 卖家功能  
 	 */
 	//1.展示商品信息
-	@RequestMapping("/")
+	@RequestMapping("/goodsNews")
 	@ResponseBody
 	public Map<String, Object> lookGoodsNews(@RequestParam("pageId")int pageId,@RequestParam("pageNumber")int pageNumber) {
 		Map<String, Object> maps = goodsService.allGoodsNews(pageId, pageNumber);
@@ -170,6 +178,4 @@ public class GoodsController {
 	public void initUser(WebDataBinder wBinder) {
 		wBinder.setFieldDefaultPrefix("good.");
 	}
-	
-	
 }

@@ -86,6 +86,7 @@ public class GoodsServiceImpl implements GoodsService {
 		Map<String, Object> maps = new HashMap<String, Object>();
 		maps.put("total", total);
 		maps.put("totalPage", totalPage);
+		maps.put("nowPage", pageId);
 		maps.put("goodList", goods);
 
 		// sp 得到商品属性集合
@@ -116,6 +117,7 @@ public class GoodsServiceImpl implements GoodsService {
 		totalPage = (int) Math.ceil((double) (total) / (PAGE));
 		Map<String, Object> maps = new HashMap<String, Object>();
 		maps.put("total", total);
+		maps.put("nowPage", pageId);
 		maps.put("totalPage", totalPage);
 		maps.put("goodList", goods);
 
@@ -405,7 +407,7 @@ public class GoodsServiceImpl implements GoodsService {
 		int page = (int)Math.ceil((double)counts/pageNumber);
 		Map<String, Object> maps = new HashMap<>();
 		maps.put("counts", counts);
-		maps.put("pageId	", pageId);
+		maps.put("pageId", pageId);
 		maps.put("page", page);
 		maps.put("goods", goods);
 		maps.put("pageNumber", pageNumber);
@@ -511,5 +513,20 @@ public class GoodsServiceImpl implements GoodsService {
 	public boolean physicalDelete(int goodId) {
 		// TODO Auto-generated method stub
 		return goodsMapper.physicalDelete(goodId);
+	}
+
+	@Override
+	public Map<String, Object> findGoods(String name, int chooseId, int pageId, int sortId) {
+			// TODO Auto-generated method stub
+			int pageId2 = (pageId - 1) * PAGE;
+			List<Goods> goods = goodsMapper.findPageGoods(name, chooseId, pageId2, sortId,36);
+			total = goodsMapper.likeGoodsTotal(name);
+			totalPage = (int) Math.ceil((double) (total) / (PAGE));
+			Map<String, Object> maps = new HashMap<String, Object>();
+			maps.put("total", total);
+			maps.put("nowPage", pageId);
+			maps.put("totalPage", totalPage);
+			maps.put("goodList", goods);
+			return maps;
 	}
 }

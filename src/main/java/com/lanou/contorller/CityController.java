@@ -18,7 +18,7 @@ public class CityController {
 	@Autowired
 	private CityService cityService;
 	
-	@RequestMapping("/provice")
+	@RequestMapping("/province")
 	@ResponseBody
 	public List<City> province(@RequestParam("id") int parentId){
  

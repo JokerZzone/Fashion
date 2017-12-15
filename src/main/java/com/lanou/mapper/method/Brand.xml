@@ -15,8 +15,7 @@
 	<select id="selectLikeDesc_Country" resultMap="BrandResultMap.brandResult">
 		select * from brand where brand_desc like concat('%',#{braDesc})
 	</select>
-	
- 
+
 	<!-- 4.商品品牌 -->
 	<!-- 查看所有商品信息 -->
 	<select id="allBrands" parameterType="int" resultMap="BrandResultMap.brandResult">

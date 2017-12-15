@@ -16,7 +16,6 @@ public interface BrandMapper {
 	
 	public List<Brand> selectLikeDesc_Country(String braDesc);
 	
-
 	//4.商品品牌
 	//查看所有品牌信息
 	public List<Brand> allBrands(@Param("pageId")int pageId,@Param("pageNumber")int pageNumber);
@@ -38,7 +37,5 @@ public interface BrandMapper {
 	
 	//删除品牌
 	public boolean deleteBrand(@Param("brandId")int brandId);
-	
-	
-	
+
 }

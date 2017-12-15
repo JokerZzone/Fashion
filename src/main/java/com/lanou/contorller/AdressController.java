@@ -36,10 +36,12 @@ public class AdressController {
 	}
 	
 	@RequestMapping("/add")
-	public void addAddress(Address address, HttpServletRequest request) {
+	@ResponseBody
+	public String addAddress(Address address, HttpServletRequest request) {
 		User user = (User) request.getSession().getAttribute("user");
 		address.setUserId(user.getuId());
 		addressService.addAddress(address);
+		return "success";
 	}
 	
 	@RequestMapping("/update")

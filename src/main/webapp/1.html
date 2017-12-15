@@ -24,10 +24,17 @@
 	document.getElementsByTagName("button")[0].onclick=function(){
 	$.ajax({
 		"type":"get",
-		"url":"http://localhost:8080/Fashion/cart/cart",
+		"url":"http://localhost:8080/Fashion/address/add",
 		data:{
-			goods:[3],
-			num:[100]
+			"address.consignee":"王浩",
+			"address.tel":"1525290",
+			"address.mobile":"111111",
+			"address.email":"25111@qq.com",
+			"address.province":1,
+			"address.city":2,
+			"address.country":3,
+			"address.address":"江蘇省常州市",
+			"address.zipcode":"213200"
 		},
 		"success":function(data){
 			console.log(1111)

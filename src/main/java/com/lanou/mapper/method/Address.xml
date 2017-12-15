@@ -12,13 +12,13 @@
 	<insert id="addAddress">
 		insert into address(user_id,consignee,tel,mobile,email,province,city,country,address,
 		zipcode) values(#{userId},#{consignee},#{tel},#{mobile},#{email},
-		#{province},#{city},#{country},#{address},#{zipCode}) 
+		#{province},#{city},#{country},#{address},#{zipcode}) 
 	</insert>
 	
 	<update id="upateAddress">
 		update address set consignee=#{consignee}, tel=#{tel},mobile=#{mobile},
 		email=#{email},province=#{province},city=#{city},country=#{country},
-		address=#{address},zipcode=#{zipCode} where user_id = #{userId}
+		address=#{address},zipcode=#{zipcode} where user_id = #{userId}
 	</update>
 	
 </mapper>
