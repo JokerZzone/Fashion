@@ -407,7 +407,7 @@ public class GoodsServiceImpl implements GoodsService {
 		int page = (int)Math.ceil((double)counts/pageNumber);
 		Map<String, Object> maps = new HashMap<>();
 		maps.put("counts", counts);
-		maps.put("pageId	", pageId);
+		maps.put("pageId", pageId);
 		maps.put("page", page);
 		maps.put("goods", goods);
 		maps.put("pageNumber", pageNumber);
