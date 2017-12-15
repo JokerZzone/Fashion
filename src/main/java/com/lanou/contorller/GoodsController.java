@@ -172,7 +172,7 @@ public class GoodsController {
 	@ResponseBody
 	public boolean physicalDeleteGood(@RequestParam("goodId") int goodId) {
 		boolean result = goodsService.physicalDelete(goodId);
-		return result;
+		return result; 
 	}
 	
 	@InitBinder("good")
