@@ -4,13 +4,15 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="OrderResultMap">
 
-	<resultMap type="Order" id="orderResult">
-		<id column="rec_id" property="recId" javaType="int" />
-		<result column="order_id" property="orderId" javaType="int" />
-		<result column="goods_id" property="goodsId" javaType="int" />
-		<result column="parent_id" property="parentId" javaType="int" />
-		<result column="goods_name" property="goodsName" javaType="String" />
-		<result column="shop_price" property="shopPrice" javaType="double" />
-		<result column="goods_number" property="goodsNumber" javaType="int" />
+	<resultMap type="Orders" id="orderResult">
+		<id column="order_id" property="orderId" javaType="int" />
+		<result column="user_id" property="user_id" javaType="int" />
+		<result column="status" property="status" javaType="int" />
+		<result column="begin_time" property="beginTime" javaType="Date" />
+		<result column="end_time" property="endTime" javaType="Date" />
+		<association property="address" javaType="com.lanou.entity.Address" 
+		select="com.lanou.dao.AddressMapper.findOrder_Address" column="address_id"></association>
+		<collection property="carts" ofType="com.lanou.entity.Cart" 
+		select="com.lanou.dao.CartMapper.findOrder_Carts" column="{user_id=user_id,order_id=order_id}" ></collection>
 	</resultMap>
 </mapper>

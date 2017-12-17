@@ -32,31 +32,24 @@ public class CartServiceImpl implements CartService {
 		List<Cart> carts = cartMapper.selectByUserId(userId);
 		if (carts.size() != 0) {
 			for (int i = 0; i < goods.length; i++) {
+				boolean isHas = true;
 				for (Cart cart : carts) {
 					if (cart.getGoodsId() == goods[i]) {
-						int temp = cart.getGoodsNumber();
-						temp += num[i];
-						cart.setGoodsNumber(temp);
+						cart.setGoodsNumber(cart.getGoodsNumber()+num[i]);
 						cartMapper.updateCart(cart);
-					}else {
-						int goodsId = goods[i];
-						int goodsNumber = num[i];
-						Goods good = goodsMapper.findGoods(goodsId);
-						String goodsName = good.getGoodsName();
-						double shopPrice = good.getShopPrice();
-						Cart nowCart = new Cart(userId,sessionId,goodsId,goodsName,shopPrice,goodsNumber);
-						cartMapper.addCart(nowCart);
+						isHas = false;
 					}
+				}
+				if (isHas) {
+					Goods good = goodsMapper.findGoods(goods[i]);
+					Cart nowCart = new Cart(userId,sessionId,goods[i],good.getGoodsName(),good.getShopPrice(),num[i]);
+					cartMapper.addCart(nowCart);					
 				}
 			}
 		}else {
 			for (int i = 0; i < goods.length; i++) {
-				int goodsId = goods[i];
-				int goodsNumber = num[i];
-				Goods good = goodsMapper.findGoods(goodsId);
-				String goodsName = good.getGoodsName();
-				double shopPrice = good.getShopPrice();
-				Cart nowCart = new Cart(userId,sessionId,goodsId,goodsName,shopPrice,goodsNumber);
+				Goods good = goodsMapper.findGoods(goods[i]);
+				Cart nowCart = new Cart(userId,sessionId,goods[i],good.getGoodsName(),good.getShopPrice(),num[i]);
 				cartMapper.addCart(nowCart);
 			}
 		}
@@ -67,5 +60,27 @@ public class CartServiceImpl implements CartService {
 		
 		return cartMapper.selectByUserId(userId);
 	}
+
+
+	@Override
+	public void deleteAllCartByUId(int user_id) {
+		// TODO Auto-generated method stub
+		cartMapper.deleteAllCartByUId(user_id);
+	}
+
+
+	@Override
+	public void deleteCartById(int rec_id) {
+		// TODO Auto-generated method stub
+		cartMapper.deleteCartById(rec_id);
+	}
+
+
+	@Override
+	public void updateGoodsNum(int rec_id, int number) {
+		// TODO Auto-generated method stub
+		cartMapper.updateGoodsNum(rec_id, number);
+	}
+
 
 }

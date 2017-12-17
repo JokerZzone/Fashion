@@ -15,10 +15,17 @@
 		#{province},#{city},#{country},#{address},#{zipcode}) 
 	</insert>
 	
-	<update id="upateAddress">
+	<update id="updateAddress">
 		update address set consignee=#{consignee}, tel=#{tel},mobile=#{mobile},
 		email=#{email},province=#{province},city=#{city},country=#{country},
-		address=#{address},zipcode=#{zipcode} where user_id = #{userId}
+		address=#{address},zipcode=#{zipcode} where user_id = #{userId} and address_id = #{addressId}
 	</update>
 	
+	<delete id="deleteAddress" parameterType="int">
+		delete from address where address_id = #{address_id}
+	</delete>
+	
+	<select id="findOrder_Address" parameterType="int" resultMap="AddressResultMap.addressResult">
+		select * from address where address_id = #{address_id}
+	</select>
 </mapper>

@@ -11,4 +11,6 @@ public interface AddressMapper {
 	public int addAddress(Address address);
 	
 	public int updateAddress(Address address);
+	
+	public void deleteAddress(int address_id);
 }

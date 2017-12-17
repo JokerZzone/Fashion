@@ -36,6 +36,12 @@ public class AddressServiceImpl implements AddressService {
 		System.out.println(result);
 	}
 
+	@Override
+	public void deleteAddress(int address_id) {
+		// TODO Auto-generated method stub
+		addressMapper.deleteAddress(address_id);
+	}
+
 	
 
 	

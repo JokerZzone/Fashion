@@ -6,11 +6,11 @@
 	
 	<select id="selectByUserId" resultMap="CartResultMap.cartResult">
 		select * from cart 
-			where user_id = #{userId}
+			where user_id = #{userId}  and order_id = 0
 	</select>
 	
 	<select id="selectByGoodsId" resultMap="CartResultMap.cartResult">
-		select * from cart where goods_id = #{goodsId}
+		select * from cart where goods_id = #{goodsId} and order_id = 0
 	</select>
 	
 	<select id="selectMax" resultType="Integer">
@@ -26,6 +26,26 @@
   
   	<update id="updateCart">
 		update cart set goods_number=#{goodsNumber}
-		where goods_id=#{goodsId} and user_id=#{userId}
+		where goods_id=#{goodsId} and user_id=#{userId} and order_id = 0
 	</update>
+	
+	<update id="updateGoodsNum" parameterType="int">
+		update cart set goods_number=#{1} where rec_id = #{0}  and order_id = 0
+	</update>
+	
+	<delete id="deleteAllCartByUId" parameterType="int">
+		delete from cart where user_id = #{user_id} and order_id = 0
+	</delete>
+	
+	<delete id="deleteCartById" parameterType="int">
+		delete from cart where rec_id = #{rec_id} and order_id = 0
+	</delete>
+	
+	<update id="updateOrder_id" parameterType="int">
+		update cart set order_id = #{1} where user_id = #{0}  and order_id = 0
+	</update>
+	
+	<select id="findOrder_Carts" parameterType="java.util.Map" resultMap="CartResultMap.cartResult">
+		select * from cart where user_id = #{user_id} and order_id = #{order_id}
+	</select>
 </mapper>

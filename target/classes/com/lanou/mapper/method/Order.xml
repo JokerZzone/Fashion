@@ -5,12 +5,33 @@
 <mapper namespace="com.lanou.dao.OrderMapper">
 	
 	<!-- 根据用户id查找到用户的订单 -->
-	<select id="findOrderById">
-		select * from order where user_id = #{userId}
+	<select id="findOrderByUId" resultMap="OrderResultMap.orderResult">
+		select * from orders where user_id = #{userId} 
+		<if test="status == 0">
+			and status = 0
+		</if>
+		<if test="times == 0">
+			<![CDATA[AND TO_DAYS(NOW()) - TO_DAYS(begin_time) <= 30]]>
+		</if>
+		 order by begin_time DESC 
+			 LIMIT #{startPos},#{pageSize}
+	</select>
+	<select id="findOrderCountByUId" resultType="int">
+		select count(*) from orders where user_id = #{userId}
+		<if test="status == 0">
+			and status = 0
+		</if>
+		<if test="times == 0">
+			 <![CDATA[AND TO_DAYS(NOW()) - TO_DAYS(begin_time) <= 30]]>
+		</if>
 	</select>
 	
-	<insert id="insertOrder">
-		insert into order() values()
+	<insert id="addOrder" parameterType="Orders">
+		<selectKey resultType="int" order="AFTER" keyColumn="order_id" keyProperty="order_id">
+          SELECT LAST_INSERT_ID()
+     	</selectKey>
+		insert into orders(user_id,begin_time,address_id,money) values(#{user_id},#{beginTime},#{address_id},#{money})
 	</insert>
+	
 	
 </mapper>
