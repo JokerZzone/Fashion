@@ -115,7 +115,6 @@ public class UserContorller {
 
 	
 	//卖家版
-	
 	//查找所有user分页展示
 	//会员名称模糊查询
 	@RequestMapping(value="/selectUserByNowPage",method=RequestMethod.GET)

@@ -10,7 +10,7 @@ public class Page implements Serializable{
 
     private int totalCount; // 总的记录条数
 
-    private int totalPageCount; // 总的页数  
+    private int totalPageCount; // 总的页数
 
     @SuppressWarnings("unused")  
     private int startPos; // 开始位置，从0开始
@@ -131,9 +131,6 @@ public class Page implements Serializable{
 
     public void setHasLast(boolean hasLast) {  
         this.hasLast = hasLast;  
-    }  
-
-	
-
+    }
 	
 }
