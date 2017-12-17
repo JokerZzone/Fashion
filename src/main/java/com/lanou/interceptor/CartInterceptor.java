@@ -14,15 +14,12 @@ public class CartInterceptor implements HandlerInterceptor {
 		User user = (User) request.getSession().getAttribute("user");
 		System.out.println(user.getUsername());
 		
-		
-		return true;
-//		if (user != null) {
-//			
-//			return true;
-//		}else {
-//			
-//			return false;
-//		}
+		if (user != null) {
+			
+			return true;
+		}else {
+			return false;
+		}
 	}
 	
 	public void postHandle(HttpServletRequest arg0, HttpServletResponse arg1, Object arg2, ModelAndView arg3)

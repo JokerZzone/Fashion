@@ -48,7 +48,12 @@ public class AdressController {
 	public void updateAddress(Address address, HttpServletRequest request) {
 		User user = (User) request.getSession().getAttribute("user");
 		address.setUserId(user.getuId());
-		addressService.updateAddress(address);
+		addressService.updateAddress(address);		
+	}
+	
+	@RequestMapping("/delete")
+	public void deleteAddress(int address_id) {
+		addressService.deleteAddress(address_id);
 	}
 	
 }

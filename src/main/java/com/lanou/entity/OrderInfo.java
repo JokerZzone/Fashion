@@ -16,7 +16,7 @@ public class OrderInfo {
 	
 	private Address address;
 	
-	private Order order;
+	private Orders order;
 
 	public OrderInfo() {
 		// TODO Auto-generated constructor stub
@@ -78,11 +78,11 @@ public class OrderInfo {
 		this.address = address;
 	}
 
-	public Order getOrder() {
+	public Orders getOrder() {
 		return order;
 	}
 
-	public void setOrder(Order order) {
+	public void setOrder(Orders order) {
 		this.order = order;
 	}
 }
