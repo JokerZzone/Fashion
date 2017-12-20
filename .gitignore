@@ -6,3 +6,7 @@
 *.class
 *.class
 target/m2e-wtp/web-resources/META-INF/maven/com.lanou/Fashion/pom.properties
+*.class
+*.class
+target/classes/com/lanou/contorller/UserContorller.class
+target/m2e-wtp/web-resources/META-INF/maven/com.lanou/Fashion/pom.properties
