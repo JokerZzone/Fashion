@@ -70,14 +70,14 @@ public class UserContorller {
 	// 注册验证
 	@RequestMapping(value = "/reg", method = RequestMethod.POST)
 	@ResponseBody
-	public int reg(User user, String password2,HttpSession session) {
+	public String reg(User user, String password2,HttpSession session) {
 		
 		if (!password2.equals(user.getPassword())) {
-			return 0;// 两次密码不一致
+			return "error";// 两次密码不一致
 		}
 		userService.addUser(user);
 		session.setAttribute("user", userService.confirmUser(user.getUsername()));
-		return userService.confirmUser(user.getUsername()).getuId();
+		return "success";
 	}
 
 	// 修改密码

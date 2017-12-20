@@ -12,14 +12,10 @@ public class CartInterceptor implements HandlerInterceptor {
 
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object arg2) throws Exception {
 		User user = (User) request.getSession().getAttribute("user");
-		System.out.println(user.getUsername());
-		
 		if (user != null) {
-			
 			return true;
-		}else {
-			return false;
 		}
+		return false;
 	}
 	
 	public void postHandle(HttpServletRequest arg0, HttpServletResponse arg1, Object arg2, ModelAndView arg3)
