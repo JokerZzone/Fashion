@@ -17,14 +17,13 @@ import com.lanou.service.AddressService;
 
 @Controller
 @RequestMapping("/address")
-public class AdressController {
+public class AddressController {
 	
 	@Autowired
 	private AddressService addressService;
 	
 	@InitBinder("address")
 	public void initAddress(WebDataBinder binder) {
-		
 		binder.setFieldDefaultPrefix("address.");
 	}
 	
@@ -55,5 +54,4 @@ public class AdressController {
 	public void deleteAddress(int address_id) {
 		addressService.deleteAddress(address_id);
 	}
-	
 }

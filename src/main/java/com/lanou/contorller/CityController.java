@@ -23,9 +23,9 @@ public class CityController {
 	public List<City> province(@RequestParam("id") int parentId){
  
 		return cityService.findProvince(parentId);
-	}
+	} 
 
-	@RequestMapping("/city")
+	@RequestMapping("/city")        
 	@ResponseBody
 	public List<City> city(@RequestParam("id") int cityId){
 		

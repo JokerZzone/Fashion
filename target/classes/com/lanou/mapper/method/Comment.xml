@@ -3,7 +3,25 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lanou.dao.CommentMapper">
+
+	<insert id="addComment">
+		insert into comment (content,goods_id,user_name,add_time) 
+			values (#{content},#{goodsId},#{userName},#{commentTime})
+	</insert>
 	
-	
-  
+	<!-- 查看某件商品的所有评论 -->
+  	<select id="commentList" parameterType="int" resultMap="commentResult">
+  		select comment_id,user_name,content,add_time,goods_id from comment where goods_id = #{goodsId}
+  	</select>
+  	
+  	<resultMap type="Comment" id="commentResult">
+		<id column="comment_id" property="commentId" javaType="int"/>
+		<result column="user_name" property="userName" javaType="String"/>
+		<result column="content" property="content" javaType="String"/>
+		<result column="add_time" property="addTime" javaType="String"/>
+		<result column="goods_id" property="goodsId" javaType="int"/>
+	</resultMap>	
+  	
+  	
+  	
 </mapper>

@@ -34,8 +34,7 @@ public class OrderController {
 			HttpSession session,
 			int nowPage,
 			@RequestParam(value="status",required=false,defaultValue="1") int status,
-			@RequestParam(value="times",required=false,defaultValue="1") int times
-			
+			@RequestParam(value="times",required=false,defaultValue="1") int times	
 		) {
 		User user = (User) session.getAttribute("user");
 		Page page = new Page(orderService.findOrderCountByUId(user.getuId(), status, times),nowPage);
@@ -49,11 +48,9 @@ public class OrderController {
 	
 	@RequestMapping("addOrder")
 	public void addOrder(HttpSession session,int address_id,double money) {
-		User user = (User) session.getAttribute("user");
-		
+		User user = (User) session.getAttribute("user");	
 		orderService.addOrder(user.getuId(),new Date(),address_id,money);
 	}
-	
 	
 //	@InitBinder("orders")
 //	public void initOrders(WebDataBinder webDataBinder) {

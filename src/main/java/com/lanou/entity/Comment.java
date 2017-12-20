@@ -8,7 +8,7 @@ public class Comment {
 	
 	private int idValue;
 	
-	private String username;
+	private String userName;
 	
 	private String content;
 	
@@ -21,10 +21,20 @@ public class Comment {
 	private int parentId;
 	
 	private int userId;
+	
+	private int goodsId;
 
 	public Comment() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+	
+	public int getGoodsId() {
+		return goodsId;
+	}
+
+	public void setGoodsId(int goodsId) {
+		this.goodsId = goodsId;
 	}
 
 	public int getCommentId() {
@@ -51,12 +61,12 @@ public class Comment {
 		this.idValue = idValue;
 	}
 
-	public String getUsername() {
-		return username;
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
 	public String getContent() {
